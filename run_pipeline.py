@@ -13,6 +13,7 @@ DIGESTS = BASE / "digests"
 
 STEPS = [
     ("News & signals", ["monitor.py"]),
+    ("LLM analyst (OpenRouter)", ["llm_analyst.py"]),
     ("Paper portfolio (Rs 5000 virtual)", ["paper_portfolio.py", "status"]),
     ("Signal scoreboard (last 30 days)", ["scoreboard.py"]),
     ("Bot account (self-trading)", ["autotrader.py"]),

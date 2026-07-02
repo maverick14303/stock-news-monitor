@@ -117,6 +117,37 @@ def main():
         for source, flags in sorted(by_source.items(), key=lambda kv: -len(kv[1]))[:10]:
             print(f"  {source:<30} {sum(flags)}/{len(flags)} ({100 * sum(flags) / len(flags):.0f}%)")
 
+    # head-to-head: VADER vs LLM on the same LLM-scored articles (1-day)
+    try:
+        lrows = con.execute(
+            "SELECT sentiment, llm_sent, tickers, COALESCE(published, fetched_at) "
+            "FROM articles WHERE llm_sent IS NOT NULL AND tickers != '' "
+            "AND COALESCE(published, fetched_at) < ? "
+            "AND COALESCE(published, fetched_at) >= ?",
+            ((now - timedelta(days=1)).isoformat(),
+             (now - timedelta(days=WINDOW_DAYS)).isoformat())).fetchall()
+    except sqlite3.OperationalError:
+        lrows = []
+    if lrows:
+        stats = {"VADER": [0, 0], "LLM": [0, 0]}   # hits, n
+        for sent, lsent, tickers, ts in lrows:
+            date = datetime.fromisoformat(ts).date()
+            for symbol in tickers.split(","):
+                rets = horizon_returns(symbol, date)
+                if 1 not in rets:
+                    continue
+                up = rets[1] > 0
+                if abs(sent) >= THRESHOLD:
+                    stats["VADER"][0] += (sent > 0) == up
+                    stats["VADER"][1] += 1
+                if abs(lsent) >= THRESHOLD:
+                    stats["LLM"][0] += (lsent > 0) == up
+                    stats["LLM"][1] += 1
+        print("\n=== VADER vs LLM analyst (same articles, 1-day) ===")
+        for name, (hits, n) in stats.items():
+            if n:
+                print(f"  {name:<6} {hits}/{n} ({100 * hits / n:.0f}%)")
+
     # grade the ✅ PASSES verdicts from alerts.py at 5 trading days
     try:
         verdicts = con.execute(
