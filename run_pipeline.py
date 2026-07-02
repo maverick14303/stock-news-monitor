@@ -15,6 +15,7 @@ STEPS = [
     ("News & signals", ["monitor.py"]),
     ("Paper portfolio (Rs 5000 virtual)", ["paper_portfolio.py", "status"]),
     ("Signal scoreboard (last 30 days)", ["scoreboard.py"]),
+    ("Alert scan", ["alerts.py"]),
 ]
 
 

@@ -101,7 +101,10 @@ def main():
                 continue
             summary = re.sub(r"<[^>]+>", "", entry.get("summary", "")).strip()[:500]
             text = f"{title}. {summary}"
-            tickers = sorted({sym for pat, sym in patterns if pat.search(text)})
+            # global feeds skip ticker matching: "Titan"/"Apollo" in world news
+            # are usually not the NSE companies
+            tickers = [] if feed.get("global") else sorted(
+                {sym for pat, sym in patterns if pat.search(text)})
             sentiment = score_sentiment(text, analyzer)
             try:
                 con.execute(

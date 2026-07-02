@@ -26,6 +26,21 @@
     { "name": "The Hindu Economy", "url": "https://www.thehindu.com/business/Economy/feeder/default.rss" },
     { "name": "News18 Business", "url": "https://www.news18.com/commonfeeds/v1/eng/rss/business.xml" },
     { "name": "CNBC TV18 Markets", "url": "https://www.cnbctv18.com/commonfeeds/v1/cne/rss/market.xml" },
-    { "name": "Investing.com India Stocks", "url": "https://in.investing.com/rss/news_25.rss" }
+    { "name": "Investing.com India Stocks", "url": "https://in.investing.com/rss/news_25.rss" },
+    { "name": "ET International", "url": "https://economictimes.indiatimes.com/news/international/rssfeeds/858478126.cms", "global": true },
+    { "name": "BBC Business", "url": "https://feeds.bbci.co.uk/news/business/rss.xml", "global": true },
+    { "name": "BBC World", "url": "https://feeds.bbci.co.uk/news/world/rss.xml", "global": true },
+    { "name": "Guardian Business", "url": "https://www.theguardian.com/uk/business/rss", "global": true },
+    { "name": "Al Jazeera", "url": "https://www.aljazeera.com/xml/rss/all.xml", "global": true },
+    { "name": "CNBC Top News", "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html", "global": true },
+    { "name": "CNBC World Markets", "url": "https://www.cnbc.com/id/15839069/device/rss/rss.html", "global": true },
+    { "name": "MarketWatch Top", "url": "https://feeds.marketwatch.com/marketwatch/topstories/", "global": true },
+    { "name": "NYT Business", "url": "https://rss.nytimes.com/services/xml/rss/nyt/Business.xml", "global": true },
+    { "name": "WSJ Markets", "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml", "global": true },
+    { "name": "WSJ World", "url": "https://feeds.a.dj.com/rss/RSSWorldNews.xml", "global": true },
+    { "name": "Yahoo Finance", "url": "https://finance.yahoo.com/news/rssindex", "global": true },
+    { "name": "OilPrice", "url": "https://oilprice.com/rss/main", "global": true },
+    { "name": "DW Business", "url": "https://rss.dw.com/rdf/rss-en-bus", "global": true },
+    { "name": "SCMP Business", "url": "https://www.scmp.com/rss/92/feed", "global": true }
   ]
 }

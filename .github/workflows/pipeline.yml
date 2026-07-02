@@ -2,12 +2,13 @@ name: stock-pipeline
 
 on:
   schedule:
-    - cron: "15 3 * * *"   # 08:45 IST — pre-market
-    - cron: "30 10 * * *"  # 16:00 IST — post-close
+    # every 2 hours, 07:00-23:00 IST (01:30-17:30 UTC)
+    - cron: "30 1-17/2 * * *"
   workflow_dispatch: {}     # manual run button
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   run:
@@ -22,6 +23,16 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: python run_pipeline.py
+      - name: Email alert via GitHub issue
+        if: ${{ hashFiles('ALERT.md') != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Stock alert — $(date +'%d %b %H:%M IST')" \
+            --body-file ALERT.md \
+            --assignee maverick14303
+          rm ALERT.md
       - name: Commit results back
         run: |
           git config user.name "github-actions[bot]"
