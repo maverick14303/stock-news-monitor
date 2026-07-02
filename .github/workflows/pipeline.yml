@@ -2,8 +2,8 @@ name: stock-pipeline
 
 on:
   schedule:
-    # every 2 hours, 07:00-23:00 IST (01:30-17:30 UTC)
-    - cron: "30 1-17/2 * * *"
+    # every hour, 07:00-23:00 IST (01:30-17:30 UTC)
+    - cron: "30 1-17 * * *"
   workflow_dispatch: {}     # manual run button
 
 permissions:

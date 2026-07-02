@@ -21,7 +21,7 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 BASE = Path(__file__).parent
 OUT = BASE / "ALERT.md"
 
-WINDOW_HOURS = 2.5
+WINDOW_HOURS = 1.2  # slightly over the hourly run cadence so nothing slips between runs
 HELD_THRESHOLD = 0.4
 OPPORTUNITY_THRESHOLD = 0.7
 MAX_ITEMS = 12
