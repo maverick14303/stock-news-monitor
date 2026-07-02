@@ -31,13 +31,18 @@ python run_pipeline.py       # all three, saved to digests/
 
 ## Automation
 
-A Windows scheduled task named **StockNewsMonitor** runs `run_pipeline.py`
-twice daily — 8:45 AM (pre-market) and 4:00 PM (post-close). Claude does not
-need to be open; the laptop just needs to be powered on (missed runs catch up
-when it next boots). Each run saves a report to `digests/`, latest always at
-`digests/LATEST.md`.
+GitHub Actions runs `run_pipeline.py` twice daily on GitHub's servers —
+8:45 AM IST (pre-market) and 4:00 PM IST (post-close) — and commits the
+results back. No local device needs to be on. Read the latest report at
+`digests/LATEST.md` in the repo (github.com/maverick14303/stock-news-monitor),
+or trigger a manual run from the Actions tab.
 
-Manage it: `Get-ScheduledTask StockNewsMonitor`, or Task Scheduler GUI.
+The cloud repo is the source of truth. Before working locally, `git pull`.
+After local trades (`paper_portfolio.py buy/sell`), commit and push so the
+cloud prices the right positions.
+
+A disabled Windows scheduled task (**StockNewsMonitor**) remains as backup;
+re-enable with `Enable-ScheduledTask StockNewsMonitor` if GitHub ever fails.
 
 ## Honest limitations (read this)
 
