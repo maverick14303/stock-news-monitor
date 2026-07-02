@@ -1,11 +1,14 @@
-"""Scan articles fetched in the last window and write a structured ALERT.md.
+"""Scan recent articles and portfolio state; write a structured ALERT.md.
 
-Sections: news on held stocks (with a per-stock verdict), strong signals on
-other tracked stocks, and macro events mapped to the holdings they touch.
-The cloud workflow turns ALERT.md into a GitHub issue, which GitHub emails
-to the repo owner; the first line of the file becomes the email subject.
+Sections: live P&L vs the NIFTY shadow, exit checks on holdings (twice a day),
+news on held stocks with verdicts, pre-checked buy ideas (✅ ones are logged to
+the verdicts table so scoreboard.py can grade them later), macro events mapped
+to exposed holdings, and a Sunday-evening weekly report with feed health.
+The cloud workflow turns ALERT.md into a GitHub issue (emailed by GitHub);
+the first line becomes the subject.
 """
 import csv
+import difflib
 import json
 import re
 import sqlite3
@@ -23,6 +26,15 @@ HELD_THRESHOLD = 0.4
 OPPORTUNITY_THRESHOLD = 0.7
 MAX_OPPORTUNITIES = 6
 MAX_MACRO = 4
+PRICED_IN_MOVE = 2.5    # % move that means the news is likely already in the price
+MIN_OUTLETS = 2
+MAX_CHECKED = 8         # bound on price lookups per email
+STOP_LOSS_PCT = -7.0
+TAKE_PROFIT_PCT = 15.0
+STALE_DAYS = 30
+EXIT_CHECK_HOURS = (9, 16)      # IST run hours that evaluate exit rules
+WEEKLY_DAY, WEEKLY_HOUR = 6, 18  # Sunday 6 PM IST
+FEED_SILENT_HOURS = 48
 
 MACRO_EVENT = re.compile(
     r"\b(crash(es|ed)?|plunge[sd]?|tumble[sd]?|sink(s|ing)?|black monday|"
@@ -63,43 +75,22 @@ MIXED_ADVICE = (
     "When in doubt with conflicting news, doing nothing is a valid decision.")
 OPPORTUNITY_ADVICE = (
     "👉 **What to do:** The checks above are automated: *today's move* tests if the "
-    "news is already priced in, *outlets* tests confirmation, and the share count "
-    "respects the sizing rule (max half your free cash on one idea). A ✅ is a "
-    "shortlist, not an order — still read the story before buying.")
-
-PRICED_IN_MOVE = 2.5    # % move that means the news is likely already in the price
-MIN_OUTLETS = 2
-MAX_CHECKED = 8         # bound on price lookups per email
+    "news is already priced in, *outlets/stories* tests independent confirmation, and "
+    "the share count respects the sizing rule (max half your free cash on one idea). "
+    "A ✅ is a shortlist, not an order — still read the story before buying.")
 MACRO_ADVICE = (
     "👉 **What to do:** Don't buy or sell from a macro headline alone — it moves whole "
     "sectors, slowly. If one of your holdings is tagged above, watch that position more "
     "closely today. If nothing is tagged, this is background noise for your book.")
+EXIT_ADVICE = (
+    "👉 **What to do:** An exit flag is a review, not an order. Stop-loss: did the "
+    "thesis break, or did the market just dip? If the thesis broke, sell. Take-profit: "
+    "consider selling half to lock the gain. Stale: if you can't say why you still own "
+    "it, you don't own it — it owns you.")
 
 
-def dot(sent):
-    return "🔴" if sent < 0 else "🟢"
-
-
-def book_lines(held, cash):
-    """Live P&L table for the email; plain summary if price lookups fail."""
-    try:
-        from paper_portfolio import STARTING_CASH, live_price
-        out = ["", "| stock | qty | avg cost | now | P&L |",
-               "|---|---:|---:|---:|---|"]
-        total = cash
-        for t, pos in held.items():
-            price = live_price(t)
-            cost = pos["avg_cost"] * pos["qty"]
-            pnl = price * pos["qty"] - cost
-            total += price * pos["qty"]
-            out.append(f"| {t} | {pos['qty']} | {pos['avg_cost']:.2f} | {price:.2f} "
-                       f"| {dot(pnl)} {pnl:+.2f} ({100 * pnl / cost:+.2f}%) |")
-        out.append(f"\n**Total: Rs {total:,.2f} ({total - STARTING_CASH:+.2f}, "
-                   f"{100 * (total - STARTING_CASH) / STARTING_CASH:+.2f}% since start) "
-                   f"— incl. Rs {cash:,.2f} cash**")
-        return out
-    except (Exception, SystemExit):
-        return [f"**Your book:** {len(held)} positions + Rs {cash:,.0f} free cash."]
+def dot(x):
+    return "🔴" if x < 0 else "🟢"
 
 
 def load_sectors():
@@ -107,11 +98,84 @@ def load_sectors():
         return {row["symbol"]: row.get("sector", "") for row in csv.DictReader(f)}
 
 
-def opportunity_checks(opps, cash):
-    """Run the pre-buy checklist per ticker: priced-in, confirmation, sizing."""
+def get_prices(symbols):
+    from paper_portfolio import live_price
+    prices = {}
+    for s in symbols:
+        try:
+            prices[s] = live_price(s)
+        except (Exception, SystemExit):
+            prices[s] = None
+    return prices
+
+
+def book_lines(held, cash, bench, prices):
+    from paper_portfolio import STARTING_CASH
+    out = ["", "| stock | qty | avg cost | now | P&L |", "|---|---:|---:|---:|---|"]
+    total = cash
+    for t, pos in held.items():
+        price = prices.get(t) or pos["avg_cost"]
+        cost = pos["avg_cost"] * pos["qty"]
+        pnl = price * pos["qty"] - cost
+        total += price * pos["qty"]
+        out.append(f"| {t} | {pos['qty']} | {pos['avg_cost']:.2f} | {price:.2f} "
+                   f"| {dot(pnl)} {pnl:+.2f} ({100 * pnl / cost:+.2f}%) |")
+    out.append(f"\n**Total: Rs {total:,.2f} ({total - STARTING_CASH:+.2f}, "
+               f"{100 * (total - STARTING_CASH) / STARTING_CASH:+.2f}% since start) "
+               f"— incl. Rs {cash:,.2f} cash**")
+    level = bench and prices.get(bench["symbol"])
+    if level:
+        shadow = bench["start_capital"] * level / bench["start_level"]
+        out.append(f"\n**NIFTY shadow:** the same Rs {bench['start_capital']:,.0f} in the "
+                   f"index would be Rs {shadow:,.2f} "
+                   f"({100 * (shadow / bench['start_capital'] - 1):+.2f}%) — system is "
+                   f"**{'ahead' if total >= shadow else 'behind'} by Rs {abs(total - shadow):,.2f}**")
+    return out
+
+
+def exit_lines(held, trades, prices, now):
+    if now.hour not in EXIT_CHECK_HOURS:
+        return []
+    first_buy = {}
+    for tr in trades:
+        if tr.get("action") == "buy":
+            first_buy.setdefault(tr["symbol"], tr["time"])
+    flags = []
+    for t, pos in held.items():
+        price = prices.get(t)
+        if not price:
+            continue
+        pct = (price / pos["avg_cost"] - 1) * 100
+        age = 0
+        if t in first_buy:
+            age = (now - datetime.fromisoformat(first_buy[t]).replace(tzinfo=None)).days
+        if pct <= STOP_LOSS_PCT:
+            flags.append(f"- 🔴 **{t}** is {pct:+.1f}% vs your cost — **STOP-LOSS REVIEW**")
+        elif pct >= TAKE_PROFIT_PCT:
+            flags.append(f"- 🟢 **{t}** is {pct:+.1f}% vs your cost — **TAKE-PROFIT REVIEW**")
+        elif age >= STALE_DAYS:
+            flags.append(f"- ⚪ **{t}** held {age} days with {pct:+.1f}% — **STALE, re-justify or exit**")
+    if flags:
+        return ["", "## 🚪 Exit checks on your holdings", ""] + flags + ["", EXIT_ADVICE]
+    return []
+
+
+def distinct_stories(titles):
+    """Cluster near-identical headlines so syndicated wire copy counts once."""
+    clusters = []
+    for t in (re.sub(r"\W+", " ", x.lower()).strip() for x in titles):
+        for c in clusters:
+            if difflib.SequenceMatcher(None, t, c).ratio() > 0.85:
+                break
+        else:
+            clusters.append(t)
+    return len(clusters)
+
+
+def opportunity_checks(opps, cash, con, now):
+    """Pre-buy checklist per ticker; log ✅ PASSES to the verdicts table."""
     import yfinance as yf
-    con = sqlite3.connect(BASE / "news.db")
-    day_ago = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
+    day_ago = (now - timedelta(hours=24)).isoformat()
     cap = cash / 2
     lines = ["", "**🤖 Pre-buy checks, done for you:**", ""]
     checked = []
@@ -124,11 +188,13 @@ def opportunity_checks(opps, cash):
                 lines.append(f"- `{t}`: ℹ️ bad-news signal on a stock you don't own — "
                              "nothing to do (no short selling).")
                 continue
-            outlets = con.execute(
-                "SELECT COUNT(DISTINCT source) FROM articles "
+            cov = con.execute(
+                "SELECT source, title FROM articles "
                 "WHERE (',' || tickers || ',') LIKE ? AND fetched_at >= ? "
                 "AND ABS(sentiment) >= 0.25",
-                (f"%,{t},%", day_ago)).fetchone()[0]
+                (f"%,{t},%", day_ago)).fetchall()
+            outlets = len({s for s, _ in cov})
+            stories = distinct_stories([ttl for _, ttl in cov])
             try:
                 closes = yf.Ticker(t).history(period="2d")["Close"]
                 price = float(closes.iloc[-1])
@@ -137,33 +203,68 @@ def opportunity_checks(opps, cash):
                 price, move = None, None
 
             facts = [f"today {move:+.1f}%" if move is not None else "today's move n/a",
-                     f"{outlets} outlet(s) in 24h"]
+                     f"{outlets} outlet(s), {stories} distinct stor{'y' if stories == 1 else 'ies'}"]
             shares = int(cap // price) if price else 0
             if move is not None and move >= PRICED_IN_MOVE:
                 verdict = f"❌ SKIP — already up {move:+.1f}% today, news likely priced in"
-            elif outlets < MIN_OUTLETS:
-                verdict = "⚠️ WAIT — only one outlet so far; look again if others confirm"
+            elif outlets < MIN_OUTLETS or stories < 2:
+                verdict = "⚠️ WAIT — not independently confirmed yet; look again if more report it"
             elif price is None:
                 verdict = "⚠️ WAIT — no price data to verify"
             elif shares == 0:
                 verdict = f"❌ SKIP — 1 share (Rs {price:,.2f}) exceeds your Rs {cap:,.0f} sizing cap"
             else:
                 verdict = f"✅ PASSES — you could buy up to {shares} share(s) @ ~Rs {price:,.2f}"
+                dup = con.execute(
+                    "SELECT 1 FROM verdicts WHERE symbol = ? AND ts >= ?",
+                    (t, (now - timedelta(days=3)).isoformat())).fetchone()
+                if not dup:
+                    con.execute("INSERT INTO verdicts VALUES (?,?,?,?)",
+                                (now.isoformat(), t, price, title))
+                    con.commit()
             lines.append(f"- `{t}`: {'; '.join(facts)} → {verdict}")
-    con.close()
+    return lines
+
+
+def weekly_lines(con, now):
+    if not (now.weekday() == WEEKLY_DAY and now.hour == WEEKLY_HOUR):
+        return []
+    week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
+    n_art, n_sig = con.execute(
+        "SELECT COUNT(*), SUM(tickers != '') FROM articles WHERE fetched_at >= ?",
+        (week_ago,)).fetchone()
+    lines = ["", "## 📅 Weekly report", "",
+             f"- Articles collected this week: **{n_art}** ({n_sig or 0} matched to stocks)",
+             "- Scoreboard detail (hit rates vs baseline, verdict outcomes): see "
+             "`digests/LATEST.md` in the repo"]
+    feeds = json.loads((BASE / "config.json").read_text())["feeds"]
+    silent_cutoff = (datetime.now(timezone.utc) - timedelta(hours=FEED_SILENT_HOURS)).isoformat()
+    silent = []
+    for f in feeds:
+        last = con.execute("SELECT MAX(fetched_at) FROM articles WHERE source = ?",
+                           (f["name"],)).fetchone()[0]
+        if not last or last < silent_cutoff:
+            silent.append(f["name"])
+    lines.append(f"- Feed health: {len(feeds) - len(silent)}/{len(feeds)} sources active"
+                 + (f" — ⚠️ silent 48h+: {', '.join(silent)}" if silent else ""))
     return lines
 
 
 def main():
     portfolio = json.loads((BASE / "portfolio.json").read_text())
     held, cash = portfolio["positions"], portfolio["cash"]
+    bench = portfolio.get("benchmark")
+    trades = portfolio.get("trades", [])
     sectors = load_sectors()
-    since = (datetime.now(timezone.utc) - timedelta(hours=WINDOW_HOURS)).isoformat()
+    now_local = datetime.now()
+
     con = sqlite3.connect(BASE / "news.db")
+    con.execute("CREATE TABLE IF NOT EXISTS verdicts "
+                "(ts TEXT, symbol TEXT, price REAL, title TEXT)")
+    since = (datetime.now(timezone.utc) - timedelta(hours=WINDOW_HOURS)).isoformat()
     rows = con.execute(
         "SELECT source, title, sentiment, tickers FROM articles WHERE fetched_at >= ?",
         (since,)).fetchall()
-    con.close()
 
     holding_items, opportunities, macros = [], [], []
     seen = set()
@@ -188,12 +289,22 @@ def main():
     opportunities = opportunities[:MAX_OPPORTUNITIES]
     macros = macros[:MAX_MACRO]
 
-    if not (holding_items or opportunities or macros):
+    price_symbols = set(held)
+    if bench:
+        price_symbols.add(bench["symbol"])
+    prices = get_prices(price_symbols) if (holding_items or opportunities or macros
+                                           or now_local.hour in EXIT_CHECK_HOURS
+                                           or (now_local.weekday() == WEEKLY_DAY
+                                               and now_local.hour == WEEKLY_HOUR)) else {}
+    exit_sec = exit_lines(held, trades, prices, now_local)
+    weekly_sec = weekly_lines(con, now_local)
+
+    if not (holding_items or opportunities or macros or exit_sec or weekly_sec):
         OUT.unlink(missing_ok=True)
+        con.close()
         print("No alerts this window.")
         return
 
-    # group holding news per ticker and give each a net verdict
     by_ticker = {}
     for sent, tks, title, source in holding_items:
         for t in tks:
@@ -208,12 +319,18 @@ def main():
         bits.append(f"{len(by_ticker) - n_review} holding(s) with good news")
     if opportunities:
         bits.append(f"{len(opportunities)} buy idea(s)")
+    if exit_sec:
+        bits.append("exit checks")
     if macros:
         bits.append(f"{len(macros)} macro item(s)")
-    now = datetime.now().strftime("%d %b %H:%M IST")
+    if weekly_sec:
+        bits.append("weekly report")
+    if not bits:
+        bits = ["portfolio check"]
 
-    lines = [f"# Stocks {now} — " + ", ".join(bits), ""]
-    lines.extend(book_lines(held, cash))
+    lines = [f"# Stocks {now_local:%d %b %H:%M} IST — " + ", ".join(bits), ""]
+    lines.extend(book_lines(held, cash, bench, prices))
+    lines.extend(exit_sec)
 
     if by_ticker:
         lines.append("\n## 🧳 News on stocks you OWN\n")
@@ -231,21 +348,25 @@ def main():
         lines.append("\n## 💡 Strong signals on stocks you DON'T own\n")
         for sent, tks, title, source in opportunities:
             lines.append(f"- {dot(sent)} ({sent:+.2f}) `{','.join(tks)}` {title} — *{source}*")
-        lines.extend(opportunity_checks(opportunities, cash))
+        lines.extend(opportunity_checks(opportunities, cash, con,
+                                        datetime.now(timezone.utc)))
         lines.append(f"\n{OPPORTUNITY_ADVICE}\n")
 
     if macros:
         lines.append("\n## 🌍 Macro / world events\n")
         for sent, touched, title, source in macros:
-            tag = f" → touches your **{', '.join(touched)}**" if touched else " → no direct hit on your holdings"
+            tag = (f" → touches your **{', '.join(touched)}**" if touched
+                   else " → no direct hit on your holdings")
             lines.append(f"- {dot(sent)} {title} — *{source}*{tag}")
         lines.append(f"\n{MACRO_ADVICE}\n")
 
+    lines.extend(weekly_sec)
     lines.append("\n---\n_Sentiment is mechanical (word-based); it reads headlines, not "
                  "fundamentals. Paper portfolio — verify anything before treating it as "
                  "a real-money process._")
     OUT.write_text("\n".join(lines), encoding="utf-8")
-    print(f"{len(seen)} alert item(s) written to ALERT.md")
+    con.close()
+    print(f"Alert written: {', '.join(bits)}")
 
 
 if __name__ == "__main__":

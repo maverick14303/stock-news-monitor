@@ -17,6 +17,7 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 LEDGER = Path(__file__).parent / "portfolio.json"
 STARTING_CASH = 5000.0
+FEES_PCT = 0.0025  # ~0.25% per side: STT, stamp duty, DP charges, spread
 
 
 def load():
@@ -36,25 +37,29 @@ def live_price(symbol):
     return float(hist["Close"].iloc[-1])
 
 
-def record(p, action, symbol, qty, price):
+def record(p, action, symbol, qty, price, fee=0.0):
     p["trades"].append({
         "time": datetime.now(timezone.utc).isoformat(),
         "action": action, "symbol": symbol, "qty": qty, "price": round(price, 2),
+        "fee": round(fee, 2),
     })
 
 
 def buy(p, symbol, qty):
     price = live_price(symbol)
     cost = price * qty
-    if cost > p["cash"]:
-        sys.exit(f"Not enough cash: need Rs {cost:.2f}, have Rs {p['cash']:.2f}")
+    fee = cost * FEES_PCT
+    if cost + fee > p["cash"]:
+        sys.exit(f"Not enough cash: need Rs {cost + fee:.2f} (incl fees), have Rs {p['cash']:.2f}")
     pos = p["positions"].get(symbol, {"qty": 0, "avg_cost": 0.0})
-    pos["avg_cost"] = (pos["avg_cost"] * pos["qty"] + cost) / (pos["qty"] + qty)
+    # fee folds into cost basis so P&L reflects real-world friction
+    pos["avg_cost"] = (pos["avg_cost"] * pos["qty"] + cost + fee) / (pos["qty"] + qty)
     pos["qty"] += qty
     p["positions"][symbol] = pos
-    p["cash"] -= cost
-    record(p, "buy", symbol, qty, price)
-    print(f"BOUGHT {qty} x {symbol} @ Rs {price:.2f} (cost Rs {cost:.2f}, cash left Rs {p['cash']:.2f})")
+    p["cash"] -= cost + fee
+    record(p, "buy", symbol, qty, price, fee)
+    print(f"BOUGHT {qty} x {symbol} @ Rs {price:.2f} + Rs {fee:.2f} fees "
+          f"(cash left Rs {p['cash']:.2f})")
 
 
 def sell(p, symbol, qty):
@@ -62,12 +67,15 @@ def sell(p, symbol, qty):
     if not pos or pos["qty"] < qty:
         sys.exit(f"You don't hold {qty} shares of {symbol}")
     price = live_price(symbol)
-    p["cash"] += price * qty
+    proceeds = price * qty
+    fee = proceeds * FEES_PCT
+    p["cash"] += proceeds - fee
     pos["qty"] -= qty
     if pos["qty"] == 0:
         del p["positions"][symbol]
-    record(p, "sell", symbol, qty, price)
-    print(f"SOLD {qty} x {symbol} @ Rs {price:.2f} (cash now Rs {p['cash']:.2f})")
+    record(p, "sell", symbol, qty, price, fee)
+    print(f"SOLD {qty} x {symbol} @ Rs {price:.2f} - Rs {fee:.2f} fees "
+          f"(cash now Rs {p['cash']:.2f})")
 
 
 def status(p):
@@ -84,6 +92,14 @@ def status(p):
     print(f"\nCash: Rs {p['cash']:.2f}")
     print(f"Total value: Rs {total:.2f}  ({total - STARTING_CASH:+.2f} vs Rs {STARTING_CASH:.0f} start, "
           f"{100 * (total - STARTING_CASH) / STARTING_CASH:+.2f}%)")
+    b = p.get("benchmark")
+    if b:
+        level = live_price(b["symbol"])
+        shadow = b["start_capital"] * level / b["start_level"]
+        print(f"NIFTY 50 shadow (same Rs {b['start_capital']:.0f} in the index): "
+              f"Rs {shadow:.2f} ({100 * (shadow / b['start_capital'] - 1):+.2f}%)")
+        print(f"System vs index: Rs {total - shadow:+.2f} "
+              f"({'ahead' if total >= shadow else 'behind'})")
 
 
 def main():

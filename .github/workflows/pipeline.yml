@@ -9,6 +9,9 @@ permissions:
   contents: write
   issues: write
 
+concurrency:
+  group: stock-pipeline
+
 jobs:
   run:
     runs-on: ubuntu-latest

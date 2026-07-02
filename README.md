@@ -53,6 +53,23 @@ cloud prices the right positions.
 A disabled Windows scheduled task (**StockNewsMonitor**) remains as backup;
 re-enable with `Enable-ScheduledTask StockNewsMonitor` if GitHub ever fails.
 
+## Trust & risk features
+
+- **NIFTY shadow**: every status/email compares the portfolio against the same
+  Rs 5000 put in the index on the start date. Beating the market, not just
+  making money, is the bar.
+- **Fees**: paper trades pay ~0.25% per side, folded into cost basis.
+- **Exit checks** (9 AM & 4 PM runs): stop-loss review at -7%, take-profit
+  review at +15%, stale flag at 30 days held.
+- **Verdict journal**: every ✅ PASSES the alert engine issues is logged and
+  graded on 5-day outcomes by scoreboard.py.
+- **Scoreboard rigor**: hit rates at 1/3/5-day horizons with 95% confidence
+  ranges, compared against the always-bull baseline (not a naive 50%).
+- **Weekly report** (Sunday 6 PM IST): week stats plus feed-health check
+  flagging sources silent 48h+.
+- **Syndication-aware confirmation**: near-identical wire-copy headlines are
+  clustered so "N outlets" means independent coverage, not reprints.
+
 ## Honest limitations (read this)
 
 1. **News is priced in fast.** By the time a headline reaches an RSS feed,
