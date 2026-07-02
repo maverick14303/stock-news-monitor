@@ -1,5 +1,5 @@
 {
-  "cash": 146.9151625061047,
+  "cash": 103.19264301300177,
   "positions": {
     "TMPV.NS": {
       "qty": 2,
@@ -46,14 +46,14 @@
       ],
       "thesis": "IndusInd Bank Share Price Live Updates: IndusInd Bank's impressive growth over three months"
     },
-    "WIPRO.NS": {
+    "TATASTEEL.NS": {
       "qty": 3,
-      "avg_cost": 174.43499999999997,
-      "opened": "2026-07-02T10:59:21.603491+00:00",
+      "avg_cost": 188.13917316436766,
+      "opened": "2026-07-02T11:01:04.742233+00:00",
       "sources": [
-        "LiveMint Markets"
+        "Moneycontrol Top News"
       ],
-      "thesis": "Wipro share price climbs 1% following a 17% drop in ADRs overnight amid growing AI concerns. Do you "
+      "thesis": "Steel stocks rally as govt extends MIP on 66 steel products"
     }
   },
   "trades": [
@@ -164,6 +164,24 @@
       "price": 174.0,
       "fee": 1.3,
       "reason": "score 0.70 (LiveMint Markets): Wipro share price climbs 1% following a 17% drop in ADRs overnight amid growing "
+    },
+    {
+      "time": "2026-07-02T11:01:04.742233+00:00",
+      "action": "sell",
+      "symbol": "WIPRO.NS",
+      "qty": 3,
+      "price": 174.0,
+      "fee": 1.3,
+      "reason": "negative news (-0.97) at -0.2%"
+    },
+    {
+      "time": "2026-07-02T11:01:04.742233+00:00",
+      "action": "buy",
+      "symbol": "TATASTEEL.NS",
+      "qty": 3,
+      "price": 187.67,
+      "fee": 1.41,
+      "reason": "score 0.63 (Moneycontrol Top News): Steel stocks rally as govt extends MIP on 66 steel products"
     }
   ],
   "closed": [
@@ -199,11 +217,23 @@
       "win": false,
       "reason": "negative news (-0.55) at -0.2%",
       "thesis": "Vedanta Iron and Steel shares rocket 113% in 13 sessions since listing; market value more than doubl"
+    },
+    {
+      "time": "2026-07-02T11:01:04.742233+00:00",
+      "symbol": "WIPRO.NS",
+      "sector": "it",
+      "entry": 174.43,
+      "exit": 174.0,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.97) at -0.2%",
+      "thesis": "Wipro share price climbs 1% following a 17% drop in ADRs overnight amid growing AI concerns. Do you "
     }
   ],
   "sector_weights": {
     "energy": 0.92,
     "banks": 0.92,
-    "metals": 0.92
+    "metals": 0.92,
+    "it": 0.92
   }
 }
