@@ -124,12 +124,44 @@ def book_lines(held, cash, bench, prices):
                f"{100 * (total - STARTING_CASH) / STARTING_CASH:+.2f}% since start) "
                f"— incl. Rs {cash:,.2f} cash**")
     level = bench and prices.get(bench["symbol"])
-    if level:
-        shadow = bench["start_capital"] * level / bench["start_level"]
-        out.append(f"\n**NIFTY shadow:** the same Rs {bench['start_capital']:,.0f} in the "
-                   f"index would be Rs {shadow:,.2f} "
-                   f"({100 * (shadow / bench['start_capital'] - 1):+.2f}%) — system is "
-                   f"**{'ahead' if total >= shadow else 'behind'} by Rs {abs(total - shadow):,.2f}**")
+    shadow = bench["start_capital"] * level / bench["start_level"] if level else None
+    return out, total, shadow
+
+
+def bot_recent_trades():
+    ledger = BASE / "bot_portfolio.json"
+    if not ledger.exists():
+        return [], None
+    b = json.loads(ledger.read_text())
+    cutoff = (datetime.now(timezone.utc) - timedelta(hours=WINDOW_HOURS)).isoformat()
+    return [t for t in b["trades"] if t["time"] >= cutoff], b
+
+
+def bot_lines(bot, recent, a_total, shadow):
+    if bot is None:
+        return []
+    prices = get_prices(set(bot["positions"]))
+    b_total = bot["cash"] + sum((prices.get(s) or pos["avg_cost"]) * pos["qty"]
+                                for s, pos in bot["positions"].items())
+    out = ["", "## 🤖 Account B — the bot (trades itself)", "",
+           "| account | value | since start |", "|---|---:|---:|"]
+    out.append(f"| A — you + Claude | Rs {a_total:,.2f} | {100 * (a_total - 5000) / 5000:+.2f}% |")
+    out.append(f"| B — bot | Rs {b_total:,.2f} | {100 * (b_total - 5000) / 5000:+.2f}% |")
+    if shadow:
+        out.append(f"| NIFTY 50 index | Rs {shadow:,.2f} | {100 * (shadow - 5000) / 5000:+.2f}% |")
+    if recent:
+        out.append("\n**Bot trades this hour:**")
+        for t in recent:
+            out.append(f"- {t['action'].upper()} {t['qty']} x {t['symbol']} @ "
+                       f"Rs {t['price']:.2f} — {t.get('reason', '')}")
+    if bot["positions"]:
+        holds = ", ".join(f"{s} x{pos['qty']}" for s, pos in bot["positions"].items())
+        out.append(f"\nBot holds: {holds} + Rs {bot['cash']:,.2f} cash")
+    closed = bot.get("closed", [])
+    if closed:
+        wins = sum(1 for c in closed if c["win"])
+        out.append(f"Bot record: {wins}/{len(closed)} wins, "
+                   f"avg {sum(c['pnl_pct'] for c in closed) / len(closed):+.2f}% per closed trade")
     return out
 
 
@@ -298,8 +330,10 @@ def main():
                                                and now_local.hour == WEEKLY_HOUR)) else {}
     exit_sec = exit_lines(held, trades, prices, now_local)
     weekly_sec = weekly_lines(con, now_local)
+    bot_trades, bot = bot_recent_trades()
 
-    if not (holding_items or opportunities or macros or exit_sec or weekly_sec):
+    if not (holding_items or opportunities or macros or exit_sec or weekly_sec
+            or bot_trades):
         OUT.unlink(missing_ok=True)
         con.close()
         print("No alerts this window.")
@@ -321,6 +355,8 @@ def main():
         bits.append(f"{len(opportunities)} buy idea(s)")
     if exit_sec:
         bits.append("exit checks")
+    if bot_trades:
+        bits.append(f"bot made {len(bot_trades)} trade(s)")
     if macros:
         bits.append(f"{len(macros)} macro item(s)")
     if weekly_sec:
@@ -329,7 +365,9 @@ def main():
         bits = ["portfolio check"]
 
     lines = [f"# Stocks {now_local:%d %b %H:%M} IST — " + ", ".join(bits), ""]
-    lines.extend(book_lines(held, cash, bench, prices))
+    blines, a_total, shadow = book_lines(held, cash, bench, prices)
+    lines.extend(blines)
+    lines.extend(bot_lines(bot, bot_trades, a_total, shadow))
     lines.extend(exit_sec)
 
     if by_ticker:

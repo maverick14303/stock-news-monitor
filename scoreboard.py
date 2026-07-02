@@ -82,6 +82,15 @@ def main():
                 detail.append((date, symbol, sent, rets[1], hit, title[:55], source))
                 by_source.setdefault(source, []).append(hit)
 
+    # persist 1-day grades so autotrader.py can learn source reliability
+    con.execute("CREATE TABLE IF NOT EXISTS graded (day TEXT, symbol TEXT, "
+                "source TEXT, title TEXT, sent REAL, ret REAL, hit INT, "
+                "PRIMARY KEY (day, symbol, source, title))")
+    for date, symbol, sent, ret, hit, title, source in detail:
+        con.execute("INSERT OR REPLACE INTO graded VALUES (?,?,?,?,?,?,?)",
+                    (str(date), symbol, source, title, sent, ret, int(hit)))
+    con.commit()
+
     if not detail:
         print("No scoreable signals yet — keep collecting.")
     else:

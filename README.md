@@ -16,6 +16,13 @@ own collected data, at zero financial risk.
 - `scoreboard.py` — for every past non-neutral signal, compare sentiment
   direction vs the stock's actual next-day move (via Yahoo Finance). Prints
   hit-rate overall and per source.
+- `autotrader.py` — Account B: an autonomous Rs 5000 paper trader. Scores
+  signals as sentiment x learned source trust x learned sector weight, buys
+  with the same confirmation checks the human account gets, exits on
+  -7%/+15%/15-day/negative-news rules, and journals every closed trade with
+  its reason in `bot_portfolio.json`. Source trust is learned from the
+  graded-signals table scoreboard.py maintains; sector weights adjust after
+  every win/loss — that's the machine learning from its mistakes.
 - `config.json` — the trusted feed list. Add/remove sources here.
 - `tickers.csv` — symbol → name aliases used for headline matching.
 - `news.db` — SQLite archive of everything collected (created on first run).
