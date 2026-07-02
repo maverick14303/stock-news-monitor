@@ -1,0 +1,24 @@
+{
+  "feeds": [
+    {
+      "name": "Economic Times Markets",
+      "url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms"
+    },
+    {
+      "name": "Moneycontrol Top News",
+      "url": "https://www.moneycontrol.com/rss/MCtopnews.xml"
+    },
+    {
+      "name": "Moneycontrol Business",
+      "url": "https://www.moneycontrol.com/rss/business.xml"
+    },
+    {
+      "name": "LiveMint Markets",
+      "url": "https://www.livemint.com/rss/markets"
+    },
+    {
+      "name": "BusinessLine Markets",
+      "url": "https://www.thehindubusinessline.com/markets/feeder/default.rss"
+    }
+  ]
+}
