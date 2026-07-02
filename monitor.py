@@ -89,7 +89,7 @@ def main():
     now = datetime.now(timezone.utc).isoformat()
 
     for feed in feeds:
-        parsed = feedparser.parse(feed["url"])
+        parsed = feedparser.parse(feed["url"], agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)")
         if parsed.bozo and not parsed.entries:
             print(f"[WARN] {feed['name']}: could not fetch ({parsed.get('bozo_exception')})")
             continue

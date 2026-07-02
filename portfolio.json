@@ -1,36 +1,5 @@
 {
-  "cash": 4535.57,
-  "positions": {
-    "TATASTEEL.NS": {
-      "qty": 1,
-      "avg_cost": 186.77999877929688
-    },
-    "VEDL.NS": {
-      "qty": 1,
-      "avg_cost": 277.6499938964844
-    }
-  },
-  "trades": [
-    {
-      "time": "2026-07-02T06:15:00+00:00",
-      "action": "deposit",
-      "symbol": null,
-      "qty": 0,
-      "price": 4500.0
-    },
-    {
-      "time": "2026-07-02T05:13:05.743004+00:00",
-      "action": "buy",
-      "symbol": "TATASTEEL.NS",
-      "qty": 1,
-      "price": 186.78
-    },
-    {
-      "time": "2026-07-02T05:13:08.348945+00:00",
-      "action": "buy",
-      "symbol": "VEDL.NS",
-      "qty": 1,
-      "price": 277.65
-    }
-  ]
+  "cash": 5000.0,
+  "positions": {},
+  "trades": []
 }

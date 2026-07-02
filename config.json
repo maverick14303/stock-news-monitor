@@ -1,24 +1,31 @@
 {
   "feeds": [
-    {
-      "name": "Economic Times Markets",
-      "url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms"
-    },
-    {
-      "name": "Moneycontrol Top News",
-      "url": "https://www.moneycontrol.com/rss/MCtopnews.xml"
-    },
-    {
-      "name": "Moneycontrol Business",
-      "url": "https://www.moneycontrol.com/rss/business.xml"
-    },
-    {
-      "name": "LiveMint Markets",
-      "url": "https://www.livemint.com/rss/markets"
-    },
-    {
-      "name": "BusinessLine Markets",
-      "url": "https://www.thehindubusinessline.com/markets/feeder/default.rss"
-    }
+    { "name": "Economic Times Markets", "url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms" },
+    { "name": "Economic Times Stocks", "url": "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms" },
+    { "name": "Economic Times Economy", "url": "https://economictimes.indiatimes.com/news/economy/rssfeeds/1373380680.cms" },
+    { "name": "Economic Times Industry", "url": "https://economictimes.indiatimes.com/industry/rssfeeds/13352306.cms" },
+    { "name": "Moneycontrol Top News", "url": "https://www.moneycontrol.com/rss/MCtopnews.xml" },
+    { "name": "Moneycontrol Business", "url": "https://www.moneycontrol.com/rss/business.xml" },
+    { "name": "Moneycontrol Latest", "url": "https://www.moneycontrol.com/rss/latestnews.xml" },
+    { "name": "Moneycontrol Buzzing Stocks", "url": "https://www.moneycontrol.com/rss/buzzingstocks.xml" },
+    { "name": "LiveMint Markets", "url": "https://www.livemint.com/rss/markets" },
+    { "name": "LiveMint Companies", "url": "https://www.livemint.com/rss/companies" },
+    { "name": "LiveMint Money", "url": "https://www.livemint.com/rss/money" },
+    { "name": "LiveMint Economy", "url": "https://www.livemint.com/rss/economy" },
+    { "name": "BusinessLine Markets", "url": "https://www.thehindubusinessline.com/markets/feeder/default.rss" },
+    { "name": "BusinessLine Stock Markets", "url": "https://www.thehindubusinessline.com/markets/stock-markets/feeder/default.rss" },
+    { "name": "BusinessLine Companies", "url": "https://www.thehindubusinessline.com/companies/feeder/default.rss" },
+    { "name": "BusinessLine Economy", "url": "https://www.thehindubusinessline.com/economy/feeder/default.rss" },
+    { "name": "Business Standard Markets", "url": "https://www.business-standard.com/rss/markets-106.rss" },
+    { "name": "Business Standard Companies", "url": "https://www.business-standard.com/rss/companies-101.rss" },
+    { "name": "Business Standard Finance", "url": "https://www.business-standard.com/rss/finance-103.rss" },
+    { "name": "Business Standard Economy", "url": "https://www.business-standard.com/rss/economy-102.rss" },
+    { "name": "NDTV Profit Latest", "url": "https://feeds.feedburner.com/ndtvprofit-latest" },
+    { "name": "TOI Business", "url": "https://timesofindia.indiatimes.com/rssfeeds/1898055.cms" },
+    { "name": "The Hindu Business", "url": "https://www.thehindu.com/business/feeder/default.rss" },
+    { "name": "The Hindu Economy", "url": "https://www.thehindu.com/business/Economy/feeder/default.rss" },
+    { "name": "News18 Business", "url": "https://www.news18.com/commonfeeds/v1/eng/rss/business.xml" },
+    { "name": "CNBC TV18 Markets", "url": "https://www.cnbctv18.com/commonfeeds/v1/cne/rss/market.xml" },
+    { "name": "Investing.com India Stocks", "url": "https://in.investing.com/rss/news_25.rss" }
   ]
 }
