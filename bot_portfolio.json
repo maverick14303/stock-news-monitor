@@ -1,5 +1,5 @@
 {
-  "cash": 63.84030769348226,
+  "cash": 146.9151625061047,
   "positions": {
     "TMPV.NS": {
       "qty": 2,
@@ -19,15 +19,6 @@
       ],
       "thesis": "BPCL agrees to buy Videocon Energy\u2019s stake in BPRL Ventures JV"
     },
-    "COALINDIA.NS": {
-      "qty": 2,
-      "avg_cost": 439.9972438812256,
-      "opened": "2026-07-02T10:48:05.365935+00:00",
-      "sources": [
-        "Economic Times Industry"
-      ],
-      "thesis": "Coal India's SECL strengthens monsoon measures for uninterrupted supply"
-    },
     "HDFCBANK.NS": {
       "qty": 1,
       "avg_cost": 797.8897744750976,
@@ -37,23 +28,32 @@
       ],
       "thesis": "Stocks In Focus Today: HDFC Bank, Yes Bank, Biocon, Tech Mahindra, BPCL, Bajaj Auto, Axis Bank"
     },
-    "KOTAKBANK.NS": {
-      "qty": 2,
-      "avg_cost": 400.29823776245115,
-      "opened": "2026-07-02T10:48:05.365935+00:00",
+    "ONGC.NS": {
+      "qty": 4,
+      "avg_cost": 236.54990673065186,
+      "opened": "2026-07-02T10:59:21.603491+00:00",
       "sources": [
         "News18 Business"
       ],
-      "thesis": "Kotak Mahindra Bank To Acquire Deutsche Bank's India Retail, Wealth Management Business"
+      "thesis": "Stocks To Watch Today, June 22: Tata Motors, RIL, RVNL, Sun Pharma, Nestle India In Focus"
     },
-    "VEDL.NS": {
-      "qty": 3,
-      "avg_cost": 276.7902561187744,
-      "opened": "2026-07-02T10:48:05.365935+00:00",
+    "INDUSINDBK.NS": {
+      "qty": 1,
+      "avg_cost": 945.85875,
+      "opened": "2026-07-02T10:59:21.603491+00:00",
       "sources": [
-        "Economic Times Stocks"
+        "Economic Times Markets"
       ],
-      "thesis": "Vedanta Iron and Steel shares rocket 113% in 13 sessions since listing; market value more than doubl"
+      "thesis": "IndusInd Bank Share Price Live Updates: IndusInd Bank's impressive growth over three months"
+    },
+    "WIPRO.NS": {
+      "qty": 3,
+      "avg_cost": 174.43499999999997,
+      "opened": "2026-07-02T10:59:21.603491+00:00",
+      "sources": [
+        "LiveMint Markets"
+      ],
+      "thesis": "Wipro share price climbs 1% following a 17% drop in ADRs overnight amid growing AI concerns. Do you "
     }
   },
   "trades": [
@@ -110,8 +110,100 @@
       "price": 276.1,
       "fee": 2.07,
       "reason": "score 0.92 (Economic Times Stocks): Vedanta Iron and Steel shares rocket 113% in 13 sessions since listing; market v"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "sell",
+      "symbol": "COALINDIA.NS",
+      "qty": 2,
+      "price": 438.9,
+      "fee": 2.19,
+      "reason": "negative news (-0.61) at -0.2%"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "sell",
+      "symbol": "KOTAKBANK.NS",
+      "qty": 2,
+      "price": 399.3,
+      "fee": 2.0,
+      "reason": "negative news (-0.86) at -0.2%"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "sell",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 276.1,
+      "fee": 2.07,
+      "reason": "negative news (-0.55) at -0.2%"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "buy",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 235.96,
+      "fee": 2.36,
+      "reason": "score 1.06 (News18 Business): Stocks To Watch Today, June 22: Tata Motors, RIL, RVNL, Sun Pharma, Nestle India"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "buy",
+      "symbol": "INDUSINDBK.NS",
+      "qty": 1,
+      "price": 943.5,
+      "fee": 2.36,
+      "reason": "score 0.73 (Economic Times Markets): IndusInd Bank Share Price Live Updates: IndusInd Bank's impressive growth over t"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "buy",
+      "symbol": "WIPRO.NS",
+      "qty": 3,
+      "price": 174.0,
+      "fee": 1.3,
+      "reason": "score 0.70 (LiveMint Markets): Wipro share price climbs 1% following a 17% drop in ADRs overnight amid growing "
     }
   ],
-  "closed": [],
-  "sector_weights": {}
+  "closed": [
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "symbol": "COALINDIA.NS",
+      "sector": "energy",
+      "entry": 440.0,
+      "exit": 438.9,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.61) at -0.2%",
+      "thesis": "Coal India's SECL strengthens monsoon measures for uninterrupted supply"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "symbol": "KOTAKBANK.NS",
+      "sector": "banks",
+      "entry": 400.3,
+      "exit": 399.3,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.86) at -0.2%",
+      "thesis": "Kotak Mahindra Bank To Acquire Deutsche Bank's India Retail, Wealth Management Business"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "symbol": "VEDL.NS",
+      "sector": "metals",
+      "entry": 276.79,
+      "exit": 276.1,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.55) at -0.2%",
+      "thesis": "Vedanta Iron and Steel shares rocket 113% in 13 sessions since listing; market value more than doubl"
+    }
+  ],
+  "sector_weights": {
+    "energy": 0.92,
+    "banks": 0.92,
+    "metals": 0.92
+  }
 }
