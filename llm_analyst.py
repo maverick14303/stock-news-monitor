@@ -18,7 +18,13 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 BASE = Path(__file__).parent
-MODEL = "meta-llama/llama-3.3-70b-instruct:free"
+# free models in fallback order — OpenRouter routes to the first with capacity
+MODELS = [
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "deepseek/deepseek-chat-v3-0324:free",
+    "google/gemini-2.0-flash-exp:free",
+    "qwen/qwen-2.5-72b-instruct:free",
+]
 BATCH = 40
 
 PROMPT = (
@@ -55,15 +61,24 @@ def main():
     numbered = "\n".join(f"{i + 1}. [{t}] {title}"
                          for i, (_, title, t, _) in enumerate(rows))
     try:
+        import time
+
         import requests
-        resp = requests.post(
-            "https://openrouter.ai/api/v1/chat/completions",
-            headers={"Authorization": f"Bearer {key}"},
-            json={"model": MODEL, "temperature": 0,
-                  "messages": [{"role": "user", "content": PROMPT + numbered}]},
-            timeout=120)
+        for attempt in (1, 2):
+            resp = requests.post(
+                "https://openrouter.ai/api/v1/chat/completions",
+                headers={"Authorization": f"Bearer {key}"},
+                json={"models": MODELS, "temperature": 0,
+                      "messages": [{"role": "user", "content": PROMPT + numbered}]},
+                timeout=120)
+            if resp.status_code == 429 and attempt == 1:
+                time.sleep(15)
+                continue
+            break
         resp.raise_for_status()
-        text = resp.json()["choices"][0]["message"]["content"]
+        data = resp.json()
+        served = data.get("model", "?")
+        text = data["choices"][0]["message"]["content"]
         match = re.search(r"\[.*\]", text, re.DOTALL)
         scores = {int(x["id"]): float(x["score"]) for x in json.loads(match.group(0))}
     except Exception as e:
@@ -79,7 +94,7 @@ def main():
             disagreements.append((vader, s, title))
     con.commit()
     con.close()
-    print(f"LLM analyst: scored {len(rows)} headline(s) with {MODEL.split('/')[-1]}.")
+    print(f"LLM analyst: scored {len(rows)} headline(s) with {served}.")
     for vader, s, title in disagreements[:5]:
         print(f"  disagreement — VADER {vader:+.2f} vs LLM {s:+.2f}: {title[:70]}")
 
