@@ -32,7 +32,7 @@ def free_models(requests):
     r = requests.get("https://openrouter.ai/api/v1/models", timeout=30)
     r.raise_for_status()
     ids = [m["id"] for m in r.json()["data"] if m["id"].endswith(":free")]
-    return sorted(ids, key=rank)[:4]
+    return sorted(ids, key=rank)[:3]  # OpenRouter caps the fallback list at 3
 
 PROMPT = (
     "You are an equity analyst for Indian stock markets (NSE). For each numbered "
