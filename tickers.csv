@@ -1,57 +1,57 @@
-symbol,aliases
-RELIANCE.NS,Reliance Industries|Reliance|RIL
-TCS.NS,Tata Consultancy|TCS
-HDFCBANK.NS,HDFC Bank
-ICICIBANK.NS,ICICI Bank|ICICI
-INFY.NS,Infosys
-BHARTIARTL.NS,Bharti Airtel|Airtel
-SBIN.NS,State Bank of India|SBI
-LICI.NS,LIC of India|Life Insurance Corporation
-ITC.NS,ITC Ltd|ITC
-HINDUNILVR.NS,Hindustan Unilever|HUL
-LT.NS,Larsen & Toubro|Larsen and Toubro|L&T
-KOTAKBANK.NS,Kotak Mahindra Bank|Kotak
-AXISBANK.NS,Axis Bank
-MARUTI.NS,Maruti Suzuki|Maruti
-SUNPHARMA.NS,Sun Pharma|Sun Pharmaceutical
-TITAN.NS,Titan Company|Titan
-ULTRACEMCO.NS,UltraTech Cement|UltraTech
-BAJFINANCE.NS,Bajaj Finance
-NTPC.NS,NTPC
-ONGC.NS,ONGC|Oil and Natural Gas Corporation
-TMPV.NS,Tata Motors PV|Tata Motors
-TMCV.NS,Tata Motors CV
-ADANIENT.NS,Adani Enterprises
-ADANIPORTS.NS,Adani Ports
-WIPRO.NS,Wipro
-POWERGRID.NS,Power Grid
-M&M.NS,Mahindra & Mahindra|Mahindra and Mahindra|M&M
-JSWSTEEL.NS,JSW Steel
-TATASTEEL.NS,Tata Steel
-COALINDIA.NS,Coal India
-HCLTECH.NS,HCL Technologies|HCLTech|HCL Tech
-ASIANPAINT.NS,Asian Paints
-BAJAJFINSV.NS,Bajaj Finserv
-DRREDDY.NS,Dr Reddy|Dr. Reddy
-NESTLEIND.NS,Nestle India|Nestle
-GRASIM.NS,Grasim
-HINDALCO.NS,Hindalco
-TECHM.NS,Tech Mahindra
-INDUSINDBK.NS,IndusInd Bank|IndusInd
-CIPLA.NS,Cipla
-EICHERMOT.NS,Eicher Motors|Royal Enfield
-BRITANNIA.NS,Britannia
-APOLLOHOSP.NS,Apollo Hospitals
-DIVISLAB.NS,Divi's Lab|Divis Lab
-TATACONSUM.NS,Tata Consumer
-HEROMOTOCO.NS,Hero MotoCorp|Hero Moto
-BAJAJ-AUTO.NS,Bajaj Auto
-SBILIFE.NS,SBI Life
-HDFCLIFE.NS,HDFC Life
-BPCL.NS,BPCL|Bharat Petroleum
-SHRIRAMFIN.NS,Shriram Finance
-ZOMATO.NS,Zomato|Eternal Ltd
-PAYTM.NS,Paytm|One97
-DMART.NS,DMart|Avenue Supermarts
-IRCTC.NS,IRCTC
-VEDL.NS,Vedanta
+symbol,aliases,sector
+RELIANCE.NS,Reliance Industries|Reliance|RIL,energy
+TCS.NS,Tata Consultancy|TCS,it
+HDFCBANK.NS,HDFC Bank,banks
+ICICIBANK.NS,ICICI Bank|ICICI,banks
+INFY.NS,Infosys,it
+BHARTIARTL.NS,Bharti Airtel|Airtel,telecom
+SBIN.NS,State Bank of India|SBI,banks
+LICI.NS,LIC of India|Life Insurance Corporation,insurance
+ITC.NS,ITC Ltd|ITC,fmcg
+HINDUNILVR.NS,Hindustan Unilever|HUL,fmcg
+LT.NS,Larsen & Toubro|Larsen and Toubro|L&T,infra
+KOTAKBANK.NS,Kotak Mahindra Bank|Kotak,banks
+AXISBANK.NS,Axis Bank,banks
+MARUTI.NS,Maruti Suzuki|Maruti,auto
+SUNPHARMA.NS,Sun Pharma|Sun Pharmaceutical,pharma
+TITAN.NS,Titan Company|Titan,consumer
+ULTRACEMCO.NS,UltraTech Cement|UltraTech,infra
+BAJFINANCE.NS,Bajaj Finance,financials
+NTPC.NS,NTPC,energy
+ONGC.NS,ONGC|Oil and Natural Gas Corporation,energy
+TMPV.NS,Tata Motors PV|Tata Motors,auto
+TMCV.NS,Tata Motors CV,auto
+ADANIENT.NS,Adani Enterprises,infra
+ADANIPORTS.NS,Adani Ports,infra
+WIPRO.NS,Wipro,it
+POWERGRID.NS,Power Grid,energy
+M&M.NS,Mahindra & Mahindra|Mahindra and Mahindra|M&M,auto
+JSWSTEEL.NS,JSW Steel,metals
+TATASTEEL.NS,Tata Steel,metals
+COALINDIA.NS,Coal India,energy
+HCLTECH.NS,HCL Technologies|HCLTech|HCL Tech,it
+ASIANPAINT.NS,Asian Paints,consumer
+BAJAJFINSV.NS,Bajaj Finserv,financials
+DRREDDY.NS,Dr Reddy|Dr. Reddy,pharma
+NESTLEIND.NS,Nestle India|Nestle,fmcg
+GRASIM.NS,Grasim,infra
+HINDALCO.NS,Hindalco,metals
+TECHM.NS,Tech Mahindra,it
+INDUSINDBK.NS,IndusInd Bank|IndusInd,banks
+CIPLA.NS,Cipla,pharma
+EICHERMOT.NS,Eicher Motors|Royal Enfield,auto
+BRITANNIA.NS,Britannia,fmcg
+APOLLOHOSP.NS,Apollo Hospitals,healthcare
+DIVISLAB.NS,Divi's Lab|Divis Lab,pharma
+TATACONSUM.NS,Tata Consumer,fmcg
+HEROMOTOCO.NS,Hero MotoCorp|Hero Moto,auto
+BAJAJ-AUTO.NS,Bajaj Auto,auto
+SBILIFE.NS,SBI Life,insurance
+HDFCLIFE.NS,HDFC Life,insurance
+BPCL.NS,BPCL|Bharat Petroleum,energy
+SHRIRAMFIN.NS,Shriram Finance,financials
+ZOMATO.NS,Zomato|Eternal Ltd,consumer
+PAYTM.NS,Paytm|One97,financials
+DMART.NS,DMart|Avenue Supermarts,consumer
+IRCTC.NS,IRCTC,consumer
+VEDL.NS,Vedanta,metals

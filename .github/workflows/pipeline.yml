@@ -27,8 +27,9 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          TITLE=$(head -n 1 ALERT.md | sed 's/^# *//')
           gh issue create \
-            --title "Stock alert — $(date +'%d %b %H:%M IST')" \
+            --title "$TITLE" \
             --body-file ALERT.md \
             --assignee maverick14303
           rm ALERT.md
