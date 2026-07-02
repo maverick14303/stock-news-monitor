@@ -31,11 +31,18 @@ python run_pipeline.py       # all three, saved to digests/
 
 ## Automation
 
-GitHub Actions runs `run_pipeline.py` twice daily on GitHub's servers —
-8:45 AM IST (pre-market) and 4:00 PM IST (post-close) — and commits the
-results back. No local device needs to be on. Read the latest report at
-`digests/LATEST.md` in the repo (github.com/maverick14303/stock-news-monitor),
-or trigger a manual run from the Actions tab.
+GitHub Actions runs `run_pipeline.py` every 2 hours from 7 AM to 11 PM IST
+on GitHub's servers and commits the results back. No local device needs to
+be on. Read the latest report at `digests/LATEST.md` in the repo
+(github.com/maverick14303/stock-news-monitor), or trigger a manual run from
+the Actions tab.
+
+When `alerts.py` finds something notable — news on a held stock (|s| >= 0.4),
+a strong signal on any tracked stock (|s| >= 0.7), or a macro shock headline —
+the workflow opens a GitHub issue, which GitHub emails to the repo owner.
+Tune thresholds at the top of `alerts.py`. Feeds marked `"global": true` in
+`config.json` (15 international sources) feed macro alerts but skip ticker
+matching to avoid false name collisions.
 
 The cloud repo is the source of truth. Before working locally, `git pull`.
 After local trades (`paper_portfolio.py buy/sell`), commit and push so the
