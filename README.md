@@ -31,9 +31,11 @@ python run_pipeline.py       # all three, saved to digests/
 
 ## Automation
 
-GitHub Actions runs `run_pipeline.py` every hour from 7 AM to 11 PM IST
-on GitHub's servers and commits the results back. No local device needs to
-be on. Read the latest report at `digests/LATEST.md` in the repo
+GitHub Actions runs `run_pipeline.py` on GitHub's servers and commits the
+results back; no local device needs to be on. Runs are triggered every hour
+from 7 AM to 11 PM IST by a cron-job.org job calling the workflow_dispatch
+API (GitHub's native cron lags 5-15 min and occasionally drops runs).
+Read the latest report at `digests/LATEST.md` in the repo
 (github.com/maverick14303/stock-news-monitor), or trigger a manual run from
 the Actions tab.
 
