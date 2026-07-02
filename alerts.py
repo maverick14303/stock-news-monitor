@@ -62,10 +62,14 @@ MIXED_ADVICE = (
     "👉 **What to do:** Signals conflict — read both sides before doing anything. "
     "When in doubt with conflicting news, doing nothing is a valid decision.")
 OPPORTUNITY_ADVICE = (
-    "👉 **What to do:** Before buying with your free cash, check: (1) has the stock "
-    "already jumped today? Then the news is priced in — skip. (2) Do at least two "
-    "different outlets report it? (3) Size small — one position, never all your cash "
-    "on one headline. If unsure, skip; cash is also a position.")
+    "👉 **What to do:** The checks above are automated: *today's move* tests if the "
+    "news is already priced in, *outlets* tests confirmation, and the share count "
+    "respects the sizing rule (max half your free cash on one idea). A ✅ is a "
+    "shortlist, not an order — still read the story before buying.")
+
+PRICED_IN_MOVE = 2.5    # % move that means the news is likely already in the price
+MIN_OUTLETS = 2
+MAX_CHECKED = 8         # bound on price lookups per email
 MACRO_ADVICE = (
     "👉 **What to do:** Don't buy or sell from a macro headline alone — it moves whole "
     "sectors, slowly. If one of your holdings is tagged above, watch that position more "
@@ -101,6 +105,53 @@ def book_lines(held, cash):
 def load_sectors():
     with open(BASE / "tickers.csv", encoding="utf-8") as f:
         return {row["symbol"]: row.get("sector", "") for row in csv.DictReader(f)}
+
+
+def opportunity_checks(opps, cash):
+    """Run the pre-buy checklist per ticker: priced-in, confirmation, sizing."""
+    import yfinance as yf
+    con = sqlite3.connect(BASE / "news.db")
+    day_ago = (datetime.now(timezone.utc) - timedelta(hours=24)).isoformat()
+    cap = cash / 2
+    lines = ["", "**🤖 Pre-buy checks, done for you:**", ""]
+    checked = []
+    for sent, tks, title, source in opps:
+        for t in tks:
+            if t in checked or len(checked) >= MAX_CHECKED:
+                continue
+            checked.append(t)
+            if sent < 0:
+                lines.append(f"- `{t}`: ℹ️ bad-news signal on a stock you don't own — "
+                             "nothing to do (no short selling).")
+                continue
+            outlets = con.execute(
+                "SELECT COUNT(DISTINCT source) FROM articles "
+                "WHERE (',' || tickers || ',') LIKE ? AND fetched_at >= ? "
+                "AND ABS(sentiment) >= 0.25",
+                (f"%,{t},%", day_ago)).fetchone()[0]
+            try:
+                closes = yf.Ticker(t).history(period="2d")["Close"]
+                price = float(closes.iloc[-1])
+                move = (price / float(closes.iloc[-2]) - 1) * 100 if len(closes) >= 2 else None
+            except Exception:
+                price, move = None, None
+
+            facts = [f"today {move:+.1f}%" if move is not None else "today's move n/a",
+                     f"{outlets} outlet(s) in 24h"]
+            shares = int(cap // price) if price else 0
+            if move is not None and move >= PRICED_IN_MOVE:
+                verdict = f"❌ SKIP — already up {move:+.1f}% today, news likely priced in"
+            elif outlets < MIN_OUTLETS:
+                verdict = "⚠️ WAIT — only one outlet so far; look again if others confirm"
+            elif price is None:
+                verdict = "⚠️ WAIT — no price data to verify"
+            elif shares == 0:
+                verdict = f"❌ SKIP — 1 share (Rs {price:,.2f}) exceeds your Rs {cap:,.0f} sizing cap"
+            else:
+                verdict = f"✅ PASSES — you could buy up to {shares} share(s) @ ~Rs {price:,.2f}"
+            lines.append(f"- `{t}`: {'; '.join(facts)} → {verdict}")
+    con.close()
+    return lines
 
 
 def main():
@@ -180,6 +231,7 @@ def main():
         lines.append("\n## 💡 Strong signals on stocks you DON'T own\n")
         for sent, tks, title, source in opportunities:
             lines.append(f"- {dot(sent)} ({sent:+.2f}) `{','.join(tks)}` {title} — *{source}*")
+        lines.extend(opportunity_checks(opportunities, cash))
         lines.append(f"\n{OPPORTUNITY_ADVICE}\n")
 
     if macros:
