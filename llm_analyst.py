@@ -22,17 +22,21 @@ BATCH = 40
 
 
 def free_models(requests):
-    """Ask OpenRouter which :free models exist right now; prefer big instruct ones."""
+    """Ask OpenRouter which :free models exist right now.
+
+    Less-contended families first — the big free Llama is chronically
+    rate-limited upstream, so it goes last.
+    """
     def rank(mid):
-        for j, kw in enumerate(("llama-3.3", "llama", "deepseek", "qwen",
-                                "gemini", "mistral")):
+        for j, kw in enumerate(("deepseek", "qwen", "gemini", "mistral",
+                                "llama-3.3", "llama")):
             if kw in mid:
                 return j
         return 9
     r = requests.get("https://openrouter.ai/api/v1/models", timeout=30)
     r.raise_for_status()
     ids = [m["id"] for m in r.json()["data"] if m["id"].endswith(":free")]
-    return sorted(ids, key=rank)[:3]  # OpenRouter caps the fallback list at 3
+    return sorted(ids, key=rank)[:6]
 
 PROMPT = (
     "You are an equity analyst for Indian stock markets (NSE). For each numbered "
@@ -67,34 +71,35 @@ def main():
 
     numbered = "\n".join(f"{i + 1}. [{t}] {title}"
                          for i, (_, title, t, _) in enumerate(rows))
-    resp = None
+    import requests
+    served, scores, last_err = None, None, ""
     try:
-        import time
-
-        import requests
-        models = free_models(requests)
-        for attempt in (1, 2):
+        candidates = free_models(requests)
+    except Exception as e:
+        candidates, last_err = [], f"model catalog: {e}"
+    for m in candidates:
+        try:
             resp = requests.post(
                 "https://openrouter.ai/api/v1/chat/completions",
                 headers={"Authorization": f"Bearer {key}"},
-                json={"models": models, "temperature": 0,
+                json={"model": m, "temperature": 0,
                       "messages": [{"role": "user", "content": PROMPT + numbered}]},
                 timeout=120)
-            if resp.status_code == 429 and attempt == 1:
-                time.sleep(15)
+            if resp.status_code != 200:
+                last_err = f"{m}: http {resp.status_code}"
                 continue
+            data = resp.json()
+            text = data["choices"][0]["message"]["content"]
+            match = re.search(r"\[.*\]", text, re.DOTALL)
+            scores = {int(x["id"]): float(x["score"])
+                      for x in json.loads(match.group(0))}
+            served = data.get("model", m)
             break
-        resp.raise_for_status()
-        data = resp.json()
-        served = data.get("model", "?")
-        text = data["choices"][0]["message"]["content"]
-        match = re.search(r"\[.*\]", text, re.DOTALL)
-        scores = {int(x["id"]): float(x["score"]) for x in json.loads(match.group(0))}
-    except Exception as e:
+        except Exception as e:
+            last_err = f"{m}: {type(e).__name__}"
+    if scores is None:
         con.close()
-        detail = resp.text[:200] if resp is not None else ""
-        print(f"LLM analyst: API/parse failure, skipping this run "
-              f"({type(e).__name__}: {e}) {detail}")
+        print(f"LLM analyst: all free models unavailable this run ({last_err})")
         return
 
     disagreements = []
