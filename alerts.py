@@ -76,6 +76,28 @@ def dot(sent):
     return "🔴" if sent < 0 else "🟢"
 
 
+def book_lines(held, cash):
+    """Live P&L table for the email; plain summary if price lookups fail."""
+    try:
+        from paper_portfolio import STARTING_CASH, live_price
+        out = ["", "| stock | qty | avg cost | now | P&L |",
+               "|---|---:|---:|---:|---|"]
+        total = cash
+        for t, pos in held.items():
+            price = live_price(t)
+            cost = pos["avg_cost"] * pos["qty"]
+            pnl = price * pos["qty"] - cost
+            total += price * pos["qty"]
+            out.append(f"| {t} | {pos['qty']} | {pos['avg_cost']:.2f} | {price:.2f} "
+                       f"| {dot(pnl)} {pnl:+.2f} ({100 * pnl / cost:+.2f}%) |")
+        out.append(f"\n**Total: Rs {total:,.2f} ({total - STARTING_CASH:+.2f}, "
+                   f"{100 * (total - STARTING_CASH) / STARTING_CASH:+.2f}% since start) "
+                   f"— incl. Rs {cash:,.2f} cash**")
+        return out
+    except (Exception, SystemExit):
+        return [f"**Your book:** {len(held)} positions + Rs {cash:,.0f} free cash."]
+
+
 def load_sectors():
     with open(BASE / "tickers.csv", encoding="utf-8") as f:
         return {row["symbol"]: row.get("sector", "") for row in csv.DictReader(f)}
@@ -140,7 +162,7 @@ def main():
     now = datetime.now().strftime("%d %b %H:%M IST")
 
     lines = [f"# Stocks {now} — " + ", ".join(bits), ""]
-    lines.append(f"**Your book:** {len(held)} positions + Rs {cash:,.0f} free cash.")
+    lines.extend(book_lines(held, cash))
 
     if by_ticker:
         lines.append("\n## 🧳 News on stocks you OWN\n")

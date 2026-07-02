@@ -72,13 +72,15 @@ def sell(p, symbol, qty):
 
 def status(p):
     total = p["cash"]
-    print(f"{'symbol':<15}{'qty':>4}{'avg cost':>10}{'now':>10}{'value':>10}{'P&L':>9}")
+    print(f"{'symbol':<15}{'qty':>4}{'avg cost':>10}{'now':>10}{'value':>10}{'P&L':>9}{'P&L%':>8}")
     for symbol, pos in p["positions"].items():
         price = live_price(symbol)
         value = price * pos["qty"]
-        pnl = value - pos["avg_cost"] * pos["qty"]
+        cost = pos["avg_cost"] * pos["qty"]
+        pnl = value - cost
         total += value
-        print(f"{symbol:<15}{pos['qty']:>4}{pos['avg_cost']:>10.2f}{price:>10.2f}{value:>10.2f}{pnl:>+9.2f}")
+        print(f"{symbol:<15}{pos['qty']:>4}{pos['avg_cost']:>10.2f}{price:>10.2f}"
+              f"{value:>10.2f}{pnl:>+9.2f}{100 * pnl / cost:>+8.2f}")
     print(f"\nCash: Rs {p['cash']:.2f}")
     print(f"Total value: Rs {total:.2f}  ({total - STARTING_CASH:+.2f} vs Rs {STARTING_CASH:.0f} start, "
           f"{100 * (total - STARTING_CASH) / STARTING_CASH:+.2f}%)")
