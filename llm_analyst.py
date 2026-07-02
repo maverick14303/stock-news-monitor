@@ -18,14 +18,21 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 BASE = Path(__file__).parent
-# free models in fallback order — OpenRouter routes to the first with capacity
-MODELS = [
-    "meta-llama/llama-3.3-70b-instruct:free",
-    "deepseek/deepseek-chat-v3-0324:free",
-    "google/gemini-2.0-flash-exp:free",
-    "qwen/qwen-2.5-72b-instruct:free",
-]
 BATCH = 40
+
+
+def free_models(requests):
+    """Ask OpenRouter which :free models exist right now; prefer big instruct ones."""
+    def rank(mid):
+        for j, kw in enumerate(("llama-3.3", "llama", "deepseek", "qwen",
+                                "gemini", "mistral")):
+            if kw in mid:
+                return j
+        return 9
+    r = requests.get("https://openrouter.ai/api/v1/models", timeout=30)
+    r.raise_for_status()
+    ids = [m["id"] for m in r.json()["data"] if m["id"].endswith(":free")]
+    return sorted(ids, key=rank)[:4]
 
 PROMPT = (
     "You are an equity analyst for Indian stock markets (NSE). For each numbered "
@@ -60,15 +67,17 @@ def main():
 
     numbered = "\n".join(f"{i + 1}. [{t}] {title}"
                          for i, (_, title, t, _) in enumerate(rows))
+    resp = None
     try:
         import time
 
         import requests
+        models = free_models(requests)
         for attempt in (1, 2):
             resp = requests.post(
                 "https://openrouter.ai/api/v1/chat/completions",
                 headers={"Authorization": f"Bearer {key}"},
-                json={"models": MODELS, "temperature": 0,
+                json={"models": models, "temperature": 0,
                       "messages": [{"role": "user", "content": PROMPT + numbered}]},
                 timeout=120)
             if resp.status_code == 429 and attempt == 1:
@@ -83,7 +92,9 @@ def main():
         scores = {int(x["id"]): float(x["score"]) for x in json.loads(match.group(0))}
     except Exception as e:
         con.close()
-        print(f"LLM analyst: API/parse failure, skipping this run ({type(e).__name__}: {e})")
+        detail = resp.text[:200] if resp is not None else ""
+        print(f"LLM analyst: API/parse failure, skipping this run "
+              f"({type(e).__name__}: {e}) {detail}")
         return
 
     disagreements = []
