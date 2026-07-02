@@ -1,5 +1,62 @@
 {
-  "cash": 5000.0,
-  "positions": {},
-  "trades": []
+  "cash": 927.5,
+  "positions": {
+    "TMPV.NS": {
+      "qty": 3,
+      "avg_cost": 346.3500061035156
+    },
+    "BPCL.NS": {
+      "qty": 3,
+      "avg_cost": 311.8999938964844
+    },
+    "HDFCBANK.NS": {
+      "qty": 1,
+      "avg_cost": 799.75
+    },
+    "TATASTEEL.NS": {
+      "qty": 4,
+      "avg_cost": 185.6999969482422
+    },
+    "VEDL.NS": {
+      "qty": 2,
+      "avg_cost": 277.6000061035156
+    }
+  },
+  "trades": [
+    {
+      "time": "2026-07-02T05:56:20.635299+00:00",
+      "action": "buy",
+      "symbol": "TMPV.NS",
+      "qty": 3,
+      "price": 346.35
+    },
+    {
+      "time": "2026-07-02T05:56:24.105044+00:00",
+      "action": "buy",
+      "symbol": "BPCL.NS",
+      "qty": 3,
+      "price": 311.9
+    },
+    {
+      "time": "2026-07-02T05:56:27.699689+00:00",
+      "action": "buy",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 799.75
+    },
+    {
+      "time": "2026-07-02T05:56:30.171327+00:00",
+      "action": "buy",
+      "symbol": "TATASTEEL.NS",
+      "qty": 4,
+      "price": 185.7
+    },
+    {
+      "time": "2026-07-02T05:56:32.651177+00:00",
+      "action": "buy",
+      "symbol": "VEDL.NS",
+      "qty": 2,
+      "price": 277.6
+    }
+  ]
 }
