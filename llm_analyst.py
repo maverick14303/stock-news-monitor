@@ -1,11 +1,12 @@
-"""Score ticker-matched headlines with a free LLM via OpenRouter.
+"""Score ticker-matched headlines with a free LLM.
 
-Writes scores into articles.llm_sent so scoreboard.py can grade the LLM
-against VADER on real next-day outcomes. Skips silently when no
-OPENROUTER_API_KEY is set; never breaks the pipeline on API failure.
+Tries Google Gemini first (dedicated free quota, reliable), then falls back
+to OpenRouter's shared :free models. Writes scores into articles.llm_sent so
+scoreboard.py can grade the LLM against VADER on real next-day outcomes.
+Skips silently when no key is set; never breaks the pipeline on API failure.
 
-Free-tier budget: one batched request per run (up to 40 headlines),
-~17 requests/day — inside OpenRouter's free limits.
+Secrets: GEMINI_API_KEY (aistudio.google.com) and/or OPENROUTER_API_KEY.
+Budget: one request per run (~17/day) — inside both free tiers.
 """
 import json
 import os
@@ -19,24 +20,7 @@ sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 BASE = Path(__file__).parent
 BATCH = 40
-
-
-def free_models(requests):
-    """Ask OpenRouter which :free models exist right now.
-
-    Less-contended families first — the big free Llama is chronically
-    rate-limited upstream, so it goes last.
-    """
-    def rank(mid):
-        for j, kw in enumerate(("deepseek", "qwen", "gemini", "mistral",
-                                "llama-3.3", "llama")):
-            if kw in mid:
-                return j
-        return 9
-    r = requests.get("https://openrouter.ai/api/v1/models", timeout=30)
-    r.raise_for_status()
-    ids = [m["id"] for m in r.json()["data"] if m["id"].endswith(":free")]
-    return sorted(ids, key=rank)[:6]
+GEMINI_MODELS = ("gemini-2.5-flash", "gemini-2.0-flash")
 
 PROMPT = (
     "You are an equity analyst for Indian stock markets (NSE). For each numbered "
@@ -48,10 +32,72 @@ PROMPT = (
     "Reply with ONLY a JSON array like [{\"id\": 1, \"score\": -0.5}].\n\n")
 
 
+def parse_scores(text):
+    match = re.search(r"\[.*\]", text, re.DOTALL)
+    return {int(x["id"]): float(x["score"]) for x in json.loads(match.group(0))}
+
+
+def score_with_gemini(requests, key, prompt):
+    for model in GEMINI_MODELS:
+        try:
+            r = requests.post(
+                f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                params={"key": key},
+                json={"contents": [{"parts": [{"text": prompt}]}],
+                      "generationConfig": {"temperature": 0}},
+                timeout=120)
+            if r.status_code != 200:
+                print(f"  gemini {model}: http {r.status_code}")
+                continue
+            text = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+            return parse_scores(text), f"google/{model}"
+        except Exception as e:
+            print(f"  gemini {model}: {type(e).__name__}")
+    return None, None
+
+
+def openrouter_free_models(requests):
+    """Live :free catalog, less-contended families first (big Llama is congested)."""
+    def rank(mid):
+        for j, kw in enumerate(("deepseek", "qwen", "gemini", "mistral",
+                                "llama-3.3", "llama")):
+            if kw in mid:
+                return j
+        return 9
+    r = requests.get("https://openrouter.ai/api/v1/models", timeout=30)
+    r.raise_for_status()
+    ids = [m["id"] for m in r.json()["data"] if m["id"].endswith(":free")]
+    return sorted(ids, key=rank)[:6]
+
+
+def score_with_openrouter(requests, key, prompt):
+    try:
+        candidates = openrouter_free_models(requests)
+    except Exception:
+        return None, None
+    for m in candidates:
+        try:
+            resp = requests.post(
+                "https://openrouter.ai/api/v1/chat/completions",
+                headers={"Authorization": f"Bearer {key}"},
+                json={"model": m, "temperature": 0,
+                      "messages": [{"role": "user", "content": prompt}]},
+                timeout=120)
+            if resp.status_code != 200:
+                continue
+            data = resp.json()
+            return parse_scores(data["choices"][0]["message"]["content"]), \
+                data.get("model", m)
+        except Exception:
+            continue
+    return None, None
+
+
 def main():
-    key = os.environ.get("OPENROUTER_API_KEY")
-    if not key:
-        print("LLM analyst skipped — no OPENROUTER_API_KEY set.")
+    gem_key = os.environ.get("GEMINI_API_KEY")
+    or_key = os.environ.get("OPENROUTER_API_KEY")
+    if not (gem_key or or_key):
+        print("LLM analyst skipped — no GEMINI_API_KEY or OPENROUTER_API_KEY set.")
         return
 
     con = sqlite3.connect(BASE / "news.db")
@@ -69,37 +115,17 @@ def main():
         print("LLM analyst: nothing new to score.")
         return
 
-    numbered = "\n".join(f"{i + 1}. [{t}] {title}"
-                         for i, (_, title, t, _) in enumerate(rows))
+    prompt = PROMPT + "\n".join(f"{i + 1}. [{t}] {title}"
+                                for i, (_, title, t, _) in enumerate(rows))
     import requests
-    served, scores, last_err = None, None, ""
-    try:
-        candidates = free_models(requests)
-    except Exception as e:
-        candidates, last_err = [], f"model catalog: {e}"
-    for m in candidates:
-        try:
-            resp = requests.post(
-                "https://openrouter.ai/api/v1/chat/completions",
-                headers={"Authorization": f"Bearer {key}"},
-                json={"model": m, "temperature": 0,
-                      "messages": [{"role": "user", "content": PROMPT + numbered}]},
-                timeout=120)
-            if resp.status_code != 200:
-                last_err = f"{m}: http {resp.status_code}"
-                continue
-            data = resp.json()
-            text = data["choices"][0]["message"]["content"]
-            match = re.search(r"\[.*\]", text, re.DOTALL)
-            scores = {int(x["id"]): float(x["score"])
-                      for x in json.loads(match.group(0))}
-            served = data.get("model", m)
-            break
-        except Exception as e:
-            last_err = f"{m}: {type(e).__name__}"
+    scores = served = None
+    if gem_key:
+        scores, served = score_with_gemini(requests, gem_key, prompt)
+    if scores is None and or_key:
+        scores, served = score_with_openrouter(requests, or_key, prompt)
     if scores is None:
         con.close()
-        print(f"LLM analyst: all free models unavailable this run ({last_err})")
+        print("LLM analyst: no provider available this run.")
         return
 
     disagreements = []
