@@ -1,61 +1,6 @@
 {
-  "cash": 103.19264301300177,
-  "positions": {
-    "TMPV.NS": {
-      "qty": 2,
-      "avg_cost": 346.8148872375488,
-      "opened": "2026-07-02T10:48:05.365935+00:00",
-      "sources": [
-        "Economic Times Industry"
-      ],
-      "thesis": "Domestic car sales surge in June on tax cuts, lower interest rates &amp; strong demand"
-    },
-    "BPCL.NS": {
-      "qty": 3,
-      "avg_cost": 311.2261372375488,
-      "opened": "2026-07-02T10:48:05.365935+00:00",
-      "sources": [
-        "Economic Times Industry"
-      ],
-      "thesis": "BPCL agrees to buy Videocon Energy\u2019s stake in BPRL Ventures JV"
-    },
-    "HDFCBANK.NS": {
-      "qty": 1,
-      "avg_cost": 797.8897744750976,
-      "opened": "2026-07-02T10:48:05.365935+00:00",
-      "sources": [
-        "News18 Business"
-      ],
-      "thesis": "Stocks In Focus Today: HDFC Bank, Yes Bank, Biocon, Tech Mahindra, BPCL, Bajaj Auto, Axis Bank"
-    },
-    "ONGC.NS": {
-      "qty": 4,
-      "avg_cost": 236.54990673065186,
-      "opened": "2026-07-02T10:59:21.603491+00:00",
-      "sources": [
-        "News18 Business"
-      ],
-      "thesis": "Stocks To Watch Today, June 22: Tata Motors, RIL, RVNL, Sun Pharma, Nestle India In Focus"
-    },
-    "INDUSINDBK.NS": {
-      "qty": 1,
-      "avg_cost": 945.85875,
-      "opened": "2026-07-02T10:59:21.603491+00:00",
-      "sources": [
-        "Economic Times Markets"
-      ],
-      "thesis": "IndusInd Bank Share Price Live Updates: IndusInd Bank's impressive growth over three months"
-    },
-    "TATASTEEL.NS": {
-      "qty": 3,
-      "avg_cost": 188.13917316436766,
-      "opened": "2026-07-02T11:01:04.742233+00:00",
-      "sources": [
-        "Moneycontrol Top News"
-      ],
-      "thesis": "Steel stocks rally as govt extends MIP on 66 steel products"
-    }
-  },
+  "cash": 5102.143816986085,
+  "positions": {},
   "trades": [
     {
       "time": "2026-07-02T10:48:05.365935+00:00",
@@ -182,6 +127,60 @@
       "price": 187.67,
       "fee": 1.41,
       "reason": "score 0.63 (Moneycontrol Top News): Steel stocks rally as govt extends MIP on 66 steel products"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "TMPV.NS",
+      "qty": 2,
+      "price": 335.6,
+      "fee": 1.68,
+      "reason": "time stop after 15d (-3.2%)"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "BPCL.NS",
+      "qty": 3,
+      "price": 315.55,
+      "fee": 2.37,
+      "reason": "time stop after 15d (+1.4%)"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 819.6,
+      "fee": 2.05,
+      "reason": "time stop after 15d (+2.7%)"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 247.29,
+      "fee": 2.47,
+      "reason": "time stop after 15d (+4.5%)"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "INDUSINDBK.NS",
+      "qty": 1,
+      "price": 1027.2,
+      "fee": 2.57,
+      "reason": "time stop after 15d (+8.6%)"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "TATASTEEL.NS",
+      "qty": 3,
+      "price": 185.89,
+      "fee": 1.39,
+      "reason": "time stop after 15d (-1.2%)"
     }
   ],
   "closed": [
@@ -228,12 +227,79 @@
       "win": false,
       "reason": "negative news (-0.97) at -0.2%",
       "thesis": "Wipro share price climbs 1% following a 17% drop in ADRs overnight amid growing AI concerns. Do you "
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "TMPV.NS",
+      "sector": "auto",
+      "entry": 346.81,
+      "exit": 335.6,
+      "pnl_pct": -3.23,
+      "win": false,
+      "reason": "time stop after 15d (-3.2%)",
+      "thesis": "Domestic car sales surge in June on tax cuts, lower interest rates &amp; strong demand"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "BPCL.NS",
+      "sector": "energy",
+      "entry": 311.23,
+      "exit": 315.55,
+      "pnl_pct": 1.39,
+      "win": true,
+      "reason": "time stop after 15d (+1.4%)",
+      "thesis": "BPCL agrees to buy Videocon Energy\u2019s stake in BPRL Ventures JV"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "HDFCBANK.NS",
+      "sector": "banks",
+      "entry": 797.89,
+      "exit": 819.6,
+      "pnl_pct": 2.72,
+      "win": true,
+      "reason": "time stop after 15d (+2.7%)",
+      "thesis": "Stocks In Focus Today: HDFC Bank, Yes Bank, Biocon, Tech Mahindra, BPCL, Bajaj Auto, Axis Bank"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "ONGC.NS",
+      "sector": "energy",
+      "entry": 236.55,
+      "exit": 247.29,
+      "pnl_pct": 4.54,
+      "win": true,
+      "reason": "time stop after 15d (+4.5%)",
+      "thesis": "Stocks To Watch Today, June 22: Tata Motors, RIL, RVNL, Sun Pharma, Nestle India In Focus"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "INDUSINDBK.NS",
+      "sector": "banks",
+      "entry": 945.86,
+      "exit": 1027.2,
+      "pnl_pct": 8.6,
+      "win": true,
+      "reason": "time stop after 15d (+8.6%)",
+      "thesis": "IndusInd Bank Share Price Live Updates: IndusInd Bank's impressive growth over three months"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "TATASTEEL.NS",
+      "sector": "metals",
+      "entry": 188.14,
+      "exit": 185.89,
+      "pnl_pct": -1.2,
+      "win": false,
+      "reason": "time stop after 15d (-1.2%)",
+      "thesis": "Steel stocks rally as govt extends MIP on 66 steel products"
     }
   ],
   "sector_weights": {
-    "energy": 0.92,
-    "banks": 0.92,
-    "metals": 0.92,
-    "it": 0.92
+    "energy": 1.014,
+    "banks": 1.014,
+    "metals": 0.846,
+    "it": 0.92,
+    "auto": 0.92
   }
 }
