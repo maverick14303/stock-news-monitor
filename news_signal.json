@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T16:31:17.247777+00:00",
+  "generated_at": "2026-07-26T17:31:01.979450+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -130,9 +130,9 @@
       "sources": 8
     },
     "SHRIRAMFIN.NS": {
-      "score": 0.4999,
-      "n": 7,
-      "sources": 4
+      "score": 0.4823,
+      "n": 8,
+      "sources": 5
     },
     "SUNPHARMA.NS": {
       "score": 0.3,
