@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T14:31:04.273904+00:00",
+  "generated_at": "2026-07-26T15:31:03.077964+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
