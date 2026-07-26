@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T13:31:17.184545+00:00",
+  "generated_at": "2026-07-26T14:31:04.273904+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -49,6 +49,11 @@
       "n": 16,
       "sources": 11
     },
+    "HEROMOTOCO.NS": {
+      "score": 0.5,
+      "n": 1,
+      "sources": 1
+    },
     "HINDUNILVR.NS": {
       "score": -0.2,
       "n": 2,
@@ -65,8 +70,8 @@
       "sources": 2
     },
     "INFY.NS": {
-      "score": -0.2207,
-      "n": 13,
+      "score": -0.1636,
+      "n": 14,
       "sources": 6
     },
     "ITC.NS": {
