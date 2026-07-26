@@ -65,9 +65,17 @@ def init_db():
             published TEXT,
             fetched_at TEXT,
             sentiment REAL,
-            tickers TEXT
+            tickers TEXT,
+            llm_sent REAL
         )
     """)
+    # Older DBs predate llm_sent (added by llm_analyst.py). Add it if missing so
+    # a fresh checkout and an upgraded one share one schema — the missing column
+    # is exactly what crashed every scrape for weeks.
+    cols = {r[1] for r in con.execute("PRAGMA table_info(articles)")}
+    if "llm_sent" not in cols:
+        con.execute("ALTER TABLE articles ADD COLUMN llm_sent REAL")
+    con.commit()
     return con
 
 
