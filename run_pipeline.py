@@ -18,6 +18,9 @@ STEPS = [
     ("Signal scoreboard (last 30 days)", ["scoreboard.py"]),
     ("Bot account (self-trading)", ["autotrader.py"]),
     ("Alert scan", ["alerts.py"]),
+    # export runs LAST so it reflects this run's fresh news + updated grades;
+    # news_signal.json is consumed by trading-bot's fused momentum+news bot.
+    ("Sentiment export", ["export_signal.py"]),
 ]
 
 
