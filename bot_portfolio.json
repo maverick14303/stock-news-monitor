@@ -1,6 +1,61 @@
 {
-  "cash": 5102.143816986085,
-  "positions": {},
+  "cash": 54.70674705505451,
+  "positions": {
+    "SBIN.NS": {
+      "qty": 1,
+      "avg_cost": 1017.5375,
+      "opened": "2026-07-26T07:30:57.252321+00:00",
+      "sources": [
+        "Economic Times Stocks"
+      ],
+      "thesis": "SBI Life Q1 results: Profit rises 22% YoY to Rs 720 crore  on strong premium growth"
+    },
+    "SHRIRAMFIN.NS": {
+      "qty": 1,
+      "avg_cost": 1007.6127255249023,
+      "opened": "2026-07-26T07:30:57.252321+00:00",
+      "sources": [
+        "Business Standard Companies"
+      ],
+      "thesis": "Shriram Finance's Q1 FY27 profit jumps 60% on strong NII, AUM growth"
+    },
+    "ONGC.NS": {
+      "qty": 4,
+      "avg_cost": 249.38189449310303,
+      "opened": "2026-07-26T07:30:57.252321+00:00",
+      "sources": [
+        "Economic Times Industry"
+      ],
+      "thesis": "ONGC starts drilling first deepwater well in Mahanadi basin under Samudra Manthan mission"
+    },
+    "NTPC.NS": {
+      "qty": 2,
+      "avg_cost": 348.0680122375488,
+      "opened": "2026-07-26T07:30:57.252321+00:00",
+      "sources": [
+        "Business Standard Companies"
+      ],
+      "thesis": "NTPC Q1 FY27 results: Net profit rises nearly 13% to \u20b96,897 crore"
+    },
+    "VEDL.NS": {
+      "qty": 3,
+      "avg_cost": 265.31161888122557,
+      "opened": "2026-07-26T07:30:57.252321+00:00",
+      "sources": [
+        "Business Standard Companies"
+      ],
+      "thesis": "Vedanta group's Hindustan Zinc Q1 net profit jumps over 2-fold to \u20b95,469 cr"
+    },
+    "WIPRO.NS": {
+      "qty": 3,
+      "avg_cost": 177.5627951049805,
+      "opened": "2026-07-26T07:30:57.252321+00:00",
+      "sources": [
+        "Economic Times Markets"
+      ],
+      "thesis": "Bonus issues &amp; dividends: Wipro, UltraTech Cement among more than 110 stocks turning ex-date thi"
+    }
+  },
   "trades": [
     {
       "time": "2026-07-02T10:48:05.365935+00:00",
@@ -181,6 +236,60 @@
       "price": 185.89,
       "fee": 1.39,
       "reason": "time stop after 15d (-1.2%)"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "SBIN.NS",
+      "qty": 1,
+      "price": 1015.0,
+      "fee": 2.54,
+      "reason": "score 1.40 (Economic Times Stocks): SBI Life Q1 results: Profit rises 22% YoY to Rs 720 crore  on strong premium gro"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "SHRIRAMFIN.NS",
+      "qty": 1,
+      "price": 1005.1,
+      "fee": 2.51,
+      "reason": "score 1.38 (Business Standard Companies): Shriram Finance's Q1 FY27 profit jumps 60% on strong NII, AUM growth"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 248.76,
+      "fee": 2.49,
+      "reason": "score 1.33 (Economic Times Industry): ONGC starts drilling first deepwater well in Mahanadi basin under Samudra Mantha"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "NTPC.NS",
+      "qty": 2,
+      "price": 347.2,
+      "fee": 1.74,
+      "reason": "score 1.32 (Business Standard Companies): NTPC Q1 FY27 results: Net profit rises nearly 13% to \u20b96,897 crore"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 264.65,
+      "fee": 1.98,
+      "reason": "score 1.14 (Business Standard Companies): Vedanta group's Hindustan Zinc Q1 net profit jumps over 2-fold to \u20b95,469 cr"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "WIPRO.NS",
+      "qty": 3,
+      "price": 177.12,
+      "fee": 1.33,
+      "reason": "score 1.01 (Economic Times Markets): Bonus issues &amp; dividends: Wipro, UltraTech Cement among more than 110 stocks"
     }
   ],
   "closed": [
