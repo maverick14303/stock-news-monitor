@@ -108,9 +108,11 @@ def main():
             sentiment = score_sentiment(text, analyzer)
             try:
                 con.execute(
-                    "INSERT INTO articles VALUES (?,?,?,?,?,?,?,?)",
+                    "INSERT INTO articles "
+                    "(link, source, title, summary, published, fetched_at, "
+                    "sentiment, tickers, llm_sent) VALUES (?,?,?,?,?,?,?,?,?)",
                     (link, feed["name"], title, summary, parse_published(entry),
-                     now, sentiment, ",".join(tickers)),
+                     now, sentiment, ",".join(tickers), None),
                 )
                 new_here += 1
                 if tickers:
