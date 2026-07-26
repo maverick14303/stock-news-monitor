@@ -1,5 +1,5 @@
 {
-  "cash": 3540.3474727630623,
+  "cash": 4281.290460586549,
   "positions": {
     "VEDL.NS": {
       "qty": 3,
@@ -9,15 +9,6 @@
         "Business Standard Companies"
       ],
       "thesis": "Vedanta group's Hindustan Zinc Q1 net profit jumps over 2-fold to \u20b95,469 cr"
-    },
-    "HDFCBANK.NS": {
-      "qty": 1,
-      "avg_cost": 744.6569877624512,
-      "opened": "2026-07-26T08:31:11.987570+00:00",
-      "sources": [
-        "News18 Business"
-      ],
-      "thesis": "HDFC Bank Q1 Results: Net Profit Rises 5% YoY To Rs 19,060 Crore; NII Up 6.7%"
     }
   },
   "trades": [
@@ -308,6 +299,15 @@
       "price": 742.8,
       "fee": 1.86,
       "reason": "score 0.99 (News18 Business): HDFC Bank Q1 Results: Net Profit Rises 5% YoY To Rs 19,060 Crore; NII Up 6.7%"
+    },
+    {
+      "time": "2026-07-26T09:31:30.430485+00:00",
+      "action": "sell",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 742.8,
+      "fee": 1.86,
+      "reason": "negative news (-0.93) at -0.2%"
     }
   ],
   "closed": [
@@ -475,11 +475,22 @@
       "win": false,
       "reason": "negative news (-0.91) at -0.2%",
       "thesis": "Bonus issues &amp; dividends: Wipro, UltraTech Cement among more than 110 stocks turning ex-date thi"
+    },
+    {
+      "time": "2026-07-26T09:31:30.430485+00:00",
+      "symbol": "HDFCBANK.NS",
+      "sector": "banks",
+      "entry": 744.66,
+      "exit": 742.8,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.93) at -0.2%",
+      "thesis": "HDFC Bank Q1 Results: Net Profit Rises 5% YoY To Rs 19,060 Crore; NII Up 6.7%"
     }
   ],
   "sector_weights": {
     "energy": 0.858,
-    "banks": 0.933,
+    "banks": 0.858,
     "metals": 0.846,
     "it": 0.846,
     "auto": 0.92,
