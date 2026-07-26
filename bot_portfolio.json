@@ -1,42 +1,6 @@
 {
-  "cash": 54.70674705505451,
+  "cash": 3540.3474727630623,
   "positions": {
-    "SBIN.NS": {
-      "qty": 1,
-      "avg_cost": 1017.5375,
-      "opened": "2026-07-26T07:30:57.252321+00:00",
-      "sources": [
-        "Economic Times Stocks"
-      ],
-      "thesis": "SBI Life Q1 results: Profit rises 22% YoY to Rs 720 crore  on strong premium growth"
-    },
-    "SHRIRAMFIN.NS": {
-      "qty": 1,
-      "avg_cost": 1007.6127255249023,
-      "opened": "2026-07-26T07:30:57.252321+00:00",
-      "sources": [
-        "Business Standard Companies"
-      ],
-      "thesis": "Shriram Finance's Q1 FY27 profit jumps 60% on strong NII, AUM growth"
-    },
-    "ONGC.NS": {
-      "qty": 4,
-      "avg_cost": 249.38189449310303,
-      "opened": "2026-07-26T07:30:57.252321+00:00",
-      "sources": [
-        "Economic Times Industry"
-      ],
-      "thesis": "ONGC starts drilling first deepwater well in Mahanadi basin under Samudra Manthan mission"
-    },
-    "NTPC.NS": {
-      "qty": 2,
-      "avg_cost": 348.0680122375488,
-      "opened": "2026-07-26T07:30:57.252321+00:00",
-      "sources": [
-        "Business Standard Companies"
-      ],
-      "thesis": "NTPC Q1 FY27 results: Net profit rises nearly 13% to \u20b96,897 crore"
-    },
     "VEDL.NS": {
       "qty": 3,
       "avg_cost": 265.31161888122557,
@@ -46,14 +10,14 @@
       ],
       "thesis": "Vedanta group's Hindustan Zinc Q1 net profit jumps over 2-fold to \u20b95,469 cr"
     },
-    "WIPRO.NS": {
-      "qty": 3,
-      "avg_cost": 177.5627951049805,
-      "opened": "2026-07-26T07:30:57.252321+00:00",
+    "HDFCBANK.NS": {
+      "qty": 1,
+      "avg_cost": 744.6569877624512,
+      "opened": "2026-07-26T08:31:11.987570+00:00",
       "sources": [
-        "Economic Times Markets"
+        "News18 Business"
       ],
-      "thesis": "Bonus issues &amp; dividends: Wipro, UltraTech Cement among more than 110 stocks turning ex-date thi"
+      "thesis": "HDFC Bank Q1 Results: Net Profit Rises 5% YoY To Rs 19,060 Crore; NII Up 6.7%"
     }
   },
   "trades": [
@@ -290,6 +254,60 @@
       "price": 177.12,
       "fee": 1.33,
       "reason": "score 1.01 (Economic Times Markets): Bonus issues &amp; dividends: Wipro, UltraTech Cement among more than 110 stocks"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "sell",
+      "symbol": "SBIN.NS",
+      "qty": 1,
+      "price": 1015.0,
+      "fee": 2.54,
+      "reason": "negative news (-0.74) at -0.2%"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "sell",
+      "symbol": "SHRIRAMFIN.NS",
+      "qty": 1,
+      "price": 1005.1,
+      "fee": 2.51,
+      "reason": "negative news (-0.67) at -0.2%"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "sell",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 248.76,
+      "fee": 2.49,
+      "reason": "negative news (-0.74) at -0.2%"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "sell",
+      "symbol": "NTPC.NS",
+      "qty": 2,
+      "price": 347.2,
+      "fee": 1.74,
+      "reason": "negative news (-0.74) at -0.2%"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "sell",
+      "symbol": "WIPRO.NS",
+      "qty": 3,
+      "price": 177.12,
+      "fee": 1.33,
+      "reason": "negative news (-0.91) at -0.2%"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "buy",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 742.8,
+      "fee": 1.86,
+      "reason": "score 0.99 (News18 Business): HDFC Bank Q1 Results: Net Profit Rises 5% YoY To Rs 19,060 Crore; NII Up 6.7%"
     }
   ],
   "closed": [
@@ -402,13 +420,69 @@
       "win": false,
       "reason": "time stop after 15d (-1.2%)",
       "thesis": "Steel stocks rally as govt extends MIP on 66 steel products"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "symbol": "SBIN.NS",
+      "sector": "banks",
+      "entry": 1017.54,
+      "exit": 1015.0,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.74) at -0.2%",
+      "thesis": "SBI Life Q1 results: Profit rises 22% YoY to Rs 720 crore  on strong premium growth"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "symbol": "SHRIRAMFIN.NS",
+      "sector": "financials",
+      "entry": 1007.61,
+      "exit": 1005.1,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.67) at -0.2%",
+      "thesis": "Shriram Finance's Q1 FY27 profit jumps 60% on strong NII, AUM growth"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "symbol": "ONGC.NS",
+      "sector": "energy",
+      "entry": 249.38,
+      "exit": 248.76,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.74) at -0.2%",
+      "thesis": "ONGC starts drilling first deepwater well in Mahanadi basin under Samudra Manthan mission"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "symbol": "NTPC.NS",
+      "sector": "energy",
+      "entry": 348.07,
+      "exit": 347.2,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.74) at -0.2%",
+      "thesis": "NTPC Q1 FY27 results: Net profit rises nearly 13% to \u20b96,897 crore"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "symbol": "WIPRO.NS",
+      "sector": "it",
+      "entry": 177.56,
+      "exit": 177.12,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.91) at -0.2%",
+      "thesis": "Bonus issues &amp; dividends: Wipro, UltraTech Cement among more than 110 stocks turning ex-date thi"
     }
   ],
   "sector_weights": {
-    "energy": 1.014,
-    "banks": 1.014,
+    "energy": 0.858,
+    "banks": 0.933,
     "metals": 0.846,
-    "it": 0.92,
-    "auto": 0.92
+    "it": 0.846,
+    "auto": 0.92,
+    "financials": 0.92
   }
 }

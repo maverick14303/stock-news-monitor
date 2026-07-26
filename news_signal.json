@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T07:32:10.882122+00:00",
+  "generated_at": "2026-07-26T08:31:14.963123+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -19,30 +19,20 @@
       "n": 3,
       "sources": 2
     },
-    "BAJFINANCE.NS": {
-      "score": -0.6512,
-      "n": 1,
-      "sources": 1
-    },
     "BHARTIARTL.NS": {
-      "score": 0.3741,
-      "n": 3,
-      "sources": 2
+      "score": 0.1398,
+      "n": 2,
+      "sources": 1
     },
     "BPCL.NS": {
       "score": -0.7002,
       "n": 3,
       "sources": 2
     },
-    "BRITANNIA.NS": {
-      "score": 0.8481,
-      "n": 1,
-      "sources": 1
-    },
     "CIPLA.NS": {
-      "score": -0.0482,
-      "n": 9,
-      "sources": 4
+      "score": 0.018,
+      "n": 10,
+      "sources": 5
     },
     "DMART.NS": {
       "score": -0.823,
@@ -55,24 +45,24 @@
       "sources": 3
     },
     "HCLTECH.NS": {
-      "score": 0.3058,
-      "n": 5,
-      "sources": 4
+      "score": 0.721,
+      "n": 4,
+      "sources": 3
     },
     "HDFCBANK.NS": {
-      "score": -0.0532,
-      "n": 17,
+      "score": -0.0971,
+      "n": 15,
       "sources": 9
     },
     "HEROMOTOCO.NS": {
-      "score": -0.7322,
-      "n": 2,
-      "sources": 2
+      "score": -0.4093,
+      "n": 1,
+      "sources": 1
     },
     "ICICIBANK.NS": {
-      "score": 0.6297,
-      "n": 5,
-      "sources": 5
+      "score": 0.282,
+      "n": 3,
+      "sources": 3
     },
     "INDUSINDBK.NS": {
       "score": 0.5027,
@@ -80,14 +70,14 @@
       "sources": 2
     },
     "INFY.NS": {
-      "score": 0.1681,
-      "n": 23,
-      "sources": 8
+      "score": 0.2803,
+      "n": 22,
+      "sources": 7
     },
     "ITC.NS": {
-      "score": 0.3592,
-      "n": 4,
-      "sources": 4
+      "score": 0.3656,
+      "n": 2,
+      "sources": 2
     },
     "KOTAKBANK.NS": {
       "score": -0.464,
@@ -100,9 +90,9 @@
       "sources": 2
     },
     "MARUTI.NS": {
-      "score": 0.3541,
-      "n": 10,
-      "sources": 5
+      "score": 0.4195,
+      "n": 9,
+      "sources": 4
     },
     "NESTLEIND.NS": {
       "score": 0.5942,
@@ -110,12 +100,12 @@
       "sources": 3
     },
     "NTPC.NS": {
-      "score": 0.6923,
+      "score": 0.6195,
       "n": 10,
       "sources": 7
     },
     "ONGC.NS": {
-      "score": 0.7476,
+      "score": 0.4403,
       "n": 2,
       "sources": 2
     },
@@ -125,24 +115,24 @@
       "sources": 1
     },
     "RELIANCE.NS": {
-      "score": 0.68,
-      "n": 9,
-      "sources": 8
+      "score": 0.4798,
+      "n": 5,
+      "sources": 4
     },
     "SBILIFE.NS": {
-      "score": 0.4146,
-      "n": 8,
+      "score": 0.5812,
+      "n": 6,
       "sources": 4
     },
     "SBIN.NS": {
-      "score": 0.4108,
-      "n": 22,
-      "sources": 10
+      "score": 0.5428,
+      "n": 16,
+      "sources": 8
     },
     "SHRIRAMFIN.NS": {
-      "score": 0.4503,
-      "n": 8,
-      "sources": 5
+      "score": 0.5576,
+      "n": 6,
+      "sources": 3
     },
     "SUNPHARMA.NS": {
       "score": 0.8689,
@@ -150,27 +140,17 @@
       "sources": 1
     },
     "TATACONSUM.NS": {
-      "score": 0.5125,
-      "n": 10,
+      "score": 0.573,
+      "n": 9,
       "sources": 7
     },
     "TCS.NS": {
-      "score": 0.0435,
-      "n": 4,
-      "sources": 3
-    },
-    "TECHM.NS": {
-      "score": -0.1816,
-      "n": 2,
+      "score": -0.1099,
+      "n": 3,
       "sources": 2
     },
-    "TITAN.NS": {
-      "score": -0.2296,
-      "n": 1,
-      "sources": 1
-    },
-    "ULTRACEMCO.NS": {
-      "score": 0.8481,
+    "TECHM.NS": {
+      "score": -0.9113,
       "n": 1,
       "sources": 1
     },
@@ -180,9 +160,9 @@
       "sources": 3
     },
     "WIPRO.NS": {
-      "score": 0.8367,
-      "n": 3,
-      "sources": 3
+      "score": 0.8233,
+      "n": 2,
+      "sources": 2
     },
     "ZOMATO.NS": {
       "score": -0.4807,
