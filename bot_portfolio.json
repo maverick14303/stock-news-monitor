@@ -1,5 +1,5 @@
 {
-  "cash": 4281.290460586549,
+  "cash": 3424.754436111451,
   "positions": {
     "VEDL.NS": {
       "qty": 3,
@@ -9,6 +9,15 @@
         "Business Standard Companies"
       ],
       "thesis": "Vedanta group's Hindustan Zinc Q1 net profit jumps over 2-fold to \u20b95,469 cr"
+    },
+    "COALINDIA.NS": {
+      "qty": 2,
+      "avg_cost": 428.2680122375488,
+      "opened": "2026-07-27T04:31:13.283602+00:00",
+      "sources": [
+        "CNBC TV18 Markets"
+      ],
+      "thesis": "Q1 Results This Week: BEL, HUL, L&T, Dixon among nearly 200 stocks report numbers"
     }
   },
   "trades": [
@@ -308,6 +317,15 @@
       "price": 742.8,
       "fee": 1.86,
       "reason": "negative news (-0.93) at -0.2%"
+    },
+    {
+      "time": "2026-07-27T04:31:13.283602+00:00",
+      "action": "buy",
+      "symbol": "COALINDIA.NS",
+      "qty": 2,
+      "price": 427.2,
+      "fee": 2.14,
+      "reason": "score 0.62 (CNBC TV18 Markets): Q1 Results This Week: BEL, HUL, L&T, Dixon among nearly 200 stocks report number"
     }
   ],
   "closed": [
