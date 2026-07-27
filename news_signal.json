@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T16:31:14.877938+00:00",
+  "generated_at": "2026-07-27T17:31:16.357810+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -85,8 +85,8 @@
       "sources": 2
     },
     "INFY.NS": {
-      "score": -0.1318,
-      "n": 16,
+      "score": -0.1555,
+      "n": 17,
       "sources": 7
     },
     "ITC.NS": {
