@@ -1,5 +1,5 @@
 {
-  "cash": 3424.754436111451,
+  "cash": 2652.8294361114513,
   "positions": {
     "VEDL.NS": {
       "qty": 3,
@@ -18,6 +18,15 @@
         "CNBC TV18 Markets"
       ],
       "thesis": "Q1 Results This Week: BEL, HUL, L&T, Dixon among nearly 200 stocks report numbers"
+    },
+    "KOTAKBANK.NS": {
+      "qty": 2,
+      "avg_cost": 385.9625,
+      "opened": "2026-07-27T06:31:16.616292+00:00",
+      "sources": [
+        "CNBC TV18 Markets"
+      ],
+      "thesis": "Rupee can strengthen to \u20b995/$ if oil stays below $100 and foreign inflows continue: Kotak Securities"
     }
   },
   "trades": [
@@ -326,6 +335,15 @@
       "price": 427.2,
       "fee": 2.14,
       "reason": "score 0.62 (CNBC TV18 Markets): Q1 Results This Week: BEL, HUL, L&T, Dixon among nearly 200 stocks report number"
+    },
+    {
+      "time": "2026-07-27T06:31:16.616292+00:00",
+      "action": "buy",
+      "symbol": "KOTAKBANK.NS",
+      "qty": 2,
+      "price": 385.0,
+      "fee": 1.93,
+      "reason": "score 0.62 (CNBC TV18 Markets): Rupee can strengthen to \u20b995/$ if oil stays below $100 and foreign inflows contin"
     }
   ],
   "closed": [
