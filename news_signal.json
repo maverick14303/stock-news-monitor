@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T13:31:45.961161+00:00",
+  "generated_at": "2026-07-27T14:31:14.986959+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -35,7 +35,7 @@
       "sources": 3
     },
     "CIPLA.NS": {
-      "score": -0.3398,
+      "score": -0.3399,
       "n": 9,
       "sources": 7
     },
@@ -60,8 +60,8 @@
       "sources": 4
     },
     "HDFCBANK.NS": {
-      "score": -0.2175,
-      "n": 23,
+      "score": -0.2566,
+      "n": 24,
       "sources": 14
     },
     "HEROMOTOCO.NS": {
@@ -70,12 +70,12 @@
       "sources": 1
     },
     "HINDUNILVR.NS": {
-      "score": 0.1391,
+      "score": 0.1393,
       "n": 4,
       "sources": 4
     },
     "ICICIBANK.NS": {
-      "score": 0.3258,
+      "score": 0.3257,
       "n": 6,
       "sources": 4
     },
@@ -95,8 +95,8 @@
       "sources": 2
     },
     "LT.NS": {
-      "score": 0.3453,
-      "n": 4,
+      "score": 0.4545,
+      "n": 5,
       "sources": 3
     },
     "MARUTI.NS": {
@@ -110,7 +110,7 @@
       "sources": 3
     },
     "NTPC.NS": {
-      "score": 0.5337,
+      "score": 0.5338,
       "n": 9,
       "sources": 6
     },
@@ -130,9 +130,9 @@
       "sources": 1
     },
     "RELIANCE.NS": {
-      "score": 0.0639,
-      "n": 7,
-      "sources": 6
+      "score": 0.0152,
+      "n": 8,
+      "sources": 7
     },
     "SBILIFE.NS": {
       "score": 0.4915,
@@ -180,7 +180,7 @@
       "sources": 1
     },
     "VEDL.NS": {
-      "score": 0.2989,
+      "score": 0.2986,
       "n": 5,
       "sources": 4
     },
