@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T15:31:20.595076+00:00",
+  "generated_at": "2026-07-27T16:31:14.877938+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -40,9 +40,9 @@
       "sources": 7
     },
     "COALINDIA.NS": {
-      "score": -0.1847,
-      "n": 5,
-      "sources": 5
+      "score": -0.1867,
+      "n": 6,
+      "sources": 6
     },
     "DMART.NS": {
       "score": -0.3,
@@ -60,8 +60,8 @@
       "sources": 4
     },
     "HDFCBANK.NS": {
-      "score": -0.2624,
-      "n": 25,
+      "score": -0.284,
+      "n": 26,
       "sources": 15
     },
     "HEROMOTOCO.NS": {
@@ -130,8 +130,8 @@
       "sources": 1
     },
     "RELIANCE.NS": {
-      "score": 0.0152,
-      "n": 8,
+      "score": -0.0503,
+      "n": 9,
       "sources": 7
     },
     "SBILIFE.NS": {
