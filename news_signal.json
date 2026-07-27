@@ -1,11 +1,16 @@
 {
-  "generated_at": "2026-07-27T02:31:04.176674+00:00",
+  "generated_at": "2026-07-27T03:31:14.322669+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
   "tickers": {
     "ADANIENT.NS": {
       "score": -0.4,
+      "n": 1,
+      "sources": 1
+    },
+    "APOLLOHOSP.NS": {
+      "score": 0.3,
       "n": 1,
       "sources": 1
     },
@@ -85,8 +90,8 @@
       "sources": 2
     },
     "MARUTI.NS": {
-      "score": 0.4628,
-      "n": 14,
+      "score": 0.4361,
+      "n": 15,
       "sources": 5
     },
     "NESTLEIND.NS": {
@@ -130,8 +135,8 @@
       "sources": 10
     },
     "SHRIRAMFIN.NS": {
-      "score": 0.3412,
-      "n": 9,
+      "score": 0.3494,
+      "n": 10,
       "sources": 6
     },
     "SUNPHARMA.NS": {
@@ -140,9 +145,9 @@
       "sources": 2
     },
     "TATACONSUM.NS": {
-      "score": 0.5908,
-      "n": 8,
-      "sources": 7
+      "score": 0.5518,
+      "n": 9,
+      "sources": 8
     },
     "TCS.NS": {
       "score": 0.0871,
@@ -151,6 +156,11 @@
     },
     "TECHM.NS": {
       "score": -0.4,
+      "n": 1,
+      "sources": 1
+    },
+    "TITAN.NS": {
+      "score": 0.3,
       "n": 1,
       "sources": 1
     },
