@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T11:31:11.599767+00:00",
+  "generated_at": "2026-07-27T12:31:07.196172+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -40,9 +40,9 @@
       "sources": 7
     },
     "COALINDIA.NS": {
-      "score": -0.6,
-      "n": 1,
-      "sources": 1
+      "score": -0.0608,
+      "n": 2,
+      "sources": 2
     },
     "DMART.NS": {
       "score": -0.3,
