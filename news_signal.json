@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T10:31:26.501339+00:00",
+  "generated_at": "2026-07-27T11:31:11.599767+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -50,9 +50,9 @@
       "sources": 1
     },
     "DRREDDY.NS": {
-      "score": -0.2794,
-      "n": 9,
-      "sources": 5
+      "score": -0.1522,
+      "n": 10,
+      "sources": 6
     },
     "HCLTECH.NS": {
       "score": 0.4211,
@@ -60,9 +60,9 @@
       "sources": 4
     },
     "HDFCBANK.NS": {
-      "score": -0.1935,
-      "n": 17,
-      "sources": 12
+      "score": -0.1959,
+      "n": 22,
+      "sources": 14
     },
     "HEROMOTOCO.NS": {
       "score": 0.5,
@@ -185,9 +185,9 @@
       "sources": 3
     },
     "WIPRO.NS": {
-      "score": 0.0447,
-      "n": 4,
-      "sources": 4
+      "score": 0.2334,
+      "n": 7,
+      "sources": 7
     },
     "ZOMATO.NS": {
       "score": -0.0001,
