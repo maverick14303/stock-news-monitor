@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-27T12:31:07.196172+00:00",
+  "generated_at": "2026-07-27T13:31:45.961161+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -40,9 +40,9 @@
       "sources": 7
     },
     "COALINDIA.NS": {
-      "score": -0.0608,
-      "n": 2,
-      "sources": 2
+      "score": -0.1847,
+      "n": 5,
+      "sources": 5
     },
     "DMART.NS": {
       "score": -0.3,
@@ -60,8 +60,8 @@
       "sources": 4
     },
     "HDFCBANK.NS": {
-      "score": -0.1959,
-      "n": 22,
+      "score": -0.2175,
+      "n": 23,
       "sources": 14
     },
     "HEROMOTOCO.NS": {
@@ -120,9 +120,9 @@
       "sources": 2
     },
     "PAYTM.NS": {
-      "score": -0.4,
-      "n": 1,
-      "sources": 1
+      "score": 0.13,
+      "n": 2,
+      "sources": 2
     },
     "POWERGRID.NS": {
       "score": 0.4,
@@ -180,9 +180,9 @@
       "sources": 1
     },
     "VEDL.NS": {
-      "score": 0.5841,
-      "n": 4,
-      "sources": 3
+      "score": 0.2989,
+      "n": 5,
+      "sources": 4
     },
     "WIPRO.NS": {
       "score": 0.2334,
