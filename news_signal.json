@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T01:31:10.354627+00:00",
+  "generated_at": "2026-07-28T02:31:11.403023+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -104,10 +104,15 @@
       "n": 5,
       "sources": 3
     },
+    "M&M.NS": {
+      "score": 0.4,
+      "n": 1,
+      "sources": 1
+    },
     "MARUTI.NS": {
-      "score": 0.4341,
-      "n": 15,
-      "sources": 5
+      "score": 0.4572,
+      "n": 16,
+      "sources": 6
     },
     "NESTLEIND.NS": {
       "score": 0.1786,
