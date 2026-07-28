@@ -1,5 +1,5 @@
 {
-  "cash": 2652.8294361114513,
+  "cash": 3481.7519361114514,
   "positions": {
     "VEDL.NS": {
       "qty": 3,
@@ -9,15 +9,6 @@
         "Business Standard Companies"
       ],
       "thesis": "Vedanta group's Hindustan Zinc Q1 net profit jumps over 2-fold to \u20b95,469 cr"
-    },
-    "COALINDIA.NS": {
-      "qty": 2,
-      "avg_cost": 428.2680122375488,
-      "opened": "2026-07-27T04:31:13.283602+00:00",
-      "sources": [
-        "CNBC TV18 Markets"
-      ],
-      "thesis": "Q1 Results This Week: BEL, HUL, L&T, Dixon among nearly 200 stocks report numbers"
     },
     "KOTAKBANK.NS": {
       "qty": 2,
@@ -344,6 +335,15 @@
       "price": 385.0,
       "fee": 1.93,
       "reason": "score 0.62 (CNBC TV18 Markets): Rupee can strengthen to \u20b995/$ if oil stays below $100 and foreign inflows contin"
+    },
+    {
+      "time": "2026-07-28T05:32:00.257860+00:00",
+      "action": "sell",
+      "symbol": "COALINDIA.NS",
+      "qty": 2,
+      "price": 415.5,
+      "fee": 2.08,
+      "reason": "negative news (-0.67) at -3.0%"
     }
   ],
   "closed": [
@@ -522,10 +522,21 @@
       "win": false,
       "reason": "negative news (-0.93) at -0.2%",
       "thesis": "HDFC Bank Q1 Results: Net Profit Rises 5% YoY To Rs 19,060 Crore; NII Up 6.7%"
+    },
+    {
+      "time": "2026-07-28T05:32:00.257860+00:00",
+      "symbol": "COALINDIA.NS",
+      "sector": "energy",
+      "entry": 428.27,
+      "exit": 415.5,
+      "pnl_pct": -2.98,
+      "win": false,
+      "reason": "negative news (-0.67) at -3.0%",
+      "thesis": "Q1 Results This Week: BEL, HUL, L&T, Dixon among nearly 200 stocks report numbers"
     }
   ],
   "sector_weights": {
-    "energy": 0.858,
+    "energy": 0.789,
     "banks": 0.858,
     "metals": 0.846,
     "it": 0.846,
