@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-28T15:31:10.941791+00:00",
+  "generated_at": "2026-07-28T16:31:19.096851+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -35,8 +35,8 @@
       "sources": 4
     },
     "CIPLA.NS": {
-      "score": -0.0384,
-      "n": 11,
+      "score": 0.0752,
+      "n": 12,
       "sources": 7
     },
     "COALINDIA.NS": {
@@ -90,9 +90,9 @@
       "sources": 10
     },
     "ITC.NS": {
-      "score": 0.0801,
-      "n": 2,
-      "sources": 2
+      "score": -0.4014,
+      "n": 3,
+      "sources": 3
     },
     "KOTAKBANK.NS": {
       "score": 0.3,
@@ -100,8 +100,8 @@
       "sources": 2
     },
     "LT.NS": {
-      "score": 0.4923,
-      "n": 13,
+      "score": 0.5074,
+      "n": 14,
       "sources": 5
     },
     "M&M.NS": {
@@ -140,9 +140,9 @@
       "sources": 1
     },
     "RELIANCE.NS": {
-      "score": -0.0275,
-      "n": 11,
-      "sources": 8
+      "score": 0.0241,
+      "n": 12,
+      "sources": 9
     },
     "SBILIFE.NS": {
       "score": 0.4938,
