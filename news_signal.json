@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T16:31:42.254831+00:00",
+  "generated_at": "2026-07-29T17:31:15.785625+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -65,8 +65,8 @@
       "sources": 6
     },
     "EICHERMOT.NS": {
-      "score": 0.6979,
-      "n": 5,
+      "score": 0.6982,
+      "n": 6,
       "sources": 5
     },
     "HCLTECH.NS": {
@@ -100,8 +100,8 @@
       "sources": 2
     },
     "INFY.NS": {
-      "score": 0.1492,
-      "n": 23,
+      "score": 0.0833,
+      "n": 24,
       "sources": 10
     },
     "ITC.NS": {
@@ -180,9 +180,9 @@
       "sources": 9
     },
     "TCS.NS": {
-      "score": 0.4155,
-      "n": 6,
-      "sources": 6
+      "score": 0.2035,
+      "n": 7,
+      "sources": 7
     },
     "TECHM.NS": {
       "score": 0.1293,
