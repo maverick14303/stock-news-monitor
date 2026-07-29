@@ -26,8 +26,10 @@ Every serious bug in this project so far belonged to one of four families:
 3. **Impossible fills** — acting at prices that were never available.
 4. **Silent NaN** — a float that is neither a number nor falsy, sailing past
    every guard until it dies somewhere unrelated.
+5. **Monitoring that cannot go red** — a green tick wired to a proxy instead of
+   to the thing you actually care about.
 
-When something new breaks, check these four first.
+When something new breaks, check these five first.
 
 ---
 
@@ -265,6 +267,33 @@ cancels out, so the baseline is a clean, unmoving 50%.
 
 **Rule:** pick a baseline that cannot move on its own. Always print `n` and the
 confidence interval next to any rate — a 5-point improvement on n=95 is noise.
+
+---
+
+## L10 — A green tick that could not go red
+
+**Found:** 2026-07-30. **Severity: critical — it is why L-class bugs survive for weeks.**
+
+`run_pipeline.py` ran each step with `subprocess.run`, wrote `[FAILED exit N]`
+into the digest when one crashed… and then **always exited 0**. So:
+
+- GitHub Actions showed a green tick on every run, including broken ones
+- cron-job.org showed 100% success — it only sees whether GitHub *accepted the
+  trigger*, never whether the pipeline worked
+- the only evidence was a line buried in a digest file nobody reads every hour
+
+This is the mechanism behind the July 2026 outage: a column-count bug crashed the
+scrape on **407 of 417 runs over ~3.5 weeks** while every dashboard stayed green.
+The bug was not hard to find. Nothing ever said to go looking.
+
+**Fix:** `run_pipeline.py` exits 1 when any step fails (after writing the digest,
+so the evidence survives); the workflow commits with `if: always()` and opens a
+GitHub issue on failure, which GitHub emails.
+
+**Rule:** **silence must never mean success.** Any unattended job needs a signal
+that can actually go red, and that signal must be tied to the thing you care
+about — not to a proxy one layer away. Ask of every monitor: "what exactly would
+have to break for this to stay quiet?"
 
 ---
 

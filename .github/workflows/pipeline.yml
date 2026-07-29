@@ -50,7 +50,25 @@ jobs:
             --body-file ALERT.md \
             --assignee maverick14303
           rm ALERT.md
+      # Open an issue (GitHub emails it) when any pipeline step exits non-zero.
+      # cron-job.org only knows whether GitHub ACCEPTED the trigger — it cannot
+      # see whether the pipeline worked, so this is the only real health signal.
+      - name: Report pipeline failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "🚨 Pipeline FAILED — $(date +'%Y-%m-%d %H:%M %Z')" \
+            --body "A step in run_pipeline.py exited non-zero. Digest for this run is committed; step output is under the failing heading.
+
+          Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --assignee maverick14303
+
+      # always(): a failed run must still commit its digest — that digest is the
+      # evidence needed to diagnose the failure.
       - name: Commit results back
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

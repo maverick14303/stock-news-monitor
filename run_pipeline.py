@@ -39,6 +39,7 @@ def main():
     DIGESTS.mkdir(exist_ok=True)
     now = datetime.now()
     parts = [f"# Stock digest — {now:%Y-%m-%d %H:%M}\n"]
+    failures = []
     for heading, args in STEPS:
         r = subprocess.run(
             [sys.executable, str(BASE / args[0]), *args[1:]],
@@ -48,6 +49,7 @@ def main():
         body = r.stdout.strip()
         if r.returncode != 0:
             body += f"\n[FAILED exit {r.returncode}]\n{r.stderr.strip()[-1000:]}"
+            failures.append(f"{heading} ({args[0]} exit {r.returncode})")
         parts.append(f"## {heading}\n\n```\n{body}\n```\n")
 
     digest = "\n".join(parts)
@@ -55,6 +57,18 @@ def main():
     out.write_text(digest, encoding="utf-8")
     (DIGESTS / "LATEST.md").write_text(digest, encoding="utf-8")
     print(f"Digest written to {out}")
+
+    # Exit non-zero so the runner goes RED. This used to always exit 0, which is
+    # exactly how a crashing scrape hid for ~3.5 weeks in July 2026: the failure
+    # was written into the digest, nobody reads every digest, and Actions showed
+    # a green tick on all 407 broken runs. Silence must never mean success.
+    # The digest is written BEFORE this, and the workflow commits with
+    # `if: always()`, so a red run still preserves its evidence.
+    if failures:
+        print(f"\n[PIPELINE FAILED] {len(failures)} of {len(STEPS)} steps:")
+        for f in failures:
+            print(f"  - {f}")
+        sys.exit(1)
 
 
 if __name__ == "__main__":
