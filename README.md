@@ -43,6 +43,24 @@ biggest source of garbage.
   price/fee helper `alerts.py` and `autotrader.py` import.
 - `ROADMAP_ML.md` — the plan for turning the dataset into a model. Read before
   proposing any ML work.
+- `LESSONS.md` — every real defect found, with the measurements. **Read this
+  before changing scoring, grading or trading logic.**
+
+## When the bot is allowed to trade
+
+The pipeline gathers news on all 10 runs. The **bot** only acts inside the NSE
+session, because a paper fill is only honest if a real order could have been
+filled at that price at that moment:
+
+| run | phase | what the bot does |
+|---|---|---|
+| 08:15 pre-open | `plan` | reads the overnight news, **queues** intended buys — no fills |
+| 09:30–14:30 | `trade` | re-checks the plan against fresh prices/news, then fills; exits run every pass |
+| everything else | `closed` | news gathering only, zero transactions |
+
+Buying at 08:15 would fill at *yesterday's close* using news that broke after it
+— look-ahead bias. See `LESSONS.md` L5, which includes the audit showing 88% of
+the bot's first 41 trades executed while the market was shut.
 
 ## Two accounts, not three
 

@@ -201,3 +201,22 @@ model — if after-hours news doesn't beat baseline, no classifier will save it.
   **Next:** let the LLM backlog clear, then re-read the after-hours split with
   `llm_sent`/`llm_novel` populated. That is the first honest test of whether
   there is an edge here at all.
+
+- **2026-07-30 (later) — session-aware trading + LESSONS.md.** Audited the bot's
+  execution times: **36 of its first 41 trades (88%) had run while the NSE was
+  shut**, at closing prices it could never have obtained, including 13 on Sunday
+  2026-07-26 and one at 02:04 IST from the live cloud pipeline. Every performance
+  figure before this date is structurally invalid, not merely noisy — **do not
+  train on, or compare against, pre-2026-07-30 bot P&L.**
+  Replaced with an explicit `market_phase()`: `plan` pre-open (queue orders, no
+  fills), `trade` in-session (re-validate against fresh prices and news, then
+  fill at an obtainable price), `closed` otherwise (news only). Entry decisions
+  are now once a day off the full overnight news window; exits still run every
+  session pass so a stop-loss is not delayed.
+  Note the rejected alternative: filling at 08:15 right after the pre-open sweep
+  would buy at *yesterday's close* using news that broke after it — look-ahead
+  bias that would have produced a beautiful, untradeable equity curve.
+  Created **`LESSONS.md`** — all nine defects with their measurements, organised
+  by bug family (wrong unit of analysis / contamination that flatters / impossible
+  fills / silent NaN). It is both the portability record and the negative-example
+  set for any future model (§1).
