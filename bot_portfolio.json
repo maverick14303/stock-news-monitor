@@ -1,5 +1,5 @@
 {
-  "cash": 3481.7519361114514,
+  "cash": 1871.5364085769666,
   "positions": {
     "VEDL.NS": {
       "qty": 3,
@@ -18,6 +18,24 @@
         "CNBC TV18 Markets"
       ],
       "thesis": "Rupee can strengthen to \u20b995/$ if oil stays below $100 and foreign inflows continue: Kotak Securities"
+    },
+    "NTPC.NS": {
+      "qty": 2,
+      "avg_cost": 344.4590061187744,
+      "opened": "2026-07-29T09:31:08.457068+00:00",
+      "sources": [
+        "Economic Times Industry"
+      ],
+      "thesis": "NTPC eyes Rs 17 trillion capex to nearly triple capacity by FY37"
+    },
+    "WIPRO.NS": {
+      "qty": 5,
+      "avg_cost": 184.2595030593872,
+      "opened": "2026-07-29T09:31:08.457068+00:00",
+      "sources": [
+        "LiveMint Markets"
+      ],
+      "thesis": "TCS vs Infosys vs Wipro vs HCL Tech: Which IT stock to buy after Q1 results?"
     }
   },
   "trades": [
@@ -344,6 +362,24 @@
       "price": 415.5,
       "fee": 2.08,
       "reason": "negative news (-0.67) at -3.0%"
+    },
+    {
+      "time": "2026-07-29T09:31:08.457068+00:00",
+      "action": "buy",
+      "symbol": "NTPC.NS",
+      "qty": 2,
+      "price": 343.6,
+      "fee": 1.72,
+      "reason": "score 0.98 (Economic Times Industry): NTPC eyes Rs 17 trillion capex to nearly triple capacity by FY37"
+    },
+    {
+      "time": "2026-07-29T09:31:08.457068+00:00",
+      "action": "buy",
+      "symbol": "WIPRO.NS",
+      "qty": 5,
+      "price": 183.8,
+      "fee": 2.3,
+      "reason": "score 0.75 (LiveMint Markets): TCS vs Infosys vs Wipro vs HCL Tech: Which IT stock to buy after Q1 results?"
     }
   ],
   "closed": [
