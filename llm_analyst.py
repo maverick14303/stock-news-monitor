@@ -36,6 +36,11 @@ DB = BASE / "news.db"
 # the trade. Runs dropped from 17/day to 10/day, so there is budget for this.
 BATCH = 25
 MAX_CALLS_PER_RUN = 6
+# Gemini's free tier allows roughly 10 requests/minute. Six batches fired 2s
+# apart tripped it repeatedly on 2026-07-30, quietly demoting whole batches to a
+# weaker fallback model. Spacing them keeps every batch on the best model.
+BATCH_SPACING_SEC = 7
+RATE_LIMIT_BACKOFF = 20
 GEMINI_MODELS = ("gemini-2.5-flash", "gemini-2.0-flash")
 
 PROMPT = (
@@ -90,8 +95,19 @@ def score_with_gemini(requests, key, prompt):
                       "generationConfig": {"temperature": 0}},
                 timeout=120)
             if r.status_code == 429:
-                print(f"  gemini {model}: rate limited")
-                continue
+                # Free tier is ~10 requests/minute. One backoff-and-retry costs a
+                # few seconds and saves the batch from silently falling through to
+                # a weaker provider (or being skipped entirely for this run).
+                time.sleep(RATE_LIMIT_BACKOFF)
+                r = requests.post(
+                    f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                    params={"key": key},
+                    json={"contents": [{"parts": [{"text": prompt}]}],
+                          "generationConfig": {"temperature": 0}},
+                    timeout=120)
+                if r.status_code == 429:
+                    print(f"  gemini {model}: rate limited (after retry)")
+                    continue
             if r.status_code != 200:
                 print(f"  gemini {model}: http {r.status_code}")
                 continue
@@ -207,7 +223,7 @@ def main():
                 disagreements.append((symbol, score, title))
         con.commit()
         if c + BATCH < len(pending):
-            time.sleep(2)  # be polite to the free tier
+            time.sleep(BATCH_SPACING_SEC)
 
     # Legacy article-level column: mean of the article's per-ticker scores. Kept
     # so nothing that still reads articles.llm_sent breaks; per-ticker is truth.
