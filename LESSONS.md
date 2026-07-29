@@ -17,7 +17,7 @@
 
 ## The one-line version
 
-Every serious bug in this project so far belonged to one of four families:
+Every serious bug in this project so far belonged to one of five families:
 
 1. **Wrong unit of analysis** — scoring an article when the thing you trade is a
    company.
