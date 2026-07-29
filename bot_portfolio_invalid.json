@@ -1,0 +1,633 @@
+{
+  "cash": 1061.6591341018689,
+  "positions": {
+    "KOTAKBANK.NS": {
+      "qty": 2,
+      "avg_cost": 385.9625,
+      "opened": "2026-07-27T06:31:16.616292+00:00",
+      "sources": [
+        "CNBC TV18 Markets"
+      ],
+      "thesis": "Rupee can strengthen to \u20b995/$ if oil stays below $100 and foreign inflows continue: Kotak Securities"
+    },
+    "NTPC.NS": {
+      "qty": 2,
+      "avg_cost": 344.4590061187744,
+      "opened": "2026-07-29T09:31:08.457068+00:00",
+      "sources": [
+        "Economic Times Industry"
+      ],
+      "thesis": "NTPC eyes Rs 17 trillion capex to nearly triple capacity by FY37"
+    },
+    "WIPRO.NS": {
+      "qty": 5,
+      "avg_cost": 184.2595030593872,
+      "opened": "2026-07-29T09:31:08.457068+00:00",
+      "sources": [
+        "LiveMint Markets"
+      ],
+      "thesis": "TCS vs Infosys vs Wipro vs HCL Tech: Which IT stock to buy after Q1 results?"
+    },
+    "HDFCBANK.NS": {
+      "qty": 1,
+      "avg_cost": 750.0705122375489,
+      "opened": "2026-07-29T10:31:19.623975+00:00",
+      "sources": [
+        "CNBC TV18 Markets"
+      ],
+      "thesis": "Elara Securities prefers ICICI Bank, PSU banks over HDFC Bank for growth and valuations"
+    },
+    "DABUR.NS": {
+      "qty": 2,
+      "avg_cost": 425.6615061187744,
+      "opened": "2026-07-29T20:34:27.621241+00:00",
+      "sources": [
+        "BusinessLine Companies"
+      ],
+      "thesis": "Dabur India is actively scouting for acquisition targets : Global CEO"
+    }
+  },
+  "trades": [
+    {
+      "time": "2026-07-02T10:48:05.365935+00:00",
+      "action": "buy",
+      "symbol": "TMPV.NS",
+      "qty": 2,
+      "price": 345.95,
+      "fee": 1.73,
+      "reason": "score 1.36 (Economic Times Industry): Domestic car sales surge in June on tax cuts, lower interest rates &amp; strong "
+    },
+    {
+      "time": "2026-07-02T10:48:05.365935+00:00",
+      "action": "buy",
+      "symbol": "BPCL.NS",
+      "qty": 3,
+      "price": 310.45,
+      "fee": 2.33,
+      "reason": "score 1.36 (Economic Times Industry): BPCL agrees to buy Videocon Energy\u2019s stake in BPRL Ventures JV"
+    },
+    {
+      "time": "2026-07-02T10:48:05.365935+00:00",
+      "action": "buy",
+      "symbol": "COALINDIA.NS",
+      "qty": 2,
+      "price": 438.9,
+      "fee": 2.19,
+      "reason": "score 1.32 (Economic Times Industry): Coal India's SECL strengthens monsoon measures for uninterrupted supply"
+    },
+    {
+      "time": "2026-07-02T10:48:05.365935+00:00",
+      "action": "buy",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 795.9,
+      "fee": 1.99,
+      "reason": "score 0.97 (News18 Business): Stocks In Focus Today: HDFC Bank, Yes Bank, Biocon, Tech Mahindra, BPCL, Bajaj A"
+    },
+    {
+      "time": "2026-07-02T10:48:05.365935+00:00",
+      "action": "buy",
+      "symbol": "KOTAKBANK.NS",
+      "qty": 2,
+      "price": 399.3,
+      "fee": 2.0,
+      "reason": "score 0.95 (News18 Business): Kotak Mahindra Bank To Acquire Deutsche Bank's India Retail, Wealth Management B"
+    },
+    {
+      "time": "2026-07-02T10:48:05.365935+00:00",
+      "action": "buy",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 276.1,
+      "fee": 2.07,
+      "reason": "score 0.92 (Economic Times Stocks): Vedanta Iron and Steel shares rocket 113% in 13 sessions since listing; market v"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "sell",
+      "symbol": "COALINDIA.NS",
+      "qty": 2,
+      "price": 438.9,
+      "fee": 2.19,
+      "reason": "negative news (-0.61) at -0.2%"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "sell",
+      "symbol": "KOTAKBANK.NS",
+      "qty": 2,
+      "price": 399.3,
+      "fee": 2.0,
+      "reason": "negative news (-0.86) at -0.2%"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "sell",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 276.1,
+      "fee": 2.07,
+      "reason": "negative news (-0.55) at -0.2%"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "buy",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 235.96,
+      "fee": 2.36,
+      "reason": "score 1.06 (News18 Business): Stocks To Watch Today, June 22: Tata Motors, RIL, RVNL, Sun Pharma, Nestle India"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "buy",
+      "symbol": "INDUSINDBK.NS",
+      "qty": 1,
+      "price": 943.5,
+      "fee": 2.36,
+      "reason": "score 0.73 (Economic Times Markets): IndusInd Bank Share Price Live Updates: IndusInd Bank's impressive growth over t"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "action": "buy",
+      "symbol": "WIPRO.NS",
+      "qty": 3,
+      "price": 174.0,
+      "fee": 1.3,
+      "reason": "score 0.70 (LiveMint Markets): Wipro share price climbs 1% following a 17% drop in ADRs overnight amid growing "
+    },
+    {
+      "time": "2026-07-02T11:01:04.742233+00:00",
+      "action": "sell",
+      "symbol": "WIPRO.NS",
+      "qty": 3,
+      "price": 174.0,
+      "fee": 1.3,
+      "reason": "negative news (-0.97) at -0.2%"
+    },
+    {
+      "time": "2026-07-02T11:01:04.742233+00:00",
+      "action": "buy",
+      "symbol": "TATASTEEL.NS",
+      "qty": 3,
+      "price": 187.67,
+      "fee": 1.41,
+      "reason": "score 0.63 (Moneycontrol Top News): Steel stocks rally as govt extends MIP on 66 steel products"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "TMPV.NS",
+      "qty": 2,
+      "price": 335.6,
+      "fee": 1.68,
+      "reason": "time stop after 15d (-3.2%)"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "BPCL.NS",
+      "qty": 3,
+      "price": 315.55,
+      "fee": 2.37,
+      "reason": "time stop after 15d (+1.4%)"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 819.6,
+      "fee": 2.05,
+      "reason": "time stop after 15d (+2.7%)"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 247.29,
+      "fee": 2.47,
+      "reason": "time stop after 15d (+4.5%)"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "INDUSINDBK.NS",
+      "qty": 1,
+      "price": 1027.2,
+      "fee": 2.57,
+      "reason": "time stop after 15d (+8.6%)"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "action": "sell",
+      "symbol": "TATASTEEL.NS",
+      "qty": 3,
+      "price": 185.89,
+      "fee": 1.39,
+      "reason": "time stop after 15d (-1.2%)"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "SBIN.NS",
+      "qty": 1,
+      "price": 1015.0,
+      "fee": 2.54,
+      "reason": "score 1.40 (Economic Times Stocks): SBI Life Q1 results: Profit rises 22% YoY to Rs 720 crore  on strong premium gro"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "SHRIRAMFIN.NS",
+      "qty": 1,
+      "price": 1005.1,
+      "fee": 2.51,
+      "reason": "score 1.38 (Business Standard Companies): Shriram Finance's Q1 FY27 profit jumps 60% on strong NII, AUM growth"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 248.76,
+      "fee": 2.49,
+      "reason": "score 1.33 (Economic Times Industry): ONGC starts drilling first deepwater well in Mahanadi basin under Samudra Mantha"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "NTPC.NS",
+      "qty": 2,
+      "price": 347.2,
+      "fee": 1.74,
+      "reason": "score 1.32 (Business Standard Companies): NTPC Q1 FY27 results: Net profit rises nearly 13% to \u20b96,897 crore"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 264.65,
+      "fee": 1.98,
+      "reason": "score 1.14 (Business Standard Companies): Vedanta group's Hindustan Zinc Q1 net profit jumps over 2-fold to \u20b95,469 cr"
+    },
+    {
+      "time": "2026-07-26T07:30:57.252321+00:00",
+      "action": "buy",
+      "symbol": "WIPRO.NS",
+      "qty": 3,
+      "price": 177.12,
+      "fee": 1.33,
+      "reason": "score 1.01 (Economic Times Markets): Bonus issues &amp; dividends: Wipro, UltraTech Cement among more than 110 stocks"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "sell",
+      "symbol": "SBIN.NS",
+      "qty": 1,
+      "price": 1015.0,
+      "fee": 2.54,
+      "reason": "negative news (-0.74) at -0.2%"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "sell",
+      "symbol": "SHRIRAMFIN.NS",
+      "qty": 1,
+      "price": 1005.1,
+      "fee": 2.51,
+      "reason": "negative news (-0.67) at -0.2%"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "sell",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 248.76,
+      "fee": 2.49,
+      "reason": "negative news (-0.74) at -0.2%"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "sell",
+      "symbol": "NTPC.NS",
+      "qty": 2,
+      "price": 347.2,
+      "fee": 1.74,
+      "reason": "negative news (-0.74) at -0.2%"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "sell",
+      "symbol": "WIPRO.NS",
+      "qty": 3,
+      "price": 177.12,
+      "fee": 1.33,
+      "reason": "negative news (-0.91) at -0.2%"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "action": "buy",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 742.8,
+      "fee": 1.86,
+      "reason": "score 0.99 (News18 Business): HDFC Bank Q1 Results: Net Profit Rises 5% YoY To Rs 19,060 Crore; NII Up 6.7%"
+    },
+    {
+      "time": "2026-07-26T09:31:30.430485+00:00",
+      "action": "sell",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 742.8,
+      "fee": 1.86,
+      "reason": "negative news (-0.93) at -0.2%"
+    },
+    {
+      "time": "2026-07-27T04:31:13.283602+00:00",
+      "action": "buy",
+      "symbol": "COALINDIA.NS",
+      "qty": 2,
+      "price": 427.2,
+      "fee": 2.14,
+      "reason": "score 0.62 (CNBC TV18 Markets): Q1 Results This Week: BEL, HUL, L&T, Dixon among nearly 200 stocks report number"
+    },
+    {
+      "time": "2026-07-27T06:31:16.616292+00:00",
+      "action": "buy",
+      "symbol": "KOTAKBANK.NS",
+      "qty": 2,
+      "price": 385.0,
+      "fee": 1.93,
+      "reason": "score 0.62 (CNBC TV18 Markets): Rupee can strengthen to \u20b995/$ if oil stays below $100 and foreign inflows contin"
+    },
+    {
+      "time": "2026-07-28T05:32:00.257860+00:00",
+      "action": "sell",
+      "symbol": "COALINDIA.NS",
+      "qty": 2,
+      "price": 415.5,
+      "fee": 2.08,
+      "reason": "negative news (-0.67) at -3.0%"
+    },
+    {
+      "time": "2026-07-29T09:31:08.457068+00:00",
+      "action": "buy",
+      "symbol": "NTPC.NS",
+      "qty": 2,
+      "price": 343.6,
+      "fee": 1.72,
+      "reason": "score 0.98 (Economic Times Industry): NTPC eyes Rs 17 trillion capex to nearly triple capacity by FY37"
+    },
+    {
+      "time": "2026-07-29T09:31:08.457068+00:00",
+      "action": "buy",
+      "symbol": "WIPRO.NS",
+      "qty": 5,
+      "price": 183.8,
+      "fee": 2.3,
+      "reason": "score 0.75 (LiveMint Markets): TCS vs Infosys vs Wipro vs HCL Tech: Which IT stock to buy after Q1 results?"
+    },
+    {
+      "time": "2026-07-29T10:31:19.623975+00:00",
+      "action": "buy",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 748.2,
+      "fee": 1.87,
+      "reason": "score 0.64 (CNBC TV18 Markets): Elara Securities prefers ICICI Bank, PSU banks over HDFC Bank for growth and val"
+    },
+    {
+      "time": "2026-07-29T13:31:29.578939+00:00",
+      "action": "sell",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 264.5,
+      "fee": 1.98,
+      "reason": "negative news (-0.54) at -0.3%"
+    },
+    {
+      "time": "2026-07-29T20:34:27.621241+00:00",
+      "action": "buy",
+      "symbol": "DABUR.NS",
+      "qty": 2,
+      "price": 424.6,
+      "fee": 2.12,
+      "reason": "score 0.65 (BusinessLine Companies): Dabur India is actively scouting for acquisition targets : Global CEO"
+    }
+  ],
+  "closed": [
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "symbol": "COALINDIA.NS",
+      "sector": "energy",
+      "entry": 440.0,
+      "exit": 438.9,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.61) at -0.2%",
+      "thesis": "Coal India's SECL strengthens monsoon measures for uninterrupted supply"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "symbol": "KOTAKBANK.NS",
+      "sector": "banks",
+      "entry": 400.3,
+      "exit": 399.3,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.86) at -0.2%",
+      "thesis": "Kotak Mahindra Bank To Acquire Deutsche Bank's India Retail, Wealth Management Business"
+    },
+    {
+      "time": "2026-07-02T10:59:21.603491+00:00",
+      "symbol": "VEDL.NS",
+      "sector": "metals",
+      "entry": 276.79,
+      "exit": 276.1,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.55) at -0.2%",
+      "thesis": "Vedanta Iron and Steel shares rocket 113% in 13 sessions since listing; market value more than doubl"
+    },
+    {
+      "time": "2026-07-02T11:01:04.742233+00:00",
+      "symbol": "WIPRO.NS",
+      "sector": "it",
+      "entry": 174.43,
+      "exit": 174.0,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.97) at -0.2%",
+      "thesis": "Wipro share price climbs 1% following a 17% drop in ADRs overnight amid growing AI concerns. Do you "
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "TMPV.NS",
+      "sector": "auto",
+      "entry": 346.81,
+      "exit": 335.6,
+      "pnl_pct": -3.23,
+      "win": false,
+      "reason": "time stop after 15d (-3.2%)",
+      "thesis": "Domestic car sales surge in June on tax cuts, lower interest rates &amp; strong demand"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "BPCL.NS",
+      "sector": "energy",
+      "entry": 311.23,
+      "exit": 315.55,
+      "pnl_pct": 1.39,
+      "win": true,
+      "reason": "time stop after 15d (+1.4%)",
+      "thesis": "BPCL agrees to buy Videocon Energy\u2019s stake in BPRL Ventures JV"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "HDFCBANK.NS",
+      "sector": "banks",
+      "entry": 797.89,
+      "exit": 819.6,
+      "pnl_pct": 2.72,
+      "win": true,
+      "reason": "time stop after 15d (+2.7%)",
+      "thesis": "Stocks In Focus Today: HDFC Bank, Yes Bank, Biocon, Tech Mahindra, BPCL, Bajaj Auto, Axis Bank"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "ONGC.NS",
+      "sector": "energy",
+      "entry": 236.55,
+      "exit": 247.29,
+      "pnl_pct": 4.54,
+      "win": true,
+      "reason": "time stop after 15d (+4.5%)",
+      "thesis": "Stocks To Watch Today, June 22: Tata Motors, RIL, RVNL, Sun Pharma, Nestle India In Focus"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "INDUSINDBK.NS",
+      "sector": "banks",
+      "entry": 945.86,
+      "exit": 1027.2,
+      "pnl_pct": 8.6,
+      "win": true,
+      "reason": "time stop after 15d (+8.6%)",
+      "thesis": "IndusInd Bank Share Price Live Updates: IndusInd Bank's impressive growth over three months"
+    },
+    {
+      "time": "2026-07-17T11:30:57.919532+00:00",
+      "symbol": "TATASTEEL.NS",
+      "sector": "metals",
+      "entry": 188.14,
+      "exit": 185.89,
+      "pnl_pct": -1.2,
+      "win": false,
+      "reason": "time stop after 15d (-1.2%)",
+      "thesis": "Steel stocks rally as govt extends MIP on 66 steel products"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "symbol": "SBIN.NS",
+      "sector": "banks",
+      "entry": 1017.54,
+      "exit": 1015.0,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.74) at -0.2%",
+      "thesis": "SBI Life Q1 results: Profit rises 22% YoY to Rs 720 crore  on strong premium growth"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "symbol": "SHRIRAMFIN.NS",
+      "sector": "financials",
+      "entry": 1007.61,
+      "exit": 1005.1,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.67) at -0.2%",
+      "thesis": "Shriram Finance's Q1 FY27 profit jumps 60% on strong NII, AUM growth"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "symbol": "ONGC.NS",
+      "sector": "energy",
+      "entry": 249.38,
+      "exit": 248.76,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.74) at -0.2%",
+      "thesis": "ONGC starts drilling first deepwater well in Mahanadi basin under Samudra Manthan mission"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "symbol": "NTPC.NS",
+      "sector": "energy",
+      "entry": 348.07,
+      "exit": 347.2,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.74) at -0.2%",
+      "thesis": "NTPC Q1 FY27 results: Net profit rises nearly 13% to \u20b96,897 crore"
+    },
+    {
+      "time": "2026-07-26T08:31:11.987570+00:00",
+      "symbol": "WIPRO.NS",
+      "sector": "it",
+      "entry": 177.56,
+      "exit": 177.12,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.91) at -0.2%",
+      "thesis": "Bonus issues &amp; dividends: Wipro, UltraTech Cement among more than 110 stocks turning ex-date thi"
+    },
+    {
+      "time": "2026-07-26T09:31:30.430485+00:00",
+      "symbol": "HDFCBANK.NS",
+      "sector": "banks",
+      "entry": 744.66,
+      "exit": 742.8,
+      "pnl_pct": -0.25,
+      "win": false,
+      "reason": "negative news (-0.93) at -0.2%",
+      "thesis": "HDFC Bank Q1 Results: Net Profit Rises 5% YoY To Rs 19,060 Crore; NII Up 6.7%"
+    },
+    {
+      "time": "2026-07-28T05:32:00.257860+00:00",
+      "symbol": "COALINDIA.NS",
+      "sector": "energy",
+      "entry": 428.27,
+      "exit": 415.5,
+      "pnl_pct": -2.98,
+      "win": false,
+      "reason": "negative news (-0.67) at -3.0%",
+      "thesis": "Q1 Results This Week: BEL, HUL, L&T, Dixon among nearly 200 stocks report numbers"
+    },
+    {
+      "time": "2026-07-29T13:31:29.578939+00:00",
+      "symbol": "VEDL.NS",
+      "sector": "metals",
+      "entry": 265.31,
+      "exit": 264.5,
+      "pnl_pct": -0.31,
+      "win": false,
+      "reason": "negative news (-0.54) at -0.3%",
+      "thesis": "Vedanta group's Hindustan Zinc Q1 net profit jumps over 2-fold to \u20b95,469 cr"
+    }
+  ],
+  "sector_weights": {
+    "energy": 0.789,
+    "banks": 0.858,
+    "metals": 0.778,
+    "it": 0.846,
+    "auto": 0.92,
+    "financials": 0.92
+  },
+  "_archived": {
+    "archived_at": "2026-07-29T20:56:19.415245+00:00",
+    "reason": "Invalid track record: 36 of 41 trades executed while the NSE was shut, at closing prices the bot could never have obtained (13 on Sunday 2026-07-26). See LESSONS.md L5."
+  }
+}

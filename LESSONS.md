@@ -165,6 +165,19 @@ and `closed` (news gathering only). Orders are only valid for their own open.
 that price at that moment. Ask "could I actually have got this fill?" before
 trusting any backtest or paper number.
 
+**Track record reset, 2026-07-30.** The ledger was archived verbatim to
+`bot_portfolio_invalid.json` and restarted at a clean Rs 5,000. Measurement
+begins at the next session open; every fill from here is inside session hours at
+an obtainable price. Note what did and did not survive:
+- **sector weights: reset** — they were learned from the invalid closed trades.
+- **source trust: kept** — it comes from the `graded` table, which grades news
+  against real stock moves and never touched the bot's fills. It was never
+  contaminated.
+
+That split is worth remembering: when invalidating results, trace which learned
+parameters actually depended on the broken path. Resetting everything would have
+thrown away four weeks of legitimate source grading.
+
 ---
 
 ## L6 — Syndication counted as independent confirmation
@@ -275,5 +288,7 @@ Preserved deliberately; do not undo these in a cleanup pass.
 
 ## Progress log
 
-- **2026-07-30** — L1–L9 recorded. All fixed and deployed in the same session;
+- **2026-07-30** — L1–L9 recorded. All fixed and deployed in the same session.
+  Bot ledger reset to a clean Rs 5,000 (old ledger archived, not deleted);
+  performance measurement starts from the next NSE open.
   L5's fix (session-aware trading) resets the bot's track record from this date.
