@@ -1,5 +1,5 @@
 {
-  "cash": 1912.9821463394178,
+  "cash": 1061.6591341018689,
   "positions": {
     "KOTAKBANK.NS": {
       "qty": 2,
@@ -36,6 +36,15 @@
         "CNBC TV18 Markets"
       ],
       "thesis": "Elara Securities prefers ICICI Bank, PSU banks over HDFC Bank for growth and valuations"
+    },
+    "DABUR.NS": {
+      "qty": 2,
+      "avg_cost": 425.6615061187744,
+      "opened": "2026-07-29T20:34:27.621241+00:00",
+      "sources": [
+        "BusinessLine Companies"
+      ],
+      "thesis": "Dabur India is actively scouting for acquisition targets : Global CEO"
     }
   },
   "trades": [
@@ -398,6 +407,15 @@
       "price": 264.5,
       "fee": 1.98,
       "reason": "negative news (-0.54) at -0.3%"
+    },
+    {
+      "time": "2026-07-29T20:34:27.621241+00:00",
+      "action": "buy",
+      "symbol": "DABUR.NS",
+      "qty": 2,
+      "price": 424.6,
+      "fee": 2.12,
+      "reason": "score 0.65 (BusinessLine Companies): Dabur India is actively scouting for acquisition targets : Global CEO"
     }
   ],
   "closed": [
