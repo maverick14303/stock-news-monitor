@@ -22,7 +22,8 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from alerts import MARKET_WRAP, distinct_stories, load_sectors
+from alerts import load_sectors
+from newslib import distinct_stories
 from paper_portfolio import FEES_PCT, live_price
 
 BASE = Path(__file__).parent
@@ -99,8 +100,11 @@ def main():
         pct = (price / pos["avg_cost"] - 1) * 100
         held_days = (now - datetime.fromisoformat(pos["opened"])).days
         worst = con.execute(
-            "SELECT MIN(sentiment) FROM articles WHERE (',' || tickers || ',') LIKE ? "
-            "AND fetched_at >= ?", (f"%,{sym},%", news_since)).fetchone()[0]
+            "SELECT MIN(COALESCE(t.llm_sent, a.sentiment)) "
+            "FROM article_tickers t JOIN articles a ON a.link = t.link "
+            "WHERE t.symbol = ? AND t.in_title = 1 "
+            "AND COALESCE(a.noise, 0) = 0 AND a.fetched_at >= ?",
+            (sym, news_since)).fetchone()[0]
         if pct <= STOP_PCT:
             close_position(p, sym, price, f"stop-loss at {pct:+.1f}%", sectors, now_iso)
         elif pct >= TARGET_PCT:
@@ -113,24 +117,29 @@ def main():
                            sectors, now_iso)
 
     # --- candidate scan ---
+    # Per-(headline, company) rows, not article-level sentiment. The old query
+    # stamped one score on every company an article named, so "Elara Securities
+    # prefers ICICI Bank over HDFC Bank" was a BUY signal for HDFC Bank. Noise
+    # rows (tracker pages, listicles, index wraps) and body-only mentions are
+    # excluded — both measured as anti-predictive on 2026-07-30.
     arts = con.execute(
-        "SELECT source, title, sentiment, tickers FROM articles "
-        "WHERE tickers != '' AND sentiment >= ? AND fetched_at >= ?",
+        "SELECT a.source, a.title, COALESCE(t.llm_sent, a.sentiment) AS sent, "
+        "       t.symbol "
+        "FROM article_tickers t JOIN articles a ON a.link = t.link "
+        "WHERE t.in_title = 1 AND COALESCE(a.noise, 0) = 0 "
+        "  AND COALESCE(t.llm_sent, a.sentiment) >= ? AND a.fetched_at >= ?",
         (MIN_SENT, news_since)).fetchall()
     cand = {}
     cooldown = (now - timedelta(days=REBUY_COOLDOWN_DAYS)).isoformat()
-    for source, title, sent, tickers in arts:
-        if MARKET_WRAP.search(title):
+    for source, title, sent, sym in arts:
+        if sym in p["positions"]:
             continue
-        for sym in tickers.split(","):
-            if sym in p["positions"]:
-                continue
-            if any(t["symbol"] == sym and t["time"] >= cooldown for t in p["trades"]):
-                continue
-            score = sent * sw.get(source, 1.0) * p["sector_weights"].get(
-                sectors.get(sym, ""), 1.0)
-            if score >= BUY_SCORE and (sym not in cand or score > cand[sym][0]):
-                cand[sym] = (score, title, source)
+        if any(t["symbol"] == sym and t["time"] >= cooldown for t in p["trades"]):
+            continue
+        score = sent * sw.get(source, 1.0) * p["sector_weights"].get(
+            sectors.get(sym, ""), 1.0)
+        if score >= BUY_SCORE and (sym not in cand or score > cand[sym][0]):
+            cand[sym] = (score, title, source)
 
     # --- buys, best score first ---
     day_ago = (now - timedelta(hours=24)).isoformat()
@@ -140,15 +149,22 @@ def main():
         sec = sectors.get(sym, "")
         if sum(1 for s in p["positions"] if sectors.get(s, "") == sec) >= SECTOR_MAX:
             continue
+        # Confirmation must come from real news: counting tracker pages and
+        # listicle previews as "independent coverage" is how a wire reprint
+        # passed as two outlets agreeing.
         cov = con.execute(
-            "SELECT source, title FROM articles WHERE (',' || tickers || ',') LIKE ? "
-            "AND fetched_at >= ? AND ABS(sentiment) >= 0.25",
-            (f"%,{sym},%", day_ago)).fetchall()
+            "SELECT a.source, a.title FROM article_tickers t "
+            "JOIN articles a ON a.link = t.link "
+            "WHERE t.symbol = ? AND t.in_title = 1 AND COALESCE(a.noise, 0) = 0 "
+            "AND a.fetched_at >= ? AND ABS(COALESCE(t.llm_sent, a.sentiment)) >= 0.25",
+            (sym, day_ago)).fetchall()
         if len({s for s, _ in cov}) < 2 or distinct_stories([t for _, t in cov]) < 2:
             continue
         try:
             import yfinance as yf
-            closes = yf.Ticker(sym).history(period="2d")["Close"]
+            closes = yf.Ticker(sym).history(period="2d")["Close"].dropna()
+            if not len(closes):
+                continue
             price = float(closes.iloc[-1])
             move = (price / float(closes.iloc[-2]) - 1) * 100 if len(closes) >= 2 else 0.0
         except Exception:

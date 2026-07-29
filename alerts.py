@@ -1,14 +1,17 @@
-"""Scan recent articles and portfolio state; write a structured ALERT.md.
+"""Scan recent articles and bot portfolio state; write a structured ALERT.md.
 
-Sections: live P&L vs the NIFTY shadow, exit checks on holdings (twice a day),
-news on held stocks with verdicts, pre-checked buy ideas (✅ ones are logged to
-the verdicts table so scoreboard.py can grade them later), macro events mapped
-to exposed holdings, and a Sunday-evening weekly report with feed health.
-The cloud workflow turns ALERT.md into a GitHub issue (emailed by GitHub);
-the first line becomes the subject.
+Two accounts are tracked, both starting at Rs 5,000 on 2026-07-02:
+the BOT (autotrader.py, trades itself) and the NIFTY 50 shadow. The old
+"you + Claude" manual account was retired 2026-07-30 — it required research
+Ankit had no time to do, so its P&L measured nothing.
+
+Sections: bot P&L vs the NIFTY shadow, news on stocks the bot holds, pre-checked
+buy ideas (✅ ones are logged to the verdicts table so scoreboard.py can grade
+them later), macro events mapped to exposed holdings, and a Sunday-evening weekly
+report with feed health. The cloud workflow turns ALERT.md into a GitHub issue
+(emailed by GitHub); the first line becomes the subject.
 """
 import csv
-import difflib
 import json
 import re
 import sqlite3
@@ -17,6 +20,8 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+from newslib import distinct_stories
 
 BASE = Path(__file__).parent
 OUT = BASE / "ALERT.md"
@@ -29,11 +34,11 @@ MAX_MACRO = 4
 PRICED_IN_MOVE = 2.5    # % move that means the news is likely already in the price
 MIN_OUTLETS = 2
 MAX_CHECKED = 8         # bound on price lookups per email
-STOP_LOSS_PCT = -7.0
-TAKE_PROFIT_PCT = 15.0
-STALE_DAYS = 30
-EXIT_CHECK_HOURS = (9, 16)      # IST run hours that evaluate exit rules
 WEEKLY_DAY, WEEKLY_HOUR = 6, 18  # Sunday 6 PM IST
+# The index shadow both accounts are measured against. Lived in portfolio.json
+# until that manual account was retired; it is a fixed anchor, not state.
+BENCHMARK = {"symbol": "^NSEI", "start_level": 24175.7,
+             "start_capital": 5000.0, "start_date": "2026-07-02"}
 FEED_SILENT_HOURS = 48
 
 MACRO_EVENT = re.compile(
@@ -82,11 +87,6 @@ MACRO_ADVICE = (
     "👉 **What to do:** Don't buy or sell from a macro headline alone — it moves whole "
     "sectors, slowly. If one of your holdings is tagged above, watch that position more "
     "closely today. If nothing is tagged, this is background noise for your book.")
-EXIT_ADVICE = (
-    "👉 **What to do:** An exit flag is a review, not an order. Stop-loss: did the "
-    "thesis break, or did the market just dip? If the thesis broke, sell. Take-profit: "
-    "consider selling half to lock the gain. Stale: if you can't say why you still own "
-    "it, you don't own it — it owns you.")
 
 
 def dot(x):
@@ -111,7 +111,8 @@ def get_prices(symbols):
 
 def book_lines(held, cash, bench, prices):
     from paper_portfolio import STARTING_CASH
-    out = ["", "| stock | qty | avg cost | now | P&L |", "|---|---:|---:|---:|---|"]
+    out = ["", "## 🤖 The bot's book", "",
+           "| stock | qty | avg cost | now | P&L |", "|---|---:|---:|---:|---|"]
     total = cash
     for t, pos in held.items():
         price = prices.get(t) or pos["avg_cost"]
@@ -137,16 +138,18 @@ def bot_recent_trades():
     return [t for t in b["trades"] if t["time"] >= cutoff], b
 
 
-def bot_lines(bot, recent, a_total, shadow):
+def bot_lines(bot, recent, bot_total, shadow):
+    """Scoreboard vs the index, this window's trades, and the closed-trade record.
+
+    `bot_total` comes from book_lines, which already priced this exact book —
+    the two used to be separate accounts, so this recomputed it (and re-fetched
+    every price) needlessly.
+    """
     if bot is None:
         return []
-    prices = get_prices(set(bot["positions"]))
-    b_total = bot["cash"] + sum((prices.get(s) or pos["avg_cost"]) * pos["qty"]
-                                for s, pos in bot["positions"].items())
-    out = ["", "## 🤖 Account B — the bot (trades itself)", "",
+    out = ["", "## 📊 Bot vs index", "",
            "| account | value | since start |", "|---|---:|---:|"]
-    out.append(f"| A — you + Claude | Rs {a_total:,.2f} | {100 * (a_total - 5000) / 5000:+.2f}% |")
-    out.append(f"| B — bot | Rs {b_total:,.2f} | {100 * (b_total - 5000) / 5000:+.2f}% |")
+    out.append(f"| 🤖 bot | Rs {bot_total:,.2f} | {100 * (bot_total - 5000) / 5000:+.2f}% |")
     if shadow:
         out.append(f"| NIFTY 50 index | Rs {shadow:,.2f} | {100 * (shadow - 5000) / 5000:+.2f}% |")
     if recent:
@@ -154,9 +157,6 @@ def bot_lines(bot, recent, a_total, shadow):
         for t in recent:
             out.append(f"- {t['action'].upper()} {t['qty']} x {t['symbol']} @ "
                        f"Rs {t['price']:.2f} — {t.get('reason', '')}")
-    if bot["positions"]:
-        holds = ", ".join(f"{s} x{pos['qty']}" for s, pos in bot["positions"].items())
-        out.append(f"\nBot holds: {holds} + Rs {bot['cash']:,.2f} cash")
     closed = bot.get("closed", [])
     if closed:
         wins = sum(1 for c in closed if c["win"])
@@ -165,43 +165,6 @@ def bot_lines(bot, recent, a_total, shadow):
     return out
 
 
-def exit_lines(held, trades, prices, now):
-    if now.hour not in EXIT_CHECK_HOURS:
-        return []
-    first_buy = {}
-    for tr in trades:
-        if tr.get("action") == "buy":
-            first_buy.setdefault(tr["symbol"], tr["time"])
-    flags = []
-    for t, pos in held.items():
-        price = prices.get(t)
-        if not price:
-            continue
-        pct = (price / pos["avg_cost"] - 1) * 100
-        age = 0
-        if t in first_buy:
-            age = (now - datetime.fromisoformat(first_buy[t]).replace(tzinfo=None)).days
-        if pct <= STOP_LOSS_PCT:
-            flags.append(f"- 🔴 **{t}** is {pct:+.1f}% vs your cost — **STOP-LOSS REVIEW**")
-        elif pct >= TAKE_PROFIT_PCT:
-            flags.append(f"- 🟢 **{t}** is {pct:+.1f}% vs your cost — **TAKE-PROFIT REVIEW**")
-        elif age >= STALE_DAYS:
-            flags.append(f"- ⚪ **{t}** held {age} days with {pct:+.1f}% — **STALE, re-justify or exit**")
-    if flags:
-        return ["", "## 🚪 Exit checks on your holdings", ""] + flags + ["", EXIT_ADVICE]
-    return []
-
-
-def distinct_stories(titles):
-    """Cluster near-identical headlines so syndicated wire copy counts once."""
-    clusters = []
-    for t in (re.sub(r"\W+", " ", x.lower()).strip() for x in titles):
-        for c in clusters:
-            if difflib.SequenceMatcher(None, t, c).ratio() > 0.85:
-                break
-        else:
-            clusters.append(t)
-    return len(clusters)
 
 
 def opportunity_checks(opps, cash, con, now):
@@ -228,9 +191,13 @@ def opportunity_checks(opps, cash, con, now):
             outlets = len({s for s, _ in cov})
             stories = distinct_stories([ttl for _, ttl in cov])
             try:
-                closes = yf.Ticker(t).history(period="2d")["Close"]
-                price = float(closes.iloc[-1])
-                move = (price / float(closes.iloc[-2]) - 1) * 100 if len(closes) >= 2 else None
+                # dropna: mid-session yfinance emits placeholder rows with NaN
+                # closes. NaN is truthy, so it sails past `if price` below and
+                # only dies at int() — guard it here where the data enters.
+                closes = yf.Ticker(t).history(period="2d")["Close"].dropna()
+                price = float(closes.iloc[-1]) if len(closes) else None
+                move = ((price / float(closes.iloc[-2]) - 1) * 100
+                        if price is not None and len(closes) >= 2 else None)
             except Exception:
                 price, move = None, None
 
@@ -283,10 +250,10 @@ def weekly_lines(con, now):
 
 
 def main():
-    portfolio = json.loads((BASE / "portfolio.json").read_text())
+    # The bot's book IS the portfolio now — the manual account was retired.
+    portfolio = json.loads((BASE / "bot_portfolio.json").read_text())
     held, cash = portfolio["positions"], portfolio["cash"]
-    bench = portfolio.get("benchmark")
-    trades = portfolio.get("trades", [])
+    bench = BENCHMARK
     sectors = load_sectors()
     now_local = datetime.now()
 
@@ -325,14 +292,12 @@ def main():
     if bench:
         price_symbols.add(bench["symbol"])
     prices = get_prices(price_symbols) if (holding_items or opportunities or macros
-                                           or now_local.hour in EXIT_CHECK_HOURS
                                            or (now_local.weekday() == WEEKLY_DAY
                                                and now_local.hour == WEEKLY_HOUR)) else {}
-    exit_sec = exit_lines(held, trades, prices, now_local)
     weekly_sec = weekly_lines(con, now_local)
     bot_trades, bot = bot_recent_trades()
 
-    if not (holding_items or opportunities or macros or exit_sec or weekly_sec
+    if not (holding_items or opportunities or macros or weekly_sec
             or bot_trades):
         OUT.unlink(missing_ok=True)
         con.close()
@@ -353,8 +318,6 @@ def main():
         bits.append(f"{len(by_ticker) - n_review} holding(s) with good news")
     if opportunities:
         bits.append(f"{len(opportunities)} buy idea(s)")
-    if exit_sec:
-        bits.append("exit checks")
     if bot_trades:
         bits.append(f"bot made {len(bot_trades)} trade(s)")
     if macros:
@@ -365,17 +328,16 @@ def main():
         bits = ["portfolio check"]
 
     lines = [f"# Stocks {now_local:%d %b %H:%M} IST — " + ", ".join(bits), ""]
-    blines, a_total, shadow = book_lines(held, cash, bench, prices)
+    blines, bot_total, shadow = book_lines(held, cash, bench, prices)
     lines.extend(blines)
-    lines.extend(bot_lines(bot, bot_trades, a_total, shadow))
-    lines.extend(exit_sec)
+    lines.extend(bot_lines(bot, bot_trades, bot_total, shadow))
 
     if by_ticker:
-        lines.append("\n## 🧳 News on stocks you OWN\n")
+        lines.append("\n## 🧳 News on stocks the BOT owns\n")
         for t in sorted(by_ticker, key=lambda t: sum(s for s, _, _ in by_ticker[t])):
             pos = held[t]
             net = sum(s for s, _, _ in by_ticker[t])
-            lines.append(f"### {t} — you hold {pos['qty']} @ avg Rs {pos['avg_cost']:.2f}")
+            lines.append(f"### {t} — bot holds {pos['qty']} @ avg Rs {pos['avg_cost']:.2f}")
             for sent, title, source in by_ticker[t]:
                 lines.append(f"- {dot(sent)} ({sent:+.2f}) {title} — *{source}*")
             advice = (REVIEW_ADVICE if net <= -0.2 else

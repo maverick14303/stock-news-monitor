@@ -32,9 +32,13 @@ def save(p):
 
 def live_price(symbol):
     hist = yf.Ticker(symbol).history(period="1d")
-    if hist.empty:
+    # yfinance returns placeholder rows with NaN closes mid-session. A NaN here
+    # propagates silently into sizing maths and blows up as "cannot convert float
+    # NaN to integer" far from the cause, so drop them at the source.
+    closes = hist["Close"].dropna() if not hist.empty else hist
+    if len(closes) == 0:
         sys.exit(f"No price data for {symbol}")
-    return float(hist["Close"].iloc[-1])
+    return float(closes.iloc[-1])
 
 
 def record(p, action, symbol, qty, price, fee=0.0):

@@ -8,40 +8,76 @@ The goal is not prediction. It is measurement: does news sentiment from these
 sources carry any next-day signal at all? The scoreboard answers that with your
 own collected data, at zero financial risk.
 
+## The unit of analysis is a (headline, company) PAIR
+
+Not an article. An article naming four companies produces four independently
+scored rows, because "Elara Securities prefers ICICI Bank over HDFC Bank" is
+bullish for one and bearish for the other. Scoring the article once and stamping
+that number on every company it mentions was the original design and the single
+biggest source of garbage.
+
 ## Files
 
-- `monitor.py` — scrape all feeds in `config.json`, dedupe, match tickers,
-  score sentiment (VADER), store in `news.db`, print new signals. Run daily
-  (or several times a day — duplicates are skipped).
-- `scoreboard.py` — for every past non-neutral signal, compare sentiment
-  direction vs the stock's actual next-day move (via Yahoo Finance). Prints
-  hit-rate overall and per source.
-- `autotrader.py` — Account B: an autonomous Rs 5000 paper trader. Scores
-  signals as sentiment x learned source trust x learned sector weight, buys
-  with the same confirmation checks the human account gets, exits on
-  -7%/+15%/15-day/negative-news rules, and journals every closed trade with
-  its reason in `bot_portfolio.json`. Source trust is learned from the
-  graded-signals table scoreboard.py maintains; sector weights adjust after
-  every win/loss — that's the machine learning from its mistakes.
-- `config.json` — the trusted feed list. Add/remove sources here.
-- `tickers.csv` — symbol → name aliases used for headline matching.
-- `news.db` — SQLite archive of everything collected (created on first run).
+- `monitor.py` — scrape all feeds in `config.json`, dedupe, match tickers
+  (recording whether each company was named in the **headline** or only in the
+  body blurb), flag noise, score VADER, store in `news.db`.
+- `newslib.py` — shared classification: the noise regex, syndication
+  clustering, after-hours detection, sentiment blending. One definition, used
+  by every script.
+- `db.py` — the single schema definition + idempotent migration.
+- `migrate.py` — re-scan all history against the current `tickers.csv` and noise
+  rules. Runs as pipeline step 1 so the cloud self-heals after any rule change.
+- `llm_analyst.py` — score each (headline, company) pair with Gemini: impact
+  `llm_sent` **and** `llm_novel` (is this new information, or just a
+  description of a move that already happened?).
+- `scoreboard.py` — grade past signals against actual 1/3/5-day moves, reported
+  as **excess return vs NIFTY** (clean 50% baseline) as well as raw direction,
+  split by after-hours/in-session, novel/descriptive, headline/body.
+  Also writes the `labels` ML dataset.
+- `export_signal.py` — publish `news_signal.json` for the trading bot.
+- `autotrader.py` — the bot: an autonomous Rs 5000 paper trader. Scores signals
+  as sentiment x learned source trust x learned sector weight, exits on
+  -7%/+15%/15-day/negative-news rules, journals every closed trade.
+- `build_tickers.py` — regenerate `tickers.csv` from the trading bot's universe.
+- `paper_portfolio.py` — retired as an account (2026-07-30); still the shared
+  price/fee helper `alerts.py` and `autotrader.py` import.
+- `ROADMAP_ML.md` — the plan for turning the dataset into a model. Read before
+  proposing any ML work.
+
+## Two accounts, not three
+
+The **bot** (self-trading) versus the **NIFTY 50 shadow**. The old
+"you + Claude" manual account was retired on 2026-07-30: it needed research time
+Ankit didn't have, so its P&L measured nothing.
 
 ## Usage
 
 ```
-python monitor.py            # collect news + print today's signals
-python scoreboard.py         # grade past signals (needs 1+ day of history)
-python paper_portfolio.py status   # Rs 500 virtual portfolio vs live prices
-python run_pipeline.py       # all three, saved to digests/
+python run_pipeline.py       # everything, saved to digests/
+python migrate.py            # re-scan history after editing tickers.csv
+python build_tickers.py      # regenerate tickers.csv from the bot universe
+python scoreboard.py         # grade past signals + refresh the ML dataset
 ```
 
 ## Automation
 
 GitHub Actions runs `run_pipeline.py` on GitHub's servers and commits the
-results back; no local device needs to be on. Runs are triggered every hour
-from 7 AM to 11 PM IST by a cron-job.org job calling the workflow_dispatch
-API (GitHub's native cron lags 5-15 min and occasionally drops runs).
+results back; no local device needs to be on. Runs are triggered by a
+cron-job.org job calling the workflow_dispatch API (GitHub's native cron lags
+5-15 min and occasionally drops runs).
+
+**Schedule (IST, weekdays)** — 10 runs, replacing the old hourly 07:00–23:00:
+
+| Time | Why |
+|---|---|
+| **08:15** | **Pre-open sweep — the important one.** Overnight Indian news and the US close land here, and nobody in India can trade them until 09:15. The only window where news may genuinely not be priced in. |
+| 09:30–14:30 hourly | NSE session |
+| 15:45 | Post-close sweep — must land before trading-bot's 16:15 run |
+| 20:00 | US open |
+| 02:30 | US close |
+
+Weekends: 10:00 and 20:00 only. The US times are chosen to fall after the event
+in both US summer and winter time, so daylight saving never needs a cron edit.
 Read the latest report at `digests/LATEST.md` in the repo
 (github.com/maverick14303/stock-news-monitor), or trigger a manual run from
 the Actions tab.
@@ -79,11 +115,14 @@ re-enable with `Enable-ScheduledTask StockNewsMonitor` if GitHub ever fails.
 
 ## Honest limitations (read this)
 
-1. **News is priced in fast.** By the time a headline reaches an RSS feed,
-   the market has usually reacted. Expect the hit-rate to hover near 50%.
-   That result is the lesson, not a failure of the tool.
-2. **VADER sentiment is crude for finance.** "Profit falls 19%, declares
-   dividend" can score positive because of the word "dividend". Upgrading
-   sentiment to an LLM pass is the first real improvement to make.
-3. **This is a research/learning tool.** It produces no trade advice and
-   should never be wired to real money.
+1. **News is priced in fast.** By the time a headline reaches an RSS feed, the
+   market has usually reacted. Measured 2026-07-30 after cleaning: 50.4% excess
+   return vs NIFTY at 1 day (n=696, ±3.7) — a coin flip. The one split showing
+   life is after-hours news (53.8%) versus in-session (41.2%). That gap is the
+   whole thesis; it has not yet cleared its confidence interval.
+2. **A hit rate is not money.** A signal that is right 55% of the time but only
+   by 0.3% per trade still loses against a ~2.5% round-trip cost. Grade on net
+   outcome, not direction.
+3. **This feeds a real-money bot.** `news_signal.json` is consumed by
+   trading-bot's fused momentum+news variants. Changes here affect trading
+   decisions there — check `ROADMAP_ML.md §4` before altering the export format.

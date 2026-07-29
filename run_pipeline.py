@@ -1,7 +1,12 @@
 """Run the full pipeline once and save a digest markdown file.
 
-Called by Windows Task Scheduler twice a day; can also be run by hand.
-Digests land in digests/ with the latest copy always at digests/LATEST.md.
+Triggered by cron-job.org against the GitHub Actions workflow_dispatch API;
+can also be run by hand. Digests land in digests/ with the latest copy always
+at digests/LATEST.md.
+
+Two accounts are tracked: the self-trading bot and the NIFTY 50 shadow. The
+manual "you + Claude" paper account was retired 2026-07-30 (paper_portfolio.py
+stays as the shared price/fee helper that alerts.py and autotrader.py import).
 """
 import subprocess
 import sys
@@ -12,9 +17,15 @@ BASE = Path(__file__).parent
 DIGESTS = BASE / "digests"
 
 STEPS = [
+    # Idempotent, ~20s over 10k articles. Runs EVERY time on purpose: it is what
+    # makes the cloud self-heal after a tickers.csv or noise-rule change, so the
+    # derived columns are always reproducible from the raw articles rather than
+    # depending on a committed database being in the right state.
+    ("Rescan history (tickers, noise, after-hours)", ["migrate.py"]),
     ("News & signals", ["monitor.py"]),
-    ("LLM analyst (OpenRouter)", ["llm_analyst.py"]),
-    ("Paper portfolio (Rs 5000 virtual)", ["paper_portfolio.py", "status"]),
+    # Per-(headline, company) scoring. Runs before the scoreboard so this run's
+    # fresh news is graded with LLM scores, not the VADER fallback.
+    ("LLM analyst (per-ticker)", ["llm_analyst.py"]),
     ("Signal scoreboard (last 30 days)", ["scoreboard.py"]),
     ("Bot account (self-trading)", ["autotrader.py"]),
     ("Alert scan", ["alerts.py"]),

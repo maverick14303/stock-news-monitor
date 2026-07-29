@@ -1,15 +1,25 @@
 """Grade past news signals against what stocks actually did.
 
-For every ticker-matched, non-neutral article (last 30 days, 1+ day old),
-compare sentiment direction vs the stock's move over 1, 3 and 5 trading days.
-Hit rates are shown against the "always-bull" baseline (fraction of moves that
-were simply up) — beating 50% means nothing if the market drifts up anyway.
-Also grades the ✅ PASSES verdicts logged by alerts.py at a 5-day horizon.
+Grades one row per (article, company) pair — never a whole article — and only
+real news (tracker pages, listicles and index wraps are excluded via the noise
+flag; they used to be ~24% of all signals and, being backward-looking
+descriptions of moves that had already happened, they INFLATED the hit rate).
+
+Two hit rates are reported, and the second one is the honest one:
+  * RAW direction   — did the stock go up after positive news? Compared against
+                      the always-bull baseline, because the market drifts up.
+  * EXCESS vs NIFTY — did the stock beat the index? Market drift cancels out, so
+                      the baseline is a clean 50%. This is the number that has to
+                      clear its confidence interval before any edge is real.
+
+Splits the result by the things most likely to carry edge (ROADMAP_ML.md §5):
+after-hours vs in-session, novel vs descriptive, headline vs body mention.
+
+Also writes the `labels` table — the growing ML dataset. See ROADMAP_ML.md §1.
 
 Usage: python scoreboard.py
 """
 import math
-import sqlite3
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
@@ -18,24 +28,33 @@ import yfinance as yf
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
+import db
+
 BASE = Path(__file__).parent
 DB = BASE / "news.db"
 THRESHOLD = 0.25    # |sentiment| below this is neutral -> not a directional signal
 HORIZONS = (1, 3, 5)
 WINDOW_DAYS = 30
 SHOW_ROWS = 15
+BENCHMARK = "^NSEI"   # NIFTY 50, for excess-return grading
 
 _price_cache = {}
 
 
 def closes_for(symbol):
     if symbol not in _price_cache:
-        hist = yf.Ticker(symbol).history(period="6mo")
-        if hist.empty:
+        try:
+            hist = yf.Ticker(symbol).history(period="6mo")
+        except Exception:
+            hist = None
+        if hist is None or hist.empty:
             _price_cache[symbol] = None
         else:
             hist.index = hist.index.tz_localize(None)
-            _price_cache[symbol] = hist["Close"]
+            # yfinance emits NaN closes for partial/placeholder bars (a run before
+            # the session ends returns one for today). Any NaN that survives into
+            # a return calculation silently poisons the whole scoreboard.
+            _price_cache[symbol] = hist["Close"].dropna()
     return _price_cache[symbol]
 
 
@@ -58,37 +77,78 @@ def ci95(p, n):
     return 1.96 * math.sqrt(p * (1 - p) / n) * 100 if n else 0.0
 
 
+def rate_line(label, sample):
+    """sample: [(hit, excess_hit)] -> one formatted row, or None if empty."""
+    n = len(sample)
+    if not n:
+        return None
+    raw = 100 * sum(1 for h, _ in sample if h) / n
+    exc = 100 * sum(1 for _, e in sample if e) / n
+    return (f"{label:<22}{n:>6}{raw:>8.1f}{exc:>9.1f}{ci95(exc / 100, n):>7.1f}"
+            f"{'EDGE?' if exc - ci95(exc / 100, n) > 50 else 'no edge':>10}")
+
+
 def main():
-    con = sqlite3.connect(DB)
+    con = db.connect(DB)
     now = datetime.now(timezone.utc)
+
     rows = con.execute(
-        "SELECT title, source, sentiment, tickers, COALESCE(published, fetched_at) "
-        "FROM articles WHERE tickers != '' AND ABS(sentiment) >= ? "
-        "AND COALESCE(published, fetched_at) < ? "
-        "AND COALESCE(published, fetched_at) >= ?",
-        (THRESHOLD, (now - timedelta(days=1)).isoformat(),
+        "SELECT t.link, t.symbol, a.title, a.source, a.sentiment, t.llm_sent, "
+        "       t.llm_novel, t.in_title, a.after_hours, "
+        "       COALESCE(a.published, a.fetched_at) "
+        "FROM article_tickers t JOIN articles a ON a.link = t.link "
+        "WHERE COALESCE(a.noise, 0) = 0 "
+        "  AND COALESCE(a.published, a.fetched_at) < ? "
+        "  AND COALESCE(a.published, a.fetched_at) >= ?",
+        ((now - timedelta(days=1)).isoformat(),
          (now - timedelta(days=WINDOW_DAYS)).isoformat())).fetchall()
 
-    samples = {h: [] for h in HORIZONS}   # (hit, ret)
-    detail, by_source = [], {}
-    for title, source, sent, tickers, ts in rows:
-        date = datetime.fromisoformat(ts).date()
-        for symbol in tickers.split(","):
-            rets = horizon_returns(symbol, date)
-            for h, ret in rets.items():
-                samples[h].append(((sent > 0) == (ret > 0), ret))
-            if 1 in rets:
-                hit = (sent > 0) == (rets[1] > 0)
-                detail.append((date, symbol, sent, rets[1], hit, title[:55], source))
-                by_source.setdefault(source, []).append(hit)
+    samples = {h: [] for h in HORIZONS}
+    by_hours, by_novel, by_where = {}, {}, {}
+    detail, by_source, label_rows, graded_rows = [], {}, [], []
 
-    # persist 1-day grades so autotrader.py can learn source reliability
-    con.execute("CREATE TABLE IF NOT EXISTS graded (day TEXT, symbol TEXT, "
-                "source TEXT, title TEXT, sent REAL, ret REAL, hit INT, "
-                "PRIMARY KEY (day, symbol, source, title))")
-    for date, symbol, sent, ret, hit, title, source in detail:
-        con.execute("INSERT OR REPLACE INTO graded VALUES (?,?,?,?,?,?,?)",
-                    (str(date), symbol, source, title, sent, ret, int(hit)))
+    for (link, symbol, title, source, vader, llm, novel, in_title,
+         after_hours, ts) in rows:
+        sent = llm if llm is not None else vader
+        if sent is None or abs(sent) < THRESHOLD:
+            continue
+        date = datetime.fromisoformat(ts).date()
+        rets = horizon_returns(symbol, date)
+        mkt = horizon_returns(BENCHMARK, date)
+        if not rets:
+            continue
+        up = sent > 0
+        for h, ret in rets.items():
+            excess = ret - mkt.get(h, 0.0)
+            pair = ((up == (ret > 0)), (up == (excess > 0)))
+            samples[h].append(pair)
+            if h == 1:
+                by_hours.setdefault("after-hours" if after_hours else "in-session",
+                                    []).append(pair)
+                if novel is not None:
+                    by_novel.setdefault("novel" if novel else "descriptive",
+                                        []).append(pair)
+                by_where.setdefault("headline" if in_title else "body mention",
+                                    []).append(pair)
+        if 1 in rets:
+            hit = up == (rets[1] > 0)
+            detail.append((date, symbol, sent, rets[1], hit, title[:55], source))
+            by_source.setdefault(source, []).append(hit)
+            graded_rows.append((str(date), symbol, source, title, sent,
+                                rets[1], int(hit)))
+            label_rows.append((
+                link, symbol, str(date), source, title, vader, llm, novel,
+                in_title, after_hours, None,
+                rets.get(1), rets.get(3), rets.get(5),
+                mkt.get(1), mkt.get(3), mkt.get(5)))
+
+    # `graded` powers learned source trust in autotrader.py / export_signal.py
+    for r in graded_rows:
+        con.execute("INSERT OR REPLACE INTO graded VALUES (?,?,?,?,?,?,?)", r)
+    # `labels` is the append-only ML dataset (ROADMAP_ML.md)
+    for r in label_rows:
+        con.execute("INSERT OR REPLACE INTO labels VALUES "
+                    "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", r)
     con.commit()
 
     if not detail:
@@ -100,61 +160,63 @@ def main():
             print(f"{date!s:<12}{symbol:<15}{sent:>+6.2f}{ret:>+8.2f}  "
                   f"{'YES' if hit else 'no ':<3}  {title}")
 
-        print("\n=== Hit rate by horizon (vs always-bull baseline) ===")
-        print(f"{'horizon':<10}{'n':>6}{'hit%':>8}{'±95%':>7}{'baseline':>10}{'verdict':>10}")
+        print("\n=== Hit rate by horizon ===")
+        print(f"{'horizon':<22}{'n':>6}{'raw%':>8}{'excess%':>9}{'±95%':>7}{'verdict':>10}")
         for h in HORIZONS:
-            s = samples[h]
-            if not s:
+            line = rate_line(f"{h}d", samples[h])
+            if line:
+                print(line)
+        print("  raw%   = direction correct (inflated by market drift)")
+        print("  excess% = beat NIFTY over the same window — baseline is a clean 50%")
+        print("  EDGE? only when the whole confidence range clears 50%")
+
+        for name, groups in (("after-hours vs in-session", by_hours),
+                             ("novel vs descriptive", by_novel),
+                             ("headline vs body mention", by_where)):
+            if len(groups) < 1:
                 continue
-            n = len(s)
-            hitp = 100 * sum(1 for hit, _ in s if hit) / n
-            base = 100 * sum(1 for _, r in s if r > 0) / n
-            edge = "EDGE?" if hitp - ci95(hitp / 100, n) > base else "no edge"
-            print(f"{h}d{'':<8}{n:>6}{hitp:>8.1f}{ci95(hitp / 100, n):>7.1f}{base:>10.1f}{edge:>10}")
-        print("(EDGE? only when the whole confidence range clears the baseline)")
+            print(f"\n=== 1-day split: {name} ===")
+            print(f"{'group':<22}{'n':>6}{'raw%':>8}{'excess%':>9}{'±95%':>7}{'verdict':>10}")
+            for label, sample in sorted(groups.items()):
+                line = rate_line(label, sample)
+                if line:
+                    print(line)
 
-        print("\n=== By source (1-day) ===")
+        print("\n=== By source (1-day, raw direction) ===")
         for source, flags in sorted(by_source.items(), key=lambda kv: -len(kv[1]))[:10]:
-            print(f"  {source:<30} {sum(flags)}/{len(flags)} ({100 * sum(flags) / len(flags):.0f}%)")
+            print(f"  {source:<30} {sum(flags)}/{len(flags)} "
+                  f"({100 * sum(flags) / len(flags):.0f}%)")
 
-    # head-to-head: VADER vs LLM on the same LLM-scored articles (1-day)
-    try:
-        lrows = con.execute(
-            "SELECT sentiment, llm_sent, tickers, COALESCE(published, fetched_at) "
-            "FROM articles WHERE llm_sent IS NOT NULL AND tickers != '' "
-            "AND COALESCE(published, fetched_at) < ? "
-            "AND COALESCE(published, fetched_at) >= ?",
-            ((now - timedelta(days=1)).isoformat(),
-             (now - timedelta(days=WINDOW_DAYS)).isoformat())).fetchall()
-    except sqlite3.OperationalError:
-        lrows = []
-    if lrows:
-        stats = {"VADER": [0, 0], "LLM": [0, 0]}   # hits, n
-        for sent, lsent, tickers, ts in lrows:
-            date = datetime.fromisoformat(ts).date()
-            for symbol in tickers.split(","):
-                rets = horizon_returns(symbol, date)
-                if 1 not in rets:
-                    continue
-                up = rets[1] > 0
-                if abs(sent) >= THRESHOLD:
-                    stats["VADER"][0] += (sent > 0) == up
-                    stats["VADER"][1] += 1
-                if abs(lsent) >= THRESHOLD:
-                    stats["LLM"][0] += (lsent > 0) == up
-                    stats["LLM"][1] += 1
-        print("\n=== VADER vs LLM analyst (same articles, 1-day) ===")
+    # head-to-head: VADER vs the per-ticker LLM score, same pairs, 1-day
+    stats = {"VADER": [0, 0], "LLM": [0, 0]}
+    for (_, symbol, _, _, vader, llm, _, _, _, ts) in rows:
+        if llm is None:
+            continue
+        date = datetime.fromisoformat(ts).date()
+        rets = horizon_returns(symbol, date)
+        if 1 not in rets:
+            continue
+        up = rets[1] > 0
+        if vader is not None and abs(vader) >= THRESHOLD:
+            stats["VADER"][0] += (vader > 0) == up
+            stats["VADER"][1] += 1
+        if abs(llm) >= THRESHOLD:
+            stats["LLM"][0] += (llm > 0) == up
+            stats["LLM"][1] += 1
+    if stats["LLM"][1]:
+        print("\n=== VADER vs LLM analyst (same pairs, 1-day) ===")
         for name, (hits, n) in stats.items():
             if n:
                 print(f"  {name:<6} {hits}/{n} ({100 * hits / n:.0f}%)")
 
+    n_labels = con.execute("SELECT COUNT(*) FROM labels").fetchone()[0]
+    print(f"\nML dataset: {n_labels} labelled (article, company) rows "
+          f"— see ROADMAP_ML.md for the phase gates.")
+
     # grade the ✅ PASSES verdicts from alerts.py at 5 trading days
-    try:
-        verdicts = con.execute(
-            "SELECT ts, symbol, price, title FROM verdicts WHERE ts < ?",
-            ((now - timedelta(days=1)).isoformat(),)).fetchall()
-    except sqlite3.OperationalError:
-        verdicts = []
+    verdicts = con.execute(
+        "SELECT ts, symbol, price, title FROM verdicts WHERE ts < ?",
+        ((now - timedelta(days=1)).isoformat(),)).fetchall()
     if verdicts:
         print("\n=== ✅ verdict journal (5-day outcomes) ===")
         outcomes = []

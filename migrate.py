@@ -1,0 +1,98 @@
+"""One-time (and re-runnable) backfill of the per-ticker schema over history.
+
+Recomputes, for every article already in news.db:
+  * ticker matches, split into headline mentions vs body-blurb mentions
+  * the noise flag (tracker page / listicle / index wrap)
+  * the after-hours flag
+  * one article_tickers row per (article, company) pair
+
+Safe to re-run — and you SHOULD re-run it after editing tickers.csv, so history
+picks up newly covered companies. Nothing is ever deleted; junk is flagged.
+
+Old article-level llm_sent scores are deliberately NOT copied onto the new pairs.
+They were produced by the buggy prompt (one score stamped on every company) and
+carry no novelty flag. Leaving them NULL means everything gets re-scored properly
+by llm_analyst.py, which clears in a day or two and yields one consistent dataset.
+
+Usage: python migrate.py
+"""
+import sys
+from pathlib import Path
+
+sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
+import db
+from newslib import classify_noise, is_after_hours, load_ticker_patterns, match_tickers
+
+BASE = Path(__file__).parent
+DB = BASE / "news.db"
+
+
+def main():
+    con = db.connect(DB)
+    patterns = load_ticker_patterns(BASE / "tickers.csv")
+
+    rows = con.execute(
+        "SELECT link, title, summary, published, fetched_at, source FROM articles"
+    ).fetchall()
+    print(f"Rescanning {len(rows)} articles against {len(patterns)} alias patterns...")
+
+    # Feeds flagged global skip ticker matching (see monitor.py); reproduce that
+    # here so a re-run cannot invent matches the live scraper would never make.
+    import json
+    global_feeds = {f["name"] for f in
+                    json.loads((BASE / "config.json").read_text())["feeds"]
+                    if f.get("global")}
+
+    pairs, noisy, changed = 0, 0, 0
+    for link, title, summary, published, fetched_at, source in rows:
+        hits = {} if source in global_feeds else match_tickers(title, summary, patterns)
+        n_title = sum(hits.values())
+        noise = classify_noise(title, n_title)
+        con.execute(
+            "UPDATE articles SET tickers = ?, noise = ?, after_hours = ?, "
+            "n_title_tickers = ? WHERE link = ?",
+            (",".join(sorted(hits)), noise,
+             is_after_hours(published or fetched_at), n_title, link))
+        changed += 1
+        noisy += noise
+        # Drop pairs this article no longer matches, so a tickers.csv edit can
+        # RETIRE a symbol as well as add one. Without this, renames leave ghosts
+        # (ZOMATO.NS kept exporting a signal after it became ETERNAL.NS).
+        keep = set() if noise else set(hits)
+        if keep:
+            placeholders = ",".join("?" * len(keep))
+            con.execute(
+                f"DELETE FROM article_tickers WHERE link = ? "
+                f"AND symbol NOT IN ({placeholders})", (link, *keep))
+        else:
+            con.execute("DELETE FROM article_tickers WHERE link = ?", (link,))
+        if not noise:
+            for symbol, in_title in hits.items():
+                con.execute(
+                    "INSERT OR IGNORE INTO article_tickers (link, symbol, in_title) "
+                    "VALUES (?,?,?)", (link, symbol, in_title))
+                # keep in_title current if aliases changed what matched where
+                con.execute(
+                    "UPDATE article_tickers SET in_title = ? "
+                    "WHERE link = ? AND symbol = ?", (in_title, link, symbol))
+                pairs += 1
+        if changed % 2000 == 0:
+            con.commit()
+            print(f"  ...{changed}")
+    con.commit()
+
+    total_pairs = con.execute("SELECT COUNT(*) FROM article_tickers").fetchone()[0]
+    unscored = con.execute(
+        "SELECT COUNT(*) FROM article_tickers WHERE llm_sent IS NULL").fetchone()[0]
+    matched = con.execute(
+        "SELECT COUNT(*) FROM articles WHERE tickers != ''").fetchone()[0]
+    print(f"\nDone. {changed} articles rescanned.")
+    print(f"  ticker-matched articles: {matched}")
+    print(f"  flagged as noise:        {noisy}")
+    print(f"  (article, company) pairs: {total_pairs}  — {unscored} awaiting LLM scoring")
+    con.close()
+
+
+if __name__ == "__main__":
+    main()

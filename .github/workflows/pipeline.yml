@@ -1,8 +1,20 @@
 name: stock-pipeline
 
 on:
-  # Triggered hourly (07:00-23:00 IST) by cron-job.org via the
-  # workflow_dispatch API — GitHub's own schedule trigger lags and drops runs.
+  # Triggered by cron-job.org via the workflow_dispatch API — GitHub's own
+  # schedule trigger lags 5-15 min and occasionally drops runs.
+  #
+  # Schedule (IST, weekdays) — 10 runs, down from hourly 07:00-23:00:
+  #   08:15  pre-open sweep. THE important one: overnight Indian announcements
+  #          plus the US close land here, and nobody in India can trade them
+  #          until 09:15, so it is the only window where news may not be priced
+  #          in yet (see ROADMAP_ML.md §5).
+  #   09:30-14:30 hourly (6 runs)  NSE session
+  #   15:45  post-close sweep — must land BEFORE trading-bot's 16:15 run, which
+  #          reads news_signal.json from this repo's raw URL.
+  #   20:00  US open   (19:00 IST in US summer time, 20:00 in winter — this
+  #   02:30  US close   time lands after the event in BOTH, so no DST edits)
+  # Weekends: 10:00 and 20:00 only.
   workflow_dispatch: {}
 
 permissions:
@@ -42,6 +54,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add news.db digests portfolio.json bot_portfolio.json news_signal.json
+          git add news.db digests bot_portfolio.json news_signal.json tickers.csv
           git commit -m "pipeline run $(date +'%Y-%m-%d %H:%M %Z')" || echo "nothing new"
           git push
