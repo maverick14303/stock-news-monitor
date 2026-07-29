@@ -1,5 +1,5 @@
 {
-  "cash": 1871.5364085769666,
+  "cash": 1121.4658963394177,
   "positions": {
     "VEDL.NS": {
       "qty": 3,
@@ -36,6 +36,15 @@
         "LiveMint Markets"
       ],
       "thesis": "TCS vs Infosys vs Wipro vs HCL Tech: Which IT stock to buy after Q1 results?"
+    },
+    "HDFCBANK.NS": {
+      "qty": 1,
+      "avg_cost": 750.0705122375489,
+      "opened": "2026-07-29T10:31:19.623975+00:00",
+      "sources": [
+        "CNBC TV18 Markets"
+      ],
+      "thesis": "Elara Securities prefers ICICI Bank, PSU banks over HDFC Bank for growth and valuations"
     }
   },
   "trades": [
@@ -380,6 +389,15 @@
       "price": 183.8,
       "fee": 2.3,
       "reason": "score 0.75 (LiveMint Markets): TCS vs Infosys vs Wipro vs HCL Tech: Which IT stock to buy after Q1 results?"
+    },
+    {
+      "time": "2026-07-29T10:31:19.623975+00:00",
+      "action": "buy",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 748.2,
+      "fee": 1.87,
+      "reason": "score 0.64 (CNBC TV18 Markets): Elara Securities prefers ICICI Bank, PSU banks over HDFC Bank for growth and val"
     }
   ],
   "closed": [
