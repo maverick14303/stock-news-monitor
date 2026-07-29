@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T20:34:29.739367+00:00",
+  "generated_at": "2026-07-29T20:51:15.300260+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment. Scores are per-(article,company) LLM judgments weighted by learned source trust, recency, novelty and headline-vs-body position. 'sources' counts INDEPENDENT stories (syndicated reprints collapse to one); consumers should require sources>=2 before acting.",
@@ -179,9 +179,9 @@
       "novel": 0
     },
     "GAIL.NS": {
-      "score": 0.3,
-      "n": 1,
-      "sources": 1,
+      "score": 0.5924,
+      "n": 2,
+      "sources": 2,
       "novel": 1
     },
     "GODREJPROP.NS": {
