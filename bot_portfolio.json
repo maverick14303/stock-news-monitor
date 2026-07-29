@@ -1,15 +1,6 @@
 {
-  "cash": 1121.4658963394177,
+  "cash": 1912.9821463394178,
   "positions": {
-    "VEDL.NS": {
-      "qty": 3,
-      "avg_cost": 265.31161888122557,
-      "opened": "2026-07-26T07:30:57.252321+00:00",
-      "sources": [
-        "Business Standard Companies"
-      ],
-      "thesis": "Vedanta group's Hindustan Zinc Q1 net profit jumps over 2-fold to \u20b95,469 cr"
-    },
     "KOTAKBANK.NS": {
       "qty": 2,
       "avg_cost": 385.9625,
@@ -398,6 +389,15 @@
       "price": 748.2,
       "fee": 1.87,
       "reason": "score 0.64 (CNBC TV18 Markets): Elara Securities prefers ICICI Bank, PSU banks over HDFC Bank for growth and val"
+    },
+    {
+      "time": "2026-07-29T13:31:29.578939+00:00",
+      "action": "sell",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 264.5,
+      "fee": 1.98,
+      "reason": "negative news (-0.54) at -0.3%"
     }
   ],
   "closed": [
@@ -587,12 +587,23 @@
       "win": false,
       "reason": "negative news (-0.67) at -3.0%",
       "thesis": "Q1 Results This Week: BEL, HUL, L&T, Dixon among nearly 200 stocks report numbers"
+    },
+    {
+      "time": "2026-07-29T13:31:29.578939+00:00",
+      "symbol": "VEDL.NS",
+      "sector": "metals",
+      "entry": 265.31,
+      "exit": 264.5,
+      "pnl_pct": -0.31,
+      "win": false,
+      "reason": "negative news (-0.54) at -0.3%",
+      "thesis": "Vedanta group's Hindustan Zinc Q1 net profit jumps over 2-fold to \u20b95,469 cr"
     }
   ],
   "sector_weights": {
     "energy": 0.789,
     "banks": 0.858,
-    "metals": 0.846,
+    "metals": 0.778,
     "it": 0.846,
     "auto": 0.92,
     "financials": 0.92
