@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-07-29T14:31:24.223109+00:00",
+  "generated_at": "2026-07-29T15:31:23.707818+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
   "tickers": {
     "ADANIENT.NS": {
-      "score": -0.0946,
-      "n": 8,
-      "sources": 6
+      "score": -0.1794,
+      "n": 10,
+      "sources": 8
     },
     "ADANIPORTS.NS": {
       "score": 0.4881,
@@ -65,9 +65,9 @@
       "sources": 6
     },
     "EICHERMOT.NS": {
-      "score": 0.6524,
-      "n": 4,
-      "sources": 4
+      "score": 0.6979,
+      "n": 5,
+      "sources": 5
     },
     "HCLTECH.NS": {
       "score": 0.4669,
@@ -115,8 +115,8 @@
       "sources": 2
     },
     "LT.NS": {
-      "score": 0.5469,
-      "n": 23,
+      "score": 0.5563,
+      "n": 24,
       "sources": 6
     },
     "M&M.NS": {
@@ -160,8 +160,8 @@
       "sources": 5
     },
     "SBIN.NS": {
-      "score": 0.1184,
-      "n": 27,
+      "score": 0.138,
+      "n": 28,
       "sources": 12
     },
     "SHRIRAMFIN.NS": {
@@ -215,9 +215,9 @@
       "sources": 9
     },
     "ZOMATO.NS": {
-      "score": 0.4,
-      "n": 1,
-      "sources": 1
+      "score": -0.3805,
+      "n": 2,
+      "sources": 2
     }
   }
 }
