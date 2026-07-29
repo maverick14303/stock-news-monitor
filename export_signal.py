@@ -49,10 +49,26 @@ REQUIRE_HEADLINE = True
 
 
 def source_weights(con):
-    """Trust per source from graded 1-day outcomes (0.6–1.4, neutral if <5)."""
+    """Trust per source, learned from graded 1-day outcomes (0.6-1.4).
+
+    Joined through article_sources on the article LINK, so an outlet is credited
+    for every story it actually carried. Grading via articles.source alone gave
+    the credit to whichever feed config.json happened to list first, which made
+    learned trust partly an artifact of file ordering (LESSONS.md L13).
+
+    Graded on EXCESS return vs NIFTY, so a source is not rewarded for market drift.
+    """
     try:
         rows = con.execute(
-            "SELECT source, AVG(hit), COUNT(*) FROM graded GROUP BY source").fetchall()
+            "SELECT s.source, "
+            "       AVG(CASE WHEN (COALESCE(l.llm_sent, l.vader) > 0) "
+            "                  = ((l.ret_1d - COALESCE(l.mkt_1d, 0)) > 0) "
+            "            THEN 1.0 ELSE 0.0 END), "
+            "       COUNT(*) "
+            "FROM labels l JOIN article_sources s ON s.link = l.link "
+            "WHERE l.ret_1d IS NOT NULL "
+            "  AND ABS(COALESCE(l.llm_sent, l.vader)) >= 0.25 "
+            "GROUP BY s.source").fetchall()
     except sqlite3.OperationalError:
         return {}
     return {s: max(0.6, min(1.4, 2 * hr)) for s, hr, n in rows if n >= 5}

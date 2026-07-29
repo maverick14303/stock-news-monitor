@@ -1,12 +1,12 @@
 symbol,aliases,sector
-ABB.NS,ABB India,infra
+ABB.NS,ABB India|ABB,infra
 ABFRL.NS,Aditya Birla Fashion and Retail,consumer
 ACC.NS,ACC,metals
-ADANIENT.NS,Adani Enterprises,energy
+ADANIENT.NS,Adani Enterprises|Adani,energy
 ADANIGREEN.NS,Adani Green|Adani Green Energy,energy
 ADANIPORTS.NS,Adani Ports|Adani Ports SEZ|Adani Ports and Special Economic Zone,infra
 ADANIPOWER.NS,Adani Power,energy
-ALKEM.NS,Alkem Laboratories,pharma
+ALKEM.NS,Alkem Laboratories|Alkem,pharma
 AMBUJACEM.NS,Ambuja Cements,metals
 APOLLOHOSP.NS,Apollo Hospitals|Apollo Hospitals Enterprise,pharma
 ASHOKLEY.NS,Ashok Leyland,infra
@@ -18,73 +18,75 @@ BAJAJ-AUTO.NS,Bajaj Auto,consumer
 BAJAJFINSV.NS,Bajaj Finserv,financials
 BAJFINANCE.NS,Bajaj Finance,financials
 BANKBARODA.NS,Bank of Baroda,financials
-BATAINDIA.NS,Bata India,consumer
-BEL.NS,Bharat Electronics,infra
-BERGEPAINT.NS,Berger Paints India,metals
+BATAINDIA.NS,Bata India|Bata,consumer
+BEL.NS,Bharat Electronics|BEL,infra
+BERGEPAINT.NS,Berger Paints India|Berger Paints,metals
 BHARATFORG.NS,Bharat Forge,consumer
 BHARTIARTL.NS,Bharti Airtel|Airtel,telecom
 BHEL.NS,Bharat Heavy Electricals|BHEL,infra
 BIOCON.NS,Biocon,pharma
 BPCL.NS,Bharat Petroleum|BPCL|Bharat Petroleum Corporation,energy
-BRITANNIA.NS,Britannia Industries,fmcg
+BRITANNIA.NS,Britannia Industries|Britannia,fmcg
 CANBK.NS,Canara Bank,financials
-CHOLAFIN.NS,Cholamandalam Investment and Finance Company,financials
+CHOLAFIN.NS,Cholamandalam Investment and Finance Company|Cholamandalam Investment and Finance,financials
 CIPLA.NS,Cipla,pharma
-COALINDIA.NS,Coal India,energy
+COALINDIA.NS,Coal India|Coal,energy
 COCHINSHIP.NS,Cochin Shipyard,infra
+COFORGE.NS,Coforge,it
 COLPAL.NS,Colgate-Palmolive (India),fmcg
 CONCOR.NS,Container Corporation of India,infra
 CROMPTON.NS,Crompton Greaves Consumer Electricals,consumer
-CUMMINSIND.NS,Cummins India,infra
-DABUR.NS,Dabur India,fmcg
+CUMMINSIND.NS,Cummins India|Cummins,infra
+DABUR.NS,Dabur|Dabur India,fmcg
 DALBHARAT.NS,Dalmia Bharat,metals
 DELHIVERY.NS,Delhivery,infra
-DIVISLAB.NS,Divi's Lab|Divis Lab|Divi's Laboratories,pharma
+DIVISLAB.NS,Divi's Laboratories|Divis Laboratories|Divi's Lab|Divis Lab|Divi's,pharma
 DIXON.NS,Dixon Technologies (India),it
 DLF.NS,DLF,infra
 DMART.NS,Avenue Supermarts,fmcg
-DRREDDY.NS,Dr Reddy|Dr. Reddy|Dr Reddy's|Dr. Reddy's Laboratories,pharma
+DRREDDY.NS,Dr Reddy|Dr. Reddy|Dr Reddy's|Dr. Reddy's Laboratories|Dr. Reddy's,pharma
 EICHERMOT.NS,Eicher Motors|Royal Enfield,consumer
 ETERNAL.NS,Eternal|Zomato|Blinkit,consumer
-EXIDEIND.NS,Exide Industries,consumer
+EXIDEIND.NS,Exide Industries|Exide,consumer
 FEDERALBNK.NS,Federal Bank|The Federal Bank,financials
 FORTIS.NS,Fortis Healthcare,pharma
 GAIL.NS,GAIL|GAIL India|GAIL (India),energy
 GLENMARK.NS,Glenmark Pharmaceuticals,pharma
-GODREJCP.NS,Godrej Consumer Products,fmcg
+GODREJCP.NS,Godrej Consumer Products|Godrej Consumer,fmcg
 GODREJPROP.NS,Godrej Properties,infra
-GRASIM.NS,Grasim Industries,metals
+GRASIM.NS,Grasim Industries|Grasim,metals
 HAL.NS,Hindustan Aeronautics,infra
-HAVELLS.NS,Havells India,infra
-HCLTECH.NS,HCL Technologies|HCLTech|HCL Tech,it
+HAVELLS.NS,Havells India|Havells,infra
+HCLTECH.NS,HCL Technologies|HCLTech|HCL Tech|HCL,it
 HDFCBANK.NS,HDFC Bank,financials
-HDFCLIFE.NS,HDFC Life Insurance Company,financials
+HDFCLIFE.NS,HDFC Life Insurance Company|HDFC Life Insurance,financials
 HEROMOTOCO.NS,Hero MotoCorp|Hero Moto,consumer
-HINDALCO.NS,Hindalco Industries,metals
+HINDALCO.NS,Hindalco Industries|Hindalco,metals
 HINDPETRO.NS,Hindustan Petroleum|HPCL|Hindustan Petroleum Corporation,energy
 HINDUNILVR.NS,Hindustan Unilever|HUL,fmcg
 HINDZINC.NS,Hindustan Zinc,metals
-HUDCO.NS,Housing and Urban Development Corporation,financials
+HUDCO.NS,Housing and Urban Development Corporation|Housing and Urban Development,financials
 ICICIBANK.NS,ICICI Bank,financials
-ICICIGI.NS,ICICI Lombard General Insurance Company,financials
-ICICIPRULI.NS,ICICI Prudential Life Insurance Company,financials
+ICICIGI.NS,ICICI Lombard General Insurance Company|ICICI Lombard General Insurance,financials
+ICICIPRULI.NS,ICICI Prudential Life Insurance Company|ICICI Prudential Life Insurance,financials
 IDFCFIRSTB.NS,IDFC First Bank,financials
 IGL.NS,Indraprastha Gas,energy
-INDIGO.NS,InterGlobe Aviation,infra
+INDIGO.NS,IndiGo|InterGlobe Aviation,infra
 INDUSINDBK.NS,IndusInd Bank,financials
 INFY.NS,Infosys,it
 IOC.NS,Indian Oil|IOCL|Indian Oil Corporation,energy
-IRCTC.NS,Indian Railway Catering & Tourism Corporation,consumer
+IRCTC.NS,IRCTC|Indian Railway Catering|Indian Railway Catering & Tourism Corporation|Indian Railway Catering & Tourism,consumer
 IREDA.NS,Indian Renewable Energy Development Agency,financials
-IRFC.NS,Indian Railway Finance Corporation,financials
+IRFC.NS,Indian Railway Finance Corporation|Indian Railway Finance,financials
 ITC.NS,ITC,fmcg
 JINDALSTEL.NS,Jindal Steel,metals
+JSWENERGY.NS,JSW Energy,energy
 JSWSTEEL.NS,JSW Steel,metals
 JUBLFOOD.NS,Jubilant FoodWorks,consumer
-KEI.NS,KEI Industries,infra
+KEI.NS,KEI Industries|KEI,infra
 KOTAKBANK.NS,Kotak Mahindra Bank|Kotak Bank,financials
 LICHSGFIN.NS,LIC Housing Finance,financials
-LICI.NS,Life Insurance Corporation of India,financials
+LICI.NS,LIC|Life Insurance Corporation|Life Insurance Corporation of India,financials
 LODHA.NS,Lodha Developers,infra
 LT.NS,Larsen & Toubro|Larsen and Toubro|L&T,infra
 LUPIN.NS,Lupin,pharma
@@ -97,47 +99,48 @@ MAZDOCK.NS,Mazagon Dock Shipbuilders,infra
 MOTHERSON.NS,Samvardhana Motherson|Motherson Sumi|Samvardhana Motherson International,consumer
 MUTHOOTFIN.NS,Muthoot Finance,financials
 NATIONALUM.NS,National Aluminium|NALCO|National Aluminium Company,metals
-NESTLEIND.NS,Nestle India|Nestle|Nestlé India,fmcg
+NESTLEIND.NS,Nestle India|Nestle|Nestlé India|Nestlé,fmcg
 NHPC.NS,NHPC,energy
 NMDC.NS,NMDC,metals
 NTPC.NS,NTPC,energy
 NYKAA.NS,Nykaa|FSN E-Commerce|FSN E-Commerce Ventures,consumer
 OBEROIRLTY.NS,Oberoi Realty,infra
-ONGC.NS,ONGC|Oil and Natural Gas Corporation,energy
+ONGC.NS,ONGC|Oil and Natural Gas Corporation|Oil and Natural Gas,energy
 PAGEIND.NS,Page Industries|Jockey India,consumer
 PAYTM.NS,Paytm|One 97 Communications|One97 Communications,it
+PERSISTENT.NS,Persistent Systems|Persistent,it
 PETRONET.NS,Petronet LNG,energy
-PFC.NS,Power Finance Corporation,financials
-PIDILITIND.NS,Pidilite Industries,metals
+PFC.NS,Power Finance Corporation|Power Finance,financials
+PIDILITIND.NS,Pidilite Industries|Pidilite,metals
 PNB.NS,Punjab National Bank,financials
 POLICYBZR.NS,PB Fintech,financials
-POLYCAB.NS,Polycab India,infra
+POLYCAB.NS,Polycab India|Polycab,infra
 POWERGRID.NS,Power Grid Corporation|PowerGrid|Power Grid Corporation of India,energy
 PRESTIGE.NS,Prestige Estates Projects,infra
 RECLTD.NS,REC,financials
 RELAXO.NS,Relaxo Footwears,consumer
-RELIANCE.NS,Reliance Industries|RIL,energy
+RELIANCE.NS,Reliance Industries|RIL|Reliance,energy
 SAIL.NS,Steel Authority of India|SAIL,metals
-SBICARD.NS,SBI Cards and Payment Services,financials
-SBILIFE.NS,SBI Life Insurance Company,financials
+SBICARD.NS,SBI Card|SBI Cards|SBI Cards and Payment Services|SBI Cards and Payment,financials
+SBILIFE.NS,SBI Life Insurance Company|SBI Life Insurance,financials
 SBIN.NS,State Bank of India|SBI Bank,financials
 SHREECEM.NS,Shree Cement,metals
 SHRIRAMFIN.NS,Shriram Finance,financials
-SIEMENS.NS,Siemens,infra
+SIEMENS.NS,Siemens India|Siemens Ltd|Siemens,infra
 SJVN.NS,SJVN,energy
 SUNPHARMA.NS,Sun Pharma|Sun Pharmaceutical|Sun Pharmaceutical Industries,pharma
-TATACONSUM.NS,Tata Consumer Products,fmcg
-TATAPOWER.NS,The Tata Power Company,energy
+TATACONSUM.NS,Tata Consumer Products|Tata Consumer,fmcg
+TATAPOWER.NS,Tata Power|The Tata Power Company,energy
 TATASTEEL.NS,Tata Steel,metals
 TCS.NS,Tata Consultancy|TCS|Tata Consultancy Services,it
 TECHM.NS,Tech Mahindra,it
 THERMAX.NS,Thermax,infra
 TITAN.NS,Titan Company,consumer
-TMCV.NS,Tata Motors CV|TATA MOTORS,consumer
-TMPV.NS,Tata Motors PV|Tata Motors|Tata Motors Passenger Vehicles,consumer
+TMCV.NS,Tata Motors CV|Tata Motors Commercial,consumer
+TMPV.NS,Tata Motors PV|Tata Motors|Tata Motors Passenger|Tata Motors Passenger Vehicles,consumer
 TORNTPHARM.NS,Torrent Pharmaceuticals,pharma
 TRENT.NS,Trent|Westside|Zudio,consumer
-TVSMOTOR.NS,TVS Motor Company,consumer
+TVSMOTOR.NS,TVS Motor Company|TVS Motor,consumer
 UBL.NS,United Breweries,fmcg
 ULTRACEMCO.NS,UltraTech Cement|UltraTech,metals
 UNIONBANK.NS,Union Bank of India,financials

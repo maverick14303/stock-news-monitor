@@ -56,6 +56,19 @@ _TABLES = [
     """CREATE TABLE IF NOT EXISTS verdicts (
         ts TEXT, symbol TEXT, price REAL, title TEXT
     )""",
+    # Articles are deduped by URL, so the FIRST feed to carry a story owns the
+    # `articles.source` column forever — which made learned source trust partly
+    # an artifact of the order feeds appear in config.json. This records every
+    # outlet that carried a link, so trust is graded on what a source actually
+    # published. See LESSONS.md L13.
+    """CREATE TABLE IF NOT EXISTS article_sources (
+        link TEXT, source TEXT,
+        PRIMARY KEY (link, source)
+    )""",
+    # One-time data repairs record themselves here so they cannot run twice.
+    """CREATE TABLE IF NOT EXISTS meta (
+        key TEXT PRIMARY KEY, value TEXT
+    )""",
 ]
 
 # Columns added after the original schema shipped. (table, column, decl)
@@ -70,7 +83,19 @@ _INDEXES = [
     "CREATE INDEX IF NOT EXISTS idx_articles_fetched ON articles(fetched_at)",
     "CREATE INDEX IF NOT EXISTS idx_articles_published ON articles(published)",
     "CREATE INDEX IF NOT EXISTS idx_at_symbol ON article_tickers(symbol)",
+    "CREATE INDEX IF NOT EXISTS idx_asrc_source ON article_sources(source)",
 ]
+
+
+def flag(con, key):
+    """Has this one-time repair already run?"""
+    row = con.execute("SELECT value FROM meta WHERE key = ?", (key,)).fetchone()
+    return row[0] if row else None
+
+
+def set_flag(con, key, value="done"):
+    con.execute("INSERT OR REPLACE INTO meta VALUES (?,?)", (key, value))
+    con.commit()
 
 
 def migrate(con):

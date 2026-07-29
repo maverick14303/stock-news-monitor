@@ -14,7 +14,6 @@ import json
 import re
 import sqlite3
 import sys
-import time
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 from datetime import datetime, timezone
@@ -25,18 +24,10 @@ from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 
 import db
 from newslib import (classify_noise, is_after_hours, load_ticker_patterns,
-                     match_tickers, score_sentiment)
+                     match_tickers, parse_feed_time, score_sentiment)
 
 BASE = Path(__file__).parent
 DB = BASE / "news.db"
-
-
-def parse_published(entry):
-    for key in ("published_parsed", "updated_parsed"):
-        t = entry.get(key)
-        if t:
-            return datetime.fromtimestamp(time.mktime(t), tz=timezone.utc).isoformat()
-    return None
 
 
 def main():
@@ -65,8 +56,13 @@ def main():
             hits = {} if feed.get("global") else match_tickers(title, summary, patterns)
             n_title = sum(hits.values())
             noise = classify_noise(title, n_title)
-            published = parse_published(entry)
+            published = parse_feed_time(entry)
             sentiment = score_sentiment(f"{title}. {summary}", analyzer)
+            # Record the sighting even when the article is a duplicate: source
+            # trust must be graded on what an outlet actually carried, not on
+            # which feed happened to be scraped first.
+            con.execute("INSERT OR IGNORE INTO article_sources VALUES (?,?)",
+                        (link, feed["name"]))
             try:
                 con.execute(
                     "INSERT INTO articles "

@@ -58,8 +58,11 @@ CURATED = {
     "ULTRACEMCO.NS": ["UltraTech Cement", "UltraTech"],
     "BAJFINANCE.NS": ["Bajaj Finance"],
     "ONGC.NS": ["ONGC", "Oil and Natural Gas Corporation"],
-    "TMPV.NS": ["Tata Motors PV", "Tata Motors"],
-    "TMCV.NS": ["Tata Motors CV"],
+    # "Tata Motors" belongs to TMPV only. yfinance returns "Tata Motors Limited"
+    # for BOTH post-demerger tickers, which made every Tata Motors headline
+    # double-count across two symbols (LESSONS.md L15).
+    "TMPV.NS": ["Tata Motors PV", "Tata Motors", "Tata Motors Passenger"],
+    "TMCV.NS": ["Tata Motors CV", "Tata Motors Commercial"],
     "M&M.NS": ["Mahindra & Mahindra", "Mahindra and Mahindra", "M&M"],
     "HCLTECH.NS": ["HCL Technologies", "HCLTech", "HCL Tech"],
     "EICHERMOT.NS": ["Eicher Motors", "Royal Enfield"],
@@ -96,6 +99,26 @@ CURATED = {
     "GAIL.NS": ["GAIL", "GAIL India"],
     "CANBK.NS": ["Canara Bank"],
     "UNIONBANK.NS": ["Union Bank of India"],
+    # Names headlines use that no legal name yields, found by scanning 5 104
+    # ticker-unmatched Indian-feed headlines for recurring company names.
+    "TATAPOWER.NS": ["Tata Power"],
+    "LICI.NS": ["LIC", "Life Insurance Corporation"],
+    "SBICARD.NS": ["SBI Card", "SBI Cards"],
+    "INDIGO.NS": ["IndiGo", "InterGlobe Aviation"],
+    "BEL.NS": ["Bharat Electronics", "BEL"],
+    "IRCTC.NS": ["IRCTC", "Indian Railway Catering"],
+    "DIVISLAB.NS": ["Divi's Laboratories", "Divis Laboratories", "Divi's Lab",
+                    "Divis Lab"],
+    "MARICO.NS": ["Marico"],
+    "DABUR.NS": ["Dabur"],
+    "SIEMENS.NS": ["Siemens India", "Siemens Ltd"],
+    # Liquid names the momentum universe omits but the news feeds discuss often.
+    # Harmless to the bot (it only looks up its own candidates) and they enrich
+    # the ML dataset.
+    "COFORGE.NS": ["Coforge"],
+    "PERSISTENT.NS": ["Persistent Systems"],
+    "JSWENERGY.NS": ["JSW Energy"],
+    "VBL.NS": ["Varun Beverages"],
 }
 
 # Sector labels drive autotrader's learned sector weights; unknown -> "other".
@@ -110,6 +133,39 @@ SECTOR_MAP = {
 _SUFFIXES = re.compile(
     r"\s+(limited|ltd\.?|corporation|corp\.?|company|co\.?|inc\.?|plc)$",
     re.IGNORECASE)
+
+# Generic tail words that appear in a legal name but almost never in a headline:
+# "The Tata Power Company" is written "Tata Power", "Hindalco Industries" is
+# "Hindalco". Stripping these produced 20% dead tickers when it was missing —
+# TATAPOWER had 33 headline mentions and zero matches (LESSONS.md L12).
+_TAIL_WORDS = re.compile(
+    r"\s+(company|industries|enterprises?|technologies|services|systems|"
+    r"laboratories|labs|holdings|ventures|international|india|"
+    r"corporation|solutions|products|group)$", re.IGNORECASE)
+_LEADING_THE = re.compile(r"^the\s+", re.IGNORECASE)
+
+
+def short_forms(name):
+    """Progressively shorter headline-style variants of a legal company name.
+
+    Each variant is still filtered through BLOCKLIST by the caller, so this can
+    propose "Titan" from "Titan Company" and have it correctly rejected, while
+    "Tata Power" from "The Tata Power Company" is kept.
+    """
+    out = []
+    # Strip the legal suffix FIRST. The tail-word regex is anchored at the end,
+    # so "Havells India Limited" would otherwise never reduce to "Havells".
+    base = _SUFFIXES.sub("", (name or "").strip()).strip(" .,")
+    n = _LEADING_THE.sub("", base)
+    if n and n.lower() != base.lower():
+        out.append(n)
+    for _ in range(3):                      # peel at most three generic tails
+        shorter = _TAIL_WORDS.sub("", n).strip()
+        if shorter == n or not shorter:
+            break
+        out.append(shorter)
+        n = shorter
+    return out
 
 
 def bot_universe():
@@ -144,6 +200,10 @@ def clean_aliases(raw, curated=()):
         key = a.lower()
         if not a or len(a) < 3 or key in BLOCKLIST or key in seen:
             continue
+        # Peeling a tail word can leave a dangling connective
+        # ("Life Insurance Corporation of India" -> "...Corporation of").
+        if key.split()[-1] in {"of", "and", "&", "the", "for", "in", "on"}:
+            continue
         seen.add(key)
         out.append(a)
     return out
@@ -169,7 +229,8 @@ def main():
             sector = info.get("sector")
         except Exception:
             pass
-        aliases = clean_aliases([long_name], curated=CURATED.get(sym, []))
+        generated = [long_name] + short_forms(long_name or "")
+        aliases = clean_aliases(generated, curated=CURATED.get(sym, []))
         if not aliases:
             no_data.append(sym)
             continue
@@ -177,6 +238,28 @@ def main():
                      "sector": SECTOR_MAP.get(sector, "other")})
         if i % 25 == 0:
             print(f"  ...{i}/{len(symbols)}")
+
+    # Resolve cross-symbol collisions: an alias claimed by two tickers is kept
+    # only by the one that curated it, and dropped from the other. yfinance
+    # returns "Tata Motors Limited" for BOTH post-demerger symbols, so without
+    # this every Tata Motors headline double-counts (LESSONS.md L15).
+    owner = {a.strip().lower(): s for s, al in CURATED.items() for a in al}
+    claims = {}
+    for r in rows:
+        for a in r["aliases"].split("|"):
+            claims.setdefault(a.strip().lower(), []).append(r["symbol"])
+    contested = {a: syms for a, syms in claims.items() if len(set(syms)) > 1}
+    for r in rows:
+        keep = []
+        for a in r["aliases"].split("|"):
+            k = a.strip().lower()
+            if k in contested and owner.get(k, r["symbol"]) != r["symbol"]:
+                print(f"  dropped contested alias '{a}' from {r['symbol']} "
+                      f"(owned by {owner.get(k)})")
+                continue
+            keep.append(a)
+        r["aliases"] = "|".join(keep)
+    rows = [r for r in rows if r["aliases"]]
 
     rows.sort(key=lambda r: r["symbol"])
     with open(out_path, "w", encoding="utf-8", newline="") as f:

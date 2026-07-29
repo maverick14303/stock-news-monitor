@@ -157,6 +157,13 @@ model — if after-hours news doesn't beat baseline, no classifier will save it.
 
 ## 6. Progress log
 
+> **2026-07-30 correction notice.** The "after-hours 53.8% vs in-session 41.2%"
+> result reported earlier that day was measured on corrupted labels (a 5½-hour
+> timestamp bug, LESSONS.md L11, put 61% of pairs in the wrong bucket).
+> Re-measured on repaired data: **after-hours 50.8% (n=459, ±6.5) vs in-session
+> 45.1% (n=253, ±8.7)**. Both intervals contain 50%. There is currently **no
+> measurable edge**. Do not cite the old numbers.
+
 - **2026-07-30 — Document created.** Decision recorded: no LLM fine-tune; build the
   dataset, then logistic regression → gradient boosting. Phase gates set.
   Current state: 9 961 articles, 955 ticker-matched, 773 graded signals.
@@ -220,3 +227,61 @@ model — if after-hours news doesn't beat baseline, no classifier will save it.
   by bug family (wrong unit of analysis / contamination that flatters / impossible
   fills / silent NaN). It is both the portability record and the negative-example
   set for any future model (§1).
+
+- **2026-07-30 (audit) — 12 defects found and fixed in one adversarial pass.**
+  A deliberate third-party-style review, hunting for edge cases rather than
+  confirming the work. Full write-ups in LESSONS.md L11–L18.
+
+  **Measurement correctness (these changed the answer):**
+  1. **L11 — every timestamp 5h30m early** since day one (`time.mktime` on a UTC
+     struct with `TZ=Asia/Kolkata`). Found via an impossible statistic: 0% of
+     articles discovered within 2h of publication despite hourly polling.
+     Repaired 10 163 rows; discovery lag 6.4h → 1.24h. **This is what killed the
+     after-hours result** — 61% of pairs were in the wrong bucket.
+  2. **L12 — trading day computed as a UTC calendar date.** 28.5% of pairs graded
+     against the wrong session, and overnight news was baselined *after* the gap
+     it was supposed to capture. Now `signal_trading_day()`.
+  3. **L18 — nine simultaneous significance tests** (~37% chance of a false
+     EDGE?). Bonferroni-widened, with one pre-registered hypothesis named.
+
+  **Safety:**
+  4. **L13 — no NSE holiday calendar.** `market_phase()` said "trade" on Republic
+     Day, Holi, Gandhi Jayanti, Christmas — L5 returning. Fixed with a holiday
+     list *plus* a data-derived index-bar check that catches unlisted closures.
+
+  **Coverage and data quality:**
+  5. **L14 — aliases were legal names.** 29 of 148 tickers had never matched
+     anything (TATAPOWER: 33 headline mentions, 0 matches). Short-form generation
+     added; dead tickers 29 → 20, matched articles +19%, pairs +23%.
+     Universe 148 → 151 (added COFORGE, PERSISTENT, JSWENERGY, VBL).
+  6. **L17 — six zombie feeds** returning HTTP 200 with content frozen at 2024
+     (all Moneycontrol) and 2025 (both WSJ). Removed; 42 → 37 feeds.
+  7. **L15 — URL dedup stole source attribution**, making learned source trust
+     partly an artifact of config.json ordering. New `article_sources` table;
+     trust now graded on excess return via the link join. Historical attribution
+     is unrecoverable — multi-outlet rows accumulate from today forward.
+  8. **L16 — missing LLM answers were written as real 0.0 scores** and never
+     retried. Now left NULL and re-queued.
+
+  **Dataset (P1 prerequisites):**
+  9. `labels` now keeps **every** pair including neutral ones (781 → 1 069 rows).
+     A classifier that only ever sees directional signals cannot learn to
+     recognise a weak one.
+  10. `labels.n_sources` populated (was a dead column on all 781 rows).
+  11. Alias collision fixed: yfinance returns "Tata Motors Limited" for BOTH
+      post-demerger tickers, so every Tata Motors headline double-counted.
+  12. Alias hygiene: dangling connectives ("…Corporation of") rejected.
+
+  **STATE AFTER THIS PASS — read this before believing any number:**
+  ```
+  1d excess vs NIFTY   48.7%  (n=712, ±5.2 Bonferroni)
+     after-hours       50.8%  (n=459, ±6.5)   <- pre-registered hypothesis
+     in-session        45.1%  (n=253, ±8.7)
+     headline          52.1%  (n=539, ±6.0)
+     body mention      38.2%  (n=173, ±10.2)  <- the one robust finding
+  ```
+  **No edge is currently measurable.** The only result that survived the audit is
+  L3: body-only mentions are anti-predictive, and that is already acted on. The
+  LLM backlog (1 245 pairs) has not cleared, so this is still largely a VADER
+  measurement — that is the next honest read, not a reason to expect a different
+  answer.

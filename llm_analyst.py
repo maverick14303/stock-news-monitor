@@ -178,7 +178,7 @@ def main():
 
     import requests
     names = company_names()
-    scored_n, served_last, disagreements = 0, None, []
+    scored_n, missing, served_last, disagreements = 0, 0, None, []
 
     for c in range(0, len(pending), BATCH):
         rows = pending[c:c + BATCH]
@@ -188,7 +188,16 @@ def main():
             break
         served_last = served
         for i, (link, symbol, title, _) in enumerate(rows):
-            score, novel = scores.get(i + 1, (0.0, 0))
+            answer = scores.get(i + 1)
+            # A missing id means the model truncated, dropped or malformed that
+            # entry. Writing the old default of (0.0, 0) recorded it as a
+            # genuine "this is noise" verdict AND made llm_sent non-NULL, so it
+            # was never retried — a silent, permanent bias toward neutral.
+            # Leaving it NULL puts it back in the queue. See LESSONS.md L14.
+            if answer is None:
+                missing += 1
+                continue
+            score, novel = answer
             score = max(-1.0, min(1.0, score))
             con.execute(
                 "UPDATE article_tickers SET llm_sent = ?, llm_novel = ? "
@@ -210,7 +219,9 @@ def main():
     con.commit()
     con.close()
 
-    print(f"LLM analyst: scored {scored_n} (headline, company) pair(s) with {served_last}.")
+    print(f"LLM analyst: scored {scored_n} (headline, company) pair(s) with {served_last}."
+          + (f" {missing} answer(s) missing from the response — left unscored "
+             "for retry." if missing else ""))
     for symbol, score, title in disagreements[:5]:
         print(f"  novel & strong — {symbol} {score:+.2f}: {title[:65]}")
 

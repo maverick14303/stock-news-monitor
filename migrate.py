@@ -21,16 +21,72 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
+from datetime import timedelta
+
 import db
-from newslib import classify_noise, is_after_hours, load_ticker_patterns, match_tickers
+from newslib import (classify_noise, is_after_hours, load_ticker_patterns,
+                     match_tickers, parse_ts)
 
 BASE = Path(__file__).parent
 DB = BASE / "news.db"
 
 
+TZ_REPAIR = "published_tz_shift_v1"
+
+
+def repair_published_timestamps(con):
+    """One-time: undo the time.mktime() timezone bug on historical rows.
+
+    Every `published` written before 2026-07-30 was produced by
+    `time.mktime(published_parsed)`, which reads a UTC struct as LOCAL time.
+    With TZ=Asia/Kolkata in the workflow that stamped each article exactly 5h30m
+    early. Verified uniform: of 10 163 rows, 10 161 had a publish->scrape lag of
+    >= 5.5h (impossible with hourly polling) and none were negative, so a single
+    +5:30 shift is correct rather than a per-row guess.
+
+    Guarded by a `meta` flag: migrate.py runs on every pipeline invocation and
+    applying this twice would push every timestamp 11 hours into the future.
+    """
+    if db.flag(con, TZ_REPAIR):
+        return 0
+    rows = con.execute(
+        "SELECT link, published FROM articles WHERE published IS NOT NULL").fetchall()
+    fixed = 0
+    for link, published in rows:
+        dt = parse_ts(published)
+        if dt is None:
+            continue
+        con.execute("UPDATE articles SET published = ? WHERE link = ?",
+                    ((dt + timedelta(hours=5, minutes=30)).isoformat(), link))
+        fixed += 1
+    db.set_flag(con, TZ_REPAIR, f"shifted {fixed} rows by +5:30")
+    con.commit()
+    return fixed
+
+
+def backfill_article_sources(con):
+    """Seed article_sources from the one source each link currently records."""
+    if db.flag(con, "article_sources_seed_v1"):
+        return 0
+    n = con.execute(
+        "INSERT OR IGNORE INTO article_sources (link, source) "
+        "SELECT link, source FROM articles WHERE source IS NOT NULL").rowcount
+    db.set_flag(con, "article_sources_seed_v1", f"seeded {n}")
+    con.commit()
+    return n
+
+
 def main():
     con = db.connect(DB)
     patterns = load_ticker_patterns(BASE / "tickers.csv")
+
+    shifted = repair_published_timestamps(con)
+    if shifted:
+        print(f"[repair] corrected {shifted} published timestamps by +5:30 "
+              "(time.mktime timezone bug — one time only)")
+    seeded = backfill_article_sources(con)
+    if seeded:
+        print(f"[repair] seeded {seeded} article_sources rows")
 
     rows = con.execute(
         "SELECT link, title, summary, published, fetched_at, source FROM articles"

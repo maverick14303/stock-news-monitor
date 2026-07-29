@@ -44,7 +44,7 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from alerts import load_sectors
-from newslib import IST, distinct_stories
+from newslib import IST, distinct_stories, is_trading_day
 from paper_portfolio import FEES_PCT, live_price
 
 BASE = Path(__file__).parent
@@ -80,8 +80,14 @@ def save(p):
 
 
 def market_phase(ist_now):
-    """'plan' | 'trade' | 'closed' — what this run is permitted to do."""
-    if ist_now.weekday() >= 5:
+    """'plan' | 'trade' | 'closed' — what this run is permitted to do.
+
+    Checks the NSE holiday calendar, not just the weekday. Republic Day, Holi,
+    Gandhi Jayanti and Christmas all fall on weekdays in 2026; without this the
+    bot would decide the market was open and fill at a stale close on ~10 days a
+    year — the L5 bug returning through the back door.
+    """
+    if not is_trading_day(ist_now.date()):
         return "closed"
     mins = ist_now.hour * 60 + ist_now.minute
     if PLAN_FROM_MIN <= mins < SESSION_OPEN_MIN:
@@ -92,10 +98,26 @@ def market_phase(ist_now):
 
 
 def source_weights(con):
-    """Trust per source, learned from graded 1-day outcomes (neutral if <5 samples)."""
+    """Trust per source, learned from graded 1-day outcomes (0.6-1.4).
+
+    Joined through article_sources on the article LINK, so an outlet is credited
+    for every story it actually carried. Grading via articles.source alone gave
+    the credit to whichever feed config.json happened to list first, which made
+    learned trust partly an artifact of file ordering (LESSONS.md L13).
+
+    Graded on EXCESS return vs NIFTY, so a source is not rewarded for market drift.
+    """
     try:
         rows = con.execute(
-            "SELECT source, AVG(hit), COUNT(*) FROM graded GROUP BY source").fetchall()
+            "SELECT s.source, "
+            "       AVG(CASE WHEN (COALESCE(l.llm_sent, l.vader) > 0) "
+            "                  = ((l.ret_1d - COALESCE(l.mkt_1d, 0)) > 0) "
+            "            THEN 1.0 ELSE 0.0 END), "
+            "       COUNT(*) "
+            "FROM labels l JOIN article_sources s ON s.link = l.link "
+            "WHERE l.ret_1d IS NOT NULL "
+            "  AND ABS(COALESCE(l.llm_sent, l.vader)) >= 0.25 "
+            "GROUP BY s.source").fetchall()
     except sqlite3.OperationalError:
         return {}
     return {s: max(0.6, min(1.4, 2 * hr)) for s, hr, n in rows if n >= 5}
@@ -126,6 +148,28 @@ def confirmed(con, sym, since):
         (sym, since)).fetchall()
     return (len({s for s, _ in cov}) >= 2
             and distinct_stories([t for _, t in cov]) >= 2)
+
+
+def session_data_fresh(today_ist):
+    """True when the index actually has a bar for today.
+
+    Belt-and-braces behind the holiday list, which is hand-maintained and will
+    eventually go stale (unscheduled closures, or nobody updating it for 2027).
+    On a shut day the newest bar is the previous session's, so this catches a
+    missing holiday without needing to know about it.
+
+    Failing this only DELAYS the day's entries — pending orders are left intact
+    and the next hourly run retries — so a slow Yahoo update costs an hour, not
+    a day, while a genuine closure blocks entries for the whole day.
+    """
+    try:
+        import yfinance as yf
+        idx = yf.Ticker("^NSEI").history(period="5d")["Close"].dropna()
+        if not len(idx):
+            return False
+        return idx.index[-1].date() == today_ist
+    except Exception:
+        return False
 
 
 def quote(sym):
@@ -352,6 +396,10 @@ def main():
         if p["pending"] and p["pending"][0]["queued"] == day:
             if p.get("traded_day") == day:
                 print("Plan already executed today — holding.")
+            elif not session_data_fresh(ist_now.date()):
+                print(f"NO index bar for {day} yet — the market may be shut "
+                      "(unlisted holiday) or the feed is lagging. Entries held "
+                      "for the next run; plan kept.")
             else:
                 execute_pending(p, con, sectors, prices, now, now_iso, since)
                 p["traded_day"] = day

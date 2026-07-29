@@ -104,12 +104,10 @@ When `alerts.py` finds something notable — news on a held stock (|s| >= 0.4),
 a strong signal on any tracked stock (|s| >= 0.7), or a macro shock headline —
 the workflow opens a GitHub issue, which GitHub emails to the repo owner.
 Tune thresholds at the top of `alerts.py`. Feeds marked `"global": true` in
-`config.json` (15 international sources) feed macro alerts but skip ticker
+`config.json` (13 international sources) feed macro alerts but skip ticker
 matching to avoid false name collisions.
 
 The cloud repo is the source of truth. Before working locally, `git pull`.
-After local trades (`paper_portfolio.py buy/sell`), commit and push so the
-cloud prices the right positions.
 
 A disabled Windows scheduled task (**StockNewsMonitor**) remains as backup;
 re-enable with `Enable-ScheduledTask StockNewsMonitor` if GitHub ever fails.
@@ -120,12 +118,15 @@ re-enable with `Enable-ScheduledTask StockNewsMonitor` if GitHub ever fails.
   Rs 5000 put in the index on the start date. Beating the market, not just
   making money, is the bar.
 - **Fees**: paper trades pay ~0.25% per side, folded into cost basis.
-- **Exit checks** (9 AM & 4 PM runs): stop-loss review at -7%, take-profit
-  review at +15%, stale flag at 30 days held.
+- **Session-gated trading**: the bot transacts only inside NSE hours, on a real
+  trading day (holiday calendar + a live index-bar check). It plans pre-open and
+  fills after the open, so no paper fill is at a price it could not have got.
 - **Verdict journal**: every ✅ PASSES the alert engine issues is logged and
   graded on 5-day outcomes by scoreboard.py.
-- **Scoreboard rigor**: hit rates at 1/3/5-day horizons with 95% confidence
-  ranges, compared against the always-bull baseline (not a naive 50%).
+- **Scoreboard rigor**: excess return vs NIFTY at 1/3/5-day horizons, with
+  Bonferroni-widened confidence intervals (the table runs ~9 simultaneous tests,
+  so plain 95% would produce a false positive ~37% of the time) and one
+  pre-registered hypothesis.
 - **Weekly report** (Sunday 6 PM IST): week stats plus feed-health check
   flagging sources silent 48h+.
 - **Syndication-aware confirmation**: near-identical wire-copy headlines are
@@ -134,10 +135,12 @@ re-enable with `Enable-ScheduledTask StockNewsMonitor` if GitHub ever fails.
 ## Honest limitations (read this)
 
 1. **News is priced in fast.** By the time a headline reaches an RSS feed, the
-   market has usually reacted. Measured 2026-07-30 after cleaning: 50.4% excess
-   return vs NIFTY at 1 day (n=696, ±3.7) — a coin flip. The one split showing
-   life is after-hours news (53.8%) versus in-session (41.2%). That gap is the
-   whole thesis; it has not yet cleared its confidence interval.
+   market has usually reacted. Measured 2026-07-30 after a full correctness
+   audit: **48.7% excess return vs NIFTY at 1 day (n=712, ±5.2)** — a coin flip.
+   After-hours 50.8% vs in-session 45.1%; both intervals contain 50%.
+   **There is no measurable edge yet.** An earlier, more encouraging version of
+   these numbers was an artifact of a 5½-hour timestamp bug (LESSONS.md L11) —
+   which is exactly why the scoreboard reports confidence intervals.
 2. **A hit rate is not money.** A signal that is right 55% of the time but only
    by 0.3% per trade still loses against a ~2.5% round-trip cost. Grade on net
    outcome, not direction.

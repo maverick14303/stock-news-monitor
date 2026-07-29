@@ -28,8 +28,16 @@ Every serious bug in this project so far belonged to one of five families:
    every guard until it dies somewhere unrelated.
 5. **Monitoring that cannot go red** — a green tick wired to a proxy instead of
    to the thing you actually care about.
+6. **Wrong frame of reference** — the right number in the wrong timezone,
+   calendar or trading session. Nothing crashes; the effect just disappears.
 
-When something new breaks, check these five first.
+When something new breaks, check these six first.
+
+**The single most useful habit:** look for a number that is *impossible* rather
+than merely disappointing. "0% of articles discovered within 2 hours, with hourly
+polling" found a 5½-hour timezone bug that had corrupted every measurement in the
+project since day one (L11). Disappointing numbers get rationalised; impossible
+ones have mechanisms.
 
 ---
 
@@ -294,6 +302,205 @@ GitHub issue on failure, which GitHub emails.
 that can actually go red, and that signal must be tied to the thing you care
 about — not to a proxy one layer away. Ask of every monitor: "what exactly would
 have to break for this to stay quiet?"
+
+---
+
+## L11 — Every timestamp was 5½ hours early, for the entire life of the project
+
+**Found:** 2026-07-30 (audit). **Severity: critical — it invalidated the project's one positive result.**
+
+`monitor.py` built publication times with:
+
+```python
+datetime.fromtimestamp(time.mktime(entry.published_parsed), tz=timezone.utc)
+```
+
+`time.mktime()` interprets a `struct_time` as **local** time. feedparser always
+returns `published_parsed` in **UTC**. The workflow sets `TZ: Asia/Kolkata`, so
+every article was stamped **exactly 5h30m early** — silently, from day one, on
+all 10 163 rows.
+
+**How it surfaced:** not by reading the code. By noticing an impossible number —
+**0% of articles were discovered within 2 hours of publication**, despite hourly
+polling. The "6.4h median discovery lag" was not lag, it was the offset. After
+repair: median 1.24h, 44% within the hour.
+
+**What it cost:** `after_hours` is derived from that timestamp, so a 14:00 IST
+in-session story was recorded as 08:30 IST and labelled *pre-open*. Correcting
+the shift moved **696 of 1 134 pairs (61%) into a different bucket**. The
+previously reported "after-hours 53.8% vs in-session 41.2%" — the only
+encouraging result this project had produced — was mostly an artifact. Re-measured
+on correct timestamps: **50.8% vs 45.1%**, both inside their confidence intervals.
+
+**Fix:** `calendar.timegm()`, which is timezone-independent and therefore cannot
+regress if someone changes `TZ`. Historical rows repaired by a one-time +5:30
+shift, guarded by a `meta` flag (applying it twice would push everything 11 hours
+into the future).
+
+**Rule:** when a measurement is impossible rather than merely surprising, stop and
+find the mechanism — do not explain it away. And never use `time.mktime()` on a
+UTC struct; `calendar.timegm()` is the only correct pairing.
+
+---
+
+## L12 — The trading day is not the calendar day
+
+**Found:** 2026-07-30. **Severity: critical — silently deleted the effect being measured.**
+
+`scoreboard.py` did `datetime.fromisoformat(ts).date()` on a UTC timestamp.
+Anything published 18:30–24:00 UTC is 00:00–05:30 IST *the next day*, so **28.5%
+of pairs were graded against the wrong trading day** — and that window is exactly
+the US session, the news we care most about.
+
+Worse, even the IST date is wrong for overnight news. A story at 02:00 IST
+Thursday must be baselined against **Wednesday's** close, because Thursday has
+not opened. Using Thursday's close as the baseline measures Thu→Fri and discards
+the opening gap — precisely the move an overnight signal is supposed to capture.
+The bug systematically erased the effect it was meant to detect.
+
+**Fix:** `newslib.signal_trading_day()` — convert to IST, roll back to the
+previous session if the news arrived before the open, then roll back over
+weekends and holidays.
+
+**Rule:** for market data, "what day is this" is a domain question, not a
+`datetime` question. Write it down as a named function with the reasoning in the
+docstring.
+
+---
+
+## L13 — The session gate knew about weekends but not holidays
+
+**Found:** 2026-07-30. **Severity: critical — L5 returning through the back door.**
+
+`market_phase()` checked `weekday() >= 5`. In 2026 the NSE is shut on Republic
+Day (Mon), Holi (Tue), Gandhi Jayanti (Fri), Christmas (Fri) and eleven other
+weekdays. On each, the freshly-written "only trade when the market is open" gate
+returned `"trade"` and would have filled at a stale close — the exact bug it had
+just been built to prevent.
+
+**Fix:** `NSE_HOLIDAYS` list + `is_trading_day()`, **plus** a second, self-maintaining
+guard: before filling, confirm the NIFTY index actually has a bar for today. A
+hand-maintained calendar will go stale; the data check catches an unlisted
+closure without knowing about it, and only delays entries by one run if Yahoo is
+merely slow.
+
+**Rule:** a fix that depends on a hand-maintained list is half a fix. Pair it
+with something derived from the data, and make the failure mode "do nothing".
+
+---
+
+## L14 — Aliases were legal names; headlines use short names
+
+**Found:** 2026-07-30. **Severity: high — 20% of the universe was silently unreachable.**
+
+`build_tickers.py` generated aliases from yfinance `longName`, stripping only
+`Limited|Ltd|Corp` anchored at the end. So:
+
+| ticker | alias generated | headlines say | mentions | matched |
+|---|---|---|---|---|
+| TATAPOWER | "The Tata Power Company" | "Tata Power" | 33 | **0** |
+| LICI | "Life Insurance Corporation" | "LIC" | 224 | **0** |
+| HINDALCO | "Hindalco Industries" | "Hindalco" | — | **0** |
+| INDIGO | "InterGlobe Aviation" | "IndiGo" | 36 | 4 |
+
+**29 of 148 tickers had never matched a single article in 10 000.**
+
+**Fix:** `short_forms()` peels a leading "The" and trailing generic words
+(Company/Industries/Technologies/India/…) — *after* suffix-stripping, since the
+tail regex is end-anchored and "Havells India Limited" otherwise never reduces.
+Every generated short form is still filtered through `BLOCKLIST`, so "Titan
+Company" → "Titan" is correctly rejected (verified: of 13 "Titan" headlines the
+real ones were *"financial titan J.P. Morgan"* and *"A Titan Story"*). Dead
+tickers: 29 → 20, matched articles +19%.
+
+**Rule:** generate identifiers the way the *source* writes them, not the way a
+registry does. And validate coverage by asking "which entries never fire?" — a
+config file full of plausible-looking rows tells you nothing.
+
+---
+
+## L15 — Deduping by URL stole source attribution
+
+**Found:** 2026-07-30. **Severity: medium — it corrupted a learned parameter.**
+
+Articles are keyed by link, so the first feed to carry a story owned
+`articles.source` forever. 19 of The Hindu Economy's 60 current items were
+credited to The Hindu Business purely because it appears earlier in
+`config.json`. Learned source trust — which the bot multiplies into every buy
+score — was therefore partly an artifact of file ordering.
+
+**Fix:** `article_sources(link, source)` records every outlet that carried a
+link, written on every sighting including duplicates. Trust is graded through
+that join, on excess return rather than raw direction.
+
+**Caveat kept honest:** historical attribution cannot be recovered — we never
+recorded which other feeds carried old links. The seed backfill therefore has one
+source per link, and multi-outlet rows only accumulate from 2026-07-30 forward.
+
+**Rule:** deduplication must not destroy the dimension you later want to measure.
+Dedupe the *content*, keep every *observation*.
+
+---
+
+## L16 — Missing LLM answers were written as real scores
+
+**Found:** 2026-07-30. **Severity: medium — silent, permanent, and unauditable.**
+
+```python
+score, novel = scores.get(i + 1, (0.0, 0))   # the default is the bug
+```
+
+If the model returned 23 items for a 25-item batch — truncation, a dropped id,
+one malformed entry — the two missing pairs were written as **score 0.0, novel
+0**, indistinguishable from a genuine "this is noise" verdict. And because
+`llm_sent` became non-NULL, they were never retried.
+
+**Fix:** a missing id leaves the row NULL so it returns to the queue, and the run
+reports how many answers were missing.
+
+**Rule:** never let "no answer" and "answered zero" collapse into the same value.
+If a default is doing real work, it is a decision and it needs to be visible.
+
+---
+
+## L17 — Feeds that are dead but return HTTP 200
+
+**Found:** 2026-07-30. **Severity: medium — invisible data loss.**
+
+Six configured feeds returned 200 OK with a full set of entries and looked
+perfectly healthy. They were frozen archives:
+
+```
+Moneycontrol (all 5 endpoints)   newest item: 2024-04-23   — 2+ years stale
+WSJ Markets / WSJ World          newest item: 2025-01-27   — 18 months stale
+```
+
+Moneycontrol is a major Indian financial source and *Buzzing Stocks* was one of
+the highest-signal feeds in the list. The existing feed-health check reported
+"silent 664h" but could not distinguish *dead* from *quiet*, and nobody reads it.
+
+**Fix:** all six removed. Health checks should compare the newest *item date* in
+the feed against now, not the last time we stored something.
+
+**Rule:** liveness is not availability. Check the freshness of the content, not
+the status code.
+
+---
+
+## L18 — Nine simultaneous significance tests
+
+**Found:** 2026-07-30. **Severity: medium — would have manufactured a false edge.**
+
+The scoreboard prints ~9 `EDGE?` tests at once (3 horizons × 3 splits). At 95%
+confidence each, **P(at least one false positive) ≈ 37%**. Hunting a small edge
+across many slices, one *will* eventually clear the bar and be believed.
+
+**Fix:** confidence intervals are Bonferroni-widened by the test count, and a
+single **pre-registered** hypothesis (after-hours, 1 day) is named in the output.
+Everything else is labelled exploratory.
+
+**Rule:** decide which test matters *before* looking. If you slice until
+something is significant, you have measured your own persistence.
 
 ---
 

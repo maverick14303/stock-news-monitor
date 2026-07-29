@@ -13,15 +13,55 @@ Design note — two different filters, deliberately kept separate:
     That needs reading comprehension, not a regex, so the LLM decides it.
 Keeping the regex conservative matters: over-filtering silently destroys signal.
 """
+import calendar
 import difflib
 import re
-from datetime import datetime, timedelta, timezone
+import time
+from datetime import date, datetime, timedelta, timezone
 
 IST = timezone(timedelta(hours=5, minutes=30))
 
 # NSE continuous session. Used for the after-hours flag, not for trading logic.
 SESSION_OPEN = (9, 15)
 SESSION_CLOSE = (15, 30)
+SESSION_OPEN_MIN = SESSION_OPEN[0] * 60 + SESSION_OPEN[1]
+SESSION_CLOSE_MIN = SESSION_CLOSE[0] * 60 + SESSION_CLOSE[1]
+
+# NSE equity-segment trading holidays. Weekday holidays only matter; weekend
+# ones are already covered. UPDATE THIS EVERY DECEMBER for the coming year —
+# a missing entry means the bot believes a shut market is open and "trades" at
+# a stale close, which is exactly the class of bug LESSONS.md L5 records.
+# Source: NSE holiday circular (verified 2026-07-30).
+NSE_HOLIDAYS = {
+    # 2026
+    "2026-01-15", "2026-01-26", "2026-03-03", "2026-03-26", "2026-03-31",
+    "2026-04-03", "2026-04-14", "2026-05-01", "2026-05-28", "2026-06-26",
+    "2026-09-14", "2026-10-02", "2026-10-20", "2026-11-10", "2026-11-24",
+    "2026-12-25",
+}
+
+
+def is_trading_day(d):
+    """True if the NSE holds a normal session on this IST date."""
+    if isinstance(d, datetime):
+        d = d.date()
+    return d.weekday() < 5 and d.isoformat() not in NSE_HOLIDAYS
+
+
+def parse_feed_time(entry):
+    """UTC ISO timestamp from a feedparser entry, or None.
+
+    Uses calendar.timegm, NOT time.mktime. feedparser always returns
+    published_parsed in UTC; time.mktime interprets a struct_time as LOCAL time,
+    so with TZ=Asia/Kolkata set in the workflow it stamped every article 5.5
+    hours early — silently, from day one. timegm is timezone-independent, so
+    this cannot regress if someone changes TZ. See LESSONS.md L11.
+    """
+    for key in ("published_parsed", "updated_parsed"):
+        t = entry.get(key)
+        if t:
+            return datetime.fromtimestamp(calendar.timegm(t), tz=timezone.utc).isoformat()
+    return None
 
 # Articles naming more than this many companies are listicles/previews: one
 # sentiment cannot honestly be attributed to each name.
@@ -185,9 +225,39 @@ def is_after_hours(ts):
     if dt is None:
         return None
     ist = dt.astimezone(IST)
-    if ist.weekday() >= 5:          # Saturday/Sunday
+    if not is_trading_day(ist.date()):      # weekend or NSE holiday
         return 1
     minutes = ist.hour * 60 + ist.minute
-    open_m = SESSION_OPEN[0] * 60 + SESSION_OPEN[1]
-    close_m = SESSION_CLOSE[0] * 60 + SESSION_CLOSE[1]
-    return 0 if open_m <= minutes <= close_m else 1
+    return 0 if SESSION_OPEN_MIN <= minutes <= SESSION_CLOSE_MIN else 1
+
+
+def signal_trading_day(ts):
+    """The NSE trading day whose CLOSE is the right baseline for this headline.
+
+    Not simply the calendar date, and this distinction is the whole ballgame for
+    the after-hours hypothesis:
+
+      * news at 20:00 IST Wednesday  -> Wednesday. The last close before anyone
+        could act was Wednesday's; the trade happens at Thursday's open.
+      * news at 02:00 IST Thursday   -> ALSO Wednesday, because Thursday has not
+        opened yet. Attributing it to Thursday would take Thursday's close as
+        the baseline and measure Thu->Fri, quietly discarding the opening gap —
+        i.e. discarding exactly the move an overnight signal is supposed to
+        capture.
+      * news at 11:00 IST Thursday   -> Thursday (intraday; the baseline close
+        already contains it, which is the conservative reading).
+
+    Rolls back over weekends and holidays to a real trading day.
+    """
+    dt = parse_ts(ts)
+    if dt is None:
+        return None
+    ist = dt.astimezone(IST)
+    d = ist.date()
+    if ist.hour * 60 + ist.minute < SESSION_OPEN_MIN:
+        d -= timedelta(days=1)      # arrived before today's open
+    guard = 0
+    while not is_trading_day(d) and guard < 10:
+        d -= timedelta(days=1)
+        guard += 1
+    return d

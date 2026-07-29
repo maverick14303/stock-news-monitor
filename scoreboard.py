@@ -29,6 +29,7 @@ import yfinance as yf
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import db
+from newslib import cluster_titles, signal_trading_day
 
 BASE = Path(__file__).parent
 DB = BASE / "news.db"
@@ -37,6 +38,13 @@ HORIZONS = (1, 3, 5)
 WINDOW_DAYS = 30
 SHOW_ROWS = 15
 BENCHMARK = "^NSEI"   # NIFTY 50, for excess-return grading
+
+# The scoreboard prints several EDGE? tests at once (horizons x splits). At 95%
+# each, running 9 of them gives a ~37% chance that one clears by luck alone —
+# and we are hunting a small edge, so a false positive would be believed.
+# Confidence intervals are Bonferroni-widened by this count.
+N_TESTS = 9
+PRIMARY_HYPOTHESIS = ("after-hours", 1)   # the ONE pre-registered test (§5 roadmap)
 
 _price_cache = {}
 
@@ -73,8 +81,41 @@ def horizon_returns(symbol, date):
             for h in HORIZONS if len(after) >= h}
 
 
-def ci95(p, n):
-    return 1.96 * math.sqrt(p * (1 - p) / n) * 100 if n else 0.0
+def ci95(p, n, tests=N_TESTS):
+    """Bonferroni-corrected confidence half-width, in percentage points.
+
+    z is raised from 1.96 to the two-sided quantile for alpha/tests, so a table
+    of nine simultaneous tests cannot manufacture an EDGE? by chance.
+    """
+    if not n:
+        return 0.0
+    z = _norm_ppf(1 - (0.05 / max(tests, 1)) / 2)
+    return z * math.sqrt(p * (1 - p) / n) * 100
+
+
+def _norm_ppf(q):
+    """Inverse normal CDF (Acklam's approximation) — avoids a scipy dependency."""
+    a = [-3.969683028665376e+01, 2.209460984245205e+02, -2.759285104469687e+02,
+         1.383577518672690e+02, -3.066479806614716e+01, 2.506628277459239e+00]
+    b = [-5.447609879822406e+01, 1.615858368580409e+02, -1.556989798598866e+02,
+         6.680131188771972e+01, -1.328068155288572e+01]
+    c = [-7.784894002430293e-03, -3.223964580411365e-01, -2.400758277161838e+00,
+         -2.549732539343734e+00, 4.374664141464968e+00, 2.938163982698783e+00]
+    d = [7.784695709041462e-03, 3.224671290700398e-01, 2.445134137142996e+00,
+         3.754408661907416e+00]
+    p_low = 0.02425
+    if q < p_low:
+        x = math.sqrt(-2 * math.log(q))
+        return (((((c[0] * x + c[1]) * x + c[2]) * x + c[3]) * x + c[4]) * x + c[5]) / \
+               ((((d[0] * x + d[1]) * x + d[2]) * x + d[3]) * x + 1)
+    if q > 1 - p_low:
+        x = math.sqrt(-2 * math.log(1 - q))
+        return -(((((c[0] * x + c[1]) * x + c[2]) * x + c[3]) * x + c[4]) * x + c[5]) / \
+               ((((d[0] * x + d[1]) * x + d[2]) * x + d[3]) * x + 1)
+    x = q - 0.5
+    r = x * x
+    return (((((a[0] * r + a[1]) * r + a[2]) * r + a[3]) * r + a[4]) * r + a[5]) * x / \
+           (((((b[0] * r + b[1]) * r + b[2]) * r + b[3]) * r + b[4]) * r + 1)
 
 
 def rate_line(label, sample):
@@ -84,8 +125,9 @@ def rate_line(label, sample):
         return None
     raw = 100 * sum(1 for h, _ in sample if h) / n
     exc = 100 * sum(1 for _, e in sample if e) / n
-    return (f"{label:<22}{n:>6}{raw:>8.1f}{exc:>9.1f}{ci95(exc / 100, n):>7.1f}"
-            f"{'EDGE?' if exc - ci95(exc / 100, n) > 50 else 'no edge':>10}")
+    ci = ci95(exc / 100, n)
+    return (f"{label:<22}{n:>6}{raw:>8.1f}{exc:>9.1f}{ci:>7.1f}"
+            f"{'EDGE?' if exc - ci > 50 else 'no edge':>10}")
 
 
 def main():
@@ -107,15 +149,37 @@ def main():
     by_hours, by_novel, by_where = {}, {}, {}
     detail, by_source, label_rows, graded_rows = [], {}, [], []
 
+    # How many independent outlets carried each ticker's story (ML feature).
+    src_titles = {}
+    for symbol, title in con.execute(
+            "SELECT t.symbol, a.title FROM article_tickers t "
+            "JOIN articles a ON a.link = t.link "
+            "WHERE COALESCE(a.noise, 0) = 0").fetchall():
+        src_titles.setdefault(symbol, []).append(title)
+    n_sources = {s: len(set(cluster_titles(t))) for s, t in src_titles.items()}
+
     for (link, symbol, title, source, vader, llm, novel, in_title,
          after_hours, ts) in rows:
         sent = llm if llm is not None else vader
-        if sent is None or abs(sent) < THRESHOLD:
+        # Trading day, NOT the calendar date: news at 02:00 IST belongs to the
+        # PREVIOUS session's close, otherwise the overnight gap — the exact move
+        # an after-hours signal is meant to capture — is measured away.
+        date = signal_trading_day(ts)
+        if date is None:
             continue
-        date = datetime.fromisoformat(ts).date()
         rets = horizon_returns(symbol, date)
         mkt = horizon_returns(BENCHMARK, date)
         if not rets:
+            continue
+        # The ML dataset keeps EVERY pair, including neutral ones. A classifier
+        # trained only on directional signals can never learn to recognise a
+        # weak one, because it never sees "looks like news, isn't tradeable".
+        label_rows.append((
+            link, symbol, str(date), source, title, vader, llm, novel,
+            in_title, after_hours, n_sources.get(symbol),
+            rets.get(1), rets.get(3), rets.get(5),
+            mkt.get(1), mkt.get(3), mkt.get(5)))
+        if sent is None or abs(sent) < THRESHOLD:
             continue
         up = sent > 0
         for h, ret in rets.items():
@@ -136,11 +200,6 @@ def main():
             by_source.setdefault(source, []).append(hit)
             graded_rows.append((str(date), symbol, source, title, sent,
                                 rets[1], int(hit)))
-            label_rows.append((
-                link, symbol, str(date), source, title, vader, llm, novel,
-                in_title, after_hours, None,
-                rets.get(1), rets.get(3), rets.get(5),
-                mkt.get(1), mkt.get(3), mkt.get(5)))
 
     # `graded` powers learned source trust in autotrader.py / export_signal.py
     for r in graded_rows:
@@ -168,7 +227,10 @@ def main():
                 print(line)
         print("  raw%   = direction correct (inflated by market drift)")
         print("  excess% = beat NIFTY over the same window — baseline is a clean 50%")
-        print("  EDGE? only when the whole confidence range clears 50%")
+        print(f"  ±95% is Bonferroni-widened for {N_TESTS} simultaneous tests: at plain")
+        print("  95% there is a ~37% chance one row clears 50% by luck alone.")
+        print(f"  PRE-REGISTERED hypothesis = '{PRIMARY_HYPOTHESIS[0]}' at "
+              f"{PRIMARY_HYPOTHESIS[1]}d. Treat every other row as exploratory.")
 
         for name, groups in (("after-hours vs in-session", by_hours),
                              ("novel vs descriptive", by_novel),
