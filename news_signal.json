@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-29T06:31:26.288583+00:00",
+  "generated_at": "2026-07-29T07:31:03.836384+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment, weighted by learned source trust + recency. score in [-1,1]; consumers should require sources>=2 before acting.",
@@ -10,9 +10,9 @@
       "sources": 1
     },
     "ADANIPORTS.NS": {
-      "score": 0.5,
-      "n": 2,
-      "sources": 2
+      "score": 0.4646,
+      "n": 3,
+      "sources": 3
     },
     "APOLLOHOSP.NS": {
       "score": 0.3,
@@ -21,6 +21,11 @@
     },
     "ASIANPAINT.NS": {
       "score": 0.4,
+      "n": 1,
+      "sources": 1
+    },
+    "BAJAJ-AUTO.NS": {
+      "score": 0.6,
       "n": 1,
       "sources": 1
     },
@@ -35,62 +40,62 @@
       "sources": 1
     },
     "BPCL.NS": {
-      "score": 0.6374,
+      "score": 0.6381,
       "n": 5,
       "sources": 4
     },
     "CIPLA.NS": {
-      "score": 0.261,
+      "score": 0.2617,
       "n": 11,
       "sources": 8
     },
     "COALINDIA.NS": {
-      "score": -0.1351,
+      "score": -0.1367,
       "n": 16,
       "sources": 11
     },
     "DMART.NS": {
-      "score": -0.3235,
+      "score": -0.3254,
       "n": 4,
       "sources": 4
     },
     "DRREDDY.NS": {
-      "score": -0.1267,
-      "n": 8,
-      "sources": 5
+      "score": -0.1761,
+      "n": 9,
+      "sources": 6
     },
     "HCLTECH.NS": {
-      "score": 0.4603,
+      "score": 0.4591,
       "n": 8,
       "sources": 6
     },
     "HDFCBANK.NS": {
-      "score": -0.3064,
+      "score": -0.3063,
       "n": 28,
       "sources": 12
     },
     "HEROMOTOCO.NS": {
-      "score": 0.5,
-      "n": 1,
-      "sources": 1
+      "score": 0.5673,
+      "n": 2,
+      "sources": 2
     },
     "HINDUNILVR.NS": {
-      "score": -0.1981,
+      "score": -0.1983,
       "n": 28,
       "sources": 11
     },
     "ICICIBANK.NS": {
-      "score": 0.1418,
+      "score": 0.1422,
       "n": 11,
       "sources": 5
     },
     "INDUSINDBK.NS": {
-      "score": 0.1504,
+      "score": 0.1517,
       "n": 4,
       "sources": 2
     },
     "INFY.NS": {
-      "score": 0.1208,
+      "score": 0.1198,
       "n": 22,
       "sources": 10
     },
@@ -105,12 +110,12 @@
       "sources": 2
     },
     "LT.NS": {
-      "score": 0.5456,
+      "score": 0.5451,
       "n": 20,
       "sources": 6
     },
     "M&M.NS": {
-      "score": -0.1154,
+      "score": -0.1191,
       "n": 2,
       "sources": 2
     },
@@ -125,7 +130,7 @@
       "sources": 2
     },
     "NTPC.NS": {
-      "score": 0.5277,
+      "score": 0.5275,
       "n": 13,
       "sources": 7
     },
@@ -135,7 +140,7 @@
       "sources": 3
     },
     "PAYTM.NS": {
-      "score": -0.6067,
+      "score": -0.6069,
       "n": 11,
       "sources": 8
     },
@@ -145,22 +150,22 @@
       "sources": 1
     },
     "RELIANCE.NS": {
-      "score": 0.0514,
+      "score": 0.0511,
       "n": 11,
       "sources": 8
     },
     "SBILIFE.NS": {
-      "score": 0.5062,
+      "score": 0.5055,
       "n": 7,
       "sources": 5
     },
     "SBIN.NS": {
-      "score": 0.0298,
+      "score": 0.0294,
       "n": 22,
       "sources": 11
     },
     "SHRIRAMFIN.NS": {
-      "score": 0.3476,
+      "score": 0.349,
       "n": 11,
       "sources": 6
     },
@@ -170,17 +175,17 @@
       "sources": 3
     },
     "TATACONSUM.NS": {
-      "score": 0.4786,
+      "score": 0.4788,
       "n": 13,
       "sources": 9
     },
     "TCS.NS": {
-      "score": 0.4017,
+      "score": 0.3984,
       "n": 5,
       "sources": 5
     },
     "TECHM.NS": {
-      "score": 0.1221,
+      "score": 0.1229,
       "n": 2,
       "sources": 2
     },
@@ -190,7 +195,7 @@
       "sources": 1
     },
     "TMPV.NS": {
-      "score": -0.4302,
+      "score": -0.4295,
       "n": 2,
       "sources": 2
     },
@@ -200,12 +205,12 @@
       "sources": 1
     },
     "VEDL.NS": {
-      "score": 0.4012,
+      "score": 0.4021,
       "n": 8,
       "sources": 5
     },
     "WIPRO.NS": {
-      "score": 0.2645,
+      "score": 0.2637,
       "n": 8,
       "sources": 8
     },
