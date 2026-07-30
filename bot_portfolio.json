@@ -1,53 +1,31 @@
 {
-  "cash": 5000.0,
-  "positions": {},
-  "trades": [],
-  "closed": [],
-  "sector_weights": {},
-  "pending": [
+  "cash": 4311.081987762451,
+  "positions": {
+    "NTPC.NS": {
+      "qty": 2,
+      "avg_cost": 344.4590061187744,
+      "opened": "2026-07-30T04:08:05.673716+00:00",
+      "sources": [
+        "Business Standard Economy"
+      ],
+      "thesis": "NTPC plans \u20b917 trillion investment by 2037 to expand power capacity"
+    }
+  },
+  "trades": [
     {
-      "symbol": "LT.NS",
-      "score": 1.089,
-      "title": "L&T Energy Hydrocarbon Onshore biz wins order from Kuwait Oil Company",
-      "source": "Business Standard Markets",
-      "queued": "2026-07-30"
-    },
-    {
-      "symbol": "EICHERMOT.NS",
-      "score": 0.996,
-      "title": "Eicher Motors Q1 profit up 21%; Royal Enfield logs record quarterly sales",
-      "source": "Business Standard Companies",
-      "queued": "2026-07-30"
-    },
-    {
+      "time": "2026-07-30T04:08:05.673716+00:00",
+      "action": "buy",
       "symbol": "NTPC.NS",
-      "score": 0.9,
-      "title": "NTPC plans \u20b917 trillion investment by 2037 to expand power capacity",
-      "source": "Business Standard Economy",
-      "queued": "2026-07-30"
-    },
-    {
-      "symbol": "ASIANPAINT.NS",
-      "score": 0.752,
-      "title": "Asian Paints Q1 Results: Profit, Revenue Beat Estimates \u2014 Check Key Numbers",
-      "source": "NDTV Profit Latest",
-      "queued": "2026-07-30"
-    },
-    {
-      "symbol": "ADANIPORTS.NS",
-      "score": 0.752,
-      "title": "Adani Ports Delivers 19% EBITDA Growth In Q1 FY27; International Ports EBITDA Jumps 256%",
-      "source": "NDTV Profit Latest",
-      "queued": "2026-07-30"
-    },
-    {
-      "symbol": "ADANIENT.NS",
-      "score": 0.752,
-      "title": "Adani Enterprises Q1 Results: Quarterly EBITDA Highest-Ever Of Rs 5,642 Crore, Total Income Exceeds ",
-      "source": "NDTV Profit Latest",
-      "queued": "2026-07-30"
+      "qty": 2,
+      "price": 343.6,
+      "fee": 1.72,
+      "reason": "planned pre-open, score 0.90 (Business Standard Economy): NTPC plans \u20b917 trillion investment by 2037 to expand power capacity"
     }
   ],
+  "closed": [],
+  "sector_weights": {},
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
-  "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5)."
+  "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
+  "traded_day": "2026-07-30"
 }
