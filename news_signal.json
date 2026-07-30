@@ -1,23 +1,23 @@
 {
-  "generated_at": "2026-07-30T08:05:08.644854+00:00",
+  "generated_at": "2026-07-30T09:05:40.664632+00:00",
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment. Scores are per-(article,company) LLM judgments weighted by learned source trust, recency, novelty and headline-vs-body position. 'sources' counts INDEPENDENT stories (syndicated reprints collapse to one); consumers should require sources>=2 before acting.",
   "tickers": {
     "ACC.NS": {
-      "score": -0.8094,
+      "score": -0.8104,
       "n": 4,
       "sources": 4,
       "novel": 4
     },
     "ADANIENT.NS": {
-      "score": -0.0185,
+      "score": -0.014,
       "n": 35,
       "sources": 34,
       "novel": 34
     },
     "ADANIPORTS.NS": {
-      "score": 0.3347,
+      "score": 0.3353,
       "n": 9,
       "sources": 9,
       "novel": 8
@@ -29,7 +29,7 @@
       "novel": 1
     },
     "AMBUJACEM.NS": {
-      "score": -0.6814,
+      "score": -0.6753,
       "n": 7,
       "sources": 7,
       "novel": 5
@@ -41,13 +41,13 @@
       "novel": 1
     },
     "ASIANPAINT.NS": {
-      "score": 0.4006,
+      "score": 0.3962,
       "n": 10,
       "sources": 9,
       "novel": 9
     },
     "AUBANK.NS": {
-      "score": 0.4784,
+      "score": 0.4785,
       "n": 7,
       "sources": 5,
       "novel": 5
@@ -71,13 +71,13 @@
       "novel": 1
     },
     "BANKBARODA.NS": {
-      "score": -0.5851,
+      "score": -0.5891,
       "n": 21,
       "sources": 20,
       "novel": 17
     },
     "BEL.NS": {
-      "score": 0.1892,
+      "score": 0.1886,
       "n": 12,
       "sources": 12,
       "novel": 6
@@ -89,25 +89,25 @@
       "novel": 0
     },
     "BHEL.NS": {
-      "score": 0.5247,
+      "score": 0.5355,
       "n": 3,
       "sources": 3,
       "novel": 2
     },
     "BIOCON.NS": {
-      "score": 0.5648,
+      "score": 0.5683,
       "n": 3,
       "sources": 3,
       "novel": 3
     },
     "BPCL.NS": {
-      "score": 0.4383,
+      "score": 0.4401,
       "n": 3,
       "sources": 3,
       "novel": 3
     },
     "CANBK.NS": {
-      "score": 0.2493,
+      "score": 0.2094,
       "n": 4,
       "sources": 4,
       "novel": 4
@@ -119,13 +119,13 @@
       "novel": 0
     },
     "CIPLA.NS": {
-      "score": 0.5023,
+      "score": 0.5064,
       "n": 6,
       "sources": 6,
       "novel": 4
     },
     "COALINDIA.NS": {
-      "score": -0.1701,
+      "score": -0.1583,
       "n": 15,
       "sources": 14,
       "novel": 6
@@ -137,13 +137,13 @@
       "novel": 0
     },
     "COFORGE.NS": {
-      "score": 0.5072,
-      "n": 17,
-      "sources": 15,
-      "novel": 11
+      "score": 0.4549,
+      "n": 18,
+      "sources": 16,
+      "novel": 12
     },
     "DABUR.NS": {
-      "score": -0.015,
+      "score": -0.0097,
       "n": 7,
       "sources": 7,
       "novel": 6
@@ -161,19 +161,19 @@
       "novel": 2
     },
     "DRREDDY.NS": {
-      "score": -0.1156,
+      "score": -0.1301,
       "n": 5,
       "sources": 5,
       "novel": 4
     },
     "EICHERMOT.NS": {
-      "score": 0.7433,
+      "score": 0.741,
       "n": 7,
       "sources": 7,
       "novel": 7
     },
     "ETERNAL.NS": {
-      "score": 0.3416,
+      "score": 0.3389,
       "n": 3,
       "sources": 3,
       "novel": 1
@@ -197,13 +197,13 @@
       "novel": 1
     },
     "HCLTECH.NS": {
-      "score": 0.1328,
+      "score": 0.1289,
       "n": 6,
       "sources": 6,
       "novel": 4
     },
     "HDFCBANK.NS": {
-      "score": -0.2862,
+      "score": -0.2875,
       "n": 15,
       "sources": 14,
       "novel": 7
@@ -227,13 +227,13 @@
       "novel": 1
     },
     "HINDUNILVR.NS": {
-      "score": -0.4368,
+      "score": -0.4378,
       "n": 19,
       "sources": 19,
       "novel": 8
     },
     "HINDZINC.NS": {
-      "score": 0.614,
+      "score": 0.6038,
       "n": 10,
       "sources": 10,
       "novel": 5
@@ -245,13 +245,13 @@
       "novel": 2
     },
     "IDFCFIRSTB.NS": {
-      "score": 0.5837,
+      "score": 0.5768,
       "n": 11,
       "sources": 11,
       "novel": 8
     },
     "INDIGO.NS": {
-      "score": 0.2186,
+      "score": 0.2133,
       "n": 13,
       "sources": 13,
       "novel": 13
@@ -263,19 +263,19 @@
       "novel": 0
     },
     "INFY.NS": {
-      "score": -0.0787,
+      "score": -0.0707,
       "n": 13,
       "sources": 13,
       "novel": 9
     },
     "IOC.NS": {
-      "score": 0.4802,
+      "score": 0.4826,
       "n": 4,
       "sources": 3,
       "novel": 3
     },
     "JINDALSTEL.NS": {
-      "score": -0.3121,
+      "score": -0.3082,
       "n": 8,
       "sources": 8,
       "novel": 6
@@ -299,25 +299,25 @@
       "novel": 2
     },
     "LODHA.NS": {
-      "score": 0.7057,
+      "score": 0.7083,
       "n": 11,
       "sources": 10,
       "novel": 8
     },
     "LT.NS": {
-      "score": 0.6991,
+      "score": 0.6982,
       "n": 24,
       "sources": 24,
       "novel": 20
     },
     "M&M.NS": {
-      "score": 0.5924,
+      "score": 0.594,
       "n": 5,
       "sources": 5,
       "novel": 4
     },
     "MARUTI.NS": {
-      "score": 0.3151,
+      "score": 0.318,
       "n": 12,
       "sources": 12,
       "novel": 9
@@ -329,7 +329,7 @@
       "novel": 1
     },
     "NTPC.NS": {
-      "score": 0.5497,
+      "score": 0.5601,
       "n": 10,
       "sources": 10,
       "novel": 9
@@ -347,7 +347,7 @@
       "novel": 0
     },
     "PAYTM.NS": {
-      "score": -0.8306,
+      "score": -0.8346,
       "n": 7,
       "sources": 6,
       "novel": 5
@@ -365,7 +365,7 @@
       "novel": 1
     },
     "PNB.NS": {
-      "score": 0.5541,
+      "score": 0.5579,
       "n": 2,
       "sources": 2,
       "novel": 1
@@ -389,13 +389,13 @@
       "novel": 1
     },
     "RECLTD.NS": {
-      "score": 0.2227,
+      "score": 0.2077,
       "n": 5,
       "sources": 5,
       "novel": 4
     },
     "SAIL.NS": {
-      "score": 0.5813,
+      "score": 0.5716,
       "n": 7,
       "sources": 7,
       "novel": 7
@@ -407,31 +407,31 @@
       "novel": 4
     },
     "SHRIRAMFIN.NS": {
-      "score": 0.3003,
+      "score": 0.2971,
       "n": 8,
       "sources": 7,
       "novel": 3
     },
     "SUNPHARMA.NS": {
-      "score": 0.6287,
+      "score": 0.633,
       "n": 3,
       "sources": 3,
       "novel": 3
     },
     "TATACONSUM.NS": {
-      "score": 0.4599,
+      "score": 0.4569,
       "n": 11,
       "sources": 11,
       "novel": 7
     },
     "TATAPOWER.NS": {
-      "score": 0.362,
+      "score": 0.3555,
       "n": 12,
       "sources": 12,
       "novel": 6
     },
     "TCS.NS": {
-      "score": -0.3433,
+      "score": -0.3301,
       "n": 3,
       "sources": 3,
       "novel": 1
@@ -449,7 +449,7 @@
       "novel": 2
     },
     "ULTRACEMCO.NS": {
-      "score": 0.0201,
+      "score": 0.0214,
       "n": 3,
       "sources": 3,
       "novel": 2
@@ -467,19 +467,19 @@
       "novel": 1
     },
     "VBL.NS": {
-      "score": -0.1958,
+      "score": -0.1797,
       "n": 13,
       "sources": 13,
       "novel": 10
     },
     "VEDL.NS": {
-      "score": -0.0487,
+      "score": -0.0406,
       "n": 22,
       "sources": 21,
       "novel": 21
     },
     "WIPRO.NS": {
-      "score": 0.314,
+      "score": 0.3121,
       "n": 7,
       "sources": 7,
       "novel": 5
