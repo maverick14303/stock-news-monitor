@@ -4,7 +4,50 @@
   "trades": [],
   "closed": [],
   "sector_weights": {},
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "LT.NS",
+      "score": 1.089,
+      "title": "L&T Energy Hydrocarbon Onshore biz wins order from Kuwait Oil Company",
+      "source": "Business Standard Markets",
+      "queued": "2026-07-30"
+    },
+    {
+      "symbol": "EICHERMOT.NS",
+      "score": 0.996,
+      "title": "Eicher Motors Q1 profit up 21%; Royal Enfield logs record quarterly sales",
+      "source": "Business Standard Companies",
+      "queued": "2026-07-30"
+    },
+    {
+      "symbol": "NTPC.NS",
+      "score": 0.9,
+      "title": "NTPC plans \u20b917 trillion investment by 2037 to expand power capacity",
+      "source": "Business Standard Economy",
+      "queued": "2026-07-30"
+    },
+    {
+      "symbol": "ASIANPAINT.NS",
+      "score": 0.752,
+      "title": "Asian Paints Q1 Results: Profit, Revenue Beat Estimates \u2014 Check Key Numbers",
+      "source": "NDTV Profit Latest",
+      "queued": "2026-07-30"
+    },
+    {
+      "symbol": "ADANIPORTS.NS",
+      "score": 0.752,
+      "title": "Adani Ports Delivers 19% EBITDA Growth In Q1 FY27; International Ports EBITDA Jumps 256%",
+      "source": "NDTV Profit Latest",
+      "queued": "2026-07-30"
+    },
+    {
+      "symbol": "ADANIENT.NS",
+      "score": 0.752,
+      "title": "Adani Enterprises Q1 Results: Quarterly EBITDA Highest-Ever Of Rs 5,642 Crore, Total Income Exceeds ",
+      "source": "NDTV Profit Latest",
+      "queued": "2026-07-30"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5)."
 }
