@@ -15,17 +15,43 @@ What each article's weight is built from:
   headline vs body  a company named in the headline is the subject; one named in
                  the body blurb is usually a passing mention
 
-`sources` counts INDEPENDENT STORIES, not outlets. One PTI wire reprinted by
-eight papers used to read as eight-source confirmation, which is exactly
-backwards — consumers gate on this field.
+What a consumer should gate on
+------------------------------
+`score` alone is NOT enough, and this is the defect the whole file was missing:
+score = Σ(sentᵢ·wᵢ) / Σ(wᵢ) is SCALE-INVARIANT, so multiplying every weight for a
+symbol by the same constant leaves it unchanged. Whenever a symbol's items all
+share a property — all non-novel, all one outlet, all the same age — the novelty
+discount, the learned source trust and the recency decay cancel out completely.
+Measured 2026-07-30: 41 of 84 exported symbols had novel==0 on EVERY item, so
+NOVEL_DISCOUNT was inert for half the file, and one VADER reading of a single
+preview headline exported at +0.97 — indistinguishable from a corroborated,
+LLM-scored, multi-outlet event.
+
+So four orthogonal facts are published alongside the score:
+  conf        Σ(wᵢ) capped at 1.0 — the evidence WEIGHT behind the score, the
+              dimension the division throws away. Multiply the score by it.
+  n_outlets   distinct publisher domains
+  n_days      distinct publication days — the event proxy. A single injected or
+              single-blog headline is 1 outlet / 1 day and can never be
+              corroborated; a real multi-day earnings event is not.
+  n_articles  raw article count (the old `n`)
+
+`sources` is DEPRECATED and does not mean what its name says. It is meant to be
+independent-story count, but `cluster_titles` needs 0.85 title similarity and
+real re-headlined wire copy shares almost no surface form, so it collapses ~3% of
+titles and is ≈ n for nearly every ticker. Threshold tuning was measured and does
+not fix it (day-bucketing is the only thing that bites). The field is kept
+unchanged so no consumer breaks; gate on n_outlets/n_days/conf instead.
 
 Usage: python export_signal.py
 """
 import json
+import os
 import sqlite3
 import sys
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from urllib.parse import urlparse
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
@@ -35,6 +61,10 @@ from newslib import cluster_titles
 BASE = Path(__file__).parent
 DB = BASE / "news.db"
 OUT = BASE / "news_signal.json"
+STATUS = BASE / "pipeline_status.json"
+
+SCHEMA = 2             # bump when a field's MEANING changes, not when adding one
+CONF_REF = 2.0         # weight of ~two fresh, trusted, novel items = full confidence
 
 WINDOW_DAYS = 7        # how far back news still counts toward "current" sentiment
 MIN_ABS = 0.15         # ignore near-neutral noise when aggregating
@@ -74,22 +104,53 @@ def source_weights(con):
     return {s: max(0.6, min(1.4, 2 * hr)) for s, hr, n in rows if n >= 5}
 
 
+def outlet_of(link):
+    """Publisher host for an article link: 'https://www.X.com/a' -> 'x.com'."""
+    host = urlparse(link or "").netloc.lower()
+    return host[4:] if host.startswith("www.") else host
+
+
+def health(con):
+    """(pipeline_ok, failed_steps, data_through) for this run.
+
+    run_pipeline.py writes pipeline_status.json immediately before invoking this
+    script — it is the last step, so every upstream failure is known by now.
+    Absent (hand-run, or an older runner) is treated as healthy.
+
+    `data_through` is the real freshness number: `generated_at` only says when
+    this file was written, which a broken scrape republishes just as promptly as
+    a working one. That is how a dead pipeline stayed invisible for ~3.5 weeks.
+    """
+    status = {"ok": True, "failed": []}
+    try:
+        status.update(json.loads(STATUS.read_text(encoding="utf-8")))
+    except (OSError, ValueError):
+        pass
+    through = con.execute(
+        "SELECT MAX(COALESCE(published, fetched_at)) FROM articles").fetchone()[0]
+    return bool(status.get("ok", True)), list(status.get("failed", [])), through
+
+
 def main():
     con = db.connect(DB)
     sw = source_weights(con)
     now = datetime.now(timezone.utc)
     since = (now - timedelta(days=WINDOW_DAYS)).isoformat()
+    pipeline_ok, failed_steps, data_through = health(con)
 
     rows = con.execute(
         "SELECT t.symbol, a.source, a.title, a.sentiment, t.llm_sent, "
-        "       t.llm_novel, t.in_title, COALESCE(a.published, a.fetched_at) "
+        "       t.llm_novel, t.in_title, COALESCE(a.published, a.fetched_at), "
+        "       a.link "
         "FROM article_tickers t JOIN articles a ON a.link = t.link "
         "WHERE COALESCE(a.noise, 0) = 0 "
         "  AND COALESCE(a.published, a.fetched_at) >= ?",
         (since,)).fetchall()
+    llm_scored = sum(1 for r in rows if r[4] is not None)
 
-    agg = {}   # symbol -> [weighted_sum, weight_sum, n, [titles], novel_n]
-    for symbol, source, title, vader, llm, novel, in_title, ts in rows:
+    # symbol -> [weighted_sum, weight_sum, n, [titles], novel_n, {outlets}, {days}]
+    agg = {}
+    for symbol, source, title, vader, llm, novel, in_title, ts, link in rows:
         if REQUIRE_HEADLINE and not in_title:
             continue
         sent = llm if llm is not None else vader
@@ -98,47 +159,85 @@ def main():
         try:
             age_days = (now - datetime.fromisoformat(ts)).total_seconds() / 86400
         except (ValueError, TypeError):
-            age_days = 0.0
+            # Junk dates are real: news.db holds 19 articles published before
+            # 2020. Treating an unparseable stamp as age 0 gave it the MAXIMUM
+            # recency weight, i.e. promoted broken metadata to breaking news.
+            continue
         w = sw.get(source, 1.0) * 0.5 ** (max(age_days, 0) / HALF_LIFE_DAYS)
         # novel is NULL for pairs the LLM has not reached yet — treat as unknown
         # (no discount) rather than assuming stale.
         if novel == 0:
             w *= NOVEL_DISCOUNT
-        a = agg.setdefault(symbol, [0.0, 0.0, 0, [], 0])
+        a = agg.setdefault(symbol, [0.0, 0.0, 0, [], 0, set(), set()])
         a[0] += sent * w
         a[1] += w
         a[2] += 1
         a[3].append(title)
         a[4] += 1 if novel else 0
+        if outlet_of(link):
+            a[5].add(outlet_of(link))
+        a[6].add(ts[:10])
 
     signal = {}
-    for symbol, (ws, wsum, n, titles, novel_n) in agg.items():
+    for symbol, (ws, wsum, n, titles, novel_n, outlets, days) in agg.items():
         if wsum <= 0:
             continue
         signal[symbol] = {
             "score": round(ws / wsum, 4),          # trust+recency+novelty weighted
-            "n": n,                                 # article count
-            "sources": len(set(cluster_titles(titles))),  # INDEPENDENT stories
-            "novel": novel_n,                       # how many were new information
+            # The evidence weight the score's division discards. Without it a
+            # single thin headline and a corroborated event look identical.
+            "conf": round(min(1.0, wsum / CONF_REF), 3),
+            "n_articles": n,
+            "n_outlets": len(outlets),             # distinct publisher domains
+            "n_days": len(days),                   # distinct publication days
+            "novel": novel_n,                      # how many were new information
+            "n": n,                                # deprecated alias of n_articles
+            "sources": len(set(cluster_titles(titles))),  # DEPRECATED, see docstring
         }
 
     out = {
+        "schema": SCHEMA,
         "generated_at": now.isoformat(),
+        "data_through": data_through,
+        "pipeline_ok": pipeline_ok,
+        "failed_steps": failed_steps,
+        "articles_in_window": len(rows),
+        "pairs_llm_scored": llm_scored,
         "window_days": WINDOW_DAYS,
         "half_life_days": HALF_LIFE_DAYS,
         "note": "Per-ticker news sentiment. Scores are per-(article,company) LLM "
                 "judgments weighted by learned source trust, recency, novelty and "
-                "headline-vs-body position. 'sources' counts INDEPENDENT stories "
-                "(syndicated reprints collapse to one); consumers should require "
-                "sources>=2 before acting.",
+                "headline-vs-body position. GATE ON: 'conf' (evidence weight, "
+                "0-1 — multiply the score by it), 'n_outlets' and 'n_days' "
+                "(require >=2 of each before letting news veto or sell: one "
+                "crafted or single-blog headline is 1 outlet on 1 day). "
+                "'sources' is DEPRECATED — it counts articles, not independent "
+                "stories, and is ~= n_articles for nearly every ticker; do not "
+                "gate on it. Check pipeline_ok and data_through before use: "
+                "generated_at only says when this file was written. "
+                "articles_in_window counts (article,company) pairs; "
+                "pairs_llm_scored is how many carry a real LLM score rather "
+                "than the article-level VADER fallback.",
         "tickers": dict(sorted(signal.items())),
     }
-    OUT.write_text(json.dumps(out, indent=2), encoding="utf-8")
+    # Atomic: this file is committed and pushed for a real-money bot to read, so
+    # a run killed mid-write must never leave a truncated JSON behind.
+    tmp = OUT.with_suffix(".json.tmp")
+    tmp.write_text(json.dumps(out, indent=2), encoding="utf-8")
+    os.replace(tmp, OUT)
     con.close()
 
     strong = sorted(signal.items(), key=lambda kv: kv[1]["score"])
     print(f"Exported {len(signal)} tickers to {OUT.name} "
           f"(window {WINDOW_DAYS}d, {len(rows)} scored pairs).")
+    pct = f" ({100 * llm_scored / len(rows):.0f}%)" if rows else ""
+    print(f"  pipeline_ok={pipeline_ok} data_through={data_through} "
+          f"llm-scored {llm_scored}/{len(rows)} pairs{pct}")
+    if failed_steps:
+        print(f"  failed steps: {', '.join(failed_steps)}")
+    thin = [t for t, v in signal.items() if v["n_outlets"] < 2 or v["n_days"] < 2]
+    print(f"  {len(thin)} of {len(signal)} tickers are single-outlet or "
+          f"single-day (not corroborated — must not veto or sell).")
     if strong:
         neg = [f"{t} {v['score']:+.2f}" for t, v in strong[:3] if v["score"] < 0]
         pos = [f"{t} {v['score']:+.2f}" for t, v in strong[::-1][:3] if v["score"] > 0]

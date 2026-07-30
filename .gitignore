@@ -1,5 +1,8 @@
 __pycache__/
 ALERT.md
 
+# per-run health handoff: run_pipeline.py writes it, export_signal.py reads it
+pipeline_status.json
+
 # local knowledge-graph artifacts
 graphify-out/
