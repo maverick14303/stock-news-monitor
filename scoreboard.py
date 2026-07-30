@@ -46,6 +46,22 @@ BENCHMARK = "^NSEI"   # NIFTY 50, for excess-return grading
 N_TESTS = 9
 PRIMARY_HYPOTHESIS = ("after-hours", 1)   # the ONE pre-registered test (§5 roadmap)
 
+# Every `labels` column this script writes. n_sources is NOT here and must never
+# be added back: its values are frozen at their old (leaky, un-windowed) meaning
+# so the column has ONE definition throughout its history instead of two silently
+# mixed ones. n_sources_win replaces it. ROADMAP_ML §3: P1 uses n_sources_win.
+_LABEL_COLS = ("link", "symbol", "day", "source", "title", "vader", "llm_sent",
+               "llm_novel", "in_title", "after_hours", "n_sources_win",
+               "ret_1d", "ret_3d", "ret_5d", "mkt_1d", "mkt_3d", "mkt_5d")
+LABEL_UPSERT = (
+    f"INSERT INTO labels ({', '.join(_LABEL_COLS)}) "
+    f"VALUES ({','.join('?' * len(_LABEL_COLS))}) "
+    f"ON CONFLICT(link, symbol) DO UPDATE SET "
+    + ", ".join(f"{c}=excluded.{c}" for c in _LABEL_COLS[2:]))
+LABELS_SCHEMA_NOTE = ("n_sources frozen 2026-07-30 (un-windowed lifetime coverage, "
+                      "leaks future news into old rows); n_sources_win added "
+                      "(independent stories in [day-1, day+1]) — P1 uses n_sources_win")
+
 _price_cache = {}
 
 
@@ -53,9 +69,15 @@ def closes_for(symbol):
     if symbol not in _price_cache:
         try:
             hist = yf.Ticker(symbol).history(period="6mo")
-        except Exception:
+        except Exception as e:
+            # "the request failed" and "this symbol has no rows" are different
+            # problems with the same None; say which one happened.
+            print(f"  price fetch FAILED for {symbol}: {type(e).__name__}")
             hist = None
-        if hist is None or hist.empty:
+        if hist is None:
+            _price_cache[symbol] = None
+        elif hist.empty:
+            print(f"  price fetch returned NO ROWS for {symbol}")
             _price_cache[symbol] = None
         else:
             hist.index = hist.index.tz_localize(None)
@@ -134,6 +156,22 @@ def main():
     con = db.connect(DB)
     now = datetime.now(timezone.utc)
 
+    # One flaky Yahoo request used to be indistinguishable from a flat market:
+    # closes_for caches None for the whole process, every mkt lookup returns {},
+    # and `excess = ret - mkt.get(h, 0.0)` quietly re-becomes raw direction — the
+    # drift-inflated number this project abandoned on purpose (LESSONS.md L9),
+    # printed under an "excess%" heading with the same EDGE? verdict logic.
+    # Worse, the run still wrote `labels` with INSERT OR REPLACE, overwriting 30
+    # days of correct mkt_1d/3d/5d with NULL. `labels` is the asset the whole ML
+    # roadmap is gated on, so a benchmark outage must stop the run BEFORE any
+    # write, not degrade quietly. Going red here is intended: it opens an issue.
+    if closes_for(BENCHMARK) is None:
+        print(f"[FAILED] benchmark {BENCHMARK} unavailable — labels NOT written "
+              "this run and no hit rates published. Excess-vs-NIFTY cannot be "
+              "computed, and raw direction is not a substitute for it.")
+        con.close()
+        sys.exit(1)
+
     rows = con.execute(
         "SELECT t.link, t.symbol, a.title, a.source, a.sentiment, t.llm_sent, "
         "       t.llm_novel, t.in_title, a.after_hours, "
@@ -149,14 +187,35 @@ def main():
     by_hours, by_novel, by_where = {}, {}, {}
     detail, by_source, label_rows, graded_rows = [], {}, [], []
 
-    # How many independent outlets carried each ticker's story (ML feature).
-    src_titles = {}
-    for symbol, title in con.execute(
-            "SELECT t.symbol, a.title FROM article_tickers t "
-            "JOIN articles a ON a.link = t.link "
+    # How much independent coverage this company got AROUND the signal, within
+    # [day-1, day+1] (ML feature). The old version had no date bound at all: it
+    # was per-symbol LIFETIME coverage — a company-size proxy, not per-story
+    # independence — and because every in-window row is rewritten each run, the
+    # value stored on an old row kept growing with news published after it. That
+    # is future leakage into a feature ROADMAP_ML §3 lists as P1, in a dataset
+    # whose stated evaluation protocol is walk-forward. Values reached 72 for a
+    # 4-week corpus, which is what gave it away. It is written to the NEW column
+    # n_sources_win; n_sources is frozen, never rewritten. The date bound also
+    # bounds the O(n^2) title clustering, which had no bound either.
+    titles_by_day = {}
+    for symbol, ts, title in con.execute(
+            "SELECT t.symbol, COALESCE(a.published, a.fetched_at), a.title "
+            "FROM article_tickers t JOIN articles a ON a.link = t.link "
             "WHERE COALESCE(a.noise, 0) = 0").fetchall():
-        src_titles.setdefault(symbol, []).append(title)
-    n_sources = {s: len(set(cluster_titles(t))) for s, t in src_titles.items()}
+        if ts:
+            titles_by_day.setdefault(symbol, {}).setdefault(ts[:10], []).append(title)
+
+    win_cache = {}
+
+    def coverage_window(symbol, day):
+        """Independent stories about `symbol` published in [day-1, day+1]."""
+        if (symbol, day) not in win_cache:
+            by_day = titles_by_day.get(symbol, {})
+            titles = []
+            for delta in (-1, 0, 1):
+                titles += by_day.get((day + timedelta(days=delta)).isoformat(), [])
+            win_cache[(symbol, day)] = len(set(cluster_titles(titles)))
+        return win_cache[(symbol, day)]
 
     for (link, symbol, title, source, vader, llm, novel, in_title,
          after_hours, ts) in rows:
@@ -176,7 +235,7 @@ def main():
         # weak one, because it never sees "looks like news, isn't tradeable".
         label_rows.append((
             link, symbol, str(date), source, title, vader, llm, novel,
-            in_title, after_hours, n_sources.get(symbol),
+            in_title, after_hours, coverage_window(symbol, date),
             rets.get(1), rets.get(3), rets.get(5),
             mkt.get(1), mkt.get(3), mkt.get(5)))
         if sent is None or abs(sent) < THRESHOLD:
@@ -204,10 +263,14 @@ def main():
     # `graded` powers learned source trust in autotrader.py / export_signal.py
     for r in graded_rows:
         con.execute("INSERT OR REPLACE INTO graded VALUES (?,?,?,?,?,?,?)", r)
-    # `labels` is the append-only ML dataset (ROADMAP_ML.md)
+    # `labels` is the ML dataset (ROADMAP_ML.md). Written with an UPSERT that
+    # names its columns, NOT `INSERT OR REPLACE ... VALUES (17 ?)`: replace is a
+    # delete-then-insert, so any column left out of the list would be blanked.
+    # n_sources is deliberately left out AND must stay untouched — see
+    # meta['labels_schema'].
     for r in label_rows:
-        con.execute("INSERT OR REPLACE INTO labels VALUES "
-                    "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", r)
+        con.execute(LABEL_UPSERT, r)
+    db.set_flag(con, "labels_schema", LABELS_SCHEMA_NOTE)
     con.commit()
 
     if not detail:

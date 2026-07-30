@@ -24,6 +24,7 @@ import os
 import re
 import sys
 import time
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
@@ -37,6 +38,9 @@ DB = BASE / "news.db"
 # the trade. Runs dropped from 17/day to 10/day, so there is budget for this.
 BATCH = 25
 MAX_CALLS_PER_RUN = 6
+# Share of the per-run budget spent on today's news. The rest goes to the
+# backlog the scoreboard can still grade — see the second query in main().
+FRESH_FRAC = 0.6
 # Gemini's free tier allows roughly 10 requests/minute. Six batches fired 2s
 # apart tripped it repeatedly on 2026-07-30, quietly demoting whole batches to a
 # weaker fallback model. Spacing them keeps every batch on the best model.
@@ -257,18 +261,52 @@ def main():
         return
 
     con = db.connect(DB)
+    budget = BATCH * MAX_CALLS_PER_RUN
+    fresh_budget = int(budget * FRESH_FRAC)
+    now = datetime.now(timezone.utc)
+
     # Newest first: fresh news is what the trading bot consumes today. Headline
     # mentions (in_title) before passing body mentions.
-    pending = con.execute(
+    fresh = con.execute(
         "SELECT t.link, t.symbol, a.title, a.summary FROM article_tickers t "
         "JOIN articles a ON a.link = t.link "
         "WHERE t.llm_sent IS NULL AND COALESCE(a.noise, 0) = 0 "
         "ORDER BY t.in_title DESC, a.fetched_at DESC "
-        "LIMIT ?", (BATCH * MAX_CALLS_PER_RUN,)).fetchall()
+        "LIMIT ?", (fresh_budget,)).fetchall()
+    # ...but scoring ONLY newest-first meant the LLM never reached a row the
+    # scoreboard could grade: it grades strictly older than 24h, this scored
+    # strictly newest-first, and the two windows barely intersect. Result:
+    # labels.llm_sent was NULL on 100% of 1,069 rows — the LLM arm of the ML
+    # dataset was n=0 and P1 logistic regression untrainable, while the docs
+    # quoted a 66%-vs-61% LLM-beats-VADER figure that could not be reproduced
+    # from the data on disk. This second query spends the rest of the budget
+    # oldest-first inside the scoreboard's 30-day regrade window, so scored
+    # pairs actually become labelled rows. Rows that age past 30 days are
+    # permanently VADER-only (311 already have) — age-correlated missingness,
+    # which is the worst kind for a walk-forward split. See LESSONS.md L19.
+    gradeable = con.execute(
+        "SELECT t.link, t.symbol, a.title, a.summary FROM article_tickers t "
+        "JOIN articles a ON a.link = t.link "
+        "WHERE t.llm_sent IS NULL AND COALESCE(a.noise, 0) = 0 "
+        "  AND t.in_title = 1 "
+        "  AND COALESCE(a.published, a.fetched_at) BETWEEN ? AND ? "
+        "ORDER BY COALESCE(a.published, a.fetched_at) ASC "
+        "LIMIT ?",
+        ((now - timedelta(days=28)).isoformat(),
+         (now - timedelta(days=1)).isoformat(),
+         budget - fresh_budget)).fetchall()
+
+    seen, pending = set(), []
+    for row in fresh + gradeable:
+        if row[:2] not in seen:          # (link, symbol) — the two lists overlap
+            seen.add(row[:2])
+            pending.append(row)
     if not pending:
         con.close()
         print("LLM analyst: nothing new to score.")
         return
+    print(f"LLM analyst: queued {len(pending)} pair(s) — {len(fresh)} newest-first, "
+          f"{len(gradeable)} gradeable backlog (28d..1d, headline mentions).")
 
     import requests
     names = company_names()

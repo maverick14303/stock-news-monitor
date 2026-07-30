@@ -100,9 +100,28 @@ works at n≈2 000, coefficients are directly readable ("after-hours news is wor
 Starting feature set (all available from §1):
 - `llm_sent`, `llm_novel`, `vader`, `llm_sent × llm_novel`
 - `after_hours`, `hours_since_publication`
-- `n_distinct_clusters` (real independent coverage, NOT raw article count)
+- **`n_sources_win`** — independent stories about this company published within
+  `[day-1, day+1]`. **Use this column, never `n_sources`.**
 - `source_trust`, `n_tickers`, `sector` (one-hot)
 - `stock_ret_5d_prior` (was the move already underway — the priced-in control)
+
+**Two columns you must handle explicitly, or P1 will lie to you:**
+
+1. **`n_sources` is FROZEN as of 2026-07-30 — do not train on it.** It was built
+   with no date bound and recomputed every run, so the value on an old row kept
+   growing with news published after that row's own timestamp. It leaks the
+   future into a walk-forward split, and it was never per-story independence —
+   it was per-symbol *lifetime* coverage, i.e. a company-size proxy. It is left
+   in place at its old values rather than rewritten, so the column has one
+   meaning throughout its history instead of two silently mixed ones.
+   `n_sources_win` replaces it. See `meta['labels_schema']` and LESSONS.md L20.
+2. **`llm_sent` is missing in a way that correlates with age.** Until 2026-07-30
+   the scorer ran newest-first while the grader graded older-than-24h, so
+   `labels.llm_sent` was NULL on 100% of rows; **311 rows have already aged out
+   of the 30-day regrade window and are permanently VADER-only.** A walk-forward
+   split runs along the same axis as that missingness, so it cannot be treated as
+   random. Either exclude those rows or carry an explicit `llm_missing` flag and
+   read its coefficient. See LESSONS.md L19.
 
 ### P2 — Gradient boosting
 LightGBM, depth ≤4, heavy regularisation, early stopping on a walk-forward split.

@@ -504,6 +504,69 @@ something is significant, you have measured your own persistence.
 
 ---
 
+## L19 — The scorer and the grader never met
+
+**Found:** 2026-07-30. **Severity: high — the ML dataset's LLM arm was n=0.**
+
+`llm_analyst.py` scored strictly newest-first. `scoreboard.py` grades strictly
+older than 24 hours. The two windows barely intersect, so:
+
+```
+article_tickers with llm_sent:     299        labels rows: 1069
+labels.llm_sent NOT NULL:            0   <-- 100% of the dataset
+labels.llm_novel NOT NULL:           0
+```
+
+Both halves worked exactly as documented. The defect was in the *seam*, which no
+docstring owns. Meanwhile ROADMAP_ML §0 quoted "Gemini 66% vs VADER 61% on
+identical articles in this repo's own scoreboard" — a number that could not be
+reproduced from the data on disk, because the LLM arm had no rows at all. P1
+logistic regression was untrainable: its two headline features were absent.
+
+**Fix:** the per-run budget is split 60/40 — 60% newest-first (today's trading
+signal, unchanged) and 40% oldest-first inside the scoreboard's 30-day regrade
+window (`published` between 28 and 1 days ago, headline mentions). Verified on a
+copy of `news.db`: `labels.llm_sent NOT NULL` went 0 → 444 in one run.
+
+**The part that cannot be fixed:** `labels` is only rewritten for rows inside the
+30-day window, so **311 rows had already aged out and are permanently VADER-only**.
+That is missingness *correlated with age* — the worst kind for a walk-forward
+split, because it lines up with the split axis. Any P1 evaluation must either
+exclude those rows or carry an explicit `llm_missing` flag; it must not treat
+them as a random sample.
+
+**Rule:** when two components each have a correct policy, check what their
+policies do to *each other*. Nothing tests a seam.
+
+---
+
+## L20 — A feature that grew after the fact
+
+**Found:** 2026-07-30. **Severity: medium — future leakage into a P1 feature.**
+
+`labels.n_sources` was built from every non-noise (article, symbol) pair in the
+database with **no date bound**, then stamped onto each label row — and every
+in-window row is rewritten on every run. So a row dated 5 July carried a coverage
+count that kept growing with news published on the 20th. Values reached 72 for a
+four-week corpus, which is what gave it away: it was never per-story
+independence, it was per-symbol *lifetime* coverage, i.e. a company-size proxy
+that also leaks the future.
+
+ROADMAP_ML §3 lists this as a P1 feature and mandates walk-forward evaluation
+precisely to avoid look-ahead. The feature was quietly defeating it.
+
+**Fix:** a new column `n_sources_win` counts independent stories in
+`[day-1, day+1]`. `n_sources` is **frozen, not redefined** — rewriting it in
+place would have given in-window rows the new meaning and out-of-window rows the
+old one, in the same column, with no marker. `meta['labels_schema']` records the
+cut. The date bound also bounds the O(n²) title clustering, which had none.
+
+**Rule:** a derived column that is recomputed every run is not a fact about the
+past, it is a fact about *now*. If it is a training feature, bound it to the
+information available at the row's own timestamp.
+
+---
+
 ## Things that were RIGHT and should not be "fixed"
 
 Preserved deliberately; do not undo these in a cleanup pass.

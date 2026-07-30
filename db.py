@@ -77,6 +77,13 @@ _ADDED_COLUMNS = [
     ("articles", "noise", "INTEGER"),
     ("articles", "after_hours", "INTEGER"),
     ("articles", "n_title_tickers", "INTEGER"),
+    # Replaces labels.n_sources, which counted per-symbol LIFETIME coverage with
+    # no date bound and was recomputed every run, so an old row's value grew with
+    # news published after it — future leakage into a P1 feature whose evaluation
+    # protocol is walk-forward. n_sources is FROZEN, not redefined: rewriting it
+    # in place would silently give in-window rows one meaning and out-of-window
+    # rows another, with no marker. See meta['labels_schema'].
+    ("labels", "n_sources_win", "INTEGER"),
 ]
 
 _INDEXES = [
