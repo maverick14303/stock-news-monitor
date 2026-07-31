@@ -1,3 +1,25 @@
-feedparser
-vaderSentiment
-yfinance
+# Direct dependencies, pinned. Unpinned, `pip install -r requirements.txt` in the
+# workflow resolved to whatever PyPI shipped that hour, and pip runs arbitrary
+# code from a package at install time - on a job that holds a `contents: write`
+# token and pushes to main. One malicious release of any of these, or of any of
+# their ~27 transitive dependencies, was enough. See LESSONS.md L23.
+#
+# Transitives are pinned in requirements.lock.txt and applied by the workflow as
+# pip CONSTRAINTS. Two files rather than one so this list stays the statement of
+# what the project actually imports.
+#
+# These versions are exactly what the UNPINNED install resolved to on 2026-07-31
+# for the runner's platform, so pinning changed nothing on CI. It only stops the
+# set drifting on its own from here.
+#
+# To refresh (do it deliberately, then run the full pipeline before committing):
+#   pip install --dry-run --report r.json --python-version 3.12
+#       --platform manylinux2014_x86_64 --only-binary=:all: --target /tmp/x
+#       -r requirements.txt
+# then rewrite requirements.lock.txt from r.json's `install` list. Resolve
+# against the CI target like that rather than `pip freeze`-ing a local venv: the
+# dev machine has no python 3.12, and a freeze from 3.13/Windows would pin
+# versions ubuntu-latest cannot install.
+feedparser==6.0.14
+vaderSentiment==3.3.2
+yfinance==1.5.2

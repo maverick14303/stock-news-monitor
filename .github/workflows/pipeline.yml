@@ -27,18 +27,30 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
+    # API keys are deliberately NOT job-scoped. At job scope they sit in the
+    # environment of every step, including `pip install`, which runs arbitrary
+    # setup code from ~30 packages. llm_analyst.py is the only consumer, so they
+    # are scoped to the one step that invokes it. TZ is safe at job scope (and
+    # newslib.parse_feed_time is timezone-independent by design — L11).
     env:
       TZ: Asia/Kolkata
-      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      # Actions are pinned to commit SHAs, not tags. A tag is mutable: whoever
+      # can move `v4` can run their own code inside this job, which holds a
+      # `contents: write` token and pushes to main. The SHAs below are exactly
+      # what v4 / v5 resolved to on 2026-07-31, so this changed no behaviour.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
         with:
           python-version: "3.12"
           cache: pip
-      - run: pip install -r requirements.txt
-      - run: python run_pipeline.py
+      # -c pins the full transitive closure; see requirements.lock.txt.
+      - run: pip install -r requirements.txt -c requirements.lock.txt
+      - name: Run pipeline
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python run_pipeline.py
       - name: Email alert via GitHub issue
         if: ${{ hashFiles('ALERT.md') != '' }}
         env:
@@ -75,8 +87,37 @@ jobs:
           # to it; "github-actions[bot]@..." belonged to nobody, so all ~10
           # runs a day were credited to no one. The noreply form keeps the real
           # address private.
+          set -u
           git config user.name "maverick14303"
           git config user.email "146925473+maverick14303@users.noreply.github.com"
           git add news.db digests bot_portfolio.json news_signal.json tickers.csv
-          git commit -m "pipeline run $(date +'%Y-%m-%d %H:%M %Z')" || echo "nothing new"
-          git push
+          if ! git commit -m "pipeline run $(date +'%Y-%m-%d %H:%M %Z')"; then
+            echo "nothing new"
+            exit 0
+          fi
+          # A bare `git push` is one shot. `concurrency` serialises this workflow
+          # against itself, so runner-vs-runner cannot collide — but any human
+          # push to main between checkout and here makes this non-fast-forward,
+          # the step fails, and EVERYTHING the run scraped exists only on the
+          # runner that is about to be destroyed. The feeds carry 35-60 items and
+          # are polled every 1-6 hours, so items that scroll off before the next
+          # successful run are gone permanently. Rebase and retry instead.
+          for attempt in 1 2 3; do
+            if git push; then
+              echo "pushed on attempt $attempt"
+              exit 0
+            fi
+            echo "push attempt $attempt failed; rebasing onto origin/main"
+            if ! git pull --rebase --autostash origin main; then
+              # Deliberately NOT resolved automatically. The only writer of
+              # news.db is this pipeline, so a conflict on it means something
+              # unexpected touched it; picking a side would silently discard one
+              # database. Go red and let a human look.
+              git rebase --abort || true
+              echo "::error::rebase onto origin/main conflicted - refusing to resolve it automatically. Reconcile main by hand, then re-run."
+              exit 1
+            fi
+            sleep $((attempt * 5))
+          done
+          echo "::error::push failed after 3 attempts"
+          exit 1

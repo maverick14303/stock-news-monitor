@@ -1,0 +1,43 @@
+# FULL transitive closure, resolved 2026-07-31 for the CI target
+# (python 3.12, manylinux2014_x86_64 — ubuntu-latest + actions/setup-python).
+# Applied by the workflow as `pip install -r requirements.txt -c
+# requirements.lock.txt`: constraints pin every version pip may choose without
+# turning transitives into declared dependencies of this project.
+#
+# Resolved with pip's own resolver against the target platform rather than
+# `pip freeze` from a local venv, because no python 3.12 exists on the dev
+# machine and a freeze from 3.13/Windows would have pinned versions CI cannot
+# install. Regenerate the same way — see requirements.txt.
+#
+# Every version here is what the UNPINNED install already resolved to on
+# 2026-07-31, so adopting this file is behaviour-neutral for CI.
+beautifulsoup4==4.15.0
+certifi==2026.7.22
+cffi==2.1.0
+charset-normalizer==3.4.9
+curl_cffi==0.15.0
+feedparser==6.0.14
+feedparser-sgmllib==2.0.1
+idna==3.18
+markdown-it-py==4.2.0
+mdurl==0.1.2
+multitasking==0.0.13
+numpy==2.2.6
+pandas==2.3.2
+peewee==4.2.6
+platformdirs==4.11.0
+protobuf==7.35.1
+pycparser==3.0
+Pygments==2.20.0
+python-dateutil==2.9.0.post0
+pytz==2026.3.post1
+requests==2.34.2
+rich==15.0.0
+six==1.17.0
+soupsieve==2.9.1
+typing_extensions==4.16.0
+tzdata==2026.3
+urllib3==2.7.0
+vaderSentiment==3.3.2
+websockets==17.0
+yfinance==1.5.2
