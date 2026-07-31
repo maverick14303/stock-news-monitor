@@ -24,7 +24,43 @@
   ],
   "closed": [],
   "sector_weights": {},
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "VEDL.NS",
+      "score": 1.024,
+      "title": "Vedanta clocks PAT of Rs 5,294 crore in Q1 FY27; announces demerger of surplus real estate assets",
+      "source": "Business Standard Markets",
+      "queued": "2026-07-31"
+    },
+    {
+      "symbol": "TATASTEEL.NS",
+      "score": 0.7,
+      "title": "Tata Steel Q1 net profit beats estimates; approves Rs 33,873 crore capex",
+      "source": "Economic Times Markets",
+      "queued": "2026-07-31"
+    },
+    {
+      "symbol": "M&M.NS",
+      "score": 0.682,
+      "title": "M&M gains after Q1 PAT jumps 33% YoY to Rs 5,454 cr",
+      "source": "Business Standard Markets",
+      "queued": "2026-07-31"
+    },
+    {
+      "symbol": "MARUTI.NS",
+      "score": 0.658,
+      "title": "Maruti's Hansalpur facility attains 10 lakh capacity, becomes Suzuki's biggest production site globa",
+      "source": "The Hindu Business",
+      "queued": "2026-07-31"
+    },
+    {
+      "symbol": "TATAPOWER.NS",
+      "score": 0.641,
+      "title": "Tata Power begins work on Rs 5,750 crore renewable energy project in Andhra Pradesh",
+      "source": "Economic Times Industry",
+      "queued": "2026-07-31"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-07-30"
