@@ -70,8 +70,13 @@ jobs:
       - name: Commit results back
         if: always()
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Authored as Ankit so pipeline runs count as contributions. GitHub
+          # credits a commit to an account only when the author email belongs
+          # to it; "github-actions[bot]@..." belonged to nobody, so all ~10
+          # runs a day were credited to no one. The noreply form keeps the real
+          # address private.
+          git config user.name "maverick14303"
+          git config user.email "146925473+maverick14303@users.noreply.github.com"
           git add news.db digests bot_portfolio.json news_signal.json tickers.csv
           git commit -m "pipeline run $(date +'%Y-%m-%d %H:%M %Z')" || echo "nothing new"
           git push
