@@ -105,7 +105,7 @@ Starting feature set (all available from §1):
 - `source_trust`, `n_tickers`, `sector` (one-hot)
 - `stock_ret_5d_prior` (was the move already underway — the priced-in control)
 
-**Two columns you must handle explicitly, or P1 will lie to you:**
+**Three things you must handle explicitly, or P1 will lie to you:**
 
 1. **`n_sources` is FROZEN as of 2026-07-30 — do not train on it.** It was built
    with no date bound and recomputed every run, so the value on an old row kept
@@ -122,6 +122,18 @@ Starting feature set (all available from §1):
    split runs along the same axis as that missingness, so it cannot be treated as
    random. Either exclude those rows or carry an explicit `llm_missing` flag and
    read its coefficient. See LESSONS.md L19.
+3. **`symbol` itself changed meaning on 2026-07-31 — the alias cut.** Bare
+   `Adani`, `Coal`, `Reliance` and `Persistent` were removed as aliases and SBIN
+   gained a guarded `SBI` regex, all in one commit. `migrate.py` rescans all
+   history, so `article_tickers` was rewritten corpus-wide, but `scoreboard.py`
+   only rewrites `labels` inside its 30-day window. **Rows dated before
+   2026-07-01 keep the old attribution:** their ADANIENT rows may really be
+   ADANIPORTS / ADANIGREEN / ADANIENSOL / "Adani Group" (54 of 56 removed rows
+   were), and they carry no SBIN rows at all (SBIN had matched zero headlines
+   ever). A walk-forward split must not straddle 2026-07-31 without a flag, and
+   per-symbol analysis on ADANIENT or SBIN must not pool across it.
+   `meta['alias_rev']` is the machine-readable marker; LESSONS.md L21 has the
+   before/after counts.
 
 ### P2 — Gradient boosting
 LightGBM, depth ≤4, heavy regularisation, early stopping on a walk-forward split.

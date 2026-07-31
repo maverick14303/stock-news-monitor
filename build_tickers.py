@@ -14,6 +14,11 @@ Aliases too generic to match safely on their own are listed in BLOCKLIST: "Titan
 "Apollo", "Century", "Sun", "Trent", "Page" are ordinary English words and would
 fire on unrelated news. Those tickers keep only their unambiguous long forms.
 
+A curated alias may also be a raw regex, written `re:<pattern>` (see
+newslib.RE_ALIAS). That exists for one situation: an abbreviation headlines
+actually use, whose prefix belongs to a DIFFERENT listed company. Only SBIN needs
+it today. Prefer a longer literal alias over a regex whenever one works.
+
 Run this, eyeball the diff, then `python migrate.py` to re-scan history against
 the new aliases.
 
@@ -38,6 +43,27 @@ BLOCKLIST = {
     "gail", "canara", "union", "central", "federal", "city", "prestige",
     "oil", "steel", "motors", "bank", "finance", "cement", "pharma", "tech",
     "life", "auto", "petroleum", "chemicals", "industries", "enterprises",
+    # Added 2026-07-31 (see meta['alias_rev'] and LESSONS.md L21). Tail-word
+    # peeling manufactured all four of these and they were the worst false
+    # positives in the corpus. Measured over 12 132 articles:
+    #   "adani"      95 title hits, only 27 name Adani Ent — the other 68 are
+    #                ADANIGREEN / ADANIPORTS / ADANIENSOL / ADANIPOWER, i.e.
+    #                other LISTED companies, so this was not noise, it was
+    #                systematic mis-attribution to a sibling.
+    #   "coal"       70 hits vs 53 for "Coal India" — the rest are sector and
+    #                macro stories ("India's coal production up 5.35%").
+    #   "reliance"   24 hits, ~12 false: Reliance Power / Reliance Infra (both
+    #                separate listings) and the ordinary English noun
+    #                ("flag reliance on unsecured lending", "self-reliance in
+    #                defence" — \b fires after the hyphen).
+    #   "persistent" 6 hits, correct today, but "persistent inflation" is one
+    #                headline away and there is no upside: "Persistent Systems"
+    #                is how headlines write it.
+    # Each ticker keeps its unambiguous long form. Bare "ACC" (7 hits, 2 of them
+    # Advanced Chemistry Cell battery stories) was left in place deliberately:
+    # ACC Ltd has no longer form that headlines use, so blocking it would kill
+    # the symbol outright for a 2-in-7 error rate.
+    "adani", "coal", "reliance", "persistent",
 }
 
 # Brand/abbreviation aliases no data source returns. Merged with generated ones.
@@ -48,7 +74,15 @@ CURATED = {
     "ICICIBANK.NS": ["ICICI Bank"],
     "INFY.NS": ["Infosys"],
     "BHARTIARTL.NS": ["Bharti Airtel", "Airtel"],
-    "SBIN.NS": ["State Bank of India", "SBI Bank"],
+    # "SBI" must be second, not first: llm_analyst.company_names() uses alias[0]
+    # as the display name in the prompt, and a regex is not a company name.
+    # Indian headlines write "SBI" and nothing else — SBIN matched ZERO headlines
+    # in the whole corpus before this (NM-17) while 54 titles said "SBI". A bare
+    # alias is impossible because "SBI Card(s)" -> SBICARD.NS and "SBI Life" ->
+    # SBILIFE.NS are separate listings, hence the two negative lookaheads. See
+    # newslib.RE_ALIAS for why the guard cannot use a `|` alternation.
+    "SBIN.NS": ["State Bank of India", r"re:\bSBI\b(?!\s+Cards?\b)(?!\s+Life\b)",
+                "SBI Bank"],
     "HINDUNILVR.NS": ["Hindustan Unilever", "HUL"],
     "LT.NS": ["Larsen & Toubro", "Larsen and Toubro", "L&T"],
     "KOTAKBANK.NS": ["Kotak Mahindra Bank", "Kotak Bank"],
@@ -74,7 +108,11 @@ CURATED = {
     "ETERNAL.NS": ["Eternal", "Zomato", "Blinkit"],
     "NATIONALUM.NS": ["National Aluminium", "NALCO"],
     "ADANIPOWER.NS": ["Adani Power"],
-    "ADANIENT.NS": ["Adani Enterprises"],
+    # "Adani Ent" is a separate alias, not a prefix match: \b after "Ent" cannot
+    # fire inside "Enterprises". Headlines abbreviate it ("Adani Ent Q1 result:
+    # Firm posts Rs 1,160 cr loss"), and those two rows were the only genuinely
+    # correct ones among the 58 that bare "Adani" was carrying.
+    "ADANIENT.NS": ["Adani Enterprises", "Adani Ent"],
     "ADANIPORTS.NS": ["Adani Ports", "Adani Ports SEZ"],
     "ADANIGREEN.NS": ["Adani Green"],
     "BHEL.NS": ["Bharat Heavy Electricals", "BHEL"],

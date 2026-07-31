@@ -2,7 +2,7 @@ symbol,aliases,sector
 ABB.NS,ABB India|ABB,infra
 ABFRL.NS,Aditya Birla Fashion and Retail,consumer
 ACC.NS,ACC,metals
-ADANIENT.NS,Adani Enterprises|Adani,energy
+ADANIENT.NS,Adani Enterprises|Adani Ent,energy
 ADANIGREEN.NS,Adani Green|Adani Green Energy,energy
 ADANIPORTS.NS,Adani Ports|Adani Ports SEZ|Adani Ports and Special Economic Zone,infra
 ADANIPOWER.NS,Adani Power,energy
@@ -30,7 +30,7 @@ BRITANNIA.NS,Britannia Industries|Britannia,fmcg
 CANBK.NS,Canara Bank,financials
 CHOLAFIN.NS,Cholamandalam Investment and Finance Company|Cholamandalam Investment and Finance,financials
 CIPLA.NS,Cipla,pharma
-COALINDIA.NS,Coal India|Coal,energy
+COALINDIA.NS,Coal India,energy
 COCHINSHIP.NS,Cochin Shipyard,infra
 COFORGE.NS,Coforge,it
 COLPAL.NS,Colgate-Palmolive (India),fmcg
@@ -108,7 +108,7 @@ OBEROIRLTY.NS,Oberoi Realty,infra
 ONGC.NS,ONGC|Oil and Natural Gas Corporation|Oil and Natural Gas,energy
 PAGEIND.NS,Page Industries|Jockey India,consumer
 PAYTM.NS,Paytm|One 97 Communications|One97 Communications,it
-PERSISTENT.NS,Persistent Systems|Persistent,it
+PERSISTENT.NS,Persistent Systems,it
 PETRONET.NS,Petronet LNG,energy
 PFC.NS,Power Finance Corporation|Power Finance,financials
 PIDILITIND.NS,Pidilite Industries|Pidilite,metals
@@ -119,11 +119,11 @@ POWERGRID.NS,Power Grid Corporation|PowerGrid|Power Grid Corporation of India,en
 PRESTIGE.NS,Prestige Estates Projects,infra
 RECLTD.NS,REC,financials
 RELAXO.NS,Relaxo Footwears,consumer
-RELIANCE.NS,Reliance Industries|RIL|Reliance,energy
+RELIANCE.NS,Reliance Industries|RIL,energy
 SAIL.NS,Steel Authority of India|SAIL,metals
 SBICARD.NS,SBI Card|SBI Cards|SBI Cards and Payment Services|SBI Cards and Payment,financials
 SBILIFE.NS,SBI Life Insurance Company|SBI Life Insurance,financials
-SBIN.NS,State Bank of India|SBI Bank,financials
+SBIN.NS,State Bank of India|re:\bSBI\b(?!\s+Cards?\b)(?!\s+Life\b)|SBI Bank,financials
 SHREECEM.NS,Shree Cement,metals
 SHRIRAMFIN.NS,Shriram Finance,financials
 SIEMENS.NS,Siemens India|Siemens Ltd|Siemens,infra

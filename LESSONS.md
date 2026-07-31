@@ -567,6 +567,100 @@ information available at the row's own timestamp.
 
 ---
 
+## L21 — DISCONTINUITY: the alias cut of 2026-07-31
+
+**Found:** 2026-07-31. **Severity: high — 78% of one symbol's rows were a
+different company.** This entry is the marker for a **data-meaning change**;
+`meta['alias_rev']` carries the machine-readable version.
+
+L14 claimed *"every generated short form is still filtered through BLOCKLIST"*
+and cited "Titan" being correctly rejected. True, and beside the point: the
+blocklist is a hand-typed 40-word set, and tail-word peeling produces plenty of
+ordinary English and plenty of *sibling company names* that nobody thought to
+type. Measured over 12 132 articles:
+
+```
+alias         title hits   of which correct   what the rest actually were
+"Adani"           95              27         ADANIPORTS, ADANIGREEN, ADANIENSOL,
+                                             ADANIPOWER, "Adani Group" — other LISTINGS
+"Coal"            70              53         sector/macro ("India's coal production up 5.35%")
+"Reliance"        24              ~12        Reliance Power, Reliance Infra (separate
+                                             listings) + the English noun: \b fires after
+                                             the hyphen in "self-reliance"
+"Persistent"       6               6         correct today; "persistent inflation" is one
+                                             headline away, and there is no upside
+```
+
+The Adani case is the instructive one. This was not *noise* — every false hit was
+real, well-formed company news that the pipeline scored, exported and graded. It
+was simply attributed to the wrong listing. ADANIENT was simultaneously the
+most-matched alias in the corpus and the least accurate one, and nothing in the
+system could notice, because "a headline about a company" and "a headline about
+*this* company" look identical to every check downstream of the alias.
+
+The mirror-image defect (NM-17): SBIN.NS, a top-5 NSE constituent, had matched
+**zero** headlines ever, while 54 titles said "SBI". A bare `SBI` alias was
+impossible because `SBI Card(s)` → SBICARD.NS and `SBI Life` → SBILIFE.NS are
+different listings, so it had been avoided and then never resolved. A regex alias
+with two negative lookaheads, `re:\bSBI\b(?!\s+Cards?\b)(?!\s+Life\b)`, resolves
+it; `newslib.RE_ALIAS` documents the mechanism and why it must not use a `|`
+(that is the alias separator in tickers.csv).
+
+**Measured effect of the cut, on a copy of `news.db` (12 132 articles):**
+
+```
+symbol           in_title rows   note
+ADANIENT.NS       72 ->  16      56 lost; 54 of them named a sibling listing or "Adani Group"
+SBIN.NS            0 ->  45      45 gained; 0 mismatches on manual regex re-check
+SBICARD.NS         6 ->   6      collision guard holds
+SBILIFE.NS         1 ->   1      collision guard holds
+COALINDIA.NS      39 ->  28      11 lost, 0 of them about Coal India
+RELIANCE.NS       18 ->   4      14 lost, of which 8 WERE genuinely RIL — see cost below
++1 each on ASIANPAINT, EICHERMOT, ADANIPORTS, HCLTECH, HEROMOTOCO, INDUSINDBK,
+INFY, TCS, WIPRO — not new matches. Removing a false ADANIENT hit dropped those
+articles' n_title_tickers from 4 to 3, under MAX_TICKERS_BEFORE_LISTICLE, so they
+are no longer flagged as listicles and their real pairs now exist.
+```
+
+**The cost, stated plainly:** blocking bare `Reliance` also loses 8 real RIL
+headlines ("Reliance AGM 2026: …", "Reliance Retail Q1 Results: …", "Reliance
+ramps up diesel exports"). RELIANCE.NS keeps `Reliance Industries` and `RIL`,
+which do catch the earnings coverage (RIL Q1 Results etc.) but not the AGM/Retail
+stories. That was accepted rather than fixed with a third guarded regex, because
+the false half is irreducible: `Reliance Power` and `Reliance Infra` are separate
+listings and "self-reliance"/"reliance on" are ordinary English. A guarded
+`Reliance` alias is a FIX-LATER candidate with ~8 rows of measured upside; do it
+only with the same lookahead discipline as SBI, and record a new `alias_rev`.
+
+**Also fixed in the same commit (NM-14):** `config.json` listed one Economic
+Times URL twice, as *Economic Times Markets* and *ET Markets Wrap*. Every run
+fetched it twice and `monitor.py` wrote an `article_sources` row under both names,
+so `source_weights()` saw one newsroom as two outlets and the digest claimed 37
+active sources. The duplicate is deleted; the 50 existing `ET Markets Wrap`
+`article_sources` rows are **left alone** (never delete data, only stop making
+more of it).
+
+**What a future analysis MUST do about this:**
+
+`migrate.py` rescans **all** history on every run, so this edit retroactively
+rewrote `article_tickers` for the whole corpus — but `scoreboard.py` only rewrites
+`labels` inside its 30-day window. Rows that had already aged out keep the OLD
+attribution. So:
+
+- `labels` rows dated before **2026-07-01** (30 days before the cut) may carry
+  ADANIENT rows that are really ADANIPORTS/ADANIGREEN/"Adani Group", and carry no
+  SBIN rows at all.
+- A walk-forward split **must not straddle 2026-07-31** without an explicit flag.
+  This is the second cut in the dataset, alongside L20's `n_sources` freeze.
+- All four alias edits landed in **one commit** on purpose, so there is exactly
+  one cut date instead of four undocumented ones.
+
+**Rule:** an alias is a claim about identity, and the only way to check it is to
+read the headlines it matched. Count them: a match rate is not an accuracy rate.
+When you change one, change them all at once and stamp the date.
+
+---
+
 ## Things that were RIGHT and should not be "fixed"
 
 Preserved deliberately; do not undo these in a cleanup pass.

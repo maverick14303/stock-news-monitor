@@ -136,6 +136,17 @@ def classify_noise(title, n_title_tickers=0):
     return 0
 
 
+# An alias starting with this prefix is used as a RAW regex instead of being
+# escaped, so a short abbreviation can carry its own collision guard. Needed for
+# exactly one real case: Indian headlines write "SBI", never "State Bank of
+# India", but "SBI Card(s)" and "SBI Life" are DIFFERENT listed companies
+# (SBICARD.NS, SBILIFE.NS). A plain "SBI" alias would steal their headlines, so
+# SBIN.NS carries `re:\bSBI\b(?!\s+Cards?\b)(?!\s+Life\b)` instead.
+# NOTE: `|` is the alias separator in tickers.csv, so a regex alias must express
+# alternation with repeated lookaheads or character classes, never a pipe.
+RE_ALIAS = "re:"
+
+
 def load_ticker_patterns(path):
     """[(alias_regex, symbol)] from a tickers.csv with symbol,aliases,sector."""
     import csv
@@ -145,6 +156,11 @@ def load_ticker_patterns(path):
             for alias in row["aliases"].split("|"):
                 alias = alias.strip()
                 if not alias:
+                    continue
+                if alias.startswith(RE_ALIAS):
+                    # already carries its own boundaries and guards
+                    patterns.append((re.compile(alias[len(RE_ALIAS):],
+                                                re.IGNORECASE), row["symbol"]))
                     continue
                 # word-boundary match so "ITC" doesn't fire inside "pitch"
                 patterns.append(

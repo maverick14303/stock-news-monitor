@@ -33,6 +33,20 @@ DB = BASE / "news.db"
 
 TZ_REPAIR = "published_tz_shift_v1"
 
+# Which alias set the CURRENT article_tickers rows were produced by. Recorded on
+# every rescan, because a rescan is retroactive: editing tickers.csv rewrites
+# in_title/tickers for the whole history, while scoreboard.py only rewrites
+# `labels` inside its 30-day window. So an alias change gives rows on either side
+# of the cut two different meanings for the same symbol, and this flag is the only
+# marker of where the cut is. Bump the date+description on every alias edit.
+# See LESSONS.md L21 and ROADMAP_ML.md §3.
+ALIAS_REV = ("2026-07-31 bare 'Adani'/'Coal'/'Reliance'/'Persistent' blocked "
+             "(sibling-listing and English-noun false positives); SBIN gains "
+             "guarded 'SBI' regex; duplicate 'ET Markets Wrap' feed removed. "
+             "Pre-cut ADANIENT rows mean 'Adani group', post-cut mean 'Adani "
+             "Enterprises'; pre-cut SBIN rows are empty. A walk-forward split "
+             "must not straddle this date without a flag.")
+
 
 def repair_published_timestamps(con):
     """One-time: undo the time.mktime() timezone bug on historical rows.
@@ -136,6 +150,7 @@ def main():
         if changed % 2000 == 0:
             con.commit()
             print(f"  ...{changed}")
+    db.set_flag(con, "alias_rev", ALIAS_REV)
     con.commit()
 
     total_pairs = con.execute("SELECT COUNT(*) FROM article_tickers").fetchone()[0]

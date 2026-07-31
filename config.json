@@ -156,10 +156,6 @@
       "name": "SCMP Business",
       "url": "https://www.scmp.com/rss/92/feed",
       "global": true
-    },
-    {
-      "name": "ET Markets Wrap",
-      "url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms"
     }
   ]
 }
