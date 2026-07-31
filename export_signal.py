@@ -6,8 +6,9 @@ momentum+news bot reads this file (locally, or from the raw GitHub URL on CI)
 instead of touching news.db.
 
 What each article's weight is built from:
-  source trust   learned from graded 1-day outcomes (a source that grades badly
-                 counts less)
+  source trust   learned from the `labels` table's 1-day EXCESS returns (a
+                 source that grades badly counts less). NOT from the `graded`
+                 table, which nothing reads - see db.py (NM-11)
   recency        half-life decay, newest news dominates
   novelty        the LLM's judgment that this is NEW information, not a
                  description of a move that already happened. Descriptive items
@@ -79,12 +80,15 @@ REQUIRE_HEADLINE = True
 
 
 def source_weights(con):
-    """Trust per source, learned from graded 1-day outcomes (0.6-1.4).
+    """Trust per source, learned from `labels` 1-day outcomes (0.6-1.4).
+
+    Reads `labels`, NOT the `graded` table. LESSONS.md L5 says otherwise and is
+    wrong; nothing reads `graded`. Deleting `labels` wipes these weights.
 
     Joined through article_sources on the article LINK, so an outlet is credited
     for every story it actually carried. Grading via articles.source alone gave
     the credit to whichever feed config.json happened to list first, which made
-    learned trust partly an artifact of file ordering (LESSONS.md L13).
+    learned trust partly an artifact of file ordering (LESSONS.md L15).
 
     Graded on EXCESS return vs NIFTY, so a source is not rewarded for market drift.
     """

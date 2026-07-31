@@ -27,8 +27,9 @@ performance number produced before that date is structurally invalid, not merely
 noisy. Do not compare across that boundary.
 
 Learning loops, recomputed every run:
-  * source weights — from the graded-signals table scoreboard.py maintains:
-    sources whose signals predict badly lose influence on buy decisions
+  * source weights - from the `labels` table scoreboard.py maintains (NOT the
+    `graded` table, which nothing reads - see db.py / NM-11): sources whose
+    signals predict badly lose influence on buy decisions
   * sector weights — experiential: every closed trade nudges its sector up
     (win, x1.05) or down (loss, x0.92); repeated mistakes shrink future bets
   * every closed trade is journaled in bot_portfolio.json -> "closed" with
@@ -118,12 +119,15 @@ def market_phase(ist_now):
 
 
 def source_weights(con):
-    """Trust per source, learned from graded 1-day outcomes (0.6-1.4).
+    """Trust per source, learned from `labels` 1-day outcomes (0.6-1.4).
+
+    Reads `labels`, NOT the `graded` table. LESSONS.md L5 says otherwise and is
+    wrong; nothing reads `graded`. Deleting `labels` wipes these weights.
 
     Joined through article_sources on the article LINK, so an outlet is credited
     for every story it actually carried. Grading via articles.source alone gave
     the credit to whichever feed config.json happened to list first, which made
-    learned trust partly an artifact of file ordering (LESSONS.md L13).
+    learned trust partly an artifact of file ordering (LESSONS.md L15).
 
     Graded on EXCESS return vs NIFTY, so a source is not rewarded for market drift.
     """

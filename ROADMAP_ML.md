@@ -20,9 +20,23 @@ nobody re-litigates this without new facts:
    confidence interval is ±3.4pp — the improvement would be invisible inside the
    error bars. You would be fitting noise.
 2. **Model scale.** Locally runnable models (llama3.2:1b-q4 on Ankit's machine)
-   reason poorly about finance. Gemini 2.5 Flash already scores **66% vs VADER's
-   61%** on identical articles in this repo's own scoreboard. A 1B fine-tune is a
-   downgrade, not an upgrade.
+   reason poorly about finance. A 1B fine-tune is a downgrade, not an upgrade.
+
+   ⚠️ **Retracted figure.** This point used to cite "Gemini 2.5 Flash scores
+   **66% vs VADER's 61%** on identical articles in this repo's own scoreboard."
+   **Do not quote that.** Two independent problems, both found 2026-07-30/31:
+   - The head-to-head block that produced it graded on the raw UTC calendar
+     date, not `signal_trading_day` — the basis L12 identified as putting 28.5%
+     of pairs against the wrong session. That block has now been migrated
+     (NM-20), so any future figure is on a different and correct basis.
+   - It was not reproducible from the data on disk at all: `labels.llm_sent` was
+     NULL on 100% of 1,069 rows, because the scorer worked newest-first while
+     the grader worked older-than-24h and the two windows barely intersected
+     (NM-4). The LLM arm had **n = 0**.
+   The selection order is fixed and the column now populates. The comparison
+   must be **re-measured from scratch** before it is cited again. The conclusion
+   (don't fine-tune a 1B model) still holds on the other two arguments, which
+   never depended on this number.
 3. **Wrong task shape.** Fine-tuning wins when a model must learn a private
    vocabulary or output format. "Is this headline good or bad for company X" is
    general reading comprehension, which frontier models already do well. Domain
@@ -61,7 +75,16 @@ labelled example nobody else has. Target schema (built incrementally — see §4
 never removed. Today's junk is tomorrow's negative training example, and deletion
 destroys the ability to re-measure a past decision.
 
-**Storage.** news.db is ~3 MB and committed hourly. At current rates the labelled
+**Storage.** news.db is ~16.4 MB (measured 2026-07-31, not the ~3 MB once
+stated here) and committed on every run, ~10x a day. Git deltas SQLite well, so
+the repo is far smaller than 16 MB x revisions would suggest.
+
+**The repo is now PUBLIC** (2026-07-31), which removed the private-repo storage
+pressure and also gave the trading bot a working raw-URL fetch with no token.
+The pre-flight check for leaked keys was done and came back clean across all
+history and the database itself. Note what going public does disclose: the
+owner's name, the paper track record, and the fact of a real-money bot with a
+small cap. nse-swing-bot, which holds the strategy itself, stays private. At current rates the labelled
 table grows ~40–120 rows/day. This is fine for years. If the repo gets heavy,
 making it public (Ankit already agreed, 2026-07-30) removes the private-repo
 storage pressure — but check first that no API key ever entered the DB or digests.

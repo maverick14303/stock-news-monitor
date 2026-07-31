@@ -325,7 +325,7 @@ def main():
             # entry. Writing the old default of (0.0, 0) recorded it as a
             # genuine "this is noise" verdict AND made llm_sent non-NULL, so it
             # was never retried — a silent, permanent bias toward neutral.
-            # Leaving it NULL puts it back in the queue. See LESSONS.md L14.
+            # Leaving it NULL puts it back in the queue. See LESSONS.md L16.
             if answer is None:
                 missing += 1
                 continue

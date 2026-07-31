@@ -11,11 +11,22 @@ articles          one row per fetched article (dedup key = link)
 article_tickers   one row per (article, company) pair — where per-ticker scores
                   live. This is the fix for "one sentiment stamped on every
                   company an article mentions".
-graded            trailing-30-day grades, rebuilt each run. Schema deliberately
-                  UNCHANGED: autotrader.py and export_signal.py learn source
-                  trust from it, and its history is the learned weights.
-labels            the growing ML dataset (see ROADMAP_ML.md §1). Append-only,
-                  richer than `graded`, never rebuilt or pruned.
+graded            per-pair grades written by scoreboard.py every run, via
+                  INSERT OR REPLACE. NOT rebuilt and NOT pruned despite the
+                  30-day framing — rows accumulate indefinitely.
+                  ⚠️ NOTHING READS THIS TABLE. It is written and never queried.
+                  LESSONS.md L5 claims source trust "comes from the `graded`
+                  table"; it does not — both source_weights() implementations
+                  (export_signal.py, autotrader.py) read `labels`. Do not act
+                  on that claim: pruning or rebuilding `graded` changes no
+                  behaviour, and deleting `labels` silently wipes the bot's
+                  learned source trust. Kept because it is harmless and its
+                  history is a record, but treat it as an unused artefact.
+labels            the growing ML dataset (see ROADMAP_ML.md §1) AND the live
+                  source of learned source trust. Richer than `graded`. Not
+                  append-only in practice: scoreboard.py rewrites every row
+                  inside the 30-day regrade window on each run, so a row's
+                  values can change until it ages out.
 verdicts          alerts.py's ✅ calls, graded at 5 days by scoreboard.py
 """
 import sqlite3
@@ -60,7 +71,7 @@ _TABLES = [
     # `articles.source` column forever — which made learned source trust partly
     # an artifact of the order feeds appear in config.json. This records every
     # outlet that carried a link, so trust is graded on what a source actually
-    # published. See LESSONS.md L13.
+    # published. See LESSONS.md L15.
     """CREATE TABLE IF NOT EXISTS article_sources (
         link TEXT, source TEXT,
         PRIMARY KEY (link, source)

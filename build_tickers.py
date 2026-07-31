@@ -94,7 +94,7 @@ CURATED = {
     "ONGC.NS": ["ONGC", "Oil and Natural Gas Corporation"],
     # "Tata Motors" belongs to TMPV only. yfinance returns "Tata Motors Limited"
     # for BOTH post-demerger tickers, which made every Tata Motors headline
-    # double-count across two symbols (LESSONS.md L15).
+    # double-count across two symbols (LESSONS.md L14).
     "TMPV.NS": ["Tata Motors PV", "Tata Motors", "Tata Motors Passenger"],
     "TMCV.NS": ["Tata Motors CV", "Tata Motors Commercial"],
     "M&M.NS": ["Mahindra & Mahindra", "Mahindra and Mahindra", "M&M"],
@@ -175,7 +175,7 @@ _SUFFIXES = re.compile(
 # Generic tail words that appear in a legal name but almost never in a headline:
 # "The Tata Power Company" is written "Tata Power", "Hindalco Industries" is
 # "Hindalco". Stripping these produced 20% dead tickers when it was missing —
-# TATAPOWER had 33 headline mentions and zero matches (LESSONS.md L12).
+# TATAPOWER had 33 headline mentions and zero matches (LESSONS.md L14).
 _TAIL_WORDS = re.compile(
     r"\s+(company|industries|enterprises?|technologies|services|systems|"
     r"laboratories|labs|holdings|ventures|international|india|"
@@ -280,7 +280,7 @@ def main():
     # Resolve cross-symbol collisions: an alias claimed by two tickers is kept
     # only by the one that curated it, and dropped from the other. yfinance
     # returns "Tata Motors Limited" for BOTH post-demerger symbols, so without
-    # this every Tata Motors headline double-counts (LESSONS.md L15).
+    # this every Tata Motors headline double-counts (LESSONS.md L14).
     owner = {a.strip().lower(): s for s, al in CURATED.items() for a in al}
     claims = {}
     for r in rows:

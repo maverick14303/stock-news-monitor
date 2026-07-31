@@ -313,11 +313,23 @@ def main():
                   f"({100 * sum(flags) / len(flags):.0f}%)")
 
     # head-to-head: VADER vs the per-ticker LLM score, same pairs, 1-day
+    #
+    # Uses signal_trading_day, like the main grading loop 90 lines above. This
+    # block was missed when that loop was migrated (L12), so it kept grading on
+    # the raw UTC calendar date — the basis that put 28.5% of pairs against the
+    # WRONG SESSION. Anything published after 18:30 IST carries the next UTC
+    # date, and weekend/holiday news has no session at all. The 66%-vs-61%
+    # figure once quoted in ROADMAP_ML.md came out of here on the old basis and
+    # should not be trusted. It also used fromisoformat directly, so a single
+    # malformed timestamp raised ValueError and killed the whole scoreboard
+    # step; signal_trading_day returns None instead.
     stats = {"VADER": [0, 0], "LLM": [0, 0]}
     for (_, symbol, _, _, vader, llm, _, _, _, ts) in rows:
         if llm is None:
             continue
-        date = datetime.fromisoformat(ts).date()
+        date = signal_trading_day(ts)
+        if date is None:
+            continue
         rets = horizon_returns(symbol, date)
         if 1 not in rets:
             continue
