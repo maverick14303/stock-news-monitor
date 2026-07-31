@@ -15,11 +15,40 @@ Keeping the regex conservative matters: over-filtering silently destroys signal.
 """
 import calendar
 import difflib
+import os
 import re
 import time
 from datetime import date, datetime, timedelta, timezone
+from pathlib import Path
 
 IST = timezone(timedelta(hours=5, minutes=30))
+
+
+def atomic_write_text(path, text, encoding="utf-8"):
+    """Write `text` to `path` so a reader can never see a half-written file.
+
+    `Path.write_text` truncates first, then writes. If the process dies in
+    between — a cancelled GitHub runner, the 6-hour job limit, a killed step —
+    the file is left truncated. That matters here because the workflow commits
+    with `if: always()`, so a corrupt file gets PUSHED, every later run fails
+    reading it, and recovery needs a manual git revert.
+
+    Write to a sibling temp file, fsync it, then os.replace: on both POSIX and
+    Windows the rename is atomic, so the destination is either the old complete
+    content or the new complete content. The temp file is removed on failure so
+    a crashed write cannot leave *.tmp litter for the workflow's `git add`.
+    """
+    path = Path(path)
+    tmp = path.with_name(path.name + ".tmp")
+    try:
+        with open(tmp, "w", encoding=encoding, newline="") as f:
+            f.write(text)
+            f.flush()
+            os.fsync(f.fileno())
+        os.replace(tmp, path)
+    except BaseException:
+        tmp.unlink(missing_ok=True)
+        raise
 
 # NSE continuous session. Used for the after-hours flag, not for trading logic.
 SESSION_OPEN = (9, 15)
@@ -31,13 +60,39 @@ SESSION_CLOSE_MIN = SESSION_CLOSE[0] * 60 + SESSION_CLOSE[1]
 # ones are already covered. UPDATE THIS EVERY DECEMBER for the coming year —
 # a missing entry means the bot believes a shut market is open and "trades" at
 # a stale close, which is exactly the class of bug LESSONS.md L5 records.
-# Source: NSE holiday circular (verified 2026-07-30).
+#
+# Error asymmetry, which is why the 2027 rows below are here despite being
+# provisional: a date wrongly PRESENT costs one skipped trading day. A date
+# wrongly ABSENT is the impossible-fill bug. Over-inclusion is the safe side.
+#
+# This list is never the real protection — session_data_fresh() is, because it
+# asks the index whether a bar exists today instead of trusting a hand-typed
+# set. Both entries and exits go through it (see autotrader.market_phase and
+# autotrader.main).
 NSE_HOLIDAYS = {
-    # 2026
+    # 2026 — from the NSE holiday circular (verified 2026-07-30).
     "2026-01-15", "2026-01-26", "2026-03-03", "2026-03-26", "2026-03-31",
     "2026-04-03", "2026-04-14", "2026-05-01", "2026-05-28", "2026-06-26",
     "2026-09-14", "2026-10-02", "2026-10-20", "2026-11-10", "2026-11-24",
     "2026-12-25",
+    # 2027 — PROVISIONAL. Compiled 2026-07-31 from a published third-party 2027
+    # calendar, NOT from an NSE circular (NSE issues that in December). Only the
+    # weekday entries are listed; the weekend ones need no entry. REPLACE THIS
+    # BLOCK WITH THE OFFICIAL CIRCULAR IN DECEMBER 2026 — the lunar-calendar
+    # dates (Id, Holi, Muharram, Diwali) are the ones that move, and Diwali in
+    # particular usually also carries a separate Muhurat session NSE announces
+    # late. Before this block existed the set had ZERO 2027 entries, so
+    # is_trading_day(2027-01-26) returned True on Republic Day.
+    "2027-01-26",  # Tue  Republic Day          (fixed date, certain)
+    "2027-03-10",  # Wed  Id-ul-Fitr            (lunar, verify)
+    "2027-03-22",  # Mon  Holi                  (lunar, verify)
+    "2027-03-26",  # Fri  Good Friday
+    "2027-04-14",  # Wed  Ambedkar Jayanti      (fixed date, certain)
+    "2027-04-15",  # Thu  Ram Navami            (lunar, verify)
+    "2027-04-19",  # Mon  Mahavir Jayanti       (lunar, verify)
+    "2027-05-17",  # Mon  Bakri Id              (lunar, verify)
+    "2027-06-15",  # Tue  Muharram              (lunar, verify)
+    "2027-10-29",  # Fri  Diwali / Balipratipada (lunar, verify)
 }
 
 

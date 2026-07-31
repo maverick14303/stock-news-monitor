@@ -4,5 +4,11 @@ ALERT.md
 # per-run health handoff: run_pipeline.py writes it, export_signal.py reads it
 pipeline_status.json
 
+# newslib.atomic_write_text stages here before os.replace. It cleans up on a
+# normal exception, but a SIGKILL (cancelled runner, job time limit) cannot run
+# any handler, so one can survive. Ignored so a half-written stage file can never
+# be committed even if someone widens the workflow's `git add`.
+*.tmp
+
 # local knowledge-graph artifacts
 graphify-out/

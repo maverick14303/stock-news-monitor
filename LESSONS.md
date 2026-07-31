@@ -661,6 +661,119 @@ When you change one, change them all at once and stamp the date.
 
 ---
 
+## L22 — Four guards that existed but did not cover what they claimed
+
+**Found:** 2026-07-31. Four separate ops defects, one shape: a protection was
+written, documented, believed — and applied to only part of what it named.
+
+### (a) The freshness gate protected buys and not sells
+
+`session_data_fresh()`'s docstring said it *"catches a missing holiday without
+needing to know about it"*, and L13 says the fix for impossible fills is a holiday
+list **plus** a data-derived check. The data-derived check was wired to
+`execute_pending` only. `check_exits` ran unconditionally at the top of the trade
+branch.
+
+`NSE_HOLIDAYS` had **zero 2027 entries** (max 2026-12-25), so
+`is_trading_day(2027-01-26)` — Republic Day, a Tuesday — returned True. Reproduced
+against the pre-fix code with the clock frozen to a weekday the calendar wrongly
+believes is open:
+
+```
+BEFORE  BOT SOLD 1 x SBIN.NS @ Rs 900.00 (-10.00%) — stop-loss at -10.0%
+        closed[] gains a realised -10% trade
+        sector_weights: {"financials": 0.92}      <-- learned from a fill that never happened
+AFTER   NO index bar for 2027-07-15 — NEITHER exits nor entries run this pass
+        positions unchanged, closed[] empty, sector_weights untouched
+```
+
+The sell side is *worse* than the buy side, which is why this was the wrong half
+to leave unguarded: a bogus buy shows up as an open position anyone can eyeball,
+while a bogus sell writes a permanent realised P&L into the closed-trade record
+**and** nudges a learned sector weight. It corrupts the evidence, not just the
+book. Both sides now share one `fresh` check per trade pass.
+
+2027 holidays were added, but they are **PROVISIONAL** — compiled from a published
+third-party calendar, not an NSE circular (NSE issues that in December). Replace
+the block in December 2026. The error is asymmetric and the comment says so: a
+date wrongly present costs one skipped day, a date wrongly absent is this bug.
+
+### (b) The only zombie-feed detector was unreachable, not merely unread
+
+The weekly block required `weekday() == 6 and hour == 18` — Sunday 18:00 IST. The
+schedule is 08:15 / 09:30-14:30 / 15:45 / 20:00 / 02:30 on weekdays and 10:00 /
+20:00 at weekends. **No run has ever landed on that instant**, so
+`FEED_SILENT_HOURS = 48` — the project's only dead-feed alarm — had never executed
+once. L17 found six zombie feeds by hand for exactly this reason.
+
+Replaced with a `meta['weekly_last']` marker: render when the last render was
+≥ 6 days ago, whichever run gets there first. First run after the change
+immediately reported `Feed health: 35/36 sources active — silent 48h+: The Hindu
+Economy`, i.e. a real dead feed that had been invisible.
+
+**Rule:** never gate a periodic job on a wall-clock instant it must be running to
+observe. Gate it on elapsed time since it last ran.
+
+### (c) DISCONTINUITY: `verdicts` filters, cut 2026-07-31
+
+`alerts.py` was the one consumer that filtered neither `noise` nor `in_title`, and
+it scored on article-level VADER rather than the per-(headline, company) row. Its
+✅ PASSES calls go into `verdicts`, which `scoreboard.py` grades and the README
+lists under "Trust & risk features". Actual rows it produced:
+
+```
+NTPC.NS      'Stocks to watch for July 27: Bank of Baroda, Tata Consumer, SBI Card, NTPC'
+             ^ matches the NOISE regex; noise=1 everywhere else in the codebase
+KOTAKBANK.NS 'Rupee can strengthen to Rs 95/$ ...: Kotak Securities'
+             ^ body-only mention; body-only measured 38.3% excess (n=193) — anti-predictive
+```
+
+Both are now impossible: the confirmation query and the candidate scan read
+`article_tickers` with `in_title = 1 AND COALESCE(noise,0) = 0` and prefer
+`COALESCE(tk.llm_sent, a.sentiment)`.
+
+**Existing `verdicts` rows are NOT deleted** — never delete data, only stop
+producing more. So the table has two regimes: **rows with `ts` before 2026-07-31
+are unfiltered and include noise and body-only mentions; rows from 2026-07-31 are
+filtered.** Any graded verdict statistic must split on that date or it is mixing
+two populations.
+
+The macro section is deliberately left **exempt** from the noise filter. "Sensex
+crashes 1,000 points" is correctly flagged noise — it makes no claim about any one
+company — and is exactly what the macro section exists to surface. A filter is
+only right where the thing being filtered is wrong.
+
+### (d) Every ledger write truncated first
+
+`Path.write_text` truncates, then writes. A cancelled runner or the 6-hour job
+limit landing in between leaves a truncated file, which the workflow's
+`if: always()` step then **commits and pushes**, so two of seven steps go red
+permanently and recovery needs a manual revert. Reproduced with a real process
+kill in the dangerous window:
+
+```
+BEFORE  write_text  -> 20-byte file, JSONDecodeError: Unterminated string
+AFTER   atomic_write_text -> bot_portfolio.json still parses, cash unchanged
+```
+
+`newslib.atomic_write_text` writes a sibling `.tmp`, fsyncs, then `os.replace` —
+atomic on POSIX and Windows — and removes the stage file on any exception. A
+SIGKILL cannot run a handler, so a `.tmp` can survive one; `*.tmp` is gitignored
+so it can never be committed. Applied to `autotrader.save`,
+`paper_portfolio.save`, `alerts.ALERT.md` and both digest writes.
+
+The reads were half-guarded too: `bot_recent_trades()` checked `.exists()` but
+`alerts.main()` and `autotrader.load()` did not. Both now fail with a named error
+and a `git checkout --` instruction. `autotrader.load()` specifically must **not**
+fall back to a fresh Rs 5,000 book on a decode error — that would silently erase
+the track record and report +0.00%.
+
+**Rule:** a guard is only as good as its coverage. When you write one, enumerate
+every call site it should cover and check each one, because the half you forget is
+the half that fails.
+
+---
+
 ## Things that were RIGHT and should not be "fixed"
 
 Preserved deliberately; do not undo these in a cleanup pass.

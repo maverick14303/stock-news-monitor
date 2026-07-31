@@ -15,6 +15,8 @@ import yfinance as yf
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
+from newslib import atomic_write_text
+
 LEDGER = Path(__file__).parent / "portfolio.json"
 STARTING_CASH = 5000.0
 FEES_PCT = 0.0025  # ~0.25% per side: STT, stamp duty, DP charges, spread
@@ -27,7 +29,9 @@ def load():
 
 
 def save(p):
-    LEDGER.write_text(json.dumps(p, indent=2))
+    # Atomic — see newslib.atomic_write_text. write_text truncates first, so a
+    # kill mid-write leaves a ledger that no later run can read.
+    atomic_write_text(LEDGER, json.dumps(p, indent=2))
 
 
 def live_price(symbol):

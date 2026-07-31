@@ -7,21 +7,29 @@ Ankit had no time to do, so its P&L measured nothing.
 
 Sections: bot P&L vs the NIFTY shadow, news on stocks the bot holds, pre-checked
 buy ideas (✅ ones are logged to the verdicts table so scoreboard.py can grade
-them later), macro events mapped to exposed holdings, and a Sunday-evening weekly
-report with feed health. The cloud workflow turns ALERT.md into a GitHub issue
-(emailed by GitHub); the first line becomes the subject.
+them later), macro events mapped to exposed holdings, and a once-a-week report
+with feed health (fired by the `weekly_last` marker in `meta`, not by a wall-clock
+instant no scheduled run ever hits). The cloud workflow turns ALERT.md into a
+GitHub issue (emailed by GitHub); the first line becomes the subject.
+
+Company sections read `article_tickers` — headline mentions only, noise excluded,
+per-(headline, company) scores in preference to article-level VADER. The macro
+section is deliberately exempt from the noise flag: an index wrap makes no claim
+about any one company, which is why it is flagged, and is exactly what that
+section is for. Every feed-supplied string goes through md() before it reaches the
+markdown, because GitHub renders issue bodies and nobody controls RSS titles.
 """
 import csv
 import json
 import re
-import sqlite3
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-from newslib import distinct_stories
+import db
+from newslib import atomic_write_text, distinct_stories
 
 BASE = Path(__file__).parent
 OUT = BASE / "ALERT.md"
@@ -34,7 +42,15 @@ MAX_MACRO = 4
 PRICED_IN_MOVE = 2.5    # % move that means the news is likely already in the price
 MIN_OUTLETS = 2
 MAX_CHECKED = 8         # bound on price lookups per email
-WEEKLY_DAY, WEEKLY_HOUR = 6, 18  # Sunday 6 PM IST
+# The weekly block used to require `weekday() == 6 and hour == 18` — Sunday 18:00
+# IST. The pipeline is triggered at 08:15 / 09:30-14:30 / 15:45 / 20:00 / 02:30 on
+# weekdays and 10:00 / 20:00 at weekends, so that instant is never reached and the
+# section — including FEED_SILENT_HOURS, the project's ONLY zombie-feed detector —
+# could not run at all. LESSONS.md L17 found six dead feeds by hand for exactly
+# this reason. Replaced with a fire-once-per-week marker in `meta`, so whichever
+# run happens to be first after the interval elapses renders it.
+WEEKLY_FLAG = "weekly_last"
+WEEKLY_EVERY_DAYS = 6
 # The index shadow both accounts are measured against. Lived in portfolio.json
 # until that manual account was retired; it is a fixed anchor, not state.
 BENCHMARK = {"symbol": "^NSEI", "start_level": 24175.7,
@@ -91,6 +107,20 @@ MACRO_ADVICE = (
 
 def dot(x):
     return "🔴" if x < 0 else "🟢"
+
+
+# GitHub RENDERS issue bodies, and these bodies are built from RSS titles nobody
+# controls. Unescaped, a headline containing `![](http://x/px.png)` becomes a
+# tracking pixel that fires when the emailed issue is opened,
+# `[click here](http://x)` becomes a plausible link inside a trusted automated
+# notification, and `@someone` becomes a real mention. The issue TITLE is safe
+# (built from machine-generated counts) — only the body needed this.
+_MD_ESCAPE = re.compile(r"([\\`*_\[\]()<>#!|~@&])")
+
+
+def md(text):
+    """Escape feed-supplied text so markdown renders it as literal characters."""
+    return _MD_ESCAPE.sub(r"\\\1", str(text or "")).replace("\r", " ").replace("\n", " ")
 
 
 def load_sectors():
@@ -155,8 +185,9 @@ def bot_lines(bot, recent, bot_total, shadow):
     if recent:
         out.append("\n**Bot trades this hour:**")
         for t in recent:
+            # `reason` embeds the headline that triggered the trade — feed text.
             out.append(f"- {t['action'].upper()} {t['qty']} x {t['symbol']} @ "
-                       f"Rs {t['price']:.2f} — {t.get('reason', '')}")
+                       f"Rs {t['price']:.2f} — {md(t.get('reason', ''))}")
     closed = bot.get("closed", [])
     if closed:
         wins = sum(1 for c in closed if c["win"])
@@ -183,11 +214,21 @@ def opportunity_checks(opps, cash, con, now):
                 lines.append(f"- `{t}`: ℹ️ bad-news signal on a stock you don't own — "
                              "nothing to do (no short selling).")
                 continue
+            # Confirmation must be measured the way every other consumer measures
+            # it: real news only (noise = 0), HEADLINE mentions only (in_title = 1,
+            # because body-only mentions measured 38.3% excess, n=193 — worse than
+            # a coin flip), and per-(headline, company) scores in preference to the
+            # one article-level VADER reading stamped on every name it mentions.
+            # This query used to read `articles.tickers` with no filter at all, so
+            # a listicle preview could supply the "independent coverage" behind a
+            # ✅ PASSES verdict that scoreboard.py then graded (LESSONS.md L22).
             cov = con.execute(
-                "SELECT source, title FROM articles "
-                "WHERE (',' || tickers || ',') LIKE ? AND fetched_at >= ? "
-                "AND ABS(sentiment) >= 0.25",
-                (f"%,{t},%", day_ago)).fetchall()
+                "SELECT a.source, a.title FROM article_tickers tk "
+                "JOIN articles a ON a.link = tk.link "
+                "WHERE tk.symbol = ? AND tk.in_title = 1 "
+                "  AND COALESCE(a.noise, 0) = 0 AND a.fetched_at >= ? "
+                "  AND ABS(COALESCE(tk.llm_sent, a.sentiment)) >= 0.25",
+                (t, day_ago)).fetchall()
             outlets = len({s for s, _ in cov})
             stories = distinct_stories([ttl for _, ttl in cov])
             try:
@@ -225,8 +266,26 @@ def opportunity_checks(opps, cash, con, now):
     return lines
 
 
+def weekly_due(con, today):
+    """True when the weekly block has not rendered for WEEKLY_EVERY_DAYS days.
+
+    Deliberately NOT "Sunday at 18:00". A wall-clock instant only fires if a run
+    happens to land on it, and none of the scheduled runs does — which is how the
+    project's only zombie-feed detector came to be unreachable rather than merely
+    unread. A "has it been N days" marker fires on whichever run comes first, so
+    it cannot be missed by a schedule change, a skipped trigger or a red run.
+    """
+    last = db.flag(con, WEEKLY_FLAG)
+    if not last:
+        return True
+    try:
+        return (today - date.fromisoformat(last[:10])).days >= WEEKLY_EVERY_DAYS
+    except ValueError:
+        return True
+
+
 def weekly_lines(con, now):
-    if not (now.weekday() == WEEKLY_DAY and now.hour == WEEKLY_HOUR):
+    if not weekly_due(con, now.date()):
         return []
     week_ago = (datetime.now(timezone.utc) - timedelta(days=7)).isoformat()
     n_art, n_sig = con.execute(
@@ -251,32 +310,69 @@ def weekly_lines(con, now):
 
 def main():
     # The bot's book IS the portfolio now — the manual account was retired.
-    portfolio = json.loads((BASE / "bot_portfolio.json").read_text())
+    # Guarded, like bot_recent_trades(): this read used to be a bare
+    # json.loads(read_text()) with no .exists() and no decode guard, so a
+    # truncated ledger took out two of seven pipeline steps at once.
+    ledger = BASE / "bot_portfolio.json"
+    if not ledger.exists():
+        sys.exit(f"{ledger.name} is missing — run autotrader.py first.")
+    try:
+        portfolio = json.loads(ledger.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        sys.exit(f"{ledger.name} is not valid JSON ({e}). Restore it with: "
+                 f"git checkout -- {ledger.name}")
     held, cash = portfolio["positions"], portfolio["cash"]
     bench = BENCHMARK
     sectors = load_sectors()
     now_local = datetime.now()
 
-    con = sqlite3.connect(BASE / "news.db")
-    con.execute("CREATE TABLE IF NOT EXISTS verdicts "
-                "(ts TEXT, symbol TEXT, price REAL, title TEXT)")
+    # db.connect rather than sqlite3.connect: the weekly marker lives in `meta`,
+    # and migrate() is idempotent, so this guarantees both `meta` and `verdicts`
+    # exist instead of hand-creating one of them here.
+    con = db.connect(BASE / "news.db")
     since = (datetime.now(timezone.utc) - timedelta(hours=WINDOW_HOURS)).isoformat()
     rows = con.execute(
-        "SELECT source, title, sentiment, tickers FROM articles WHERE fetched_at >= ?",
-        (since,)).fetchall()
+        "SELECT link, source, title, COALESCE(sentiment, 0), COALESCE(noise, 0) "
+        "FROM articles WHERE fetched_at >= ?", (since,)).fetchall()
+    # Per-(headline, company) rows, not articles.tickers. Two reasons: `tickers`
+    # lumps headline claims together with passing body-blurb mentions (measured
+    # 38.3% excess, n=193 — worse than a coin flip), and article-level VADER is
+    # one score stamped on every company named, which is the L1 bug. This section
+    # had neither filter, so listicle previews and body-only mentions became
+    # graded ✅ verdicts (LESSONS.md L22).
+    pairs = {}
+    for link, symbol, sent in con.execute(
+            "SELECT tk.link, tk.symbol, COALESCE(tk.llm_sent, a.sentiment) "
+            "FROM article_tickers tk JOIN articles a ON a.link = tk.link "
+            "WHERE tk.in_title = 1 AND COALESCE(a.noise, 0) = 0 "
+            "  AND a.fetched_at >= ?", (since,)):
+        pairs.setdefault(link, {})[symbol] = sent
 
     holding_items, opportunities, macros = [], [], []
     seen = set()
-    for source, title, sent, tickers in rows:
+    for link, source, title, art_sent, noise in rows:
         if title in seen:
             continue
-        tset = set(tickers.split(",")) if tickers else set()
+        # Company sections: real news, named in the HEADLINE, scored per pair.
+        # Macro is deliberately NOT noise-filtered — "Sensex crashes 1,000
+        # points" is correctly flagged noise (it makes no claim about any one
+        # company) and is exactly what the macro section exists to surface.
+        by_sym = pairs.get(link, {}) if not noise else {}
+        tset = {s for s, v in by_sym.items() if v is not None}
+        # One score per item is the existing shape. With a single company in the
+        # headline — the overwhelming majority — this IS that pair's score. Where
+        # a headline names several, take the strongest claim, which is already how
+        # the opportunity sort below treats the number.
+        sent = max((by_sym[s] for s in tset), key=abs, default=art_sent)
         is_wrap = bool(MARKET_WRAP.search(title))
         if tset & held.keys() and abs(sent) >= HELD_THRESHOLD and not is_wrap:
-            holding_items.append((sent, sorted(tset & held.keys()), title, source))
+            held_syms = sorted(tset & held.keys())
+            sent = max((by_sym[s] for s in held_syms), key=abs)
+            holding_items.append((sent, held_syms, title, source))
         elif tset and abs(sent) >= OPPORTUNITY_THRESHOLD and not is_wrap:
             opportunities.append((sent, sorted(tset), title, source))
         elif MACRO_EVENT.search(title) and MACRO_SCOPE.search(title):
+            sent = art_sent
             hit_sectors = set().union(*(secs for pat, secs in EXPOSURE if pat.search(title)))
             touched = sorted(t for t in held if sectors.get(t) in hit_sectors)
             macros.append((sent, touched, title, source))
@@ -288,13 +384,16 @@ def main():
     opportunities = opportunities[:MAX_OPPORTUNITIES]
     macros = macros[:MAX_MACRO]
 
+    # Decided BEFORE prices so the weekly gate lives in exactly one place. It used
+    # to be duplicated here as a second `weekday()==6 and hour==18` test, which is
+    # two chances to get the same unreachable condition wrong.
+    weekly_sec = weekly_lines(con, now_local)
+
     price_symbols = set(held)
     if bench:
         price_symbols.add(bench["symbol"])
-    prices = get_prices(price_symbols) if (holding_items or opportunities or macros
-                                           or (now_local.weekday() == WEEKLY_DAY
-                                               and now_local.hour == WEEKLY_HOUR)) else {}
-    weekly_sec = weekly_lines(con, now_local)
+    prices = get_prices(price_symbols) if (holding_items or opportunities
+                                           or macros or weekly_sec) else {}
     bot_trades, bot = bot_recent_trades()
 
     if not (holding_items or opportunities or macros or weekly_sec
@@ -339,7 +438,7 @@ def main():
             net = sum(s for s, _, _ in by_ticker[t])
             lines.append(f"### {t} — bot holds {pos['qty']} @ avg Rs {pos['avg_cost']:.2f}")
             for sent, title, source in by_ticker[t]:
-                lines.append(f"- {dot(sent)} ({sent:+.2f}) {title} — *{source}*")
+                lines.append(f"- {dot(sent)} ({sent:+.2f}) {md(title)} — *{md(source)}*")
             advice = (REVIEW_ADVICE if net <= -0.2 else
                       SUPPORT_ADVICE if net >= 0.2 else MIXED_ADVICE)
             lines.append(f"\n{advice}\n")
@@ -347,7 +446,8 @@ def main():
     if opportunities:
         lines.append("\n## 💡 Strong signals on stocks you DON'T own\n")
         for sent, tks, title, source in opportunities:
-            lines.append(f"- {dot(sent)} ({sent:+.2f}) `{','.join(tks)}` {title} — *{source}*")
+            lines.append(f"- {dot(sent)} ({sent:+.2f}) `{','.join(tks)}` "
+                         f"{md(title)} — *{md(source)}*")
         lines.extend(opportunity_checks(opportunities, cash, con,
                                         datetime.now(timezone.utc)))
         lines.append(f"\n{OPPORTUNITY_ADVICE}\n")
@@ -357,14 +457,18 @@ def main():
         for sent, touched, title, source in macros:
             tag = (f" → touches your **{', '.join(touched)}**" if touched
                    else " → no direct hit on your holdings")
-            lines.append(f"- {dot(sent)} {title} — *{source}*{tag}")
+            lines.append(f"- {dot(sent)} {md(title)} — *{md(source)}*{tag}")
         lines.append(f"\n{MACRO_ADVICE}\n")
 
     lines.extend(weekly_sec)
     lines.append("\n---\n_Sentiment is mechanical (word-based); it reads headlines, not "
                  "fundamentals. Paper portfolio — verify anything before treating it as "
                  "a real-money process._")
-    OUT.write_text("\n".join(lines), encoding="utf-8")
+    atomic_write_text(OUT, "\n".join(lines))
+    # Only after the file exists on disk: a crash between the two would otherwise
+    # burn the weekly slot without anyone seeing the report.
+    if weekly_sec:
+        db.set_flag(con, WEEKLY_FLAG, str(now_local.date()))
     con.close()
     print(f"Alert written: {', '.join(bits)}")
 

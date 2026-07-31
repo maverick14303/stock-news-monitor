@@ -13,7 +13,11 @@ Run cycle, tied to the actual NSE session (see market_phase):
                                       prices and news, then fill at a price the
                                       bot could actually have got. Exits run on
                                       every session pass so a stop-loss is not
-                                      held hostage to the daily cycle.
+                                      held hostage to the daily cycle — but both
+                                      exits and entries are behind
+                                      session_data_fresh(), so neither side
+                                      transacts on a day the index has no bar
+                                      for.
   otherwise                   CLOSED— gather news only. Never transact.
 
 That last rule is not theoretical. Audited 2026-07-30: 36 of this bot's first 41
@@ -44,7 +48,7 @@ from pathlib import Path
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 from alerts import load_sectors
-from newslib import IST, distinct_stories, is_trading_day
+from newslib import IST, atomic_write_text, distinct_stories, is_trading_day
 from paper_portfolio import FEES_PCT, live_price
 
 BASE = Path(__file__).parent
@@ -68,15 +72,31 @@ REBUY_COOLDOWN_DAYS = 3
 CANCEL_ON_NEWS = -0.5   # queued buy is dropped if sentiment turns this negative
 
 
+FRESH_LEDGER = {"cash": START_CASH, "positions": {}, "trades": [], "closed": [],
+                "sector_weights": {}, "pending": []}
+
+
 def load():
-    if LEDGER.exists():
-        return json.loads(LEDGER.read_text())
-    return {"cash": START_CASH, "positions": {}, "trades": [], "closed": [],
-            "sector_weights": {}, "pending": []}
+    """The ledger, or a fresh book if there is none.
+
+    A corrupt ledger must NOT be silently replaced by a fresh Rs 5,000 book —
+    that would erase the track record and print a fake +0.00%. Fail loudly
+    instead; the file is in git, so recovery is a checkout.
+    """
+    if not LEDGER.exists():
+        return dict(FRESH_LEDGER)
+    try:
+        return json.loads(LEDGER.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        sys.exit(f"{LEDGER.name} is not valid JSON ({e}). Refusing to start from "
+                 "a blank book — that would erase the track record. Restore it "
+                 f"with: git checkout -- {LEDGER.name}")
 
 
 def save(p):
-    LEDGER.write_text(json.dumps(p, indent=2))
+    # Atomic: a truncated ledger would be committed by the workflow's
+    # `if: always()` step and break every later run (NM-22 / LESSONS.md L22).
+    atomic_write_text(LEDGER, json.dumps(p, indent=2))
 
 
 def market_phase(ist_now):
@@ -154,13 +174,16 @@ def session_data_fresh(today_ist):
     """True when the index actually has a bar for today.
 
     Belt-and-braces behind the holiday list, which is hand-maintained and will
-    eventually go stale (unscheduled closures, or nobody updating it for 2027).
-    On a shut day the newest bar is the previous session's, so this catches a
-    missing holiday without needing to know about it.
+    eventually go stale (unscheduled closures, or the 2027 list being provisional
+    until NSE publishes its circular). On a shut day the newest bar is the
+    previous session's, so this catches a missing holiday without needing to know
+    about it.
 
-    Failing this only DELAYS the day's entries — pending orders are left intact
-    and the next hourly run retries — so a slow Yahoo update costs an hour, not
-    a day, while a genuine closure blocks entries for the whole day.
+    Gates BOTH sides of the book. It used to gate entries only, which left exits
+    filling at a stale close on any day the calendar got wrong — the L5 bug
+    surviving on the sell side. Failing this only DELAYS the day: pending orders
+    are left intact, no position is closed, and the next hourly run retries. So a
+    slow Yahoo update costs an hour, and a genuine closure costs the day.
     """
     try:
         import yfinance as yf
@@ -207,8 +230,12 @@ def close_position(p, sym, price, reason, sectors, now_iso):
 
 
 def check_exits(p, con, sectors, prices, now, now_iso, since):
-    """Stop / target / time / news exits. Session-time only — a sell needs a
-    price the bot could actually have hit."""
+    """Stop / target / time / news exits.
+
+    Session-time only, AND only when session_data_fresh() says the index has a bar
+    for today — a sell needs a price the bot could actually have hit. The caller
+    owns that gate; do not call this without it.
+    """
     for sym, pos in list(p["positions"].items()):
         price = prices.get(sym)
         if not price:
@@ -392,26 +419,41 @@ def main():
             print("Pre-open scan: no candidate cleared the bar in the overnight news.")
 
     else:  # trade
-        check_exits(p, con, sectors, prices, now, now_iso, since)
+        # ONE data-derived freshness check for the whole trade phase. This used
+        # to gate entries only, so check_exits ran unconditionally: on a holiday
+        # missing from NSE_HOLIDAYS the calendar said "open", live_price()
+        # returned the PREVIOUS close, and a position sitting below the stop
+        # against that stale close was "sold" at a price that never existed.
+        # That is LESSONS.md L5's impossible fill on the sell side, and it is
+        # worse than the buy side: it books a realised P&L into the closed-trade
+        # record and nudges a learned sector weight off a fill that never
+        # happened. A sell needs a price the bot could actually have hit, which
+        # is exactly what this check tests.
+        fresh = session_data_fresh(ist_now.date())
+        if fresh:
+            check_exits(p, con, sectors, prices, now, now_iso, since)
+        else:
+            print(f"NO index bar for {day} — the market may be shut (unlisted "
+                  "holiday) or the feed is lagging. NEITHER exits nor entries "
+                  "run this pass; the plan is kept for the next one. Prices "
+                  "below are the last close.")
         if p["pending"] and p["pending"][0]["queued"] == day:
             if p.get("traded_day") == day:
                 print("Plan already executed today — holding.")
-            elif not session_data_fresh(ist_now.date()):
-                print(f"NO index bar for {day} yet — the market may be shut "
-                      "(unlisted holiday) or the feed is lagging. Entries held "
-                      "for the next run; plan kept.")
-            else:
+            elif fresh:
                 execute_pending(p, con, sectors, prices, now, now_iso, since)
                 p["traded_day"] = day
                 p["pending"] = []
         elif p["pending"]:
+            # Dropping a stale plan is bookkeeping, not a trade, so it does not
+            # need fresh data.
             print(f"Dropping {len(p['pending'])} order(s) queued "
                   f"{p['pending'][0]['queued']} — a plan is only good for its own open.")
             p["pending"] = []
-        elif p.get("traded_day") != day:
+        elif fresh and p.get("traded_day") != day:
             print("No pre-open plan for today — no entries. "
                   "(Entries are queued by the 08:15 run; exits still run.)")
-        else:
+        elif fresh:
             print("Today's plan is already done — exits checked, holding.")
         save(p)
 

@@ -14,6 +14,8 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
+from newslib import atomic_write_text
+
 BASE = Path(__file__).parent
 DIGESTS = BASE / "digests"
 STATUS = BASE / "pipeline_status.json"
@@ -58,9 +60,8 @@ def main():
             # Hand the exporter this run's health so it can publish it. Written
             # here rather than by the exporter itself because only the runner
             # knows what happened upstream of it.
-            STATUS.write_text(
-                json.dumps({"ok": not failures, "failed": failures}),
-                encoding="utf-8")
+            atomic_write_text(
+                STATUS, json.dumps({"ok": not failures, "failed": failures}))
             if critical_failed:
                 parts.append(
                     f"## {heading}\n\n```\n[SKIPPED] a critical step failed — "
@@ -94,8 +95,10 @@ def main():
 
     digest = "\n".join(parts)
     out = DIGESTS / f"{now:%Y-%m-%d_%H%M}.md"
-    out.write_text(digest, encoding="utf-8")
-    (DIGESTS / "LATEST.md").write_text(digest, encoding="utf-8")
+    # Atomic: the digest is the ONLY evidence a red run leaves behind, and the
+    # workflow commits it with `if: always()`. A truncated one is worse than none.
+    atomic_write_text(out, digest)
+    atomic_write_text(DIGESTS / "LATEST.md", digest)
     print(f"Digest written to {out}")
 
     # Exit non-zero so the runner goes RED. This used to always exit 0, which is
