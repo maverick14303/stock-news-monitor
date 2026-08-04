@@ -74,16 +74,8 @@
   "sector_weights": {
     "metals": 1.05
   },
-  "pending": [
-    {
-      "symbol": "KEI.NS",
-      "score": 0.846,
-      "title": "KEI Industries Q1 Results: Profit Jumps 40% As Margin Improves; Revenue Exceeds Rs 3,100 Crore",
-      "source": "NDTV Profit Latest",
-      "queued": "2026-08-04"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-07-31"
+  "traded_day": "2026-08-04"
 }
