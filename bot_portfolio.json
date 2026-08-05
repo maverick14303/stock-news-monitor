@@ -74,7 +74,36 @@
   "sector_weights": {
     "metals": 1.05
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "MARICO.NS",
+      "score": 1.029,
+      "title": "Marico Q1 results: Profit jumps 27%, beats estimates on strong revenue and margin performance",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-08-05"
+    },
+    {
+      "symbol": "NYKAA.NS",
+      "score": 0.92,
+      "title": "Nykaa Q1 Results: Net profit spikes 243% YoY to Rs 80 crore; revenue jumps 29%",
+      "source": "Economic Times Markets",
+      "queued": "2026-08-05"
+    },
+    {
+      "symbol": "BHARTIARTL.NS",
+      "score": 0.9,
+      "title": "Airtel Q1 profit jumps 37% to Rs 8,167 crore",
+      "source": "TOI Business",
+      "queued": "2026-08-05"
+    },
+    {
+      "symbol": "PIDILITIND.NS",
+      "score": 0.877,
+      "title": "Pidilite\u2019s consolidated net profit up by more than 30% in June quarter",
+      "source": "Economic Times Industry",
+      "queued": "2026-08-05"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-08-04"
