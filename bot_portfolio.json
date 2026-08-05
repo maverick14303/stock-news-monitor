@@ -1,5 +1,5 @@
 {
-  "cash": 3549.008975524902,
+  "cash": 2021.249088287353,
   "positions": {
     "NTPC.NS": {
       "qty": 2,
@@ -18,6 +18,24 @@
         "Economic Times Industry"
       ],
       "thesis": "Tata Power begins work on Rs 5,750 crore renewable energy project in Andhra Pradesh"
+    },
+    "MARICO.NS": {
+      "qty": 1,
+      "avg_cost": 857.388125,
+      "opened": "2026-08-05T04:02:03.214428+00:00",
+      "sources": [
+        "CNBC TV18 Markets"
+      ],
+      "thesis": "Marico Q1 results: Profit jumps 27%, beats estimates on strong revenue and margin performance"
+    },
+    "NYKAA.NS": {
+      "qty": 2,
+      "avg_cost": 335.18588111877443,
+      "opened": "2026-08-05T04:02:03.214428+00:00",
+      "sources": [
+        "Economic Times Markets"
+      ],
+      "thesis": "Nykaa Q1 Results: Net profit spikes 243% YoY to Rs 80 crore; revenue jumps 29%"
     }
   },
   "trades": [
@@ -56,6 +74,24 @@
       "price": 265.5,
       "fee": 1.99,
       "reason": "negative news (-0.50) at +0.1%"
+    },
+    {
+      "time": "2026-08-05T04:02:03.214428+00:00",
+      "action": "buy",
+      "symbol": "MARICO.NS",
+      "qty": 1,
+      "price": 855.25,
+      "fee": 2.14,
+      "reason": "planned pre-open, score 1.03 (CNBC TV18 Markets): Marico Q1 results: Profit jumps 27%, beats estimates on strong revenue"
+    },
+    {
+      "time": "2026-08-05T04:02:03.214428+00:00",
+      "action": "buy",
+      "symbol": "NYKAA.NS",
+      "qty": 2,
+      "price": 334.35,
+      "fee": 1.67,
+      "reason": "planned pre-open, score 0.92 (Economic Times Markets): Nykaa Q1 Results: Net profit spikes 243% YoY to Rs 80 crore; revenue j"
     }
   ],
   "closed": [
@@ -74,37 +110,8 @@
   "sector_weights": {
     "metals": 1.05
   },
-  "pending": [
-    {
-      "symbol": "MARICO.NS",
-      "score": 1.029,
-      "title": "Marico Q1 results: Profit jumps 27%, beats estimates on strong revenue and margin performance",
-      "source": "CNBC TV18 Markets",
-      "queued": "2026-08-05"
-    },
-    {
-      "symbol": "NYKAA.NS",
-      "score": 0.92,
-      "title": "Nykaa Q1 Results: Net profit spikes 243% YoY to Rs 80 crore; revenue jumps 29%",
-      "source": "Economic Times Markets",
-      "queued": "2026-08-05"
-    },
-    {
-      "symbol": "BHARTIARTL.NS",
-      "score": 0.9,
-      "title": "Airtel Q1 profit jumps 37% to Rs 8,167 crore",
-      "source": "TOI Business",
-      "queued": "2026-08-05"
-    },
-    {
-      "symbol": "PIDILITIND.NS",
-      "score": 0.877,
-      "title": "Pidilite\u2019s consolidated net profit up by more than 30% in June quarter",
-      "source": "Economic Times Industry",
-      "queued": "2026-08-05"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-04"
+  "traded_day": "2026-08-05"
 }
