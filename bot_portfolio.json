@@ -110,23 +110,8 @@
   "sector_weights": {
     "metals": 1.05
   },
-  "pending": [
-    {
-      "symbol": "POLICYBZR.NS",
-      "score": 1.039,
-      "title": "PB Fintech Q1 Results: Policybazaar parent's profit nearly doubles as margin expands",
-      "source": "CNBC TV18 Markets",
-      "queued": "2026-08-06"
-    },
-    {
-      "symbol": "AUROPHARMA.NS",
-      "score": 0.947,
-      "title": "Aurobindo Pharma posts record Q1 revenue of \u20b99,150 crore; PAT up 25%",
-      "source": "BusinessLine Companies",
-      "queued": "2026-08-06"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-05"
+  "traded_day": "2026-08-06"
 }
