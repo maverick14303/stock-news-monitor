@@ -110,7 +110,22 @@
   "sector_weights": {
     "metals": 1.05
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "LICI.NS",
+      "score": 0.751,
+      "title": "LIC Q1 profit surges 23% on growth in value of new business",
+      "source": "Economic Times Markets",
+      "queued": "2026-08-07"
+    },
+    {
+      "symbol": "BRITANNIA.NS",
+      "score": 0.735,
+      "title": "Volume growth, e-commerce boost lift Britannia\u2019s Q1 profit 14% at \u20b9593 cr despite cost headwinds",
+      "source": "BusinessLine Companies",
+      "queued": "2026-08-07"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-08-06"
