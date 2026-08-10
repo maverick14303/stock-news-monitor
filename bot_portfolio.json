@@ -1,5 +1,5 @@
 {
-  "cash": 1231.4796005249018,
+  "cash": 1889.6300883483882,
   "positions": {
     "NTPC.NS": {
       "qty": 2,
@@ -27,15 +27,6 @@
         "CNBC TV18 Markets"
       ],
       "thesis": "Marico Q1 results: Profit jumps 27%, beats estimates on strong revenue and margin performance"
-    },
-    "NYKAA.NS": {
-      "qty": 2,
-      "avg_cost": 335.18588111877443,
-      "opened": "2026-08-05T04:02:03.214428+00:00",
-      "sources": [
-        "Economic Times Markets"
-      ],
-      "thesis": "Nykaa Q1 Results: Net profit spikes 243% YoY to Rs 80 crore; revenue jumps 29%"
     },
     "LICI.NS": {
       "qty": 2,
@@ -110,6 +101,15 @@
       "price": 393.9,
       "fee": 1.97,
       "reason": "planned pre-open, score 0.75 (Economic Times Markets): LIC Q1 profit surges 23% on growth in value of new business"
+    },
+    {
+      "time": "2026-08-10T04:02:01.133362+00:00",
+      "action": "sell",
+      "symbol": "NYKAA.NS",
+      "qty": 2,
+      "price": 329.9,
+      "fee": 1.65,
+      "reason": "negative news (-0.50) at -1.6%"
     }
   ],
   "closed": [
@@ -123,21 +123,25 @@
       "win": true,
       "reason": "negative news (-0.50) at +0.1%",
       "thesis": "Vedanta clocks PAT of Rs 5,294 crore in Q1 FY27; announces demerger of surplus real estate assets"
+    },
+    {
+      "time": "2026-08-10T04:02:01.133362+00:00",
+      "symbol": "NYKAA.NS",
+      "sector": "consumer",
+      "entry": 335.19,
+      "exit": 329.9,
+      "pnl_pct": -1.58,
+      "win": false,
+      "reason": "negative news (-0.50) at -1.6%",
+      "thesis": "Nykaa Q1 Results: Net profit spikes 243% YoY to Rs 80 crore; revenue jumps 29%"
     }
   ],
   "sector_weights": {
-    "metals": 1.05
+    "metals": 1.05,
+    "consumer": 0.92
   },
-  "pending": [
-    {
-      "symbol": "GODREJPROP.NS",
-      "score": 0.666,
-      "title": "Godrej Properties to generate Rs 20,000 crore operating cash flow by Mar'28, will invest for growth:",
-      "source": "Economic Times Industry",
-      "queued": "2026-08-10"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-07"
+  "traded_day": "2026-08-10"
 }
