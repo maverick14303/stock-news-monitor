@@ -128,7 +128,15 @@
   "sector_weights": {
     "metals": 1.05
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "GODREJPROP.NS",
+      "score": 0.666,
+      "title": "Godrej Properties to generate Rs 20,000 crore operating cash flow by Mar'28, will invest for growth:",
+      "source": "Economic Times Industry",
+      "queued": "2026-08-10"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-08-07"
