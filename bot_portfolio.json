@@ -140,23 +140,8 @@
     "metals": 1.05,
     "consumer": 0.92
   },
-  "pending": [
-    {
-      "symbol": "BHARATFORG.NS",
-      "score": 0.608,
-      "title": "Bharat Forge expects 20-25% growth in FY27, margins to recover to 27-28% in Q2: CMD Baba Kalyani",
-      "source": "CNBC TV18 Markets",
-      "queued": "2026-08-11"
-    },
-    {
-      "symbol": "LUPIN.NS",
-      "score": 0.551,
-      "title": "Lupin wins US FDA nod for sodium zirconium cyclosilicate to treat hyperkalemia",
-      "source": "CNBC TV18 Markets",
-      "queued": "2026-08-11"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-10"
+  "traded_day": "2026-08-11"
 }
