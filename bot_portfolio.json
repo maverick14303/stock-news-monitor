@@ -140,7 +140,22 @@
     "metals": 1.05,
     "consumer": 0.92
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "MANAPPURAM.NS",
+      "score": 0.906,
+      "title": "Manappuram Finance Q1 Results: Profit soars four-fold to Rs 585 crore",
+      "source": "Economic Times Markets",
+      "queued": "2026-08-12"
+    },
+    {
+      "symbol": "LT.NS",
+      "score": 0.695,
+      "title": "L&T to transfer data centre, cloud businesses to Vyoma.AI for \u20b91,400 crore",
+      "source": "BusinessLine Companies",
+      "queued": "2026-08-12"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-08-11"
