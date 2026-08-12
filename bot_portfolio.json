@@ -1,5 +1,5 @@
 {
-  "cash": 1889.6300883483882,
+  "cash": 1172.341338348388,
   "positions": {
     "NTPC.NS": {
       "qty": 2,
@@ -36,6 +36,15 @@
         "Economic Times Markets"
       ],
       "thesis": "LIC Q1 profit surges 23% on growth in value of new business"
+    },
+    "MANAPPURAM.NS": {
+      "qty": 2,
+      "avg_cost": 358.644375,
+      "opened": "2026-08-12T04:02:24.648437+00:00",
+      "sources": [
+        "Economic Times Markets"
+      ],
+      "thesis": "Manappuram Finance Q1 Results: Profit soars four-fold to Rs 585 crore"
     }
   },
   "trades": [
@@ -110,6 +119,15 @@
       "price": 329.9,
       "fee": 1.65,
       "reason": "negative news (-0.50) at -1.6%"
+    },
+    {
+      "time": "2026-08-12T04:02:24.648437+00:00",
+      "action": "buy",
+      "symbol": "MANAPPURAM.NS",
+      "qty": 2,
+      "price": 357.75,
+      "fee": 1.79,
+      "reason": "planned pre-open, score 0.91 (Economic Times Markets): Manappuram Finance Q1 Results: Profit soars four-fold to Rs 585 crore"
     }
   ],
   "closed": [
@@ -140,23 +158,8 @@
     "metals": 1.05,
     "consumer": 0.92
   },
-  "pending": [
-    {
-      "symbol": "MANAPPURAM.NS",
-      "score": 0.906,
-      "title": "Manappuram Finance Q1 Results: Profit soars four-fold to Rs 585 crore",
-      "source": "Economic Times Markets",
-      "queued": "2026-08-12"
-    },
-    {
-      "symbol": "LT.NS",
-      "score": 0.695,
-      "title": "L&T to transfer data centre, cloud businesses to Vyoma.AI for \u20b91,400 crore",
-      "source": "BusinessLine Companies",
-      "queued": "2026-08-12"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-11"
+  "traded_day": "2026-08-12"
 }
