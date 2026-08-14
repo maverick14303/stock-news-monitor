@@ -1,15 +1,6 @@
 {
-  "cash": 1172.341338348388,
+  "cash": 1854.5316127014153,
   "positions": {
-    "NTPC.NS": {
-      "qty": 2,
-      "avg_cost": 344.4590061187744,
-      "opened": "2026-07-30T04:08:05.673716+00:00",
-      "sources": [
-        "Business Standard Economy"
-      ],
-      "thesis": "NTPC plans \u20b917 trillion investment by 2037 to expand power capacity"
-    },
     "TATAPOWER.NS": {
       "qty": 2,
       "avg_cost": 380.2482377624512,
@@ -128,6 +119,15 @@
       "price": 357.75,
       "fee": 1.79,
       "reason": "planned pre-open, score 0.91 (Economic Times Markets): Manappuram Finance Q1 Results: Profit soars four-fold to Rs 585 crore"
+    },
+    {
+      "time": "2026-08-14T05:02:25.047816+00:00",
+      "action": "sell",
+      "symbol": "NTPC.NS",
+      "qty": 2,
+      "price": 341.95,
+      "fee": 1.71,
+      "reason": "time stop after 15d (-0.7%)"
     }
   ],
   "closed": [
@@ -152,11 +152,23 @@
       "win": false,
       "reason": "negative news (-0.50) at -1.6%",
       "thesis": "Nykaa Q1 Results: Net profit spikes 243% YoY to Rs 80 crore; revenue jumps 29%"
+    },
+    {
+      "time": "2026-08-14T05:02:25.047816+00:00",
+      "symbol": "NTPC.NS",
+      "sector": "energy",
+      "entry": 344.46,
+      "exit": 341.95,
+      "pnl_pct": -0.73,
+      "win": false,
+      "reason": "time stop after 15d (-0.7%)",
+      "thesis": "NTPC plans \u20b917 trillion investment by 2037 to expand power capacity"
     }
   ],
   "sector_weights": {
     "metals": 1.05,
-    "consumer": 0.92
+    "consumer": 0.92,
+    "energy": 0.92
   },
   "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
