@@ -158,16 +158,8 @@
     "metals": 1.05,
     "consumer": 0.92
   },
-  "pending": [
-    {
-      "symbol": "LT.NS",
-      "score": 0.831,
-      "title": "L&T secures AI data centre order worth up to \u20b915,000 crore",
-      "source": "BusinessLine Companies",
-      "queued": "2026-08-14"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-13"
+  "traded_day": "2026-08-14"
 }
