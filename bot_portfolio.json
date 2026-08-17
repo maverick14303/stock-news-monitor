@@ -170,7 +170,22 @@
     "consumer": 0.92,
     "energy": 0.92
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "LODHA.NS",
+      "score": 0.818,
+      "title": "Lodha Developers to launch 21 housing projects till March with revenue potential of Rs 24,000 cr",
+      "source": "Economic Times Industry",
+      "queued": "2026-08-17"
+    },
+    {
+      "symbol": "ONGC.NS",
+      "score": 0.763,
+      "title": "ONGC Set to Expand Venezuela Operations After Securing US Sanctions Waiver",
+      "source": "NDTV Profit Latest",
+      "queued": "2026-08-17"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-08-14"
