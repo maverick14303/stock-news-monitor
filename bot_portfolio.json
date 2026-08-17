@@ -1,15 +1,6 @@
 {
-  "cash": 1854.5316127014153,
+  "cash": 1661.418546905517,
   "positions": {
-    "TATAPOWER.NS": {
-      "qty": 2,
-      "avg_cost": 380.2482377624512,
-      "opened": "2026-07-31T04:01:39.008669+00:00",
-      "sources": [
-        "Economic Times Industry"
-      ],
-      "thesis": "Tata Power begins work on Rs 5,750 crore renewable energy project in Andhra Pradesh"
-    },
     "MARICO.NS": {
       "qty": 1,
       "avg_cost": 857.388125,
@@ -36,6 +27,15 @@
         "Economic Times Markets"
       ],
       "thesis": "Manappuram Finance Q1 Results: Profit soars four-fold to Rs 585 crore"
+    },
+    "ONGC.NS": {
+      "qty": 4,
+      "avg_cost": 237.85314449310303,
+      "opened": "2026-08-17T04:02:34.553628+00:00",
+      "sources": [
+        "NDTV Profit Latest"
+      ],
+      "thesis": "ONGC Set to Expand Venezuela Operations After Securing US Sanctions Waiver"
     }
   },
   "trades": [
@@ -128,6 +128,24 @@
       "price": 341.95,
       "fee": 1.71,
       "reason": "time stop after 15d (-0.7%)"
+    },
+    {
+      "time": "2026-08-17T04:02:34.553628+00:00",
+      "action": "sell",
+      "symbol": "TATAPOWER.NS",
+      "qty": 2,
+      "price": 380.1,
+      "fee": 1.9,
+      "reason": "time stop after 17d (-0.0%)"
+    },
+    {
+      "time": "2026-08-17T04:02:34.553628+00:00",
+      "action": "buy",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 237.26,
+      "fee": 2.37,
+      "reason": "planned pre-open, score 0.76 (NDTV Profit Latest): ONGC Set to Expand Venezuela Operations After Securing US Sanctions Wa"
     }
   ],
   "closed": [
@@ -163,30 +181,26 @@
       "win": false,
       "reason": "time stop after 15d (-0.7%)",
       "thesis": "NTPC plans \u20b917 trillion investment by 2037 to expand power capacity"
+    },
+    {
+      "time": "2026-08-17T04:02:34.553628+00:00",
+      "symbol": "TATAPOWER.NS",
+      "sector": "energy",
+      "entry": 380.25,
+      "exit": 380.1,
+      "pnl_pct": -0.04,
+      "win": false,
+      "reason": "time stop after 17d (-0.0%)",
+      "thesis": "Tata Power begins work on Rs 5,750 crore renewable energy project in Andhra Pradesh"
     }
   ],
   "sector_weights": {
     "metals": 1.05,
     "consumer": 0.92,
-    "energy": 0.92
+    "energy": 0.846
   },
-  "pending": [
-    {
-      "symbol": "LODHA.NS",
-      "score": 0.818,
-      "title": "Lodha Developers to launch 21 housing projects till March with revenue potential of Rs 24,000 cr",
-      "source": "Economic Times Industry",
-      "queued": "2026-08-17"
-    },
-    {
-      "symbol": "ONGC.NS",
-      "score": 0.763,
-      "title": "ONGC Set to Expand Venezuela Operations After Securing US Sanctions Waiver",
-      "source": "NDTV Profit Latest",
-      "queued": "2026-08-17"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-14"
+  "traded_day": "2026-08-17"
 }
