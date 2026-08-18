@@ -199,7 +199,22 @@
     "consumer": 0.92,
     "energy": 0.846
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "SUNPHARMA.NS",
+      "score": 0.585,
+      "title": "Sun Pharma gets favourable verdict in antitrust-litigation in U.S.",
+      "source": "The Hindu Business",
+      "queued": "2026-08-18"
+    },
+    {
+      "symbol": "WIPRO.NS",
+      "score": 0.554,
+      "title": "India clears \u20b97,877 crore ECMS investments; Wipro, PCBL Chemical, Syrma SGS shares in focus",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-08-18"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-08-17"
