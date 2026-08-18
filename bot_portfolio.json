@@ -1,5 +1,5 @@
 {
-  "cash": 1661.418546905517,
+  "cash": 763.1785622024529,
   "positions": {
     "MARICO.NS": {
       "qty": 1,
@@ -36,6 +36,15 @@
         "NDTV Profit Latest"
       ],
       "thesis": "ONGC Set to Expand Venezuela Operations After Securing US Sanctions Waiver"
+    },
+    "WIPRO.NS": {
+      "qty": 5,
+      "avg_cost": 179.6479969406128,
+      "opened": "2026-08-18T04:04:34.717232+00:00",
+      "sources": [
+        "CNBC TV18 Markets"
+      ],
+      "thesis": "India clears \u20b97,877 crore ECMS investments; Wipro, PCBL Chemical, Syrma SGS shares in focus"
     }
   },
   "trades": [
@@ -146,6 +155,15 @@
       "price": 237.26,
       "fee": 2.37,
       "reason": "planned pre-open, score 0.76 (NDTV Profit Latest): ONGC Set to Expand Venezuela Operations After Securing US Sanctions Wa"
+    },
+    {
+      "time": "2026-08-18T04:04:34.717232+00:00",
+      "action": "buy",
+      "symbol": "WIPRO.NS",
+      "qty": 5,
+      "price": 179.2,
+      "fee": 2.24,
+      "reason": "planned pre-open, score 0.55 (CNBC TV18 Markets): India clears \u20b97,877 crore ECMS investments; Wipro, PCBL Chemical, Syrm"
     }
   ],
   "closed": [
@@ -199,23 +217,8 @@
     "consumer": 0.92,
     "energy": 0.846
   },
-  "pending": [
-    {
-      "symbol": "SUNPHARMA.NS",
-      "score": 0.585,
-      "title": "Sun Pharma gets favourable verdict in antitrust-litigation in U.S.",
-      "source": "The Hindu Business",
-      "queued": "2026-08-18"
-    },
-    {
-      "symbol": "WIPRO.NS",
-      "score": 0.554,
-      "title": "India clears \u20b97,877 crore ECMS investments; Wipro, PCBL Chemical, Syrma SGS shares in focus",
-      "source": "CNBC TV18 Markets",
-      "queued": "2026-08-18"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-17"
+  "traded_day": "2026-08-18"
 }
