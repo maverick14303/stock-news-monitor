@@ -217,7 +217,15 @@
     "consumer": 0.92,
     "energy": 0.846
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "BIOCON.NS",
+      "score": 0.592,
+      "title": "Biocon arm gets supplemental USFDA approval for autoimmune disease drug",
+      "source": "BusinessLine Companies",
+      "queued": "2026-08-19"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-08-18"
