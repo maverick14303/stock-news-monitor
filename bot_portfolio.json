@@ -1,15 +1,6 @@
 {
-  "cash": 826.1628152465814,
+  "cash": 1675.6837145996087,
   "positions": {
-    "MARICO.NS": {
-      "qty": 1,
-      "avg_cost": 857.388125,
-      "opened": "2026-08-05T04:02:03.214428+00:00",
-      "sources": [
-        "CNBC TV18 Markets"
-      ],
-      "thesis": "Marico Q1 results: Profit jumps 27%, beats estimates on strong revenue and margin performance"
-    },
     "LICI.NS": {
       "qty": 2,
       "avg_cost": 394.8847438812256,
@@ -182,6 +173,15 @@
       "price": 414.75,
       "fee": 2.07,
       "reason": "planned pre-open, score 0.59 (BusinessLine Companies): Biocon arm gets supplemental USFDA approval for autoimmune disease dru"
+    },
+    {
+      "time": "2026-08-20T04:02:41.440713+00:00",
+      "action": "sell",
+      "symbol": "MARICO.NS",
+      "qty": 1,
+      "price": 851.65,
+      "fee": 2.13,
+      "reason": "time stop after 15d (-0.7%)"
     }
   ],
   "closed": [
@@ -239,13 +239,25 @@
       "win": false,
       "reason": "negative news (-0.50) at -0.2%",
       "thesis": "India clears \u20b97,877 crore ECMS investments; Wipro, PCBL Chemical, Syrma SGS shares in focus"
+    },
+    {
+      "time": "2026-08-20T04:02:41.440713+00:00",
+      "symbol": "MARICO.NS",
+      "sector": "fmcg",
+      "entry": 857.39,
+      "exit": 851.65,
+      "pnl_pct": -0.67,
+      "win": false,
+      "reason": "time stop after 15d (-0.7%)",
+      "thesis": "Marico Q1 results: Profit jumps 27%, beats estimates on strong revenue and margin performance"
     }
   ],
   "sector_weights": {
     "metals": 1.05,
     "consumer": 0.92,
     "energy": 0.846,
-    "it": 0.92
+    "it": 0.92,
+    "fmcg": 0.92
   },
   "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
