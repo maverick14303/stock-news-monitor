@@ -259,16 +259,8 @@
     "it": 0.92,
     "fmcg": 0.92
   },
-  "pending": [
-    {
-      "symbol": "LT.NS",
-      "score": 0.833,
-      "title": "L&T wins up to \u20b95,000-crore order for Dubai's Al Maktoum International Airport",
-      "source": "BusinessLine Companies",
-      "queued": "2026-08-21"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-19"
+  "traded_day": "2026-08-21"
 }
