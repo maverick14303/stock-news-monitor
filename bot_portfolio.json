@@ -1,15 +1,6 @@
 {
-  "cash": 1675.6837145996087,
+  "cash": 2517.6734402465813,
   "positions": {
-    "LICI.NS": {
-      "qty": 2,
-      "avg_cost": 394.8847438812256,
-      "opened": "2026-08-07T04:02:03.347636+00:00",
-      "sources": [
-        "Economic Times Markets"
-      ],
-      "thesis": "LIC Q1 profit surges 23% on growth in value of new business"
-    },
     "MANAPPURAM.NS": {
       "qty": 2,
       "avg_cost": 358.644375,
@@ -182,6 +173,15 @@
       "price": 851.65,
       "fee": 2.13,
       "reason": "time stop after 15d (-0.7%)"
+    },
+    {
+      "time": "2026-08-24T04:02:25.152491+00:00",
+      "action": "sell",
+      "symbol": "LICI.NS",
+      "qty": 2,
+      "price": 422.05,
+      "fee": 2.11,
+      "reason": "time stop after 17d (+6.9%)"
     }
   ],
   "closed": [
@@ -250,6 +250,17 @@
       "win": false,
       "reason": "time stop after 15d (-0.7%)",
       "thesis": "Marico Q1 results: Profit jumps 27%, beats estimates on strong revenue and margin performance"
+    },
+    {
+      "time": "2026-08-24T04:02:25.152491+00:00",
+      "symbol": "LICI.NS",
+      "sector": "financials",
+      "entry": 394.88,
+      "exit": 422.05,
+      "pnl_pct": 6.88,
+      "win": true,
+      "reason": "time stop after 17d (+6.9%)",
+      "thesis": "LIC Q1 profit surges 23% on growth in value of new business"
     }
   ],
   "sector_weights": {
@@ -257,7 +268,8 @@
     "consumer": 0.92,
     "energy": 0.846,
     "it": 0.92,
-    "fmcg": 0.92
+    "fmcg": 0.92,
+    "financials": 1.05
   },
   "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
