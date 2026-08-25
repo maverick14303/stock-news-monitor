@@ -271,7 +271,22 @@
     "fmcg": 0.92,
     "financials": 1.05
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "TCS.NS",
+      "score": 0.974,
+      "title": "TCS to acquire Porsche arm for $373 million, inks $1.4 billion deal",
+      "source": "TOI Business",
+      "queued": "2026-08-25"
+    },
+    {
+      "symbol": "LT.NS",
+      "score": 0.825,
+      "title": "L&T signs over \u20b915,000 crore gas compression contract in West Asia",
+      "source": "Business Standard Companies",
+      "queued": "2026-08-25"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-08-21"
