@@ -1,5 +1,5 @@
 {
-  "cash": 2517.6734402465813,
+  "cash": 719.890171890258,
   "positions": {
     "MANAPPURAM.NS": {
       "qty": 2,
@@ -27,6 +27,24 @@
         "BusinessLine Companies"
       ],
       "thesis": "Biocon arm gets supplemental USFDA approval for autoimmune disease drug"
+    },
+    "VBL.NS": {
+      "qty": 2,
+      "avg_cost": 432.4784938812256,
+      "opened": "2026-08-26T04:11:33.214118+00:00",
+      "sources": [
+        "CNBC TV18 Markets"
+      ],
+      "thesis": "Varun Beverages to enter alcoholic drinks business, sets up new subsidiary KIVA Spirits"
+    },
+    "TATASTEEL.NS": {
+      "qty": 5,
+      "avg_cost": 186.5652561187744,
+      "opened": "2026-08-26T04:11:33.214118+00:00",
+      "sources": [
+        "BusinessLine Companies"
+      ],
+      "thesis": "Demand notice of \u20b91,755 crore on Tata Steel stayed"
     }
   },
   "trades": [
@@ -182,6 +200,24 @@
       "price": 422.05,
       "fee": 2.11,
       "reason": "time stop after 17d (+6.9%)"
+    },
+    {
+      "time": "2026-08-26T04:11:33.214118+00:00",
+      "action": "buy",
+      "symbol": "VBL.NS",
+      "qty": 2,
+      "price": 431.4,
+      "fee": 2.16,
+      "reason": "planned pre-open, score 0.69 (CNBC TV18 Markets): Varun Beverages to enter alcoholic drinks business, sets up new subsid"
+    },
+    {
+      "time": "2026-08-26T04:11:33.214118+00:00",
+      "action": "buy",
+      "symbol": "TATASTEEL.NS",
+      "qty": 5,
+      "price": 186.1,
+      "fee": 2.33,
+      "reason": "planned pre-open, score 0.60 (BusinessLine Companies): Demand notice of \u20b91,755 crore on Tata Steel stayed"
     }
   ],
   "closed": [
@@ -271,30 +307,8 @@
     "fmcg": 0.92,
     "financials": 1.05
   },
-  "pending": [
-    {
-      "symbol": "LT.NS",
-      "score": 0.863,
-      "title": "L&T\u2019s West Asia orderbook swells, wins \u20b950,000 crore worth contracts in August alone",
-      "source": "BusinessLine Companies",
-      "queued": "2026-08-26"
-    },
-    {
-      "symbol": "VBL.NS",
-      "score": 0.695,
-      "title": "Varun Beverages to enter alcoholic drinks business, sets up new subsidiary KIVA Spirits",
-      "source": "CNBC TV18 Markets",
-      "queued": "2026-08-26"
-    },
-    {
-      "symbol": "TATASTEEL.NS",
-      "score": 0.604,
-      "title": "Demand notice of \u20b91,755 crore on Tata Steel stayed",
-      "source": "BusinessLine Companies",
-      "queued": "2026-08-26"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-25"
+  "traded_day": "2026-08-26"
 }
