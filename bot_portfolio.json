@@ -307,7 +307,15 @@
     "fmcg": 0.92,
     "financials": 1.05
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "BEL.NS",
+      "score": 0.964,
+      "title": "BEL bags \u20b9730 crore in fresh orders for radars, avionics, cyber security and more",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-08-27"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-08-26"
