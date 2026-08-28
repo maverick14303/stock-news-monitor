@@ -336,7 +336,15 @@
     "fmcg": 0.92,
     "financials": 1.103
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "NTPC.NS",
+      "score": 0.753,
+      "title": "NTPC targets 149 GW capacity by 2032, 244 GW by 2037",
+      "source": "BusinessLine Companies",
+      "queued": "2026-08-28"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-08-27"
