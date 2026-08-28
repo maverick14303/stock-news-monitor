@@ -1,18 +1,18 @@
 {
   "schema": 2,
-  "generated_at": "2026-08-28T07:03:43.197003+00:00",
-  "data_through": "2026-08-28T07:00:13+00:00",
+  "generated_at": "2026-08-28T08:02:48.825677+00:00",
+  "data_through": "2026-08-28T08:01:07+00:00",
   "pipeline_ok": true,
   "failed_steps": [],
-  "articles_in_window": 724,
-  "pairs_llm_scored": 724,
+  "articles_in_window": 721,
+  "pairs_llm_scored": 721,
   "window_days": 7,
   "half_life_days": 3.0,
   "note": "Per-ticker news sentiment. Scores are per-(article,company) LLM judgments weighted by learned source trust, recency, novelty and headline-vs-body position. GATE ON: 'conf' (evidence weight, 0-1 \u2014 multiply the score by it), 'n_outlets' and 'n_days' (require >=2 of each before letting news veto or sell: one crafted or single-blog headline is 1 outlet on 1 day). 'sources' is DEPRECATED \u2014 it counts articles, not independent stories, and is ~= n_articles for nearly every ticker; do not gate on it. Check pipeline_ok and data_through before use: generated_at only says when this file was written. articles_in_window counts (article,company) pairs; pairs_llm_scored is how many carry a real LLM score rather than the article-level VADER fallback.",
   "tickers": {
     "ADANIENT.NS": {
-      "score": 0.4608,
-      "conf": 0.904,
+      "score": 0.4609,
+      "conf": 0.898,
       "n_articles": 3,
       "n_outlets": 3,
       "n_days": 1,
@@ -21,18 +21,18 @@
       "sources": 3
     },
     "ADANIPORTS.NS": {
-      "score": 0.4072,
-      "conf": 1.0,
-      "n_articles": 4,
+      "score": 0.5,
+      "conf": 0.968,
+      "n_articles": 3,
       "n_outlets": 2,
-      "n_days": 3,
-      "novel": 4,
-      "n": 4,
-      "sources": 4
+      "n_days": 2,
+      "novel": 3,
+      "n": 3,
+      "sources": 3
     },
     "ADANIPOWER.NS": {
       "score": 0.9,
-      "conf": 0.27,
+      "conf": 0.267,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -42,7 +42,7 @@
     },
     "ASHOKLEY.NS": {
       "score": 0.2,
-      "conf": 0.113,
+      "conf": 0.112,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -51,8 +51,8 @@
       "sources": 1
     },
     "AUROPHARMA.NS": {
-      "score": -0.0582,
-      "conf": 0.685,
+      "score": -0.0576,
+      "conf": 0.679,
       "n_articles": 4,
       "n_outlets": 4,
       "n_days": 2,
@@ -61,7 +61,7 @@
       "sources": 4
     },
     "AXISBANK.NS": {
-      "score": 0.2916,
+      "score": 0.2905,
       "conf": 1.0,
       "n_articles": 11,
       "n_outlets": 4,
@@ -71,7 +71,7 @@
       "sources": 9
     },
     "BAJAJ-AUTO.NS": {
-      "score": 0.3946,
+      "score": 0.3944,
       "conf": 1.0,
       "n_articles": 4,
       "n_outlets": 4,
@@ -82,7 +82,7 @@
     },
     "BAJFINANCE.NS": {
       "score": 0.4951,
-      "conf": 0.766,
+      "conf": 0.759,
       "n_articles": 3,
       "n_outlets": 2,
       "n_days": 3,
@@ -91,8 +91,8 @@
       "sources": 3
     },
     "BANKBARODA.NS": {
-      "score": 0.2724,
-      "conf": 0.478,
+      "score": 0.273,
+      "conf": 0.472,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 2,
@@ -101,7 +101,7 @@
       "sources": 2
     },
     "BEL.NS": {
-      "score": 0.5849,
+      "score": 0.585,
       "conf": 1.0,
       "n_articles": 5,
       "n_outlets": 4,
@@ -112,7 +112,7 @@
     },
     "BHARTIARTL.NS": {
       "score": 0.5,
-      "conf": 0.587,
+      "conf": 0.581,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 2,
@@ -121,8 +121,8 @@
       "sources": 2
     },
     "BIOCON.NS": {
-      "score": 0.6732,
-      "conf": 0.791,
+      "score": 0.6738,
+      "conf": 0.788,
       "n_articles": 4,
       "n_outlets": 3,
       "n_days": 2,
@@ -131,7 +131,7 @@
       "sources": 4
     },
     "BPCL.NS": {
-      "score": 0.2694,
+      "score": 0.2695,
       "conf": 1.0,
       "n_articles": 7,
       "n_outlets": 3,
@@ -141,8 +141,8 @@
       "sources": 7
     },
     "BRITANNIA.NS": {
-      "score": -0.4528,
-      "conf": 0.977,
+      "score": -0.4529,
+      "conf": 0.97,
       "n_articles": 3,
       "n_outlets": 2,
       "n_days": 2,
@@ -152,7 +152,7 @@
     },
     "CIPLA.NS": {
       "score": -0.5,
-      "conf": 0.283,
+      "conf": 0.282,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -161,8 +161,8 @@
       "sources": 1
     },
     "COALINDIA.NS": {
-      "score": 0.3559,
-      "conf": 0.579,
+      "score": 0.3558,
+      "conf": 0.573,
       "n_articles": 3,
       "n_outlets": 2,
       "n_days": 2,
@@ -172,7 +172,7 @@
     },
     "COFORGE.NS": {
       "score": 0.3918,
-      "conf": 0.758,
+      "conf": 0.751,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 2,
@@ -182,7 +182,7 @@
     },
     "CUMMINSIND.NS": {
       "score": 0.1332,
-      "conf": 0.42,
+      "conf": 0.416,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 2,
@@ -192,7 +192,7 @@
     },
     "DABUR.NS": {
       "score": -0.2,
-      "conf": 0.154,
+      "conf": 0.152,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -202,7 +202,7 @@
     },
     "DALBHARAT.NS": {
       "score": -0.5,
-      "conf": 0.234,
+      "conf": 0.232,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -212,7 +212,7 @@
     },
     "DRREDDY.NS": {
       "score": 0.7,
-      "conf": 0.24,
+      "conf": 0.237,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -222,7 +222,7 @@
     },
     "ETERNAL.NS": {
       "score": -0.2,
-      "conf": 0.323,
+      "conf": 0.32,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -231,7 +231,7 @@
       "sources": 1
     },
     "FEDERALBNK.NS": {
-      "score": -0.0615,
+      "score": -0.0612,
       "conf": 1.0,
       "n_articles": 8,
       "n_outlets": 5,
@@ -252,7 +252,7 @@
     },
     "GODREJPROP.NS": {
       "score": 0.4,
-      "conf": 0.168,
+      "conf": 0.166,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -261,8 +261,8 @@
       "sources": 1
     },
     "GRASIM.NS": {
-      "score": 0.627,
-      "conf": 0.674,
+      "score": 0.6262,
+      "conf": 0.668,
       "n_articles": 5,
       "n_outlets": 5,
       "n_days": 3,
@@ -271,8 +271,8 @@
       "sources": 4
     },
     "HCLTECH.NS": {
-      "score": 0.036,
-      "conf": 0.848,
+      "score": 0.0373,
+      "conf": 0.844,
       "n_articles": 3,
       "n_outlets": 3,
       "n_days": 2,
@@ -281,17 +281,17 @@
       "sources": 3
     },
     "HDFCBANK.NS": {
-      "score": -0.1074,
+      "score": -0.1106,
       "conf": 1.0,
-      "n_articles": 15,
+      "n_articles": 14,
       "n_outlets": 6,
-      "n_days": 5,
-      "novel": 15,
-      "n": 15,
-      "sources": 14
+      "n_days": 4,
+      "novel": 14,
+      "n": 14,
+      "sources": 13
     },
     "HEROMOTOCO.NS": {
-      "score": 0.4181,
+      "score": 0.4179,
       "conf": 1.0,
       "n_articles": 9,
       "n_outlets": 5,
@@ -301,7 +301,7 @@
       "sources": 9
     },
     "HINDALCO.NS": {
-      "score": 0.2718,
+      "score": 0.2717,
       "conf": 1.0,
       "n_articles": 7,
       "n_outlets": 4,
@@ -312,7 +312,7 @@
     },
     "HINDUNILVR.NS": {
       "score": -0.2,
-      "conf": 0.154,
+      "conf": 0.152,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -321,7 +321,7 @@
       "sources": 1
     },
     "HINDZINC.NS": {
-      "score": 0.2612,
+      "score": 0.2614,
       "conf": 1.0,
       "n_articles": 7,
       "n_outlets": 4,
@@ -331,8 +331,8 @@
       "sources": 7
     },
     "ICICIBANK.NS": {
-      "score": 0.3173,
-      "conf": 0.831,
+      "score": 0.317,
+      "conf": 0.825,
       "n_articles": 6,
       "n_outlets": 3,
       "n_days": 4,
@@ -342,7 +342,7 @@
     },
     "IDFCFIRSTB.NS": {
       "score": 0.2,
-      "conf": 0.247,
+      "conf": 0.243,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -351,28 +351,28 @@
       "sources": 1
     },
     "INDIGO.NS": {
-      "score": -0.147,
-      "conf": 1.0,
-      "n_articles": 9,
-      "n_outlets": 5,
-      "n_days": 4,
-      "novel": 9,
-      "n": 9,
-      "sources": 9
-    },
-    "INFY.NS": {
-      "score": -0.2362,
+      "score": -0.1106,
       "conf": 1.0,
       "n_articles": 8,
-      "n_outlets": 6,
+      "n_outlets": 4,
       "n_days": 4,
-      "novel": 6,
+      "novel": 8,
       "n": 8,
       "sources": 8
     },
+    "INFY.NS": {
+      "score": -0.217,
+      "conf": 1.0,
+      "n_articles": 7,
+      "n_outlets": 5,
+      "n_days": 3,
+      "novel": 5,
+      "n": 7,
+      "sources": 7
+    },
     "IOC.NS": {
-      "score": -0.2223,
-      "conf": 0.741,
+      "score": -0.2229,
+      "conf": 0.733,
       "n_articles": 3,
       "n_outlets": 3,
       "n_days": 2,
@@ -382,7 +382,7 @@
     },
     "IRCTC.NS": {
       "score": 0.5885,
-      "conf": 0.681,
+      "conf": 0.675,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 2,
@@ -392,7 +392,7 @@
     },
     "ITC.NS": {
       "score": 0.4726,
-      "conf": 0.994,
+      "conf": 0.985,
       "n_articles": 4,
       "n_outlets": 3,
       "n_days": 1,
@@ -402,7 +402,7 @@
     },
     "JINDALSTEL.NS": {
       "score": 0.3639,
-      "conf": 0.961,
+      "conf": 0.957,
       "n_articles": 2,
       "n_outlets": 1,
       "n_days": 2,
@@ -412,7 +412,7 @@
     },
     "JUBLFOOD.NS": {
       "score": 0.5,
-      "conf": 0.33,
+      "conf": 0.328,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -422,7 +422,7 @@
     },
     "KEI.NS": {
       "score": 0.5,
-      "conf": 0.469,
+      "conf": 0.465,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -432,7 +432,7 @@
     },
     "KOTAKBANK.NS": {
       "score": 0.5,
-      "conf": 0.12,
+      "conf": 0.119,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -442,7 +442,7 @@
     },
     "LICHSGFIN.NS": {
       "score": 0.3,
-      "conf": 0.456,
+      "conf": 0.451,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -451,7 +451,7 @@
       "sources": 1
     },
     "LT.NS": {
-      "score": 0.6391,
+      "score": 0.6389,
       "conf": 1.0,
       "n_articles": 12,
       "n_outlets": 3,
@@ -461,7 +461,7 @@
       "sources": 11
     },
     "LUPIN.NS": {
-      "score": -0.0795,
+      "score": -0.0787,
       "conf": 1.0,
       "n_articles": 3,
       "n_outlets": 2,
@@ -471,8 +471,8 @@
       "sources": 3
     },
     "M&M.NS": {
-      "score": 0.343,
-      "conf": 0.304,
+      "score": 0.3426,
+      "conf": 0.3,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 1,
@@ -482,7 +482,7 @@
     },
     "MARUTI.NS": {
       "score": 0.2,
-      "conf": 0.318,
+      "conf": 0.315,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -491,7 +491,7 @@
       "sources": 1
     },
     "NESTLEIND.NS": {
-      "score": 0.6388,
+      "score": 0.6393,
       "conf": 1.0,
       "n_articles": 4,
       "n_outlets": 3,
@@ -500,18 +500,8 @@
       "n": 4,
       "sources": 4
     },
-    "NMDC.NS": {
-      "score": 0.5,
-      "conf": 0.094,
-      "n_articles": 1,
-      "n_outlets": 1,
-      "n_days": 1,
-      "novel": 1,
-      "n": 1,
-      "sources": 1
-    },
     "NTPC.NS": {
-      "score": 0.1883,
+      "score": 0.1889,
       "conf": 1.0,
       "n_articles": 5,
       "n_outlets": 3,
@@ -522,7 +512,7 @@
     },
     "ONGC.NS": {
       "score": 0.5,
-      "conf": 0.273,
+      "conf": 0.27,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -532,7 +522,7 @@
     },
     "PAYTM.NS": {
       "score": 0.2,
-      "conf": 0.106,
+      "conf": 0.105,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -542,7 +532,7 @@
     },
     "PNB.NS": {
       "score": 0.5,
-      "conf": 0.098,
+      "conf": 0.097,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -552,7 +542,7 @@
     },
     "POLICYBZR.NS": {
       "score": 0.2,
-      "conf": 0.128,
+      "conf": 0.127,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 2,
@@ -562,7 +552,7 @@
     },
     "POLYCAB.NS": {
       "score": 0.5,
-      "conf": 0.469,
+      "conf": 0.465,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -571,7 +561,7 @@
       "sources": 1
     },
     "RECLTD.NS": {
-      "score": -0.2312,
+      "score": -0.2309,
       "conf": 1.0,
       "n_articles": 6,
       "n_outlets": 4,
@@ -592,7 +582,7 @@
     },
     "SAIL.NS": {
       "score": -0.2,
-      "conf": 0.436,
+      "conf": 0.434,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -602,7 +592,7 @@
     },
     "SBICARD.NS": {
       "score": 0.4125,
-      "conf": 0.685,
+      "conf": 0.678,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 2,
@@ -611,18 +601,18 @@
       "sources": 2
     },
     "SBIN.NS": {
-      "score": 0.3267,
+      "score": 0.3534,
       "conf": 1.0,
-      "n_articles": 10,
+      "n_articles": 11,
       "n_outlets": 4,
       "n_days": 5,
-      "novel": 10,
-      "n": 10,
-      "sources": 9
+      "novel": 11,
+      "n": 11,
+      "sources": 10
     },
     "SHRIRAMFIN.NS": {
       "score": 0.5,
-      "conf": 0.232,
+      "conf": 0.23,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -632,7 +622,7 @@
     },
     "SIEMENS.NS": {
       "score": 0.2,
-      "conf": 0.149,
+      "conf": 0.147,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -641,7 +631,7 @@
       "sources": 1
     },
     "SJVN.NS": {
-      "score": -0.029,
+      "score": -0.0283,
       "conf": 1.0,
       "n_articles": 6,
       "n_outlets": 3,
@@ -652,7 +642,7 @@
     },
     "SUNPHARMA.NS": {
       "score": -0.7,
-      "conf": 0.171,
+      "conf": 0.17,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -661,7 +651,7 @@
       "sources": 1
     },
     "TATAPOWER.NS": {
-      "score": -0.275,
+      "score": -0.2739,
       "conf": 1.0,
       "n_articles": 10,
       "n_outlets": 4,
@@ -671,28 +661,28 @@
       "sources": 8
     },
     "TATASTEEL.NS": {
-      "score": 0.3844,
+      "score": 0.4246,
       "conf": 1.0,
-      "n_articles": 9,
+      "n_articles": 8,
       "n_outlets": 6,
-      "n_days": 3,
-      "novel": 9,
-      "n": 9,
-      "sources": 8
+      "n_days": 2,
+      "novel": 8,
+      "n": 8,
+      "sources": 7
     },
     "TCS.NS": {
-      "score": 0.2499,
+      "score": 0.2791,
       "conf": 1.0,
-      "n_articles": 21,
+      "n_articles": 19,
       "n_outlets": 8,
       "n_days": 6,
-      "novel": 18,
-      "n": 21,
-      "sources": 21
+      "novel": 16,
+      "n": 19,
+      "sources": 19
     },
     "TECHM.NS": {
       "score": 0.6,
-      "conf": 0.232,
+      "conf": 0.23,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -702,7 +692,7 @@
     },
     "TMPV.NS": {
       "score": 0.4299,
-      "conf": 0.723,
+      "conf": 0.716,
       "n_articles": 4,
       "n_outlets": 2,
       "n_days": 2,
@@ -712,7 +702,7 @@
     },
     "TRENT.NS": {
       "score": 0.4,
-      "conf": 0.513,
+      "conf": 0.508,
       "n_articles": 1,
       "n_outlets": 1,
       "n_days": 1,
@@ -732,7 +722,7 @@
     },
     "UBL.NS": {
       "score": 0.2,
-      "conf": 0.581,
+      "conf": 0.58,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 2,
@@ -742,7 +732,7 @@
     },
     "UNIONBANK.NS": {
       "score": 0.4277,
-      "conf": 0.32,
+      "conf": 0.317,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 1,
@@ -761,7 +751,7 @@
       "sources": 1
     },
     "VBL.NS": {
-      "score": 0.5599,
+      "score": 0.5598,
       "conf": 1.0,
       "n_articles": 7,
       "n_outlets": 5,
@@ -771,14 +761,14 @@
       "sources": 6
     },
     "VEDL.NS": {
-      "score": 0.0062,
-      "conf": 1.0,
-      "n_articles": 5,
+      "score": -0.0429,
+      "conf": 0.97,
+      "n_articles": 4,
       "n_outlets": 3,
-      "n_days": 4,
-      "novel": 3,
-      "n": 5,
-      "sources": 5
+      "n_days": 3,
+      "novel": 2,
+      "n": 4,
+      "sources": 4
     },
     "WIPRO.NS": {
       "score": 0.207,
@@ -792,7 +782,7 @@
     },
     "ZYDUSLIFE.NS": {
       "score": 0.5,
-      "conf": 0.209,
+      "conf": 0.208,
       "n_articles": 2,
       "n_outlets": 2,
       "n_days": 1,
