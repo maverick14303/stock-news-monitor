@@ -1,5 +1,5 @@
 {
-  "cash": 618.4141962432855,
+  "cash": 288.39118400573665,
   "positions": {
     "ONGC.NS": {
       "qty": 4,
@@ -45,6 +45,15 @@
         "CNBC TV18 Markets"
       ],
       "thesis": "BEL bags \u20b9730 crore in fresh orders for radars, avionics, cyber security and more"
+    },
+    "NTPC.NS": {
+      "qty": 1,
+      "avg_cost": 330.0230122375488,
+      "opened": "2026-08-28T04:02:41.356760+00:00",
+      "sources": [
+        "BusinessLine Companies"
+      ],
+      "thesis": "NTPC targets 149 GW capacity by 2032, 244 GW by 2037"
     }
   },
   "trades": [
@@ -236,6 +245,15 @@
       "price": 412.0,
       "fee": 2.06,
       "reason": "planned pre-open, score 0.96 (CNBC TV18 Markets): BEL bags \u20b9730 crore in fresh orders for radars, avionics, cyber securi"
+    },
+    {
+      "time": "2026-08-28T04:02:41.356760+00:00",
+      "action": "buy",
+      "symbol": "NTPC.NS",
+      "qty": 1,
+      "price": 329.2,
+      "fee": 0.82,
+      "reason": "planned pre-open, score 0.75 (BusinessLine Companies): NTPC targets 149 GW capacity by 2032, 244 GW by 2037"
     }
   ],
   "closed": [
@@ -336,16 +354,8 @@
     "fmcg": 0.92,
     "financials": 1.103
   },
-  "pending": [
-    {
-      "symbol": "NTPC.NS",
-      "score": 0.753,
-      "title": "NTPC targets 149 GW capacity by 2032, 244 GW by 2037",
-      "source": "BusinessLine Companies",
-      "queued": "2026-08-28"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-27"
+  "traded_day": "2026-08-28"
 }
