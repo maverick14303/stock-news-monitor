@@ -1,15 +1,6 @@
 {
-  "cash": 288.39118400573665,
+  "cash": 1223.7668547821038,
   "positions": {
-    "ONGC.NS": {
-      "qty": 4,
-      "avg_cost": 237.85314449310303,
-      "opened": "2026-08-17T04:02:34.553628+00:00",
-      "sources": [
-        "NDTV Profit Latest"
-      ],
-      "thesis": "ONGC Set to Expand Venezuela Operations After Securing US Sanctions Waiver"
-    },
     "BIOCON.NS": {
       "qty": 2,
       "avg_cost": 415.786875,
@@ -254,6 +245,15 @@
       "price": 329.2,
       "fee": 0.82,
       "reason": "planned pre-open, score 0.75 (BusinessLine Companies): NTPC targets 149 GW capacity by 2032, 244 GW by 2037"
+    },
+    {
+      "time": "2026-09-01T04:03:40.493475+00:00",
+      "action": "sell",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 234.43,
+      "fee": 2.34,
+      "reason": "time stop after 15d (-1.4%)"
     }
   ],
   "closed": [
@@ -344,12 +344,23 @@
       "win": true,
       "reason": "time stop after 15d (+1.3%)",
       "thesis": "Manappuram Finance Q1 Results: Profit soars four-fold to Rs 585 crore"
+    },
+    {
+      "time": "2026-09-01T04:03:40.493475+00:00",
+      "symbol": "ONGC.NS",
+      "sector": "energy",
+      "entry": 237.85,
+      "exit": 234.43,
+      "pnl_pct": -1.44,
+      "win": false,
+      "reason": "time stop after 15d (-1.4%)",
+      "thesis": "ONGC Set to Expand Venezuela Operations After Securing US Sanctions Waiver"
     }
   ],
   "sector_weights": {
     "metals": 1.05,
     "consumer": 0.92,
-    "energy": 0.846,
+    "energy": 0.778,
     "it": 0.92,
     "fmcg": 0.92,
     "financials": 1.103
