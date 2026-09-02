@@ -1,5 +1,5 @@
 {
-  "cash": 1223.7668547821038,
+  "cash": 302.41921142578053,
   "positions": {
     "BIOCON.NS": {
       "qty": 2,
@@ -45,6 +45,15 @@
         "BusinessLine Companies"
       ],
       "thesis": "NTPC targets 149 GW capacity by 2032, 244 GW by 2037"
+    },
+    "TMPV.NS": {
+      "qty": 3,
+      "avg_cost": 307.11588111877444,
+      "opened": "2026-09-02T04:02:39.036059+00:00",
+      "sources": [
+        "Business Standard Companies"
+      ],
+      "thesis": "Tata Motors secures all prior regulatory approvals for Iveco acquisition"
     }
   },
   "trades": [
@@ -254,6 +263,15 @@
       "price": 234.43,
       "fee": 2.34,
       "reason": "time stop after 15d (-1.4%)"
+    },
+    {
+      "time": "2026-09-02T04:02:39.036059+00:00",
+      "action": "buy",
+      "symbol": "TMPV.NS",
+      "qty": 3,
+      "price": 306.35,
+      "fee": 2.3,
+      "reason": "planned pre-open, score 0.78 (Business Standard Companies): Tata Motors secures all prior regulatory approvals for Iveco acquisiti"
     }
   ],
   "closed": [
@@ -365,16 +383,8 @@
     "fmcg": 0.92,
     "financials": 1.103
   },
-  "pending": [
-    {
-      "symbol": "TMPV.NS",
-      "score": 0.781,
-      "title": "Tata Motors secures all prior regulatory approvals for Iveco acquisition",
-      "source": "Business Standard Companies",
-      "queued": "2026-09-02"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-08-28"
+  "traded_day": "2026-09-02"
 }
