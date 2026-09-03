@@ -1,15 +1,6 @@
 {
-  "cash": 302.41921142578053,
+  "cash": 1103.9104614257806,
   "positions": {
-    "BIOCON.NS": {
-      "qty": 2,
-      "avg_cost": 415.786875,
-      "opened": "2026-08-19T04:02:38.704347+00:00",
-      "sources": [
-        "BusinessLine Companies"
-      ],
-      "thesis": "Biocon arm gets supplemental USFDA approval for autoimmune disease drug"
-    },
     "VBL.NS": {
       "qty": 2,
       "avg_cost": 432.4784938812256,
@@ -272,6 +263,15 @@
       "price": 306.35,
       "fee": 2.3,
       "reason": "planned pre-open, score 0.78 (Business Standard Companies): Tata Motors secures all prior regulatory approvals for Iveco acquisiti"
+    },
+    {
+      "time": "2026-09-03T04:04:39.354217+00:00",
+      "action": "sell",
+      "symbol": "BIOCON.NS",
+      "qty": 2,
+      "price": 401.75,
+      "fee": 2.01,
+      "reason": "time stop after 15d (-3.4%)"
     }
   ],
   "closed": [
@@ -373,6 +373,17 @@
       "win": false,
       "reason": "time stop after 15d (-1.4%)",
       "thesis": "ONGC Set to Expand Venezuela Operations After Securing US Sanctions Waiver"
+    },
+    {
+      "time": "2026-09-03T04:04:39.354217+00:00",
+      "symbol": "BIOCON.NS",
+      "sector": "pharma",
+      "entry": 415.79,
+      "exit": 401.75,
+      "pnl_pct": -3.38,
+      "win": false,
+      "reason": "time stop after 15d (-3.4%)",
+      "thesis": "Biocon arm gets supplemental USFDA approval for autoimmune disease drug"
     }
   ],
   "sector_weights": {
@@ -381,7 +392,8 @@
     "energy": 0.778,
     "it": 0.92,
     "fmcg": 0.92,
-    "financials": 1.103
+    "financials": 1.103,
+    "pharma": 0.92
   },
   "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
