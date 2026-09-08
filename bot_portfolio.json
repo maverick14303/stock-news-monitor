@@ -1,5 +1,5 @@
 {
-  "cash": 393.03773590087826,
+  "cash": 1302.4584676361078,
   "positions": {
     "VBL.NS": {
       "qty": 2,
@@ -36,15 +36,6 @@
         "BusinessLine Companies"
       ],
       "thesis": "NTPC targets 149 GW capacity by 2032, 244 GW by 2037"
-    },
-    "TMPV.NS": {
-      "qty": 3,
-      "avg_cost": 307.11588111877444,
-      "opened": "2026-09-02T04:02:39.036059+00:00",
-      "sources": [
-        "Business Standard Companies"
-      ],
-      "thesis": "Tata Motors secures all prior regulatory approvals for Iveco acquisition"
     },
     "HDFCBANK.NS": {
       "qty": 1,
@@ -290,6 +281,15 @@
       "price": 709.1,
       "fee": 1.77,
       "reason": "planned pre-open, score 1.05 (CNBC TV18 Markets): HDFC Bank raises nearly $12 billion through FCNR-B deposits under RBI "
+    },
+    {
+      "time": "2026-09-08T04:03:11.082298+00:00",
+      "action": "sell",
+      "symbol": "TMPV.NS",
+      "qty": 3,
+      "price": 303.9,
+      "fee": 2.28,
+      "reason": "negative news (-0.50) at -1.0%"
     }
   ],
   "closed": [
@@ -402,11 +402,22 @@
       "win": false,
       "reason": "time stop after 15d (-3.4%)",
       "thesis": "Biocon arm gets supplemental USFDA approval for autoimmune disease drug"
+    },
+    {
+      "time": "2026-09-08T04:03:11.082298+00:00",
+      "symbol": "TMPV.NS",
+      "sector": "consumer",
+      "entry": 307.12,
+      "exit": 303.9,
+      "pnl_pct": -1.05,
+      "win": false,
+      "reason": "negative news (-0.50) at -1.0%",
+      "thesis": "Tata Motors secures all prior regulatory approvals for Iveco acquisition"
     }
   ],
   "sector_weights": {
     "metals": 1.05,
-    "consumer": 0.92,
+    "consumer": 0.846,
     "energy": 0.778,
     "it": 0.92,
     "fmcg": 0.92,
