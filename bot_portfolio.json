@@ -1,5 +1,5 @@
 {
-  "cash": 1158.6743737030024,
+  "cash": 1970.6393737030025,
   "positions": {
     "TATASTEEL.NS": {
       "qty": 5,
@@ -9,15 +9,6 @@
         "BusinessLine Companies"
       ],
       "thesis": "Demand notice of \u20b91,755 crore on Tata Steel stayed"
-    },
-    "BEL.NS": {
-      "qty": 2,
-      "avg_cost": 413.03,
-      "opened": "2026-08-27T04:03:07.053119+00:00",
-      "sources": [
-        "CNBC TV18 Markets"
-      ],
-      "thesis": "BEL bags \u20b9730 crore in fresh orders for radars, avionics, cyber security and more"
     },
     "NTPC.NS": {
       "qty": 1,
@@ -308,6 +299,15 @@
       "price": 235.63,
       "fee": 2.36,
       "reason": "planned pre-open, score 0.58 (CNBC TV18 Markets): Bank of Baroda to sell up to 35% of NSE stake through IPO offer for sa"
+    },
+    {
+      "time": "2026-09-09T05:12:25.625688+00:00",
+      "action": "sell",
+      "symbol": "BEL.NS",
+      "qty": 2,
+      "price": 407.0,
+      "fee": 2.04,
+      "reason": "negative news (-0.85) at -1.5%"
     }
   ],
   "closed": [
@@ -442,6 +442,17 @@
       "win": false,
       "reason": "stop-loss at -7.2%",
       "thesis": "Varun Beverages to enter alcoholic drinks business, sets up new subsidiary KIVA Spirits"
+    },
+    {
+      "time": "2026-09-09T05:12:25.625688+00:00",
+      "symbol": "BEL.NS",
+      "sector": "infra",
+      "entry": 413.03,
+      "exit": 407.0,
+      "pnl_pct": -1.46,
+      "win": false,
+      "reason": "negative news (-0.85) at -1.5%",
+      "thesis": "BEL bags \u20b9730 crore in fresh orders for radars, avionics, cyber security and more"
     }
   ],
   "sector_weights": {
@@ -451,7 +462,8 @@
     "it": 0.92,
     "fmcg": 0.846,
     "financials": 1.103,
-    "pharma": 0.92
+    "pharma": 0.92,
+    "infra": 0.92
   },
   "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
