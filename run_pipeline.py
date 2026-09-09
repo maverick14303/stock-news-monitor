@@ -70,7 +70,14 @@ def main():
                 continue
         try:
             r = subprocess.run(
-                [sys.executable, str(BASE / args[0]), *args[1:]],
+                # -u is load-bearing, not tidiness. Python block-buffers stdout
+                # when it is a pipe, so a step killed by the timeout below dies
+                # with its prints still in an unflushed buffer and `e.stdout`
+                # arrives EMPTY — the handler faithfully records nothing. That is
+                # why six hours of llm_analyst timeouts on 2026-09-09 said only
+                # "[FAILED timeout after 600s]" and never which model or status
+                # code hung. Measured: buffered -> '', with -u -> the real lines.
+                [sys.executable, "-u", str(BASE / args[0]), *args[1:]],
                 capture_output=True, text=True, encoding="utf-8", errors="replace",
                 cwd=BASE, timeout=STEP_TIMEOUT,
             )

@@ -48,6 +48,21 @@ BATCH_SPACING_SEC = 7
 RATE_LIMIT_BACKOFF = 20
 GEMINI_MODELS = ("gemini-2.5-flash", "gemini-2.0-flash")
 
+# Stop starting new batches after this many seconds, and finish cleanly.
+#
+# run_pipeline.py kills this step at STEP_TIMEOUT = 600s. Nothing here bounded
+# its own wall clock, and one batch can legitimately outlast the whole budget:
+# per batch the provider chain is 2 Gemini models x (120s request + 20s backoff
+# + 120s retry) = up to 520s before OpenRouter is even tried. On 2026-09-09 that
+# is exactly what happened for six straight hours — the step was killed mid-call,
+# so the summary line below never ran and the digest recorded a mute
+# "[FAILED timeout after 600s]".
+#
+# 480 leaves ~2 minutes for the legacy-column UPDATE, the commit and the prints.
+# Per-batch commits already persist finished work, so stopping early costs
+# nothing except the batches not yet attempted; they requeue next run.
+RUN_DEADLINE_SEC = 480
+
 PROMPT = (
     "You are an equity analyst for Indian stock markets (NSE). Each numbered item "
     "below gives ONE headline and ONE specific company. Score that headline's "
@@ -311,8 +326,17 @@ def main():
     import requests
     names = company_names()
     scored_n, missing, served_last, disagreements = 0, 0, None, []
+    started = time.monotonic()
+    ran_out_of_time = False
 
     for c in range(0, len(pending), BATCH):
+        elapsed = time.monotonic() - started
+        if elapsed > RUN_DEADLINE_SEC:
+            ran_out_of_time = True
+            print(f"LLM analyst: {elapsed:.0f}s elapsed, past the {RUN_DEADLINE_SEC}s "
+                  f"deadline — stopping before run_pipeline kills this step. "
+                  f"{len(pending) - c} pair(s) left for the next run.")
+            break
         rows = pending[c:c + BATCH]
         scores, served = score_batch(requests, gem_key, or_key, rows, names)
         if scores is None:
@@ -356,6 +380,17 @@ def main():
              "for retry." if missing else ""))
     for symbol, score, title in disagreements[:5]:
         print(f"  novel & strong — {symbol} {score:+.2f}: {title[:65]}")
+
+    # Scoring nothing at all is a real degradation, not a quiet no-op: every
+    # provider refused or stalled. Exit non-zero so the run stays RED and Ankit
+    # still hears about it — the deadline above only changes HOW it fails (a
+    # legible message instead of a mute kill), never WHETHER it is reported.
+    # Silence must never mean success (LOGBOOK, and the 3.5-week July outage).
+    if scored_n == 0:
+        print(f"LLM analyst: scored NOTHING from {len(pending)} queued pair(s) — "
+              + ("ran out of wall clock." if ran_out_of_time
+                 else "every provider failed or returned unusable replies."))
+        sys.exit(1)
 
 
 if __name__ == "__main__":
