@@ -1,15 +1,6 @@
 {
-  "cash": 1302.4584676361078,
+  "cash": 1158.6743737030024,
   "positions": {
-    "VBL.NS": {
-      "qty": 2,
-      "avg_cost": 432.4784938812256,
-      "opened": "2026-08-26T04:11:33.214118+00:00",
-      "sources": [
-        "CNBC TV18 Markets"
-      ],
-      "thesis": "Varun Beverages to enter alcoholic drinks business, sets up new subsidiary KIVA Spirits"
-    },
     "TATASTEEL.NS": {
       "qty": 5,
       "avg_cost": 186.5652561187744,
@@ -45,6 +36,15 @@
         "CNBC TV18 Markets"
       ],
       "thesis": "HDFC Bank raises nearly $12 billion through FCNR-B deposits under RBI swap window"
+    },
+    "BANKBARODA.NS": {
+      "qty": 4,
+      "avg_cost": 236.21907989501952,
+      "opened": "2026-09-09T04:12:24.516447+00:00",
+      "sources": [
+        "CNBC TV18 Markets"
+      ],
+      "thesis": "Bank of Baroda to sell up to 35% of NSE stake through IPO offer for sale"
     }
   },
   "trades": [
@@ -290,6 +290,24 @@
       "price": 303.9,
       "fee": 2.28,
       "reason": "negative news (-0.50) at -1.0%"
+    },
+    {
+      "time": "2026-09-09T04:12:24.516447+00:00",
+      "action": "sell",
+      "symbol": "VBL.NS",
+      "qty": 2,
+      "price": 401.55,
+      "fee": 2.01,
+      "reason": "stop-loss at -7.2%"
+    },
+    {
+      "time": "2026-09-09T04:12:24.516447+00:00",
+      "action": "buy",
+      "symbol": "BANKBARODA.NS",
+      "qty": 4,
+      "price": 235.63,
+      "fee": 2.36,
+      "reason": "planned pre-open, score 0.58 (CNBC TV18 Markets): Bank of Baroda to sell up to 35% of NSE stake through IPO offer for sa"
     }
   ],
   "closed": [
@@ -413,6 +431,17 @@
       "win": false,
       "reason": "negative news (-0.50) at -1.0%",
       "thesis": "Tata Motors secures all prior regulatory approvals for Iveco acquisition"
+    },
+    {
+      "time": "2026-09-09T04:12:24.516447+00:00",
+      "symbol": "VBL.NS",
+      "sector": "fmcg",
+      "entry": 432.48,
+      "exit": 401.55,
+      "pnl_pct": -7.15,
+      "win": false,
+      "reason": "stop-loss at -7.2%",
+      "thesis": "Varun Beverages to enter alcoholic drinks business, sets up new subsidiary KIVA Spirits"
     }
   ],
   "sector_weights": {
@@ -420,20 +449,12 @@
     "consumer": 0.846,
     "energy": 0.778,
     "it": 0.92,
-    "fmcg": 0.92,
+    "fmcg": 0.846,
     "financials": 1.103,
     "pharma": 0.92
   },
-  "pending": [
-    {
-      "symbol": "BANKBARODA.NS",
-      "score": 0.58,
-      "title": "Bank of Baroda to sell up to 35% of NSE stake through IPO offer for sale",
-      "source": "CNBC TV18 Markets",
-      "queued": "2026-09-09"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-09-04"
+  "traded_day": "2026-09-09"
 }
