@@ -1,15 +1,6 @@
 {
-  "cash": 1970.6393737030025,
+  "cash": 2907.9402121734615,
   "positions": {
-    "TATASTEEL.NS": {
-      "qty": 5,
-      "avg_cost": 186.5652561187744,
-      "opened": "2026-08-26T04:11:33.214118+00:00",
-      "sources": [
-        "BusinessLine Companies"
-      ],
-      "thesis": "Demand notice of \u20b91,755 crore on Tata Steel stayed"
-    },
     "NTPC.NS": {
       "qty": 1,
       "avg_cost": 330.0230122375488,
@@ -308,6 +299,15 @@
       "price": 407.0,
       "fee": 2.04,
       "reason": "negative news (-0.85) at -1.5%"
+    },
+    {
+      "time": "2026-09-10T05:02:34.872387+00:00",
+      "action": "sell",
+      "symbol": "TATASTEEL.NS",
+      "qty": 5,
+      "price": 187.93,
+      "fee": 2.35,
+      "reason": "time stop after 15d (+0.7%)"
     }
   ],
   "closed": [
@@ -453,10 +453,21 @@
       "win": false,
       "reason": "negative news (-0.85) at -1.5%",
       "thesis": "BEL bags \u20b9730 crore in fresh orders for radars, avionics, cyber security and more"
+    },
+    {
+      "time": "2026-09-10T05:02:34.872387+00:00",
+      "symbol": "TATASTEEL.NS",
+      "sector": "metals",
+      "entry": 186.57,
+      "exit": 187.93,
+      "pnl_pct": 0.73,
+      "win": true,
+      "reason": "time stop after 15d (+0.7%)",
+      "thesis": "Demand notice of \u20b91,755 crore on Tata Steel stayed"
     }
   ],
   "sector_weights": {
-    "metals": 1.05,
+    "metals": 1.103,
     "consumer": 0.846,
     "energy": 0.778,
     "it": 0.92,
