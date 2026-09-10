@@ -34,6 +34,11 @@ jobs:
     # newslib.parse_feed_time is timezone-independent by design — L11).
     env:
       TZ: Asia/Kolkata
+      # The release that holds news.db. One rolling asset plus dated weekly
+      # snapshots; see the "Publish the database" step.
+      DB_TAG: data
+      SNAPSHOT_KEEP: "12"
+
     steps:
       # Actions are pinned to commit SHAs, not tags. A tag is mutable: whoever
       # can move `v4` can run their own code inside this job, which holds a
@@ -46,6 +51,51 @@ jobs:
           cache: pip
       # -c pins the full transitive closure; see requirements.lock.txt.
       - run: pip install -r requirements.txt -c requirements.lock.txt
+
+      # news.db lives as a RELEASE ASSET, not in git. It outgrew GitHub's 100 MiB
+      # per-file push limit (88.7 MiB on 2026-09-10, +1.6 MiB/day), and once a push
+      # is rejected EVERY committed artifact stops updating, silently, forever —
+      # the pipeline keeps running and keeps looking healthy. Release assets are
+      # capped at 2 GB instead, which is ~3 years at this rate.
+      #
+      # Git LFS was considered and rejected: it stores every version whole with no
+      # delta compression, so at ~10 commits/day it would consume ~887 MiB/day and
+      # exhaust the 10 GB free quota in ~11 days. Git's own delta compression is
+      # doing this well (933 versions pack into 257 MiB); LFS would switch it off.
+      - name: Fetch the database
+        id: fetch_db
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          gh release download "$DB_TAG" --pattern news.db --clobber || {
+            echo "::error::could not download news.db from release '$DB_TAG'."
+            echo "::error::REFUSING to continue: running now would create an empty"
+            echo "::error::database and the upload step would overwrite the real one."
+            exit 1
+          }
+          python - <<'PY'
+          # A truncated or half-downloaded file is worse than no file, because the
+          # upload at the end would replace ~160k real rows with it. Verify BEFORE
+          # anything writes: the file must open, carry the expected tables, and
+          # hold a plausible number of rows.
+          import sqlite3, sys, os
+          MIN_ROWS = 50_000          # articles alone was 68,963 on 2026-09-10
+          NEED = {"articles", "article_tickers", "labels", "graded"}
+          size = os.path.getsize("news.db")
+          con = sqlite3.connect("news.db")
+          have = {r[0] for r in con.execute(
+              "select name from sqlite_master where type='table'")}
+          missing = NEED - have
+          if missing:
+              sys.exit(f"downloaded news.db is missing tables: {sorted(missing)}")
+          n = con.execute("select count(*) from articles").fetchone()[0]
+          if n < MIN_ROWS:
+              sys.exit(f"downloaded news.db has only {n} articles, expected "
+                       f">= {MIN_ROWS}. Refusing to run on a truncated database.")
+          print(f"database OK: {size/1048576:.1f} MiB, {n:,} articles")
+          PY
+
       - name: Run pipeline
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -77,6 +127,86 @@ jobs:
           Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --assignee maverick14303
 
+      # always(), and BEFORE the commit step, for the same reason the commit step
+      # uses always(): whatever this run scraped exists only on a runner that is
+      # about to be destroyed. A pipeline step failing part-way through does not
+      # make the rows it already wrote worthless.
+      #
+      # This step is skipped when the fetch failed, because `news.db` would then
+      # be absent or unverified — and uploading it would destroy the real one.
+      - name: Publish the database
+        if: always() && steps.fetch_db.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ ! -f news.db ]; then
+            echo "::error::news.db is gone after the run — not uploading."
+            exit 1
+          fi
+          # Same verification as the fetch. A run that corrupted the database must
+          # not be allowed to publish it over the last good copy.
+          python - <<'PY'
+          import sqlite3, sys
+          con = sqlite3.connect("news.db")
+          n = con.execute("select count(*) from articles").fetchone()[0]
+          if n < 50_000:
+              sys.exit(f"news.db has only {n} articles after the run — refusing "
+                       "to publish over the last good copy.")
+          print(f"publishing {n:,} articles")
+          PY
+
+          # The rolling copy the next run will fetch.
+          for attempt in 1 2 3; do
+            if gh release upload "$DB_TAG" news.db --clobber; then
+              echo "uploaded on attempt $attempt"
+              break
+            fi
+            if [ "$attempt" = 3 ]; then
+              echo "::error::could not publish news.db after 3 attempts. THIS RUN'S"
+              echo "::error::SCRAPED NEWS IS LOST — the runner is about to be destroyed."
+              exit 1
+            fi
+            sleep $((attempt * 10))
+          done
+
+          # A dated weekly snapshot, so a corrupted database can be rewound. The
+          # rolling asset above is overwritten every run and keeps no history at
+          # all, which is the one thing leaving git costs us.
+          #
+          # The asset list is fetched ONCE into a variable rather than piped twice.
+          # Under `set -o pipefail`, `gh ... | grep -q` can report 141 (SIGPIPE,
+          # because -q exits early and closes the pipe) instead of the grep result,
+          # which would make the snapshot check say the wrong thing.
+          ASSETS="$(gh release view "$DB_TAG" --json assets -q '.assets[].name')"
+          SNAP="news-$(date -u +'%G-W%V').db"
+
+          if grep -qxF "$SNAP" <<<"$ASSETS"; then
+            echo "weekly snapshot $SNAP already exists"
+          else
+            cp news.db "$SNAP"
+            if gh release upload "$DB_TAG" "$SNAP"; then
+              echo "weekly snapshot $SNAP uploaded"
+              ASSETS="$ASSETS"$'\n'"$SNAP"
+            else
+              echo "::warning::weekly snapshot $SNAP failed to upload"
+            fi
+            rm -f "$SNAP"
+          fi
+
+          # Keep the newest SNAPSHOT_KEEP weeklies (~1.8 GiB at 12). ISO week names
+          # sort lexically in date order, so `sort -r | tail -n +N` is "everything
+          # older than the newest N". `|| true` because grep exits 1 when there is
+          # nothing to prune, which is the normal case for the first 12 weeks.
+          OLD_SNAPS="$(grep -E '^news-[0-9]{4}-W[0-9]{2}\.db$' <<<"$ASSETS" \
+            | sort -r | tail -n +$((SNAPSHOT_KEEP + 1)) || true)"
+          while IFS= read -r a; do
+            [ -n "$a" ] || continue
+            echo "pruning old snapshot $a"
+            gh release delete-asset "$DB_TAG" "$a" --yes || \
+              echo "::warning::could not prune $a"
+          done <<<"$OLD_SNAPS"
+
       # always(): a failed run must still commit its digest — that digest is the
       # evidence needed to diagnose the failure.
       - name: Commit results back
@@ -90,7 +220,9 @@ jobs:
           set -u
           git config user.name "maverick14303"
           git config user.email "146925473+maverick14303@users.noreply.github.com"
-          git add news.db digests bot_portfolio.json news_signal.json tickers.csv
+          # news.db is deliberately absent: it is a release asset now, published
+          # by the step above. See the "Fetch the database" comment.
+          git add digests bot_portfolio.json news_signal.json tickers.csv
           if ! git commit -m "pipeline run $(date +'%Y-%m-%d %H:%M %Z')"; then
             echo "nothing new"
             exit 0
@@ -109,10 +241,11 @@ jobs:
             fi
             echo "push attempt $attempt failed; rebasing onto origin/main"
             if ! git pull --rebase --autostash origin main; then
-              # Deliberately NOT resolved automatically. The only writer of
-              # news.db is this pipeline, so a conflict on it means something
-              # unexpected touched it; picking a side would silently discard one
-              # database. Go red and let a human look.
+              # Deliberately NOT resolved automatically. Since news.db left git
+              # this can no longer be a binary-database conflict, but a conflict
+              # on the digests or the signal file still means something
+              # unexpected touched main; picking a side would silently discard
+              # one of them. Go red and let a human look.
               git rebase --abort || true
               echo "::error::rebase onto origin/main conflicted - refusing to resolve it automatically. Reconcile main by hand, then re-run."
               exit 1

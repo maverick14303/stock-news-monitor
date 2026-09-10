@@ -12,3 +12,14 @@ pipeline_status.json
 
 # local knowledge-graph artifacts
 graphify-out/
+
+# The news database is a RELEASE ASSET, not a tracked file. It outgrew GitHub's
+# 100 MiB per-file push limit (88.7 MiB on 2026-09-10, +1.6 MiB/day), and a
+# rejected push stops EVERY committed artifact updating, silently. The pipeline
+# fetches it from the `data` release at the start of each run and publishes it
+# back at the end. See .github/workflows/pipeline.yml.
+#
+# Its ~933 committed versions stay in history (257 MiB packed) — untracking it
+# going forward does not and need not rewrite that.
+news.db
+news-*.db
