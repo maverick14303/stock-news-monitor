@@ -1,5 +1,5 @@
 {
-  "cash": 2907.9402121734615,
+  "cash": 3592.4745871734613,
   "positions": {
     "NTPC.NS": {
       "qty": 1,
@@ -9,15 +9,6 @@
         "BusinessLine Companies"
       ],
       "thesis": "NTPC targets 149 GW capacity by 2032, 244 GW by 2037"
-    },
-    "HDFCBANK.NS": {
-      "qty": 1,
-      "avg_cost": 710.8727255249023,
-      "opened": "2026-09-04T04:02:50.855480+00:00",
-      "sources": [
-        "CNBC TV18 Markets"
-      ],
-      "thesis": "HDFC Bank raises nearly $12 billion through FCNR-B deposits under RBI swap window"
     },
     "BANKBARODA.NS": {
       "qty": 4,
@@ -308,6 +299,15 @@
       "price": 187.93,
       "fee": 2.35,
       "reason": "time stop after 15d (+0.7%)"
+    },
+    {
+      "time": "2026-09-11T06:02:59.886162+00:00",
+      "action": "sell",
+      "symbol": "HDFCBANK.NS",
+      "qty": 1,
+      "price": 686.25,
+      "fee": 1.72,
+      "reason": "negative news (-0.50) at -3.5%"
     }
   ],
   "closed": [
@@ -464,6 +464,17 @@
       "win": true,
       "reason": "time stop after 15d (+0.7%)",
       "thesis": "Demand notice of \u20b91,755 crore on Tata Steel stayed"
+    },
+    {
+      "time": "2026-09-11T06:02:59.886162+00:00",
+      "symbol": "HDFCBANK.NS",
+      "sector": "financials",
+      "entry": 710.87,
+      "exit": 686.25,
+      "pnl_pct": -3.46,
+      "win": false,
+      "reason": "negative news (-0.50) at -3.5%",
+      "thesis": "HDFC Bank raises nearly $12 billion through FCNR-B deposits under RBI swap window"
     }
   ],
   "sector_weights": {
@@ -472,7 +483,7 @@
     "energy": 0.778,
     "it": 0.92,
     "fmcg": 0.846,
-    "financials": 1.103,
+    "financials": 1.015,
     "pharma": 0.92,
     "infra": 0.92
   },
