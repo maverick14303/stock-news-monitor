@@ -1,15 +1,6 @@
 {
-  "cash": 3592.4745871734613,
+  "cash": 3920.352849349975,
   "positions": {
-    "NTPC.NS": {
-      "qty": 1,
-      "avg_cost": 330.0230122375488,
-      "opened": "2026-08-28T04:02:41.356760+00:00",
-      "sources": [
-        "BusinessLine Companies"
-      ],
-      "thesis": "NTPC targets 149 GW capacity by 2032, 244 GW by 2037"
-    },
     "BANKBARODA.NS": {
       "qty": 4,
       "avg_cost": 236.21907989501952,
@@ -308,6 +299,15 @@
       "price": 686.25,
       "fee": 1.72,
       "reason": "negative news (-0.50) at -3.5%"
+    },
+    {
+      "time": "2026-09-15T04:03:15.164540+00:00",
+      "action": "sell",
+      "symbol": "NTPC.NS",
+      "qty": 1,
+      "price": 328.7,
+      "fee": 0.82,
+      "reason": "time stop after 18d (-0.4%)"
     }
   ],
   "closed": [
@@ -475,12 +475,23 @@
       "win": false,
       "reason": "negative news (-0.50) at -3.5%",
       "thesis": "HDFC Bank raises nearly $12 billion through FCNR-B deposits under RBI swap window"
+    },
+    {
+      "time": "2026-09-15T04:03:15.164540+00:00",
+      "symbol": "NTPC.NS",
+      "sector": "energy",
+      "entry": 330.02,
+      "exit": 328.7,
+      "pnl_pct": -0.4,
+      "win": false,
+      "reason": "time stop after 18d (-0.4%)",
+      "thesis": "NTPC targets 149 GW capacity by 2032, 244 GW by 2037"
     }
   ],
   "sector_weights": {
     "metals": 1.103,
     "consumer": 0.846,
-    "energy": 0.778,
+    "energy": 0.716,
     "it": 0.92,
     "fmcg": 0.846,
     "financials": 1.015,
