@@ -498,7 +498,36 @@
     "pharma": 0.92,
     "infra": 0.92
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "BHEL.NS",
+      "score": 0.86,
+      "title": "BHEL, Titagarh Rail join hands to maintain Vande Bharat sleeper trains for 35 years",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-09-16"
+    },
+    {
+      "symbol": "AUROPHARMA.NS",
+      "score": 0.633,
+      "title": "Aurobindo Pharma gets USFDA approval for generic inhalation aerosol for asthma patients",
+      "source": "BusinessLine Companies",
+      "queued": "2026-09-16"
+    },
+    {
+      "symbol": "PAYTM.NS",
+      "score": 0.574,
+      "title": "Paytm shares primed for 'material earnings upgrade', Goldman Sachs says on MDR implementation",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-09-16"
+    },
+    {
+      "symbol": "BHARATFORG.NS",
+      "score": 0.569,
+      "title": "Bharat Forge collaborates with Pratt & Whitney Canada",
+      "source": "Business Standard Markets",
+      "queued": "2026-09-16"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-09-10"
