@@ -516,16 +516,8 @@
     "pharma": 0.92,
     "infra": 0.92
   },
-  "pending": [
-    {
-      "symbol": "PAYTM.NS",
-      "score": 0.57,
-      "title": "Paytm shares surge over 7% after 0.4% MDR on UPI payments above Rs 2,000",
-      "source": "TOI Business",
-      "queued": "2026-09-17"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-09-16"
+  "traded_day": "2026-09-17"
 }
