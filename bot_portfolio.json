@@ -1,5 +1,5 @@
 {
-  "cash": 3098.904324874877,
+  "cash": 1373.3913084411615,
   "positions": {
     "BANKBARODA.NS": {
       "qty": 4,
@@ -18,6 +18,24 @@
         "CNBC TV18 Markets"
       ],
       "thesis": "BHEL, Titagarh Rail join hands to maintain Vande Bharat sleeper trains for 35 years"
+    },
+    "ONGC.NS": {
+      "qty": 4,
+      "avg_cost": 234.87571826934814,
+      "opened": "2026-09-22T04:02:55.569737+00:00",
+      "sources": [
+        "BusinessLine Companies"
+      ],
+      "thesis": "ONGC strikes gas in Mahanadi deepwater under Samudra Manthan"
+    },
+    "VEDL.NS": {
+      "qty": 3,
+      "avg_cost": 262.0033811187744,
+      "opened": "2026-09-22T04:02:55.569737+00:00",
+      "sources": [
+        "BusinessLine Markets"
+      ],
+      "thesis": "Vedanta Aluminium emerges as second-largest SEZ goods exporter"
     }
   },
   "trades": [
@@ -326,6 +344,24 @@
       "price": 409.7,
       "fee": 2.05,
       "reason": "planned pre-open, score 0.86 (CNBC TV18 Markets): BHEL, Titagarh Rail join hands to maintain Vande Bharat sleeper trains"
+    },
+    {
+      "time": "2026-09-22T04:02:55.569737+00:00",
+      "action": "buy",
+      "symbol": "ONGC.NS",
+      "qty": 4,
+      "price": 234.29,
+      "fee": 2.34,
+      "reason": "planned pre-open, score 0.56 (BusinessLine Companies): ONGC strikes gas in Mahanadi deepwater under Samudra Manthan"
+    },
+    {
+      "time": "2026-09-22T04:02:55.569737+00:00",
+      "action": "buy",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 261.35,
+      "fee": 1.96,
+      "reason": "planned pre-open, score 0.55 (BusinessLine Markets): Vedanta Aluminium emerges as second-largest SEZ goods exporter"
     }
   ],
   "closed": [
@@ -516,23 +552,8 @@
     "pharma": 0.92,
     "infra": 0.92
   },
-  "pending": [
-    {
-      "symbol": "ONGC.NS",
-      "score": 0.559,
-      "title": "ONGC strikes gas in Mahanadi deepwater under Samudra Manthan",
-      "source": "BusinessLine Companies",
-      "queued": "2026-09-22"
-    },
-    {
-      "symbol": "VEDL.NS",
-      "score": 0.551,
-      "title": "Vedanta Aluminium emerges as second-largest SEZ goods exporter",
-      "source": "BusinessLine Markets",
-      "queued": "2026-09-22"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-09-18"
+  "traded_day": "2026-09-22"
 }
