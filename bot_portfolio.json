@@ -1,15 +1,6 @@
 {
-  "cash": 1373.3913084411615,
+  "cash": 2310.402893829345,
   "positions": {
-    "BANKBARODA.NS": {
-      "qty": 4,
-      "avg_cost": 236.21907989501952,
-      "opened": "2026-09-09T04:12:24.516447+00:00",
-      "sources": [
-        "CNBC TV18 Markets"
-      ],
-      "thesis": "Bank of Baroda to sell up to 35% of NSE stake through IPO offer for sale"
-    },
     "BHEL.NS": {
       "qty": 2,
       "avg_cost": 410.7242622375488,
@@ -362,6 +353,15 @@
       "price": 261.35,
       "fee": 1.96,
       "reason": "planned pre-open, score 0.55 (BusinessLine Markets): Vedanta Aluminium emerges as second-largest SEZ goods exporter"
+    },
+    {
+      "time": "2026-09-24T05:07:17.653349+00:00",
+      "action": "sell",
+      "symbol": "BANKBARODA.NS",
+      "qty": 4,
+      "price": 234.84,
+      "fee": 2.35,
+      "reason": "time stop after 15d (-0.6%)"
     }
   ],
   "closed": [
@@ -540,6 +540,17 @@
       "win": false,
       "reason": "time stop after 18d (-0.4%)",
       "thesis": "NTPC targets 149 GW capacity by 2032, 244 GW by 2037"
+    },
+    {
+      "time": "2026-09-24T05:07:17.653349+00:00",
+      "symbol": "BANKBARODA.NS",
+      "sector": "financials",
+      "entry": 236.22,
+      "exit": 234.84,
+      "pnl_pct": -0.58,
+      "win": false,
+      "reason": "time stop after 15d (-0.6%)",
+      "thesis": "Bank of Baroda to sell up to 35% of NSE stake through IPO offer for sale"
     }
   ],
   "sector_weights": {
@@ -548,7 +559,7 @@
     "energy": 0.716,
     "it": 0.92,
     "fmcg": 0.846,
-    "financials": 1.015,
+    "financials": 0.934,
     "pharma": 0.92,
     "infra": 0.92
   },
