@@ -1,15 +1,6 @@
 {
-  "cash": 2310.402893829345,
+  "cash": 3137.7294181823722,
   "positions": {
-    "BHEL.NS": {
-      "qty": 2,
-      "avg_cost": 410.7242622375488,
-      "opened": "2026-09-16T04:02:53.171272+00:00",
-      "sources": [
-        "CNBC TV18 Markets"
-      ],
-      "thesis": "BHEL, Titagarh Rail join hands to maintain Vande Bharat sleeper trains for 35 years"
-    },
     "ONGC.NS": {
       "qty": 4,
       "avg_cost": 234.87571826934814,
@@ -362,6 +353,15 @@
       "price": 234.84,
       "fee": 2.35,
       "reason": "time stop after 15d (-0.6%)"
+    },
+    {
+      "time": "2026-09-25T05:12:49.775448+00:00",
+      "action": "sell",
+      "symbol": "BHEL.NS",
+      "qty": 2,
+      "price": 414.7,
+      "fee": 2.07,
+      "reason": "negative news (-0.71) at +1.0%"
     }
   ],
   "closed": [
@@ -551,6 +551,17 @@
       "win": false,
       "reason": "time stop after 15d (-0.6%)",
       "thesis": "Bank of Baroda to sell up to 35% of NSE stake through IPO offer for sale"
+    },
+    {
+      "time": "2026-09-25T05:12:49.775448+00:00",
+      "symbol": "BHEL.NS",
+      "sector": "infra",
+      "entry": 410.72,
+      "exit": 414.7,
+      "pnl_pct": 0.97,
+      "win": true,
+      "reason": "negative news (-0.71) at +1.0%",
+      "thesis": "BHEL, Titagarh Rail join hands to maintain Vande Bharat sleeper trains for 35 years"
     }
   ],
   "sector_weights": {
@@ -561,7 +572,7 @@
     "fmcg": 0.846,
     "financials": 0.934,
     "pharma": 0.92,
-    "infra": 0.92
+    "infra": 0.966
   },
   "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
