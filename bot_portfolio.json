@@ -574,16 +574,8 @@
     "pharma": 0.92,
     "infra": 0.966
   },
-  "pending": [
-    {
-      "symbol": "GODREJPROP.NS",
-      "score": 0.837,
-      "title": "Godrej Properties to develop \u20b96,000 crore luxury housing project in Mumbai",
-      "source": "Business Standard Companies",
-      "queued": "2026-09-29"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-09-24"
+  "traded_day": "2026-09-29"
 }
