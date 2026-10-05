@@ -1,5 +1,5 @@
 {
-  "cash": 2467.7085676574698,
+  "cash": 3225.11033592224,
   "positions": {
     "ONGC.NS": {
       "qty": 4,
@@ -9,15 +9,6 @@
         "BusinessLine Companies"
       ],
       "thesis": "ONGC strikes gas in Mahanadi deepwater under Samudra Manthan"
-    },
-    "VEDL.NS": {
-      "qty": 3,
-      "avg_cost": 262.0033811187744,
-      "opened": "2026-09-22T04:02:55.569737+00:00",
-      "sources": [
-        "BusinessLine Markets"
-      ],
-      "thesis": "Vedanta Aluminium emerges as second-largest SEZ goods exporter"
     },
     "DLF.NS": {
       "qty": 1,
@@ -380,6 +371,15 @@
       "price": 668.35,
       "fee": 1.67,
       "reason": "planned pre-open, score 0.78 (LiveMint Companies): DLF sells out maiden senior living project Aureva in Gurugram for  \u20b91,"
+    },
+    {
+      "time": "2026-10-05T07:03:10.690952+00:00",
+      "action": "sell",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 253.1,
+      "fee": 1.9,
+      "reason": "negative news (-0.90) at -3.4%"
     }
   ],
   "closed": [
@@ -580,10 +580,21 @@
       "win": true,
       "reason": "negative news (-0.71) at +1.0%",
       "thesis": "BHEL, Titagarh Rail join hands to maintain Vande Bharat sleeper trains for 35 years"
+    },
+    {
+      "time": "2026-10-05T07:03:10.690952+00:00",
+      "symbol": "VEDL.NS",
+      "sector": "metals",
+      "entry": 262.0,
+      "exit": 253.1,
+      "pnl_pct": -3.4,
+      "win": false,
+      "reason": "negative news (-0.90) at -3.4%",
+      "thesis": "Vedanta Aluminium emerges as second-largest SEZ goods exporter"
     }
   ],
   "sector_weights": {
-    "metals": 1.103,
+    "metals": 1.015,
     "consumer": 0.846,
     "energy": 0.716,
     "it": 0.92,
