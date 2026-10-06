@@ -603,7 +603,15 @@
     "pharma": 0.92,
     "infra": 0.966
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "BHARATFORG.NS",
+      "score": 0.672,
+      "title": "Bharat Forge signs long-term aerospace contract with Pratt & Whitney Canada",
+      "source": "BusinessLine Companies",
+      "queued": "2026-10-06"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-10-05"
