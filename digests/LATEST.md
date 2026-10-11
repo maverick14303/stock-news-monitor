@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-11 08:30
+# Stock digest — 2026-10-11 09:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 106170 articles against 259 alias patterns...
+Rescanning 106233 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -58,10 +58,10 @@ Rescanning 106170 articles against 259 alias patterns...
   ...104000
   ...106000
 
-Done. 106170 articles rescanned.
-  ticker-matched articles: 10664
-  flagged as noise:        5721
-  (article, company) pairs: 9305  — 0 awaiting LLM scoring
+Done. 106233 articles rescanned.
+  ticker-matched articles: 10669
+  flagged as noise:        5722
+  (article, company) pairs: 9309  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
@@ -69,57 +69,48 @@ Done. 106170 articles rescanned.
 ```
 [OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 3 new
-[OK] Economic Times Industry: 50 entries, 7 new
-[OK] LiveMint Markets: 35 entries, 2 new
-[OK] LiveMint Companies: 35 entries, 1 new
-[OK] LiveMint Money: 35 entries, 5 new
+[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Industry: 50 entries, 1 new
+[OK] LiveMint Markets: 35 entries, 0 new
+[OK] LiveMint Companies: 35 entries, 0 new
+[OK] LiveMint Money: 35 entries, 1 new
 [OK] LiveMint Economy: 35 entries, 0 new
 [OK] BusinessLine Markets: 60 entries, 0 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 0 new
-[OK] BusinessLine Economy: 60 entries, 0 new
+[OK] BusinessLine Economy: 60 entries, 1 new
 [OK] Business Standard Markets: 35 entries, 0 new
-[OK] Business Standard Companies: 35 entries, 1 new
+[OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 4 new
+[OK] NDTV Profit Latest: 20 entries, 0 new
 [OK] TOI Business: 20 entries, 0 new
 [OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 0 new
-[OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 8 new
+[OK] CNBC TV18 Markets: 200 entries, 2 new
+[OK] Investing.com India Stocks: 10 entries, 8 new
+[OK] ET International: 50 entries, 2 new
 [OK] BBC Business: 52 entries, 0 new
-[OK] BBC World: 32 entries, 3 new
+[OK] BBC World: 32 entries, 0 new
 [OK] Guardian Business: 37 entries, 0 new
-[OK] Al Jazeera: 25 entries, 15 new
+[OK] Al Jazeera: 25 entries, 2 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 49 entries, 1 new
+[OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 2 new
+[OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] SCMP Business: 50 entries, 2 new
 
-63 new articles stored, 5 matched to tickers (1 flagged as tracker/listicle/index noise).
-
-=== New signals ===
-[BULLISH] TCS.NS  (+0.81) [off-hours] GIFT City funds or direct overseas investing? Experts explain the costs, tax rules and risks investors should know  — LiveMint Money
-[BULLISH] NTPC.NS  (+0.74) [off-hours] Top 5 stocks to buy under  ₹100: NTPC Green, Jayaswal Neco, Sagility, SBFC, South Indian Bank by Sumeet Bagadia  — LiveMint Markets
-[neutral] TCS.NS  (+0.00) [off-hours] Corporate Actions This Week: TCS, Ola Electric, Anand Rathi & More In Focus | Full List  — NDTV Profit Latest
-[BEARISH] INFY.NS  (-0.30) [off-hours] Infosys sees no material impact from US suspension of PERM applications  — Business Standard Companies
+19 new articles stored, 1 matched to tickers (1 flagged as tracker/listicle/index noise).
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 4 pair(s) — 4 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-  gemini gemini-2.5-flash: ReadTimeout
-  gemini gemini-2.0-flash: http 404
-LLM analyst: scored 4 (headline, company) pair(s) with apodex/apodex-1.1-mini:free.
+LLM analyst: nothing new to score.
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -182,7 +173,7 @@ headline                 739    46.7     45.2    5.1   no edge
   The Hindu Business             17/34 (50%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1016/2117 (48%)
+  VADER  1015/2111 (48%)
   LLM    455/938 (49%)
 
 ML dataset: 9259 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
@@ -280,7 +271,7 @@ ML dataset: 9259 labelled (article, company) rows — see ROADMAP_ML.md for the 
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 11 Oct 08:35 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 11 Oct 09:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,703.61 (-5.93% since start) — cash Rs 4,055.01, 1 position(s)
   DLF.NS            1 @ 670.02 -> 648.60 (-3.20%)
@@ -299,8 +290,8 @@ Alert written: 1 macro item(s)
 ## Sentiment export
 
 ```
-Exported 79 tickers to news_signal.json (window 7d, 902 scored pairs).
-  pipeline_ok=True data_through=2026-10-11T02:50:09+00:00 llm-scored 902/902 pairs (100%)
+Exported 79 tickers to news_signal.json (window 7d, 899 scored pairs).
+  pipeline_ok=True data_through=2026-10-11T04:00:17+00:00 llm-scored 899/899 pairs (100%)
   34 of 79 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: WIPRO.NS -0.70, NESTLEIND.NS -0.53, JINDALSTEL.NS -0.50
   most positive: BHARATFORG.NS +0.77, MARICO.NS +0.63, LT.NS +0.61
