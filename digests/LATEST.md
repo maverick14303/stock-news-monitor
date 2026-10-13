@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-13 02:30
+# Stock digest — 2026-10-13 08:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 107735 articles against 259 alias patterns...
+Rescanning 107992 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -58,80 +58,70 @@ Rescanning 107735 articles against 259 alias patterns...
   ...104000
   ...106000
 
-Done. 107735 articles rescanned.
-  ticker-matched articles: 10855
-  flagged as noise:        5840
-  (article, company) pairs: 9456  — 0 awaiting LLM scoring
+Done. 107992 articles rescanned.
+  ticker-matched articles: 10871
+  flagged as noise:        5842
+  (article, company) pairs: 9476  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 12 new
+[OK] Economic Times Markets: 50 entries, 26 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 9 new
-[OK] Economic Times Industry: 50 entries, 22 new
-[OK] LiveMint Markets: 35 entries, 10 new
-[OK] LiveMint Companies: 35 entries, 6 new
-[OK] LiveMint Money: 35 entries, 7 new
+[OK] Economic Times Economy: 50 entries, 2 new
+[OK] Economic Times Industry: 50 entries, 1 new
+[OK] LiveMint Markets: 35 entries, 13 new
+[OK] LiveMint Companies: 35 entries, 5 new
+[OK] LiveMint Money: 35 entries, 3 new
 [OK] LiveMint Economy: 35 entries, 2 new
-[OK] BusinessLine Markets: 60 entries, 3 new
+[OK] BusinessLine Markets: 60 entries, 7 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 5 new
-[OK] BusinessLine Economy: 60 entries, 4 new
-[OK] Business Standard Markets: 35 entries, 4 new
-[OK] Business Standard Companies: 35 entries, 3 new
+[OK] BusinessLine Companies: 60 entries, 0 new
+[OK] BusinessLine Economy: 60 entries, 3 new
+[OK] Business Standard Markets: 35 entries, 6 new
+[OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 1 new
-[OK] Business Standard Economy: 35 entries, 3 new
-[OK] NDTV Profit Latest: 20 entries, 19 new
-[OK] TOI Business: 20 entries, 14 new
-[OK] The Hindu Business: 60 entries, 5 new
+[OK] Business Standard Economy: 35 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 10 new
+[OK] TOI Business: 20 entries, 3 new
+[OK] The Hindu Business: 60 entries, 2 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 5 new
+[OK] News18 Business: 200 entries, 4 new
+[OK] CNBC TV18 Markets: 200 entries, 12 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 45 new
-[OK] BBC Business: 44 entries, 3 new
-[OK] BBC World: 28 entries, 4 new
-[OK] Guardian Business: 38 entries, 7 new
-[OK] Al Jazeera: 25 entries, 25 new
-[OK] CNBC Top News: 30 entries, 13 new
+[OK] ET International: 50 entries, 23 new
+[OK] BBC Business: 40 entries, 5 new
+[OK] BBC World: 30 entries, 3 new
+[OK] Guardian Business: 39 entries, 1 new
+[OK] Al Jazeera: 25 entries, 14 new
+[OK] CNBC Top News: 30 entries, 11 new
 [OK] CNBC World Markets: 29 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 6 new
-[OK] NYT Business: 50 entries, 0 new
+[OK] MarketWatch Top: 10 entries, 5 new
+[OK] NYT Business: 50 entries, 2 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 10 new
+[OK] OilPrice: 15 entries, 3 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 0 new
+[OK] SCMP Business: 50 entries, 3 new
 
-257 new articles stored, 16 matched to tickers (2 flagged as tracker/listicle/index noise).
+180 new articles stored, 14 matched to tickers (17 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] HCLTECH.NS  (+0.93) [off-hours] HCL Tech Q2 Report Card: Rupee boost, record deal wins, hiring rebound and AI boom despite odds - Key numbers decoded  — LiveMint Markets
-[BULLISH] SBIN.NS  (+0.79) [off-hours] SBI Research recommends LTCG on equities to be scrapped; calls for DTAA clarity  — TOI Business
-[BULLISH] HCLTECH.NS  (+0.78) [off-hours] HCLTech posts 21% YoY jump in Q2 net profit  — The Hindu Business
-[BULLISH] SBIN.NS  (+0.77) [off-hours] SBI economists call for scrapping LTCG tax on equities  — Economic Times Markets
-[BULLISH] TCS.NS,VEDL.NS  (+0.75) [off-hours] Dividend, rights issue record date: Last chance to buy today to qualify for amount- Vedanta, TCS, Continental Controls  — LiveMint Markets
-[BULLISH] HCLTECH.NS,TCS.NS  (+0.44) [off-hours] HCL Tech vs TCS Q2 results dividend: Which IT stock offers more? Amount, record date, yield, earnings compared  — LiveMint Markets
-[BULLISH] TMPV.NS  (+0.40) [off-hours] Stellantis, Tata Motors ink passenger vehicle manufacturing pact for global markets  — Economic Times Industry
-[BULLISH] HCLTECH.NS  (+0.32) [off-hours] HCLTech beats estimates, but Q2 growth slips to three-year low  — LiveMint Companies
-[neutral] BRITANNIA.NS,HINDUNILVR.NS,ITC.NS  (+0.00) [off-hours] FMCG dividend giants: Colgate, Hindustan Unilever, ITC, Britannia: Which stock offers highest yield?  — LiveMint Markets
-[neutral] POLYCAB.NS  (+0.00) [off-hours] Polycab To Exit F&O As NSE Sets Dec. 30 Deadline; NCLAT Puts Insolvency Order On Hold  — NDTV Profit Latest
-[neutral] HCLTECH.NS  (+0.00) [off-hours] HCLTech Q2 revenue up 2.2%, narrows FY27 guidance  — TOI Business
-[neutral] POLYCAB.NS  (-0.23) [off-hours] NSE to remove Polycab India from F&O Segment from December 30  — CNBC TV18 Markets
-[BEARISH] POLYCAB.NS  (-0.36) [off-hours] Polycab India’s F&amp;O exit: NSE sets December 30 deadline; NCLAT stays insolvency order  — Economic Times Markets
-[BEARISH] HCLTECH.NS  (-0.48) [off-hours] HCLTech Downplays US PERM Clampdown, Sees No Material Business Impact: Here's Why  — NDTV Profit Latest
-[BEARISH] HCLTECH.NS  (-0.57) [off-hours] Market Pulse: Key triggers to watch before the October 13 trading session  — CNBC TV18 Markets
-[BEARISH] ETERNAL.NS  (-0.75) [off-hours] FSSAI may amend laws to make online players more accountable  — Economic Times Industry
+[BULLISH] TCS.NS  (+0.71) [off-hours] TCS dividend alert! Last day to buy IT major's shares for Rs 12 dividend  — Economic Times Markets
+[BULLISH] TCS.NS,VEDL.NS  (+0.53) [off-hours] TCS, Vedanta Dividends: Last Day To Buy Shares Today To Qualify  — NDTV Profit Latest
+[BULLISH] IOC.NS,RELIANCE.NS  (+0.49) [off-hours] Venezuelan crude comeback puts Reliance’s refining edge back in focus  — LiveMint Companies
+[BULLISH] HCLTECH.NS  (+0.42) [off-hours] Buzzing stocks for Tuesday: HCL Tech, Nazara, Bank of India, TD Power, Juniper Green, Airflow Rail, Globus Power, Vikran Engg, Minda Corp, ARSS Infra Ceigall India, IRCON  — BusinessLine Markets
+[BULLISH] HCLTECH.NS  (+0.39) [off-hours] HCL Tech sees revenue rebound, but AI deflation remains a concern  — Economic Times Markets
+[neutral] BEL.NS  (-0.10) [off-hours] Kotak Neo's Shrikant Chouhan bullish on BEL, Greenply; check targets  — Business Standard Markets
+[BEARISH] HCLTECH.NS  (-0.34) [off-hours] Stocks in news: HCL Tech, RBL Bank, Nazara Tech, Hero Motors, Power Grid and IRCON  — Economic Times Markets
+[BEARISH] BHARTIARTL.NS  (-0.85) [off-hours] Airtel Money makes weak London market debut  — Economic Times Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 20 pair(s) — 20 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 20 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — TMPV.NS +0.90: Stellantis, Tata Motors ink passenger vehicle manufacturing pact 
-  novel & strong — HCLTECH.NS +0.70: HCLTech posts 21% YoY jump in Q2 net profit
+LLM analyst: queued 10 pair(s) — 10 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 10 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -292,7 +282,9 @@ ML dataset: 9457 labelled (article, company) rows — see ROADMAP_ML.md for the 
 ## Bot account (self-trading)
 
 ```
-NSE shut (Tue 13 Oct 02:32 IST) — news gathering only, no trades. Prices below are the last close.
+PLANNED for the 13 Oct open — 2 order(s), each re-checked against fresh prices and news before filling:
+  QUEUE BUY TMPV.NS         score 0.73 — Stellantis, Tata Motors ink passenger vehicle manufacturing 
+  QUEUE BUY HCLTECH.NS      score 0.59 — HCLTech posts 21% YoY jump in Q2 net profit
 
 Bot equity: Rs 4,705.01 (-5.90% since start) — cash Rs 4,055.01, 1 position(s)
   DLF.NS            1 @ 670.02 -> 650.00 (-2.99%)
@@ -305,15 +297,15 @@ Learned sector weights: {"metals": 1.015, "consumer": 0.846, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 2 buy idea(s), 1 macro item(s)
+Alert written: 4 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 78 tickers to news_signal.json (window 7d, 844 scored pairs).
-  pipeline_ok=True data_through=2026-10-12T21:00:00+00:00 llm-scored 844/844 pairs (100%)
-  40 of 78 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 76 tickers to news_signal.json (window 7d, 830 scored pairs).
+  pipeline_ok=True data_through=2026-10-13T02:58:49+00:00 llm-scored 830/830 pairs (100%)
+  38 of 76 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: WIPRO.NS -0.70, JINDALSTEL.NS -0.50, BPCL.NS -0.50
-  most positive: MARICO.NS +0.70, COCHINSHIP.NS +0.61, KOTAKBANK.NS +0.52
+  most positive: MARICO.NS +0.70, TRENT.NS +0.61, COCHINSHIP.NS +0.61
 ```

@@ -643,7 +643,22 @@
     "pharma": 0.92,
     "infra": 0.966
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "TMPV.NS",
+      "score": 0.731,
+      "title": "Stellantis, Tata Motors ink passenger vehicle manufacturing pact for global markets",
+      "source": "Economic Times Industry",
+      "queued": "2026-10-13"
+    },
+    {
+      "symbol": "HCLTECH.NS",
+      "score": 0.593,
+      "title": "HCLTech posts 21% YoY jump in Q2 net profit",
+      "source": "The Hindu Business",
+      "queued": "2026-10-13"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-10-09"
