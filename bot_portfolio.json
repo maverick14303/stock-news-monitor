@@ -661,7 +661,22 @@
     "pharma": 0.92,
     "infra": 0.966
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "SHRIRAMFIN.NS",
+      "score": 0.953,
+      "title": "Japan's largest bank MUFG weighs $10 billion-plus investment to take majority control of Shriram Fin",
+      "source": "LiveMint Companies",
+      "queued": "2026-10-14"
+    },
+    {
+      "symbol": "POLYCAB.NS",
+      "score": 0.674,
+      "title": "Polycab India insolvency case: NCLAT stays NCLT order, hearing on October 26",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-10-14"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-10-13"
