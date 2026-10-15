@@ -661,7 +661,22 @@
     "pharma": 0.92,
     "infra": 0.966
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "BHEL.NS",
+      "score": 0.68,
+      "title": "BHEL Buy Or Sell? Analysts raise targets but remain divided between bulls and bears after Q2",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-10-15"
+    },
+    {
+      "symbol": "BIOCON.NS",
+      "score": 0.632,
+      "title": "Biocon gets launch clarity for breast cancer biosimilar after Genentech deal",
+      "source": "BusinessLine Companies",
+      "queued": "2026-10-15"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-10-14"
