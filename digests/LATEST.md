@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-16 10:30
+# Stock digest — 2026-10-16 11:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 112366 articles against 259 alias patterns...
+Rescanning 112460 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -61,82 +61,81 @@ Rescanning 112366 articles against 259 alias patterns...
   ...110000
   ...112000
 
-Done. 112366 articles rescanned.
-  ticker-matched articles: 11436
-  flagged as noise:        6169
-  (article, company) pairs: 9913  — 0 awaiting LLM scoring
+Done. 112460 articles rescanned.
+  ticker-matched articles: 11465
+  flagged as noise:        6192
+  (article, company) pairs: 9929  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 15 new
-[OK] Economic Times Stocks: 50 entries, 15 new
-[OK] Economic Times Economy: 50 entries, 1 new
-[OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 3 new
+[OK] Economic Times Markets: 50 entries, 18 new
+[OK] Economic Times Stocks: 50 entries, 2 new
+[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Industry: 50 entries, 1 new
+[OK] LiveMint Markets: 35 entries, 5 new
 [OK] LiveMint Companies: 35 entries, 1 new
-[OK] LiveMint Money: 35 entries, 3 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 7 new
+[OK] LiveMint Money: 35 entries, 2 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 2 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 2 new
-[OK] BusinessLine Economy: 60 entries, 3 new
-[OK] Business Standard Markets: 35 entries, 3 new
+[OK] BusinessLine Companies: 60 entries, 0 new
+[OK] BusinessLine Economy: 60 entries, 1 new
+[OK] Business Standard Markets: 35 entries, 6 new
 [OK] Business Standard Companies: 35 entries, 1 new
-[OK] Business Standard Finance: 35 entries, 2 new
-[OK] Business Standard Economy: 35 entries, 1 new
-[OK] NDTV Profit Latest: 20 entries, 10 new
-[OK] TOI Business: 20 entries, 3 new
-[OK] The Hindu Business: 60 entries, 2 new
+[OK] Business Standard Finance: 35 entries, 1 new
+[OK] Business Standard Economy: 35 entries, 2 new
+[OK] NDTV Profit Latest: 20 entries, 0 new
+[OK] TOI Business: 20 entries, 2 new
+[OK] The Hindu Business: 60 entries, 3 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 5 new
+[OK] News18 Business: 200 entries, 1 new
+[OK] CNBC TV18 Markets: 200 entries, 6 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
 [OK] ET International: 50 entries, 1 new
-[OK] BBC Business: 47 entries, 0 new
-[OK] BBC World: 33 entries, 1 new
-[OK] Guardian Business: 40 entries, 0 new
-[OK] Al Jazeera: 25 entries, 0 new
-[OK] CNBC Top News: 30 entries, 4 new
+[OK] BBC Business: 47 entries, 2 new
+[OK] BBC World: 34 entries, 1 new
+[OK] Guardian Business: 40 entries, 11 new
+[OK] Al Jazeera: 25 entries, 4 new
+[OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 29 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 50 entries, 0 new
+[OK] NYT Business: 50 entries, 2 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 0 new
+[OK] OilPrice: 15 entries, 1 new
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 1 new
 
-94 new articles stored, 29 matched to tickers (23 flagged as tracker/listicle/index noise).
+88 new articles stored, 22 matched to tickers (13 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] TECHM.NS  (+0.97)  Tech Mahindra shares gain 7% after Q2 results; Only largecap IT stock with positive YTD returns  — CNBC TV18 Markets
-[BULLISH] SBIN.NS,TECHM.NS  (+0.95)  Q2 impact: TechM shares gain 5% as analysts raise earnings estimate, target  — Business Standard Markets
-[BULLISH] WIPRO.NS  (+0.94)  Wipro shares rise over 2% as Q2 revenue grows 9% YoY. What are Nomura, Goldman Sachs analysts saying?  — Economic Times Markets
-[BULLISH] WIPRO.NS  (+0.93)  Wipro shares gain nearly 2% after Q2 results; brokerages remain bearish  — Business Standard Markets
-[BULLISH] WIPRO.NS  (+0.85)  Wipro shares rise 5%, up 15% so far in October - Should you buy this IT stock after Q2 results? Experts suggest  — LiveMint Markets
-[BULLISH] HCLTECH.NS,TECHM.NS  (+0.77)  BSE among biggest beneficiaries of SEBI’s CAS changes, risk-reward beats NSE: Siddhartha Khemka  — CNBC TV18 Markets
-[BULLISH] WIPRO.NS  (+0.40)  Wipro stock up 4% after Q2 revenue beat offsets concerns over weak deal wins  — BusinessLine Markets
-[BULLISH] PERSISTENT.NS,TECHM.NS,WIPRO.NS  (+0.30)  From Persistent Systems To Tech Mahindra: Check HDFC Securities' Latest Q2 Ratings, Target Prices, Outlook  — NDTV Profit Latest
-[neutral] LICI.NS  (+0.15)  Taxman capped LIC retiree's leave pay exemption at Rs 3 lakh; ITAT allows Rs 9.04 lakh  — TOI Business
-[neutral] NESTLEIND.NS  (+0.13)  Nestle India shares tank 9% in 2 days as firm flags inflation risks in Q2  — Business Standard Markets
-[neutral] PERSISTENT.NS  (+0.12)  Persistent Systems Shares Fall Nearly 5% After Q2 Profit Drops 27%  — NDTV Profit Latest
-[neutral] RELIANCE.NS  (-0.10)  Stock markets trade lower during early session amid profit-taking  — The Hindu Business
+[BULLISH] HDFCBANK.NS  (+0.95)  HDFC Bank Q2 results preview: PAT, NII may rise up to 9% YoY; deposit growth in focus  — Economic Times Markets
+[BULLISH] TITAN.NS  (+0.91)  Beyond Titan and Kalyan: Analysts pick these jewellery stocks as potential market winners. Do you own any?  — Economic Times Markets
+[BULLISH] INFY.NS,TCS.NS,TECHM.NS  (+0.84)  IT Stocks Rally For Fourth Day: Why Are Infosys, TCS, Tech Mahindra Shares Rising? Know Key Reasons  — News18 Business
+[BULLISH] RELIANCE.NS  (+0.82)  Reliance says Starlink welcome, but all players must follow Indian laws  — Economic Times Industry
+[BULLISH] WIPRO.NS  (+0.78)  Wipro share price headed for its best week in six years, but stock has most 'sell' ratings among largecap IT  — CNBC TV18 Markets
+[BULLISH] TECHM.NS  (+0.72)  Tech Mahindra shares jump 7.6% after Q2 results, Jefferies upgrades stock  — BusinessLine Markets
+[BULLISH] HDFCLIFE.NS  (+0.57)  HDFC Life Insurance sheds 3% post Q2 results; brokerages remain upbeat  — Business Standard Markets
+[neutral] WIPRO.NS  (+0.00)  Why is Wipro stock surging today?  — Investing.com India Stocks
+[BEARISH] RELIANCE.NS  (-0.31)  Reliance Industries share price falls 2.5% despite Jio IPO buzz: What should Mukesh Ambani stock investors do?  — LiveMint Markets
+[BEARISH] PERSISTENT.NS  (-0.38)  Persistent Systems share price tumbles 5% after Q2 results 2026 | What should investors do? Check target price, rating  — LiveMint Markets
+[BEARISH] LT.NS  (-0.65)  L&T Finance shares fall up to 6% despite strong Q2; Analysts project up to 31% upside  — CNBC TV18 Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 16 pair(s) — 16 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: queued 13 pair(s) — 13 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
   gemini gemini-2.5-flash: http 503
   gemini gemini-2.0-flash: http 404
-LLM analyst: scored 16 (headline, company) pair(s) with nvidia/nemotron-3.5-super-vl:free.
+LLM analyst: scored 13 (headline, company) pair(s) with nvidia/nemotron-3.5-super-vl:free.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1009, 1-day horizon) ===
+=== Recent signals (last 15 of 1003, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-10-14  RELIANCE.NS     +0.50   +3.44  YES  Reliance Industries shares in focus as Jio IPO sets pri
 2026-10-14  RELIANCE.NS     +0.60   +3.44  YES  Jio IPO Price Band Set At Rs 1,065-1,119 Per Share; Iss
@@ -149,16 +148,16 @@ date        symbol           sent   move%  hit  headline
 2026-10-14  TATAPOWER.NS    +0.50   -0.91  no   Tata Power builds diversified energy pipeline to tap da
 2026-10-14  TMPV.NS         -0.50   +1.15  no   Mahindra takes on Tata, Maruti in CNG SUV race with XUV
 2026-10-14  WIPRO.NS        -0.50   +1.83  no   Wipro Q2 Results Preview: Organic growth may be weakest
-2026-10-15  BHEL.NS         -0.90   +0.12  no   'BHEL Has A 43% Downside': Top Brokerages See Frothy Va
-2026-10-15  BHEL.NS         -0.50   +0.12  no   BHEL share price crashes 5% on profit booking after Q2 
-2026-10-15  CANBK.NS        -0.90   +1.95  no   Canara Bank Shares Fall 6% After Call Flags Up To Rs 15
-2026-10-15  CANBK.NS        -0.50   +1.95  no   Why are Canara Bank shares down 7% in trade today after
+2026-10-15  BHEL.NS         -0.90   +0.82  no   'BHEL Has A 43% Downside': Top Brokerages See Frothy Va
+2026-10-15  BHEL.NS         -0.50   +0.82  no   BHEL share price crashes 5% on profit booking after Q2 
+2026-10-15  CANBK.NS        -0.90   +1.82  no   Canara Bank Shares Fall 6% After Call Flags Up To Rs 15
+2026-10-15  CANBK.NS        -0.50   +1.82  no   Why are Canara Bank shares down 7% in trade today after
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1009    50.0     48.1    4.4   no edge
-3d                       942    45.6     48.4    4.5   no edge
-5d                       876    45.3     47.3    4.7   no edge
+1d                      1003    50.0     48.0    4.4   no edge
+3d                       936    45.4     48.5    4.5   no edge
+5d                       870    45.4     47.0    4.7   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -168,35 +167,35 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              605    53.6     53.6    5.6   no edge
-in-session               404    44.6     39.9    6.8   no edge
+in-session               398    44.7     39.4    6.8   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
-descriptive              119    43.7     42.9   12.6   no edge
-novel                    890    50.8     48.8    4.6   no edge
+descriptive              116    44.8     44.0   12.8   no edge
+novel                    887    50.7     48.5    4.7   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             234    53.4     50.9    9.1   no edge
-headline                 775    48.9     47.2    5.0   no edge
+headline                 769    49.0     47.1    5.0   no edge
 
 === By source (1-day, raw direction) ===
-  CNBC TV18 Markets              75/153 (49%)
   Economic Times Industry        76/153 (50%)
-  Economic Times Markets         56/113 (50%)
+  CNBC TV18 Markets              75/152 (49%)
+  Economic Times Markets         56/112 (50%)
   NDTV Profit Latest             50/103 (49%)
   BusinessLine Companies         45/81 (56%)
-  LiveMint Markets               38/73 (52%)
-  Business Standard Markets      20/67 (30%)
+  LiveMint Markets               37/72 (51%)
   Business Standard Companies    37/67 (55%)
+  Business Standard Markets      19/66 (29%)
   LiveMint Companies             17/37 (46%)
-  BusinessLine Markets           19/34 (56%)
+  BusinessLine Markets           19/33 (58%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1155/2334 (49%)
-  LLM    504/1009 (50%)
+  VADER  1155/2329 (50%)
+  LLM    502/1003 (50%)
 
-ML dataset: 9899 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 9904 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -4.55%  Coal India's SECL strengthens monsoon measures for
@@ -285,15 +284,15 @@ ML dataset: 9899 labelled (article, company) rows — see ROADMAP_ML.md for the 
   2026-10-06  ADANIPOWER.NS    -8.05%  Adani Power, Druk Green To Develop 770 MW Hydropow
   2026-10-06  KOTAKBANK.NS     +1.59%  Kotak Mahindra Bank shares gain 4% after Q2 update
   2026-10-08  COCHINSHIP.NS    +4.50%  Cochin Shipyard gets order to build 40 ships from 
-  2026-10-09  BHARTIARTL.NS    +5.30%  Airtel Money makes London Stock Exchange debut wit
-  2026-10-12  RELIANCE.NS      +4.52%  Jio IPO may be valued at Rs 11 lakh crore: What it
-  2026-10-12  TMPV.NS          +2.13%  Stellantis, Tata Motors ink passenger vehicle manu
-  2026-10-12  HCLTECH.NS      +13.25%  HCLTech posts 21% YoY jump in Q2 net profit
-  2026-10-13  SHRIRAMFIN.NS    -5.09%  Japan's largest bank MUFG weighs $10 billion-plus 
-  2026-10-13  NTPC.NS          +1.61%  NTPC plans ₹17 lakh crore investment over 10 years
-  2026-10-14  BIOCON.NS        -0.28%  Biocon clears path for cancer drug launch
-  2026-10-15  BHEL.NS          -3.29%  BHEL Buy Or Sell? Analysts raise targets but remai
-  → 50/94 positive, avg +0.16%
+  2026-10-09  BHARTIARTL.NS    +5.23%  Airtel Money makes London Stock Exchange debut wit
+  2026-10-12  RELIANCE.NS      +4.43%  Jio IPO may be valued at Rs 11 lakh crore: What it
+  2026-10-12  TMPV.NS          +2.00%  Stellantis, Tata Motors ink passenger vehicle manu
+  2026-10-12  HCLTECH.NS      +12.46%  HCLTech posts 21% YoY jump in Q2 net profit
+  2026-10-13  SHRIRAMFIN.NS    -5.21%  Japan's largest bank MUFG weighs $10 billion-plus 
+  2026-10-13  NTPC.NS          +1.86%  NTPC plans ₹17 lakh crore investment over 10 years
+  2026-10-14  BIOCON.NS        +0.07%  Biocon clears path for cancer drug launch
+  2026-10-15  BHEL.NS          -2.61%  BHEL Buy Or Sell? Analysts raise targets but remai
+  → 51/94 positive, avg +0.16%
 ```
 
 ## Bot account (self-trading)
@@ -301,11 +300,11 @@ ML dataset: 9899 labelled (article, company) rows — see ROADMAP_ML.md for the 
 ```
 Today's plan is already done — exits checked, holding.
 
-Bot equity: Rs 4,734.77 (-5.30% since start) — cash Rs 1,664.41, 4 position(s)
-  DLF.NS            1 @ 670.02 -> 677.55 (+1.12%)
-  TMPV.NS           3 @ 283.01 -> 285.85 (+1.01%)
-  BIOCON.NS         2 @ 354.23 -> 349.80 (-1.25%)
-  CANBK.NS          7 @ 119.02 -> 119.38 (+0.31%)
+Bot equity: Rs 4,735.35 (-5.29% since start) — cash Rs 1,664.41, 4 position(s)
+  DLF.NS            1 @ 670.02 -> 677.70 (+1.15%)
+  TMPV.NS           3 @ 283.01 -> 285.35 (+0.83%)
+  BIOCON.NS         2 @ 354.23 -> 351.15 (-0.87%)
+  CANBK.NS          7 @ 119.02 -> 119.27 (+0.21%)
 Record: 5/21 wins, avg -1.32% per trade
 Learned source trust — high: Business Standard Economy 1.40, The Hindu Economy 1.40, LiveMint Companies 1.13
                        low: Investing.com India Stocks 0.77, LiveMint Money 0.75, Business Standard Finance 0.73
@@ -315,15 +314,15 @@ Learned sector weights: {"metals": 1.015, "consumer": 0.846, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 2 buy idea(s), bot made 1 trade(s), 1 macro item(s)
+Alert written: 2 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 53 tickers to news_signal.json (window 7d, 769 scored pairs).
-  pipeline_ok=True data_through=2026-10-16T05:00:25+00:00 llm-scored 769/769 pairs (100%)
-  23 of 53 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 52 tickers to news_signal.json (window 7d, 772 scored pairs).
+  pipeline_ok=True data_through=2026-10-16T06:00:10+00:00 llm-scored 772/772 pairs (100%)
+  22 of 52 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: BANKBARODA.NS -0.71, PERSISTENT.NS -0.55, TMCV.NS -0.50
   most positive: BIOCON.NS +0.59, ADANIPOWER.NS +0.58, TECHM.NS +0.51
 ```
