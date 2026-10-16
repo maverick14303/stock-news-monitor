@@ -679,7 +679,29 @@
     "pharma": 0.92,
     "infra": 0.966
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "TECHM.NS",
+      "score": 0.763,
+      "title": "Tech Mahindra Q2 profit jumps 33%",
+      "source": "The Hindu Business",
+      "queued": "2026-10-16"
+    },
+    {
+      "symbol": "LT.NS",
+      "score": 0.68,
+      "title": "L&T Finance Q2 results: Net profit jumps 33% to \u20b9975 crore as retail loans grow",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-10-16"
+    },
+    {
+      "symbol": "CANBK.NS",
+      "score": 0.603,
+      "title": "Canara Bank\u2019s Q2 net profit rises to \u20b95,175 crore; global business crosses \u20b930.72 lakh crore",
+      "source": "The Hindu Business",
+      "queued": "2026-10-16"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-10-15"
