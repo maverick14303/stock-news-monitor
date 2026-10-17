@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-17 02:30
+# Stock digest — 2026-10-17 08:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 113117 articles against 259 alias patterns...
+Rescanning 113315 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -61,79 +61,70 @@ Rescanning 113117 articles against 259 alias patterns...
   ...110000
   ...112000
 
-Done. 113117 articles rescanned.
-  ticker-matched articles: 11557
-  flagged as noise:        6225
-  (article, company) pairs: 10007  — 0 awaiting LLM scoring
+Done. 113315 articles rescanned.
+  ticker-matched articles: 11566
+  flagged as noise:        6227
+  (article, company) pairs: 10019  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 5 new
+[OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 6 new
-[OK] Economic Times Industry: 50 entries, 18 new
-[OK] LiveMint Markets: 35 entries, 10 new
-[OK] LiveMint Companies: 35 entries, 3 new
+[OK] Economic Times Economy: 50 entries, 1 new
+[OK] Economic Times Industry: 50 entries, 3 new
+[OK] LiveMint Markets: 35 entries, 2 new
+[OK] LiveMint Companies: 35 entries, 2 new
 [OK] LiveMint Money: 35 entries, 3 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 4 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 5 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 0 new
-[OK] BusinessLine Economy: 60 entries, 2 new
-[OK] Business Standard Markets: 35 entries, 2 new
-[OK] Business Standard Companies: 35 entries, 3 new
+[OK] BusinessLine Companies: 60 entries, 2 new
+[OK] BusinessLine Economy: 60 entries, 5 new
+[OK] Business Standard Markets: 35 entries, 0 new
+[OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 19 new
-[OK] TOI Business: 20 entries, 3 new
-[OK] The Hindu Business: 60 entries, 6 new
+[OK] NDTV Profit Latest: 20 entries, 3 new
+[OK] TOI Business: 20 entries, 11 new
+[OK] The Hindu Business: 60 entries, 1 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 2 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 41 new
+[OK] ET International: 50 entries, 6 new
 [OK] BBC Business: 49 entries, 0 new
-[OK] BBC World: 36 entries, 6 new
-[OK] Guardian Business: 40 entries, 4 new
-[OK] Al Jazeera: 25 entries, 22 new
-[OK] CNBC Top News: 30 entries, 15 new
+[OK] BBC World: 31 entries, 8 new
+[OK] Guardian Business: 37 entries, 3 new
+[OK] Al Jazeera: 25 entries, 14 new
+[OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 5 new
-[OK] NYT Business: 49 entries, 1 new
+[OK] MarketWatch Top: 10 entries, 4 new
+[OK] NYT Business: 49 entries, 2 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 8 new
+[OK] OilPrice: 15 entries, 1 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 0 new
+[OK] SCMP Business: 50 entries, 1 new
 
-198 new articles stored, 9 matched to tickers (2 flagged as tracker/listicle/index noise).
+90 new articles stored, 3 matched to tickers (2 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] CROMPTON.NS  (+0.96) [off-hours] Crompton Greaves Consumer Electricals Ltd Q2 Results: Profit surges 65% to Rs 124 crore  — Economic Times Markets
-[BULLISH] OBEROIRLTY.NS  (+0.93) [off-hours] Dividend delight on D-Street: Modison, LTM to Oberoi Realty announce dividends on October 16 | Amount, record dates  — LiveMint Markets
-[BULLISH] RELIANCE.NS  (+0.60) [off-hours] Reliance Industries welcomes Starlink competition while urging compliance with Indian laws  — Economic Times Industry
-[neutral] RELIANCE.NS  (+0.00) [off-hours] White House lists investment over $330 billion in US from India  — Economic Times Economy
-[neutral] HDFCBANK.NS,NTPC.NS,ZYDUSLIFE.NS  (+0.00) [off-hours] Abakkus Flexi Cap Fund September portfolio: 35 stocks, including Groww and NTPC, see higher holdings  — LiveMint Money
-[neutral] BAJFINANCE.NS,DRREDDY.NS,GRASIM.NS  (-0.23) [off-hours] Top 3 stocks to buy: Bajaj Finance, Dr Reddy's Lab, Grasim Industries by Sumeet Bagadia | Target price, stop-loss  — LiveMint Markets
-[BEARISH] OBEROIRLTY.NS  (-0.34) [off-hours] Oberoi Realty profit remains flat at ₹761 crore, revenue declines 6%  — Business Standard Companies
-[BEARISH] IOC.NS  (-0.97) [off-hours] Middle east war hits Indian fuel retailers: OMCs losing up to Rs 30 per litre, says report  — TOI Business
+[BULLISH] RELIANCE.NS  (+0.67) [off-hours] Elon Musk's Starlink responds to Reliance, says ‘ready to connect India’ with high-speed internet  — Economic Times Industry
+[BULLISH] RELIANCE.NS  (+0.25) [off-hours] Reliance Industries to Elon Musk: Competition welcome, but follow rules  — TOI Business
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 12 pair(s) — 12 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-  gemini gemini-2.5-flash: http 503
-  gemini gemini-2.0-flash: http 404
-LLM analyst: scored 12 (headline, company) pair(s) with nvidia/nemotron-3.5-super-vl:free.
-  novel & strong — CROMPTON.NS +0.60: Crompton Greaves Consumer Electricals Ltd Q2 Results: Profit surg
+LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 2 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 983, 1-day horizon) ===
+=== Recent signals (last 15 of 982, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-10-14  RELIANCE.NS     +0.30   +3.44  YES  Jio Platforms files RHP for IPO: Issue to open on Octob
 2026-10-14  RELIANCE.NS     +0.30   +3.44  YES  Reliance Jio files RHP, announces IPO dates for India's
@@ -153,9 +144,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                       983    49.8     47.7    4.4   no edge
-3d                       893    43.3     46.8    4.6   no edge
-5d                       790    42.5     46.5    4.9   no edge
+1d                       982    49.8     47.7    4.4   no edge
+3d                       892    43.3     46.7    4.6   no edge
+5d                       789    42.5     46.4    4.9   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -164,23 +155,23 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              596    53.0     53.0    5.7   no edge
+after-hours              595    52.9     52.9    5.7   no edge
 in-session               387    45.0     39.5    6.9   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              111    43.2     42.3   13.0   no edge
-novel                    872    50.7     48.4    4.7   no edge
+novel                    871    50.6     48.3    4.7   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             234    53.4     50.9    9.1   no edge
-headline                 749    48.7     46.7    5.1   no edge
+headline                 748    48.7     46.7    5.1   no edge
 
 === By source (1-day, raw direction) ===
   Economic Times Industry        74/151 (49%)
   CNBC TV18 Markets              74/149 (50%)
-  Economic Times Markets         54/110 (49%)
+  Economic Times Markets         53/109 (49%)
   NDTV Profit Latest             49/100 (49%)
   BusinessLine Companies         43/79 (54%)
   LiveMint Markets               36/70 (51%)
@@ -190,8 +181,8 @@ headline                 749    48.7     46.7    5.1   no edge
   BusinessLine Markets           18/32 (56%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1123/2264 (50%)
-  LLM    490/983 (50%)
+  VADER  1119/2255 (50%)
+  LLM    489/982 (50%)
 
 ML dataset: 9978 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -295,7 +286,7 @@ ML dataset: 9978 labelled (article, company) rows — see ROADMAP_ML.md for the 
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sat 17 Oct 02:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sat 17 Oct 08:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,726.39 (-5.47% since start) — cash Rs 1,664.41, 4 position(s)
   DLF.NS            1 @ 670.02 -> 675.00 (+0.74%)
@@ -311,14 +302,14 @@ Learned sector weights: {"metals": 1.015, "consumer": 0.846, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: weekly report
+Alert written: 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 53 tickers to news_signal.json (window 7d, 768 scored pairs).
-  pipeline_ok=True data_through=2026-10-16T20:58:00+00:00 llm-scored 768/768 pairs (100%)
+Exported 53 tickers to news_signal.json (window 7d, 764 scored pairs).
+  pipeline_ok=True data_through=2026-10-17T02:48:36+00:00 llm-scored 764/764 pairs (100%)
   23 of 53 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: BANKBARODA.NS -0.71, TMCV.NS -0.50, APOLLOHOSP.NS -0.40
   most positive: SHRIRAMFIN.NS +0.80, ADANIPOWER.NS +0.72, TMPV.NS +0.68
