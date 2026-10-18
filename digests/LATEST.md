@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-18 08:30
+# Stock digest — 2026-10-18 09:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 113968 articles against 259 alias patterns...
+Rescanning 114032 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -60,11 +60,12 @@ Rescanning 113968 articles against 259 alias patterns...
   ...108000
   ...110000
   ...112000
+  ...114000
 
-Done. 113968 articles rescanned.
-  ticker-matched articles: 11651
-  flagged as noise:        6240
-  (article, company) pairs: 10115  — 31 awaiting LLM scoring
+Done. 114032 articles rescanned.
+  ticker-matched articles: 11654
+  flagged as noise:        6241
+  (article, company) pairs: 10117  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
@@ -72,64 +73,54 @@ Done. 113968 articles rescanned.
 ```
 [OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 1 new
+[OK] Economic Times Economy: 49 entries, 1 new
 [OK] Economic Times Industry: 50 entries, 3 new
-[OK] LiveMint Markets: 35 entries, 2 new
-[OK] LiveMint Companies: 35 entries, 2 new
-[OK] LiveMint Money: 35 entries, 6 new
-[OK] LiveMint Economy: 35 entries, 1 new
+[OK] LiveMint Markets: 35 entries, 1 new
+[OK] LiveMint Companies: 35 entries, 0 new
+[OK] LiveMint Money: 35 entries, 2 new
+[OK] LiveMint Economy: 35 entries, 0 new
 [OK] BusinessLine Markets: 60 entries, 0 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 1 new
-[OK] BusinessLine Economy: 60 entries, 0 new
+[OK] BusinessLine Economy: 60 entries, 1 new
 [OK] Business Standard Markets: 35 entries, 0 new
 [OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 1 new
-[OK] TOI Business: 20 entries, 4 new
+[OK] NDTV Profit Latest: 20 entries, 4 new
+[OK] TOI Business: 20 entries, 1 new
 [OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 0 new
-[OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 10 new
-[OK] BBC Business: 49 entries, 1 new
-[OK] BBC World: 27 entries, 5 new
-[OK] Guardian Business: 37 entries, 2 new
-[OK] Al Jazeera: 25 entries, 13 new
+[OK] Investing.com India Stocks: 10 entries, 8 new
+[OK] ET International: 50 entries, 6 new
+[OK] BBC Business: 49 entries, 0 new
+[OK] BBC World: 28 entries, 1 new
+[OK] Guardian Business: 37 entries, 0 new
+[OK] Al Jazeera: 25 entries, 1 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
 [OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 1 new
+[OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] SCMP Business: 50 entries, 0 new
 
-64 new articles stored, 3 matched to tickers (1 flagged as tracker/listicle/index noise).
-
-=== New signals ===
-[BULLISH] MOTHERSON.NS  (+0.32) [off-hours] Top 3 stocks to buy under  ₹100: IRFC, Motherson Sumi, Lloyds Engineering Works by Sumeet Bagadia | Target price, SL  — LiveMint Markets
-[neutral] BAJAJ-AUTO.NS  (+0.00) [off-hours] Bajaj Auto-owned KTM opens new motorcycle assembly plant in Brazil  — BusinessLine Companies
+30 new articles stored, 1 matched to tickers (1 flagged as tracker/listicle/index noise).
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 33 pair(s) — 33 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 33 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — AXISBANK.NS +0.70: Q2 results 2026 race: HDFC vs ICICI Bank vs Axis Bank vs Yes Bank
-  novel & strong — ICICIBANK.NS +0.70: Q2 results 2026 race: HDFC vs ICICI Bank vs Axis Bank vs Yes Bank
-  novel & strong — DLF.NS +0.60: DLF eyes revenue growth from FY28 as ₹75,000 cr projects near com
-  novel & strong — ICICIBANK.NS +0.90: ICICI Bank Q2 net rises 20% to ₹14,843 crore as provisions fall
-  novel & strong — ICICIBANK.NS +0.80: ICICI Bank Q2 Results: Net Profit Rises 20% To Rs 14,843 Crore; N
+LLM analyst: nothing new to score.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1007, 1-day horizon) ===
+=== Recent signals (last 15 of 1004, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-10-15  TECHM.NS        +0.60   +8.48  YES  Tech Mahindra adds nearly 5,500 employees in Q2, highes
 2026-10-15  TECHM.NS        +0.70   +8.48  YES  Tech Mahindra Q2 Results: Net profit jumps 33% YoY to R
@@ -149,9 +140,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1007    50.5     48.3    4.4   no edge
-3d                       895    44.4     47.0    4.6   no edge
-5d                       822    45.1     47.2    4.8   no edge
+1d                      1004    50.6     48.3    4.4   no edge
+3d                       892    44.3     47.0    4.6   no edge
+5d                       819    45.1     47.1    4.8   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -161,23 +152,23 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              622    53.4     53.1    5.5   no edge
-in-session               385    46.0     40.5    6.9   no edge
+in-session               382    46.1     40.6    7.0   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              116    44.0     43.1   12.7   no edge
-novel                    891    51.4     48.9    4.6   no edge
+novel                    888    51.5     49.0    4.7   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             237    54.4     51.5    9.0   no edge
-headline                 770    49.4     47.3    5.0   no edge
+headline                 767    49.4     47.3    5.0   no edge
 
 === By source (1-day, raw direction) ===
-  Economic Times Industry        74/151 (49%)
-  CNBC TV18 Markets              74/144 (51%)
-  Economic Times Markets         55/112 (49%)
+  Economic Times Industry        73/150 (49%)
+  CNBC TV18 Markets              74/143 (52%)
   NDTV Profit Latest             56/112 (50%)
+  Economic Times Markets         55/111 (50%)
   BusinessLine Companies         44/79 (56%)
   LiveMint Markets               37/72 (51%)
   Business Standard Companies    40/70 (57%)
@@ -186,8 +177,8 @@ headline                 770    49.4     47.3    5.0   no edge
   The Hindu Business             20/36 (56%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1147/2307 (50%)
-  LLM    509/1007 (51%)
+  VADER  1143/2299 (50%)
+  LLM    508/1004 (51%)
 
 ML dataset: 10020 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -293,7 +284,7 @@ ML dataset: 10020 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 18 Oct 08:34 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 18 Oct 09:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,726.39 (-5.47% since start) — cash Rs 1,664.41, 4 position(s)
   DLF.NS            1 @ 670.02 -> 675.00 (+0.74%)
@@ -315,8 +306,8 @@ Alert written: 1 macro item(s)
 ## Sentiment export
 
 ```
-Exported 60 tickers to news_signal.json (window 7d, 808 scored pairs).
-  pipeline_ok=True data_through=2026-10-18T03:00:07+00:00 llm-scored 808/808 pairs (100%)
+Exported 60 tickers to news_signal.json (window 7d, 807 scored pairs).
+  pipeline_ok=True data_through=2026-10-18T04:00:50+00:00 llm-scored 807/807 pairs (100%)
   31 of 60 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ETERNAL.NS -0.90, BANKBARODA.NS -0.71, TMCV.NS -0.50
   most positive: SHRIRAMFIN.NS +0.80, ADANIPOWER.NS +0.73, TMPV.NS +0.68
