@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-18 02:30
+# Stock digest — 2026-10-18 08:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 113853 articles against 259 alias patterns...
+Rescanning 113968 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -61,10 +61,10 @@ Rescanning 113853 articles against 259 alias patterns...
   ...110000
   ...112000
 
-Done. 113853 articles rescanned.
-  ticker-matched articles: 11635
-  flagged as noise:        6236
-  (article, company) pairs: 10096  — 37 awaiting LLM scoring
+Done. 113968 articles rescanned.
+  ticker-matched articles: 11651
+  flagged as noise:        6240
+  (article, company) pairs: 10115  — 31 awaiting LLM scoring
 ```
 
 ## News & signals
@@ -72,69 +72,58 @@ Done. 113853 articles rescanned.
 ```
 [OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 2 new
-[OK] Economic Times Industry: 50 entries, 6 new
-[OK] LiveMint Markets: 35 entries, 4 new
-[OK] LiveMint Companies: 35 entries, 5 new
-[OK] LiveMint Money: 35 entries, 3 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 8 new
+[OK] Economic Times Economy: 50 entries, 1 new
+[OK] Economic Times Industry: 50 entries, 3 new
+[OK] LiveMint Markets: 35 entries, 2 new
+[OK] LiveMint Companies: 35 entries, 2 new
+[OK] LiveMint Money: 35 entries, 6 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 0 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 2 new
-[OK] BusinessLine Economy: 60 entries, 2 new
+[OK] BusinessLine Companies: 60 entries, 1 new
+[OK] BusinessLine Economy: 60 entries, 0 new
 [OK] Business Standard Markets: 35 entries, 0 new
 [OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
-[OK] Business Standard Economy: 35 entries, 1 new
-[OK] NDTV Profit Latest: 20 entries, 19 new
-[OK] TOI Business: 20 entries, 2 new
-[OK] The Hindu Business: 60 entries, 7 new
+[OK] Business Standard Economy: 35 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 1 new
+[OK] TOI Business: 20 entries, 4 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 0 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 15 new
-[OK] BBC Business: 49 entries, 0 new
-[OK] BBC World: 23 entries, 0 new
-[OK] Guardian Business: 40 entries, 1 new
-[OK] Al Jazeera: 25 entries, 21 new
-[OK] CNBC Top News: 30 entries, 2 new
+[OK] ET International: 50 entries, 10 new
+[OK] BBC Business: 49 entries, 1 new
+[OK] BBC World: 27 entries, 5 new
+[OK] Guardian Business: 37 entries, 2 new
+[OK] Al Jazeera: 25 entries, 13 new
+[OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 49 entries, 2 new
+[OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 3 new
+[OK] OilPrice: 15 entries, 1 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 0 new
+[OK] SCMP Business: 50 entries, 1 new
 
-115 new articles stored, 16 matched to tickers (4 flagged as tracker/listicle/index noise).
+64 new articles stored, 3 matched to tickers (1 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] GAIL.NS,NMDC.NS  (+0.92) [off-hours] NMDC inks pact with GAIL arm to secure natural gas supplies for 2 MT pellet plant  — The Hindu Business
-[BULLISH] AXISBANK.NS  (+0.91) [off-hours] Axis Bank’s rising costs, FCNR inflows squeeze Q2 margins  — LiveMint Companies
-[BULLISH] ICICIBANK.NS  (+0.60) [off-hours] ICICI Bank Q2 PAT rises 20.1% to ₹14,843 crore, NIM down to 4.18%  — The Hindu Business
-[BULLISH] HDFCBANK.NS  (+0.60) [off-hours] HDFC Bank May Explore Ways To Reduce Pressure From Corporate Deposits  — NDTV Profit Latest
-[BULLISH] HDFCBANK.NS  (+0.44) [off-hours] HDFC Bank Q2 net profit grows 4.7% to ₹19,510 crore  — The Hindu Business
-[BULLISH] ETERNAL.NS  (+0.42) [off-hours] Reliance and Blinkit executives face FIR in food safety case  — Economic Times Industry
-[BULLISH] AXISBANK.NS,NYKAA.NS  (+0.36) [off-hours] Movers & Shakers: Stocks that will see action this week  — BusinessLine Markets
-[neutral] HDFCBANK.NS  (+0.00) [off-hours] HDFC Bank New MD Anup Bagchi Calls For More Work On Balance Sheet, Integration Work Largely Done  — NDTV Profit Latest
-[neutral] HDFCBANK.NS  (-0.20) [off-hours] HDFC Bank Bets On 25 Bps Hike Tailwind In Q3 As Structural Savings Shift Squeezes CASA  — NDTV Profit Latest
-[BEARISH] ETERNAL.NS  (-0.34) [off-hours] FDA suspends licences of warehouses of Reliance Consumer, Reliance Retail, Blinkit, Zomato Hyperpure  — Economic Times Industry
-[BEARISH] HINDUNILVR.NS,NESTLEIND.NS  (-0.40) [off-hours] FSSAI issues notices to Nestle, HUL for misleading claims  — BusinessLine Companies
-[BEARISH] SBIN.NS  (-0.57) [off-hours] How SBI’s failure to inform a retired scientist about FD maturity cost it  ₹15.35 lakh; details of the case here  — LiveMint Money
-[BEARISH] HINDUNILVR.NS,NESTLEIND.NS  (-0.61) [off-hours] Nestlé India &amp; Hindustan Unilever face FSSAI notices over misleading claims, non-compliance; what regulator flagged in Resource Renal and Horlicks Mother's Plus  — Economic Times Industry
-[BEARISH] HINDUNILVR.NS,NESTLEIND.NS  (-0.73) [off-hours] FSSAI Issues Notices to Nestle India, HUL Over Allegedly Misleading Product Claims, Labelling Violations  — NDTV Profit Latest
+[BULLISH] MOTHERSON.NS  (+0.32) [off-hours] Top 3 stocks to buy under  ₹100: IRFC, Motherson Sumi, Lloyds Engineering Works by Sumeet Bagadia | Target price, SL  — LiveMint Markets
+[neutral] BAJAJ-AUTO.NS  (+0.00) [off-hours] Bajaj Auto-owned KTM opens new motorcycle assembly plant in Brazil  — BusinessLine Companies
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 56 pair(s) — 56 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-  gemini gemini-2.5-flash: JSONDecodeError
-  gemini gemini-2.0-flash: http 404
-  gemini gemini-2.5-flash: JSONDecodeError
-  gemini gemini-2.0-flash: http 404
-[FAILED timeout after 600s]
+LLM analyst: queued 33 pair(s) — 33 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 33 (headline, company) pair(s) with google/gemini-2.5-flash.
+  novel & strong — AXISBANK.NS +0.70: Q2 results 2026 race: HDFC vs ICICI Bank vs Axis Bank vs Yes Bank
+  novel & strong — ICICIBANK.NS +0.70: Q2 results 2026 race: HDFC vs ICICI Bank vs Axis Bank vs Yes Bank
+  novel & strong — DLF.NS +0.60: DLF eyes revenue growth from FY28 as ₹75,000 cr projects near com
+  novel & strong — ICICIBANK.NS +0.90: ICICI Bank Q2 net rises 20% to ₹14,843 crore as provisions fall
+  novel & strong — ICICIBANK.NS +0.80: ICICI Bank Q2 Results: Net Profit Rises 20% To Rs 14,843 Crore; N
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -197,7 +186,7 @@ headline                 770    49.4     47.3    5.0   no edge
   The Hindu Business             20/36 (56%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1148/2311 (50%)
+  VADER  1147/2307 (50%)
   LLM    509/1007 (51%)
 
 ML dataset: 10020 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
@@ -304,7 +293,7 @@ ML dataset: 10020 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 18 Oct 02:43 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 18 Oct 08:34 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,726.39 (-5.47% since start) — cash Rs 1,664.41, 4 position(s)
   DLF.NS            1 @ 670.02 -> 675.00 (+0.74%)
@@ -320,16 +309,15 @@ Learned sector weights: {"metals": 1.015, "consumer": 0.846, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 2 buy idea(s)
+Alert written: 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 60 tickers to news_signal.json (window 7d, 810 scored pairs).
-  pipeline_ok=False data_through=2026-10-17T21:00:00+00:00 llm-scored 779/810 pairs (96%)
-  failed steps: LLM analyst (per-ticker) (llm_analyst.py timed out after 600s)
+Exported 60 tickers to news_signal.json (window 7d, 808 scored pairs).
+  pipeline_ok=True data_through=2026-10-18T03:00:07+00:00 llm-scored 808/808 pairs (100%)
   31 of 60 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ETERNAL.NS -0.90, BANKBARODA.NS -0.71, TMCV.NS -0.50
-  most positive: SHRIRAMFIN.NS +0.80, VEDL.NS +0.75, HINDZINC.NS +0.75
+  most positive: SHRIRAMFIN.NS +0.80, ADANIPOWER.NS +0.73, TMPV.NS +0.68
 ```
