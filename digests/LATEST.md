@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-19 02:30
+# Stock digest — 2026-10-19 08:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 114482 articles against 259 alias patterns...
+Rescanning 114598 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -62,72 +62,81 @@ Rescanning 114482 articles against 259 alias patterns...
   ...112000
   ...114000
 
-Done. 114482 articles rescanned.
-  ticker-matched articles: 11700
-  flagged as noise:        6249
-  (article, company) pairs: 10168  — 0 awaiting LLM scoring
+Done. 114598 articles rescanned.
+  ticker-matched articles: 11712
+  flagged as noise:        6251
+  (article, company) pairs: 10180  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 0 new
-[OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 4 new
-[OK] Economic Times Industry: 50 entries, 20 new
-[OK] LiveMint Markets: 35 entries, 4 new
-[OK] LiveMint Companies: 35 entries, 5 new
-[OK] LiveMint Money: 35 entries, 5 new
-[OK] LiveMint Economy: 35 entries, 2 new
-[OK] BusinessLine Markets: 60 entries, 0 new
+[OK] Economic Times Markets: 50 entries, 24 new
+[OK] Economic Times Stocks: 50 entries, 1 new
+[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Industry: 50 entries, 2 new
+[OK] LiveMint Markets: 35 entries, 11 new
+[OK] LiveMint Companies: 35 entries, 6 new
+[OK] LiveMint Money: 35 entries, 1 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 1 new
-[OK] BusinessLine Economy: 60 entries, 1 new
-[OK] Business Standard Markets: 35 entries, 0 new
-[OK] Business Standard Companies: 35 entries, 0 new
+[OK] BusinessLine Economy: 60 entries, 4 new
+[OK] Business Standard Markets: 35 entries, 6 new
+[OK] Business Standard Companies: 35 entries, 1 new
 [OK] Business Standard Finance: 35 entries, 0 new
-[OK] Business Standard Economy: 35 entries, 1 new
-[OK] NDTV Profit Latest: 20 entries, 17 new
-[OK] TOI Business: 20 entries, 2 new
-[OK] The Hindu Business: 60 entries, 0 new
+[OK] Business Standard Economy: 35 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 20 new
+[OK] TOI Business: 20 entries, 8 new
+[OK] The Hindu Business: 60 entries, 3 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 0 new
+[OK] News18 Business: 200 entries, 4 new
+[OK] CNBC TV18 Markets: 200 entries, 11 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 14 new
-[OK] BBC Business: 53 entries, 0 new
-[OK] BBC World: 31 entries, 3 new
-[OK] Guardian Business: 40 entries, 0 new
-[OK] Al Jazeera: 25 entries, 22 new
-[OK] CNBC Top News: 30 entries, 1 new
+[OK] ET International: 50 entries, 10 new
+[OK] BBC Business: 44 entries, 7 new
+[OK] BBC World: 31 entries, 8 new
+[OK] Guardian Business: 40 entries, 1 new
+[OK] Al Jazeera: 25 entries, 9 new
+[OK] CNBC Top News: 27 entries, 6 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
 [OK] NYT Business: 49 entries, 1 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 3 new
+[OK] OilPrice: 15 entries, 2 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 0 new
+[OK] SCMP Business: 50 entries, 2 new
 
-116 new articles stored, 12 matched to tickers (2 flagged as tracker/listicle/index noise).
+161 new articles stored, 26 matched to tickers (22 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] HDFCBANK.NS  (+0.51) [off-hours] Anup Bagchi backs 'exceptional' team as he connects the dots at HDFC Bank  — Economic Times Industry
-[BULLISH] NESTLEIND.NS  (+0.44) [off-hours] Nestle Says Nescafe Drinks Are Safe After FSSAI Flags Labelling Issues  — NDTV Profit Latest
-[BULLISH] ETERNAL.NS  (+0.42) [off-hours] Reliance Retail faces FDA crackdown again; action also on Blinkit-linked facility  — Economic Times Industry
-[neutral] PNB.NS  (+0.20) [off-hours] Punjab National Bank Targets Rs 60,000 Crore In Income For Next Few Quarters  — NDTV Profit Latest
-[neutral] INFY.NS  (+0.13) [off-hours] Infosys Q2 revenue growth likely to remain modest; analysts see guidance cut  — BusinessLine Companies
-[neutral] BHARTIARTL.NS  (+0.08) [off-hours] Bharti Airtel launches voice-only prepaid plans starting at Rs 185 after TRAI's mandate  — Economic Times Industry
-[neutral] BHARTIARTL.NS  (+0.00) [off-hours] Airtel launches voice-only plans at  ₹185,  ₹203 and  ₹206 after TRAI's mandate: What each plan offers  — LiveMint Companies
-[neutral] TORNTPHARM.NS  (-0.24) [off-hours] Who is Amal Kelshikar? Why did he resign from the position of Torrent Pharmaceuticals' Executive Director? Explained  — LiveMint Companies
-[BEARISH] SAIL.NS  (-0.46) [off-hours] Reports of sale false and misleading, says Bhilai Steel Plant amid Congress alleging Adani visit  — Economic Times Industry
-[BEARISH] AXISBANK.NS,CANBK.NS,HDFCBANK.NS  (-0.66) [off-hours] Banks also count cost of insurance payout curbs  — Economic Times Industry
+[BULLISH] COFORGE.NS,KOTAKBANK.NS  (+0.98) [off-hours] Nifty rally faces crucial test at key resistance levels: Analysts  — Economic Times Markets
+[BULLISH] NESTLEIND.NS  (+0.88) [off-hours] For Nestle India, is the best in the past?  — LiveMint Markets
+[BULLISH] HDFCBANK.NS  (+0.82) [off-hours] HDFC Bank Q2 Review: Brokerages See Margin Support, But Execution Risks Remain  — NDTV Profit Latest
+[BULLISH] AXISBANK.NS  (+0.78) [off-hours] Axis Bank Q2 Review: Margin Recovery Holds The Key To Further Upside; Check Target Price And More  — NDTV Profit Latest
+[BULLISH] RELIANCE.NS  (+0.72) [off-hours] RIL nears technical breakout amid Jio IPO buzz: Anand James shares the outlook  — Economic Times Markets
+[BULLISH] AUROPHARMA.NS,DRREDDY.NS,LUPIN.NS,SUNPHARMA.NS  (+0.72) [off-hours] Pharma Q2 Outlook: Pricing pressure, US competition to weigh on select players  — Economic Times Markets
+[BULLISH] APOLLOHOSP.NS,FORTIS.NS  (+0.56) [off-hours] HCG, Apollo Hospitals, Max, Fortis Health share price could see further pressure today; Here's why  — CNBC TV18 Markets
+[BULLISH] HDFCBANK.NS  (+0.51) [off-hours] Anup Bagchi backs 'exceptional' team as he connects the dots at HDFC Bank  — Economic Times Markets
+[BULLISH] ICICIBANK.NS  (+0.38) [off-hours] ICICI Bank Q2 Review: Brokerages Back Growth, See Margins Recovering In Q4  — NDTV Profit Latest
+[neutral] HDFCBANK.NS  (+0.25) [off-hours] HDFC Bank Q2 Review: MOFSL Remains Bullish After Inline Numbers; Sees Up To 27% Upside; Check Target Price  — NDTV Profit Latest
+[neutral] HCLTECH.NS  (+0.23) [off-hours] Groww, Nazara, HCL Tech: Choice Broking is bullish on 3 stocks; here's why  — Business Standard Markets
+[neutral] DRREDDY.NS  (+0.00) [off-hours] Five Stocks To Buy Today: Dr. Reddy's, Indian Hotels, Shyam Metalics, And More | October 19, 2026  — NDTV Profit Latest
+[neutral] HDFCBANK.NS  (+0.00) [off-hours] Bagchi to soon present HDFC Bank roadmap  — TOI Business
+[neutral] INDIGO.NS  (-0.23) [off-hours] IndiGo Faces Fuel Cost Squeeze As Jefferies, Nomura Stick To 'Buy'; Airfare Rules Loom  — NDTV Profit Latest
+[BEARISH] AXISBANK.NS,CANBK.NS,HDFCBANK.NS  (-0.66) [off-hours] Banks also count cost of insurance payout curbs  — Economic Times Markets
+[BEARISH] DIVISLAB.NS  (-0.73) [off-hours] Divi's Laboratories shares in focus as weight loss drug receives EU panel backing  — CNBC TV18 Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 12 pair(s) — 12 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 12 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: queued 23 pair(s) — 23 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+  gemini gemini-2.5-flash: http 503
+  gemini gemini-2.0-flash: http 404
+LLM analyst: scored 23 (headline, company) pair(s) with xingchen-agi/xing4.0-29b-a4b:free.
+  novel & strong — DIVISLAB.NS +0.90: Divi's Laboratories shares in focus as weight loss drug receives
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -190,7 +199,7 @@ headline                 735    49.9     47.8    5.1   no edge
   The Hindu Business             17/32 (53%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1104/2197 (50%)
+  VADER  1103/2196 (50%)
   LLM    490/961 (51%)
 
 ML dataset: 10020 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
@@ -297,7 +306,9 @@ ML dataset: 10020 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Mon 19 Oct 02:33 IST) — news gathering only, no trades. Prices below are the last close.
+PLANNED for the 19 Oct open — 2 order(s), each re-checked against fresh prices and news before filling:
+  QUEUE BUY VEDL.NS         score 0.81 — Vedanta doubles South Africa zinc production capacity to 500
+  QUEUE BUY JSWSTEEL.NS     score 0.67 — JSW Steel gets relief as Odisha HC quashes Rs 696 crore dema
 
 Bot equity: Rs 4,726.39 (-5.47% since start) — cash Rs 1,664.41, 4 position(s)
   DLF.NS            1 @ 670.02 -> 675.00 (+0.74%)
@@ -313,15 +324,15 @@ Learned sector weights: {"metals": 1.015, "consumer": 0.846, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 1 macro item(s)
+Alert written: 1 buy idea(s), 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 62 tickers to news_signal.json (window 7d, 825 scored pairs).
-  pipeline_ok=True data_through=2026-10-18T21:00:00+00:00 llm-scored 825/825 pairs (100%)
-  30 of 62 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
-  most negative: ETERNAL.NS -0.90, BANKBARODA.NS -0.71, TMCV.NS -0.50
-  most positive: SHRIRAMFIN.NS +0.80, ADANIPOWER.NS +0.73, VEDL.NS +0.70
+Exported 61 tickers to news_signal.json (window 7d, 832 scored pairs).
+  pipeline_ok=True data_through=2026-10-19T03:00:57+00:00 llm-scored 832/832 pairs (100%)
+  29 of 61 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+  most negative: ETERNAL.NS -0.90, BANKBARODA.NS -0.71, HEROMOTOCO.NS -0.50
+  most positive: DIVISLAB.NS +0.90, SHRIRAMFIN.NS +0.80, ADANIPOWER.NS +0.73
 ```
