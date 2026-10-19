@@ -23,3 +23,9 @@ graphify-out/
 # going forward does not and need not rewrite that.
 news.db
 news-*.db
+
+# Internal, local only
+STATUS.md
+
+# Local data artefacts
+*.pkl

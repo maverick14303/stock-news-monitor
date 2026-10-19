@@ -1,0 +1,15 @@
+# Read by graphify only. Git never reads this file, and neither does the pipeline.
+#
+# digests/ holds one generated markdown report per pipeline run: 910 files on
+# 2026-09-17. graphify parsed each one into a small island of heading nodes with
+# no edges to anything else, so 7,751 of the graph's 7,954 nodes were digests and
+# community detection produced 921 communities, one per island. The code and
+# docs, about 200 nodes, were buried under them.
+#
+# NOT in .gitignore, deliberately: .github/workflows/pipeline.yml runs
+# `git add digests ...` after every run, and git refuses to add an ignored path.
+# Putting this line there would break the daily commit.
+#
+# The digests are still files on disk and still readable by Brain Mark 2. Only
+# the relationship graph stops mapping them.
+digests/

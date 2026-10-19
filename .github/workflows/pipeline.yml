@@ -112,6 +112,11 @@ jobs:
             --body-file ALERT.md \
             --assignee maverick14303
           rm ALERT.md
+          # The issue exists for GitHub's email, not as a record: keep only the
+          # newest digest open (list is newest first). Failure issues stay open.
+          gh issue list --state open --author app/github-actions --search "Stocks in:title" \
+            --limit 100 --json number --jq '.[1:][].number' \
+            | xargs -r -n1 gh issue close --reason "not planned"
       # Open an issue (GitHub emails it) when any pipeline step exits non-zero.
       # cron-job.org only knows whether GitHub ACCEPTED the trigger — it cannot
       # see whether the pipeline worked, so this is the only real health signal.

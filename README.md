@@ -1,5 +1,8 @@
 # Stock News Monitor
 
+> [!NOTE]
+> **Status (September 2026).** Running unattended. Its news overlay into the trading bot was **retired 2026-08-10** and the model currently drives no trading decision.
+
 Scrapes trusted Indian financial news feeds, matches headlines to NSE tickers,
 scores sentiment, and — the important part — **scores itself** against what the
 stock actually did the next trading day.
@@ -84,6 +87,15 @@ results back; no local device needs to be on. Runs are triggered by a
 cron-job.org job calling the workflow_dispatch API (GitHub's native cron lags
 5-15 min and occasionally drops runs).
 
+**Credentials and when they expire.** When the cron-job.org token expires, nothing alerts: the
+runs just stop (this happened on 2026-09-30). Set a calendar reminder a week before each date.
+
+| Credential | Where it lives | Created | Token expiry |
+|---|---|---|---|
+| GitHub PAT for workflow_dispatch | cron-job.org job header only | 2026-10-02 | 2026-12-31 if the default 90 days was kept (unconfirmed: check github.com/settings/tokens) |
+| `GEMINI_API_KEY` | repo Actions secret | 2026-07-02 | no fixed expiry; rotate if leaked |
+| `OPENROUTER_API_KEY` | repo Actions secret | 2026-07-02 | no fixed expiry; rotate if leaked |
+
 **Schedule (IST, weekdays)** — 10 runs, replacing the old hourly 07:00–23:00:
 
 | Time | Why |
@@ -147,3 +159,23 @@ re-enable with `Enable-ScheduledTask StockNewsMonitor` if GitHub ever fails.
 3. **This feeds a real-money bot.** `news_signal.json` is consumed by
    trading-bot's fused momentum+news variants. Changes here affect trading
    decisions there — check `ROADMAP_ML.md §4` before altering the export format.
+
+## What is left
+
+The **Honest limitations** section above is the live list. Two things measured on 2026-09-11 that
+belong with it:
+
+- ~~The graphify graph is fragmented.~~ **Fixed 2026-09-17.** It had 921 communities across 7,954 nodes
+  because 7,751 of those nodes came from the generated reports in `digests/`, each parsed into an island
+  with no edges to anything else. A new [`.graphifyignore`](.graphifyignore) excludes `digests/`, and the
+  graph is now 203 nodes, 323 edges and 12 communities, one per real part of the system. The digests
+  are still on disk and still searchable; only the graph stops mapping them. The exclusion
+  is deliberately not in `.gitignore`, because the pipeline runs `git add digests` after every run and
+  git refuses to add an ignored path.
+- The database is close to the 100 MiB per-file limit while the labelled data inside it is a small
+  fraction of that. Whatever gets built next should not assume the current storage arrangement
+  survives.
+
+## Licence
+
+[MIT](LICENSE).
