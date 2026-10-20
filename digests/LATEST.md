@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-20 11:30
+# Stock digest — 2026-10-20 12:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 115882 articles against 259 alias patterns...
+Rescanning 115923 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -62,66 +62,66 @@ Rescanning 115882 articles against 259 alias patterns...
   ...112000
   ...114000
 
-Done. 115882 articles rescanned.
-  ticker-matched articles: 11880
-  flagged as noise:        6356
-  (article, company) pairs: 10327  — 0 awaiting LLM scoring
+Done. 115923 articles rescanned.
+  ticker-matched articles: 11886
+  flagged as noise:        6358
+  (article, company) pairs: 10332  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 2 new
+[OK] Economic Times Markets: 50 entries, 1 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 1 new
-[OK] Economic Times Industry: 50 entries, 2 new
-[OK] LiveMint Markets: 35 entries, 5 new
-[OK] LiveMint Companies: 35 entries, 0 new
-[OK] LiveMint Money: 35 entries, 2 new
+[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Industry: 50 entries, 3 new
+[OK] LiveMint Markets: 35 entries, 3 new
+[OK] LiveMint Companies: 35 entries, 1 new
+[OK] LiveMint Money: 35 entries, 0 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 0 new
+[OK] BusinessLine Markets: 60 entries, 9 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 0 new
-[OK] BusinessLine Economy: 60 entries, 0 new
+[OK] BusinessLine Economy: 60 entries, 4 new
 [OK] Business Standard Markets: 35 entries, 0 new
 [OK] Business Standard Companies: 35 entries, 0 new
-[OK] Business Standard Finance: 35 entries, 0 new
+[OK] Business Standard Finance: 35 entries, 1 new
 [OK] Business Standard Economy: 35 entries, 0 new
 [OK] NDTV Profit Latest: 20 entries, 7 new
-[OK] TOI Business: 20 entries, 2 new
-[OK] The Hindu Business: 60 entries, 0 new
+[OK] TOI Business: 20 entries, 1 new
+[OK] The Hindu Business: 60 entries, 2 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 1 new
 [OK] CNBC TV18 Markets: 200 entries, 0 new
-[OK] Investing.com India Stocks: 10 entries, 9 new
+[OK] Investing.com India Stocks: 10 entries, 10 new
 [OK] ET International: 50 entries, 3 new
-[OK] BBC Business: 53 entries, 3 new
-[OK] BBC World: 31 entries, 3 new
-[OK] Guardian Business: 40 entries, 0 new
-[OK] Al Jazeera: 25 entries, 1 new
-[OK] CNBC Top News: 30 entries, 0 new
+[OK] BBC Business: 54 entries, 1 new
+[OK] BBC World: 31 entries, 1 new
+[OK] Guardian Business: 40 entries, 7 new
+[OK] Al Jazeera: 25 entries, 4 new
+[OK] CNBC Top News: 30 entries, 2 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
 [OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 0 new
+[OK] OilPrice: 15 entries, 1 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 0 new
+[OK] SCMP Business: 50 entries, 1 new
 
-41 new articles stored, 6 matched to tickers (2 flagged as tracker/listicle/index noise).
+63 new articles stored, 2 matched to tickers (1 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] HINDZINC.NS,VEDL.NS  (+0.81) [off-hours] Why should you buy Vedanta shares despite strong Hindustan Zinc Q2 results 2026? Experts' views, target price  — LiveMint Markets
-[BULLISH] ULTRACEMCO.NS  (+0.46) [off-hours] UltraTech Cement Sees Further Cement Price Hikes As Fuel Costs Squeeze Margins  — NDTV Profit Latest
-[BULLISH] OBEROIRLTY.NS  (+0.42) [off-hours] Buying A Flat? Realty Firm Reveals The Hidden Factor That Can Make An Apartment More Attractive  — NDTV Profit Latest
-[BEARISH] SBIN.NS  (-0.83) [off-hours] SBI cyber fraud: Kerala HC orders  ₹3.73 lakh refund. Can you get a refund after sharing an OTP?  — LiveMint Money
+[BULLISH] NYKAA.NS  (+0.46) [off-hours] Nykaa shares: Anand Rathi initiates coverage on e-commerce stock with 'buy' rating | Check target price, rating  — LiveMint Markets
+[BEARISH] HINDZINC.NS  (-0.32) [off-hours] Hindustan Zinc shares: Experts bullish on Anil Agarwal-led metal stock after robust Q2 results 2026 | Target, stop-loss  — LiveMint Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 5 pair(s) — 5 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 5 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+  gemini gemini-2.5-flash: http 503
+  gemini gemini-2.0-flash: http 404
+LLM analyst: scored 2 (headline, company) pair(s) with minimax/minimax-m3.1-flash:free.
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -184,7 +184,7 @@ headline                 803    49.4     47.8    4.9   no edge
   The Hindu Business             19/38 (50%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1141/2387 (48%)
+  VADER  1140/2386 (48%)
   LLM    528/1044 (51%)
 
 ML dataset: 10313 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
@@ -293,7 +293,7 @@ ML dataset: 10313 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Tue 20 Oct 11:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Tue 20 Oct 12:32 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,696.67 (-6.07% since start) — cash Rs 926.22, 5 position(s)
   DLF.NS            1 @ 670.02 -> 672.85 (+0.42%)
@@ -316,9 +316,9 @@ Alert written: 1 holding(s) with good news
 ## Sentiment export
 
 ```
-Exported 59 tickers to news_signal.json (window 7d, 802 scored pairs).
-  pipeline_ok=True data_through=2026-10-20T06:00:34+00:00 llm-scored 802/802 pairs (100%)
-  23 of 59 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 60 tickers to news_signal.json (window 7d, 800 scored pairs).
+  pipeline_ok=True data_through=2026-10-20T07:00:00+00:00 llm-scored 800/800 pairs (100%)
+  24 of 60 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ETERNAL.NS -0.90, BANKBARODA.NS -0.71, HINDUNILVR.NS -0.50
   most positive: DIVISLAB.NS +0.90, ADANIPOWER.NS +0.90, TMPV.NS +0.83
 ```
