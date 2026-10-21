@@ -1,15 +1,6 @@
 {
-  "cash": 926.2205640792837,
+  "cash": 1602.7749390792837,
   "positions": {
-    "DLF.NS": {
-      "qty": 1,
-      "avg_cost": 670.0208505249024,
-      "opened": "2026-10-05T04:03:19.970859+00:00",
-      "sources": [
-        "LiveMint Companies"
-      ],
-      "thesis": "DLF sells out maiden senior living project Aureva in Gurugram for  \u20b91,985 cr"
-    },
     "TMPV.NS": {
       "qty": 3,
       "avg_cost": 283.0057377624512,
@@ -470,6 +461,15 @@
       "price": 245.45,
       "fee": 1.84,
       "reason": "planned pre-open, score 0.81 (LiveMint Companies): Vedanta doubles South Africa zinc production capacity to 500,000 tonne"
+    },
+    {
+      "time": "2026-10-21T04:04:17.570646+00:00",
+      "action": "sell",
+      "symbol": "DLF.NS",
+      "qty": 1,
+      "price": 678.25,
+      "fee": 1.7,
+      "reason": "time stop after 16d (+1.2%)"
     }
   ],
   "closed": [
@@ -703,6 +703,17 @@
       "win": false,
       "reason": "stop-loss at -7.1%",
       "thesis": "Adani Power, Bhutan's DGPC sign pact to develop 770 MW hydropower project"
+    },
+    {
+      "time": "2026-10-21T04:04:17.570646+00:00",
+      "symbol": "DLF.NS",
+      "sector": "infra",
+      "entry": 670.02,
+      "exit": 678.25,
+      "pnl_pct": 1.23,
+      "win": true,
+      "reason": "time stop after 16d (+1.2%)",
+      "thesis": "DLF sells out maiden senior living project Aureva in Gurugram for  \u20b91,985 cr"
     }
   ],
   "sector_weights": {
@@ -713,7 +724,7 @@
     "fmcg": 0.846,
     "financials": 0.934,
     "pharma": 0.92,
-    "infra": 0.966
+    "infra": 1.014
   },
   "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
