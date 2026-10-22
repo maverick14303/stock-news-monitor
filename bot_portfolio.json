@@ -1,5 +1,5 @@
 {
-  "cash": 1602.7749390792837,
+  "cash": 1090.9986890792838,
   "positions": {
     "TMPV.NS": {
       "qty": 3,
@@ -36,6 +36,15 @@
         "LiveMint Companies"
       ],
       "thesis": "Vedanta doubles South Africa zinc production capacity to 500,000 tonnes with $600 million investment"
+    },
+    "HINDZINC.NS": {
+      "qty": 1,
+      "avg_cost": 511.77625,
+      "opened": "2026-10-22T04:03:39.552253+00:00",
+      "sources": [
+        "LiveMint Markets"
+      ],
+      "thesis": "Should you buy Vedanta shares after subsidiary Hindustan Zinc beats D-Street estimates in Q2 results"
     }
   },
   "trades": [
@@ -470,6 +479,15 @@
       "price": 678.25,
       "fee": 1.7,
       "reason": "time stop after 16d (+1.2%)"
+    },
+    {
+      "time": "2026-10-22T04:03:39.552253+00:00",
+      "action": "buy",
+      "symbol": "HINDZINC.NS",
+      "qty": 1,
+      "price": 510.5,
+      "fee": 1.28,
+      "reason": "planned pre-open, score 0.57 (LiveMint Markets): Should you buy Vedanta shares after subsidiary Hindustan Zinc beats D-"
     }
   ],
   "closed": [
@@ -726,23 +744,8 @@
     "pharma": 0.92,
     "infra": 1.014
   },
-  "pending": [
-    {
-      "symbol": "M&M.NS",
-      "score": 0.596,
-      "title": "Mahindra & Mahindra Fin Q2 results: Net profit jumps 55% to \u20b9882 crore, NII rises 13%",
-      "source": "CNBC TV18 Markets",
-      "queued": "2026-10-22"
-    },
-    {
-      "symbol": "HINDZINC.NS",
-      "score": 0.571,
-      "title": "Should you buy Vedanta shares after subsidiary Hindustan Zinc beats D-Street estimates in Q2 results",
-      "source": "LiveMint Markets",
-      "queued": "2026-10-22"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-10-19"
+  "traded_day": "2026-10-22"
 }
