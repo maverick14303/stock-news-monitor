@@ -726,7 +726,22 @@
     "pharma": 0.92,
     "infra": 1.014
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "M&M.NS",
+      "score": 0.596,
+      "title": "Mahindra & Mahindra Fin Q2 results: Net profit jumps 55% to \u20b9882 crore, NII rises 13%",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-10-22"
+    },
+    {
+      "symbol": "HINDZINC.NS",
+      "score": 0.571,
+      "title": "Should you buy Vedanta shares after subsidiary Hindustan Zinc beats D-Street estimates in Q2 results",
+      "source": "LiveMint Markets",
+      "queued": "2026-10-22"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-10-19"
