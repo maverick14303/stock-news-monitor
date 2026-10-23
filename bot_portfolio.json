@@ -1,24 +1,6 @@
 {
-  "cash": 1090.9986890792838,
+  "cash": 3221.509070167541,
   "positions": {
-    "TMPV.NS": {
-      "qty": 3,
-      "avg_cost": 283.0057377624512,
-      "opened": "2026-10-13T04:03:56.371627+00:00",
-      "sources": [
-        "Economic Times Industry"
-      ],
-      "thesis": "Stellantis, Tata Motors ink passenger vehicle manufacturing pact for global markets"
-    },
-    "BIOCON.NS": {
-      "qty": 2,
-      "avg_cost": 354.2333811187744,
-      "opened": "2026-10-15T04:04:02.480753+00:00",
-      "sources": [
-        "BusinessLine Companies"
-      ],
-      "thesis": "Biocon gets launch clarity for breast cancer biosimilar after Genentech deal"
-    },
     "CANBK.NS": {
       "qty": 7,
       "avg_cost": 119.01680122375488,
@@ -27,15 +9,6 @@
         "The Hindu Business"
       ],
       "thesis": "Canara Bank\u2019s Q2 net profit rises to \u20b95,175 crore; global business crosses \u20b930.72 lakh crore"
-    },
-    "VEDL.NS": {
-      "qty": 3,
-      "avg_cost": 246.06362194061282,
-      "opened": "2026-10-19T04:02:45.674934+00:00",
-      "sources": [
-        "LiveMint Companies"
-      ],
-      "thesis": "Vedanta doubles South Africa zinc production capacity to 500,000 tonnes with $600 million investment"
     },
     "HINDZINC.NS": {
       "qty": 1,
@@ -488,6 +461,33 @@
       "price": 510.5,
       "fee": 1.28,
       "reason": "planned pre-open, score 0.57 (LiveMint Markets): Should you buy Vedanta shares after subsidiary Hindustan Zinc beats D-"
+    },
+    {
+      "time": "2026-10-23T04:03:45.509976+00:00",
+      "action": "sell",
+      "symbol": "TMPV.NS",
+      "qty": 3,
+      "price": 266.25,
+      "fee": 2.0,
+      "reason": "negative news (-0.70) at -5.9%"
+    },
+    {
+      "time": "2026-10-23T04:03:45.509976+00:00",
+      "action": "sell",
+      "symbol": "BIOCON.NS",
+      "qty": 2,
+      "price": 328.2,
+      "fee": 1.64,
+      "reason": "stop-loss at -7.3%"
+    },
+    {
+      "time": "2026-10-23T04:03:45.509976+00:00",
+      "action": "sell",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 226.9,
+      "fee": 1.7,
+      "reason": "stop-loss at -7.8%"
     }
   ],
   "closed": [
@@ -732,16 +732,49 @@
       "win": true,
       "reason": "time stop after 16d (+1.2%)",
       "thesis": "DLF sells out maiden senior living project Aureva in Gurugram for  \u20b91,985 cr"
+    },
+    {
+      "time": "2026-10-23T04:03:45.509976+00:00",
+      "symbol": "TMPV.NS",
+      "sector": "consumer",
+      "entry": 283.01,
+      "exit": 266.25,
+      "pnl_pct": -5.92,
+      "win": false,
+      "reason": "negative news (-0.70) at -5.9%",
+      "thesis": "Stellantis, Tata Motors ink passenger vehicle manufacturing pact for global markets"
+    },
+    {
+      "time": "2026-10-23T04:03:45.509976+00:00",
+      "symbol": "BIOCON.NS",
+      "sector": "pharma",
+      "entry": 354.23,
+      "exit": 328.2,
+      "pnl_pct": -7.35,
+      "win": false,
+      "reason": "stop-loss at -7.3%",
+      "thesis": "Biocon gets launch clarity for breast cancer biosimilar after Genentech deal"
+    },
+    {
+      "time": "2026-10-23T04:03:45.509976+00:00",
+      "symbol": "VEDL.NS",
+      "sector": "metals",
+      "entry": 246.06,
+      "exit": 226.9,
+      "pnl_pct": -7.79,
+      "win": false,
+      "reason": "stop-loss at -7.8%",
+      "thesis": "Vedanta doubles South Africa zinc production capacity to 500,000 tonnes with $600 million investment"
     }
   ],
   "sector_weights": {
-    "metals": 1.015,
-    "consumer": 0.846,
+    "metals": 0.934,
+    "consumer": 0.778,
     "energy": 0.606,
     "it": 0.92,
     "fmcg": 0.846,
     "financials": 0.934,
-    "pharma": 0.92,
+    "pharma": 0.846,
     "infra": 1.014
   },
   "pending": [],
