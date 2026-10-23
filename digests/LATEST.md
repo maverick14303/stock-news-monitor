@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-23 10:30
+# Stock digest — 2026-10-23 11:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 119458 articles against 259 alias patterns...
+Rescanning 119559 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -64,103 +64,96 @@ Rescanning 119458 articles against 259 alias patterns...
   ...116000
   ...118000
 
-Done. 119458 articles rescanned.
-  ticker-matched articles: 12313
-  flagged as noise:        6595
-  (article, company) pairs: 10661  — 0 awaiting LLM scoring
+Done. 119559 articles rescanned.
+  ticker-matched articles: 12347
+  flagged as noise:        6621
+  (article, company) pairs: 10680  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 40 new
-[OK] Economic Times Stocks: 50 entries, 1 new
-[OK] Economic Times Economy: 50 entries, 0 new
-[OK] Economic Times Industry: 50 entries, 3 new
-[OK] LiveMint Markets: 35 entries, 3 new
-[OK] LiveMint Companies: 35 entries, 1 new
-[OK] LiveMint Money: 35 entries, 1 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 6 new
+[OK] Economic Times Markets: 50 entries, 18 new
+[OK] Economic Times Stocks: 50 entries, 4 new
+[OK] Economic Times Economy: 50 entries, 1 new
+[OK] Economic Times Industry: 50 entries, 1 new
+[OK] LiveMint Markets: 35 entries, 4 new
+[OK] LiveMint Companies: 35 entries, 2 new
+[OK] LiveMint Money: 35 entries, 3 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 2 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 1 new
-[OK] BusinessLine Economy: 60 entries, 1 new
-[OK] Business Standard Markets: 35 entries, 7 new
-[OK] Business Standard Companies: 35 entries, 1 new
+[OK] BusinessLine Companies: 60 entries, 2 new
+[OK] BusinessLine Economy: 60 entries, 2 new
+[OK] Business Standard Markets: 35 entries, 5 new
+[OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 1 new
-[OK] Business Standard Economy: 35 entries, 1 new
-[OK] NDTV Profit Latest: 20 entries, 10 new
+[OK] Business Standard Economy: 35 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 0 new
 [OK] TOI Business: 20 entries, 0 new
-[OK] The Hindu Business: 60 entries, 0 new
+[OK] The Hindu Business: 60 entries, 3 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 2 new
+[OK] News18 Business: 200 entries, 1 new
 [OK] CNBC TV18 Markets: 200 entries, 4 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 4 new
-[OK] BBC Business: 57 entries, 0 new
-[OK] BBC World: 37 entries, 0 new
-[OK] Guardian Business: 40 entries, 0 new
-[OK] Al Jazeera: 25 entries, 3 new
+[OK] ET International: 46 entries, 2 new
+[OK] BBC Business: 57 entries, 2 new
+[OK] BBC World: 28 entries, 2 new
+[OK] Guardian Business: 40 entries, 11 new
+[OK] Al Jazeera: 25 entries, 0 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 26 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
 [OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 0 new
+[OK] OilPrice: 15 entries, 1 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] SCMP Business: 50 entries, 0 new
 
-101 new articles stored, 34 matched to tickers (26 flagged as tracker/listicle/index noise).
+82 new articles stored, 14 matched to tickers (20 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] KOTAKBANK.NS  (+0.99)  Kotak Mahindra Bank Q2 results preview: PAT may rise up to 32% YoY; margins, loan growth in focus  — Economic Times Markets
-[BULLISH] INFY.NS  (+0.97)  Infosys shares jump 3% ahead of Q2 earnings announcement. What to expect?  — Economic Times Markets
-[BULLISH] HAVELLS.NS  (+0.94)  Havells India gains nearly 2% after Q2 results; brokerages split on outlook  — Business Standard Markets
-[BULLISH] HINDALCO.NS,PAYTM.NS,VEDL.NS  (+0.91) [off-hours] Nomura, Axis initiate coverage on 8 stocks with up to 30% upside potential. See full list  — Economic Times Markets
-[BULLISH] BEL.NS  (+0.82)  Bharat Electronics remains PL Capital’s top defence pick as order inflows gather pace in Q4  — CNBC TV18 Markets
-[BULLISH] HINDALCO.NS,VEDL.NS  (+0.78)  Accumulate aluminium stocks on dips; Hindalco remains top pick: Motilal Oswal's Siddhartha Khemka  — CNBC TV18 Markets
-[BULLISH] INFY.NS  (+0.78)  Infosys share price: IT major jumps 4% ahead of its Q2 results, dividend 2026 announcement today: What to expect?  — LiveMint Markets
-[BULLISH] HINDPETRO.NS  (+0.30)  HPCL shares in focus as Q1 net profit slips 6% YoY, revenue rises 26%. Should you buy?  — Economic Times Markets
-[BULLISH] HAVELLS.NS  (+0.30)  From Havells To Cyient Q2 Results Review: HDFC Securities Sees Up To 74% Upside; Check Target Prices  — NDTV Profit Latest
-[BULLISH] BPCL.NS,HINDPETRO.NS,IOC.NS  (+0.27)  OMC stocks in troubled waters? BPCL, HPCL, IOCL shares slump up to 2%; Brent at $114/barrel | What should investors do?  — LiveMint Markets
-[neutral] CIPLA.NS  (+0.08) [off-hours] Cipla subsidiary clears USFDA inspection with zero observations  — Economic Times Industry
-[neutral] HCLTECH.NS,INFY.NS,TCS.NS  (+0.00)  IT stocks reverse course, buck global AI rout; Brent at $114 caps market recovery  — BusinessLine Markets
+[neutral] INDIGO.NS  (+0.00)  Indigo Q2 results 2026 date &amp; time: Interglobe Aviation Quarterly earnings preview, announcement schedule | Details here  — LiveMint Markets
+[neutral] CIPLA.NS  (+0.00)  USFDA concludes inspection at Cipla arm InvaGen's New York facility with 'zero' observations  — BusinessLine Companies
+[BEARISH] HINDZINC.NS  (-0.44)  Hindustan Zinc shares drop 4% as India allows large silver imports despite weak demand  — Economic Times Markets
+[BEARISH] ETERNAL.NS  (-0.66)  Motilal Oswal prefers Eternal over Swiggy as Blinkit widens its lead over Instamart  — CNBC TV18 Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 19 pair(s) — 19 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 19 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — CIPLA.NS +0.70: Cipla subsidiary clears USFDA inspection with zero observations
+LLM analyst: queued 4 pair(s) — 4 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+  gemini gemini-2.5-flash: http 503
+  gemini gemini-2.0-flash: http 404
+LLM analyst: scored 4 (headline, company) pair(s) with recursive/flint-v1.0:free.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1097, 1-day horizon) ===
+=== Recent signals (last 15 of 1095, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
-2026-10-21  SBIN.NS         -0.50   +0.73  no   SBI investigates dark web leak of 3.8 lakh records
-2026-10-21  SBIN.NS         -0.50   +0.73  no   SBI investigates dark web leak of 3.8 lakh records
-2026-10-21  SBIN.NS         -0.50   +0.73  no   SBI probes dark web exposure of nearly 3,900 customer r
-2026-10-21  SBIN.NS         -0.50   +0.73  no   SBI probes suspected data breach after 3.75 lakh record
-2026-10-21  SBIN.NS         -0.40   +0.73  no   SBI data leak: Nearly 4,000 customer records found on d
 2026-10-21  SBIN.NS         +0.50   +0.73  YES  Indian banks open cheque books for ₹10,000 crore-plus i
 2026-10-21  SBIN.NS         +0.50   +0.73  YES  Indian banks open cheque books for ₹10,000 crore-plus i
-2026-10-21  TCS.NS          +0.50   +1.18  YES  Two IT stocks that currently offer the best risk-reward
-2026-10-21  ULTRACEMCO.NS   +0.40   -0.33  no   UltraTech up 3% post Q2; Jefferies says cement price re
+2026-10-21  TCS.NS          +0.50   +1.47  YES  Two IT stocks that currently offer the best risk-reward
+2026-10-21  ULTRACEMCO.NS   +0.40   +0.18  YES  UltraTech up 3% post Q2; Jefferies says cement price re
 2026-10-21  VEDL.NS         +0.30   -0.84  no   Should you buy Vedanta shares after subsidiary Hindusta
-2026-10-21  ZYDUSLIFE.NS    +0.70   +0.83  YES  Zydus Lifesciences gets USFDA nod for menopause treatme
-2026-10-22  ETERNAL.NS      +0.50   -0.20  no   Can AI keep your secrets safe? Eternal's dark.ai to off
-2026-10-22  HINDALCO.NS     +0.50   -4.38  no   Vedanta Aluminium shares can jump 40%; Nomura recommend
-2026-10-22  MAZDOCK.NS      -0.70   -2.72  YES  'Sell these defence stocks' is the word from Goldman Sa
-2026-10-22  VEDL.NS         +0.70   -4.28  no   Vedanta Aluminium shares can jump 40%; Nomura recommend
+2026-10-21  ZYDUSLIFE.NS    +0.70   +1.06  YES  Zydus Lifesciences gets USFDA nod for menopause treatme
+2026-10-22  DABUR.NS        -0.90   -2.84  YES  The food Indians buy is changing, and so is the scrutin
+2026-10-22  ETERNAL.NS      +0.50   +1.81  YES  Can AI keep your secrets safe? Eternal's dark.ai to off
+2026-10-22  HINDALCO.NS     +0.50   -4.03  no   Vedanta Aluminium shares can jump 40%; Nomura recommend
+2026-10-22  HINDUNILVR.NS   -0.90   -1.72  YES  The food Indians buy is changing, and so is the scrutin
+2026-10-22  ITC.NS          -0.90   -1.22  YES  The food Indians buy is changing, and so is the scrutin
+2026-10-22  KEI.NS          -0.50   -4.63  YES  KEI Industries share price plunges 10%, nears 52-week l
+2026-10-22  KEI.NS          -0.50   -4.63  YES  KEI Industries shares tumble 8% despite Q2 profit risin
+2026-10-22  MAZDOCK.NS      -0.70   -2.88  YES  'Sell these defence stocks' is the word from Goldman Sa
+2026-10-22  VEDL.NS         +0.70   -4.07  no   Vedanta Aluminium shares can jump 40%; Nomura recommend
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1097    49.1     49.5    4.2   no edge
-3d                      1009    44.4     45.2    4.3   no edge
-5d                       848    46.9     46.6    4.7   no edge
+1d                      1095    49.7     50.0    4.2   no edge
+3d                      1002    44.5     45.7    4.4   no edge
+5d                       841    47.0     46.7    4.8   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -170,35 +163,35 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              720    50.8     51.2    5.2   no edge
-in-session               377    45.9     46.2    7.1   no edge
+in-session               375    47.5     47.5    7.2   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
-descriptive              131    41.2     44.3   12.0   no edge
-novel                    966    50.2     50.2    4.5   no edge
+descriptive              130    43.8     46.2   12.1   no edge
+novel                    965    50.5     50.5    4.5   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
-body mention             243    52.7     51.4    8.9   no edge
-headline                 854    48.1     48.9    4.7   no edge
+body mention             246    53.3     52.0    8.8   no edge
+headline                 849    48.6     49.4    4.8   no edge
 
 === By source (1-day, raw direction) ===
-  Economic Times Industry        75/154 (49%)
-  CNBC TV18 Markets              79/153 (52%)
-  Economic Times Markets         62/130 (48%)
+  Economic Times Industry        78/157 (50%)
+  CNBC TV18 Markets              79/152 (52%)
+  Economic Times Markets         63/129 (49%)
   NDTV Profit Latest             63/127 (50%)
-  Business Standard Companies    41/81 (51%)
+  Business Standard Companies    42/81 (52%)
   BusinessLine Companies         45/81 (56%)
   LiveMint Markets               36/80 (45%)
-  Business Standard Markets      19/61 (31%)
+  Business Standard Markets      21/60 (35%)
   LiveMint Companies             25/50 (50%)
   The Hindu Business             22/43 (51%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1164/2527 (46%)
-  LLM    539/1097 (49%)
+  VADER  1167/2519 (46%)
+  LLM    544/1095 (50%)
 
-ML dataset: 10680 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 10688 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -4.55%  Coal India's SECL strengthens monsoon measures for
@@ -294,40 +287,40 @@ ML dataset: 10680 labelled (article, company) rows — see ROADMAP_ML.md for the
   2026-10-13  SHRIRAMFIN.NS    -8.41%  Japan's largest bank MUFG weighs $10 billion-plus 
   2026-10-13  NTPC.NS          -2.57%  NTPC plans ₹17 lakh crore investment over 10 years
   2026-10-14  BIOCON.NS        -5.90%  Biocon clears path for cancer drug launch
-  2026-10-15  BHEL.NS         -15.52%  BHEL Buy Or Sell? Analysts raise targets but remai
-  2026-10-15  CANBK.NS         +0.29%  Canara Bank’s Q2 net profit rises to ₹5,175 crore;
-  2026-10-17  HDFCBANK.NS      -5.60%  HDFC Bank’s post-merger integration work largely b
-  2026-10-18  VEDL.NS          -8.66%  Vedanta doubles South Africa zinc production capac
-  2026-10-22  ETERNAL.NS       -2.72%  Eternal Q2 Review: 35% Rally Ahead? Motilal Oswal 
-  → 49/98 positive, avg -0.32%
+  2026-10-15  BHEL.NS         -14.80%  BHEL Buy Or Sell? Analysts raise targets but remai
+  2026-10-15  CANBK.NS         -0.28%  Canara Bank’s Q2 net profit rises to ₹5,175 crore;
+  2026-10-17  HDFCBANK.NS      -5.31%  HDFC Bank’s post-merger integration work largely b
+  2026-10-18  VEDL.NS          -8.45%  Vedanta doubles South Africa zinc production capac
+  2026-10-22  ETERNAL.NS       -0.77%  Eternal Q2 Review: 35% Rally Ahead? Motilal Oswal 
+  → 48/98 positive, avg -0.29%
 ```
 
 ## Bot account (self-trading)
 
 ```
+BOT SOLD 1 x HINDZINC.NS @ Rs 496.40 (-3.00%) — negative news (-0.50) at -3.0%
 No pre-open plan for today — no entries. (Entries are queued by the 08:15 run; exits still run.)
 
-Bot equity: Rs 4,539.22 (-9.22% since start) — cash Rs 3,221.51, 2 position(s)
-  CANBK.NS          7 @ 119.02 -> 117.43 (-1.33%)
-  HINDZINC.NS       1 @ 511.78 -> 495.70 (-3.14%)
-Record: 6/25 wins, avg -1.91% per trade
+Bot equity: Rs 4,533.99 (-9.32% since start) — cash Rs 3,716.67, 1 position(s)
+  CANBK.NS          7 @ 119.02 -> 116.76 (-1.90%)
+Record: 6/26 wins, avg -1.95% per trade
 Learned source trust — high: Business Standard Economy 1.40, The Hindu Economy 1.40, LiveMint Companies 1.13
                        low: Economic Times Economy 0.80, LiveMint Money 0.72, Business Standard Finance 0.67
-Learned sector weights: {"metals": 0.934, "consumer": 0.778, "energy": 0.606, "it": 0.92, "fmcg": 0.846, "financials": 0.934, "pharma": 0.846, "infra": 1.014}
+Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "it": 0.92, "fmcg": 0.846, "financials": 0.934, "pharma": 0.846, "infra": 1.014}
 ```
 
 ## Alert scan
 
 ```
-Alert written: 1 buy idea(s), bot made 3 trade(s), 1 macro item(s)
+Alert written: 1 buy idea(s), bot made 1 trade(s), 4 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 59 tickers to news_signal.json (window 7d, 747 scored pairs).
-  pipeline_ok=True data_through=2026-10-23T05:00:20+00:00 llm-scored 747/747 pairs (100%)
-  29 of 59 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 59 tickers to news_signal.json (window 7d, 740 scored pairs).
+  pipeline_ok=True data_through=2026-10-23T05:56:31+00:00 llm-scored 740/740 pairs (100%)
+  30 of 59 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: HINDUNILVR.NS -0.50, INFY.NS -0.50, KEI.NS -0.50
-  most positive: DIVISLAB.NS +0.90, CIPLA.NS +0.70, ZYDUSLIFE.NS +0.70
+  most positive: DIVISLAB.NS +0.90, ZYDUSLIFE.NS +0.70, LT.NS +0.60
 ```

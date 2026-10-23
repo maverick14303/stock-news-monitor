@@ -1,5 +1,5 @@
 {
-  "cash": 3221.509070167541,
+  "cash": 3716.668064079284,
   "positions": {
     "CANBK.NS": {
       "qty": 7,
@@ -9,15 +9,6 @@
         "The Hindu Business"
       ],
       "thesis": "Canara Bank\u2019s Q2 net profit rises to \u20b95,175 crore; global business crosses \u20b930.72 lakh crore"
-    },
-    "HINDZINC.NS": {
-      "qty": 1,
-      "avg_cost": 511.77625,
-      "opened": "2026-10-22T04:03:39.552253+00:00",
-      "sources": [
-        "LiveMint Markets"
-      ],
-      "thesis": "Should you buy Vedanta shares after subsidiary Hindustan Zinc beats D-Street estimates in Q2 results"
     }
   },
   "trades": [
@@ -488,6 +479,15 @@
       "price": 226.9,
       "fee": 1.7,
       "reason": "stop-loss at -7.8%"
+    },
+    {
+      "time": "2026-10-23T06:03:42.229815+00:00",
+      "action": "sell",
+      "symbol": "HINDZINC.NS",
+      "qty": 1,
+      "price": 496.4,
+      "fee": 1.24,
+      "reason": "negative news (-0.50) at -3.0%"
     }
   ],
   "closed": [
@@ -765,10 +765,21 @@
       "win": false,
       "reason": "stop-loss at -7.8%",
       "thesis": "Vedanta doubles South Africa zinc production capacity to 500,000 tonnes with $600 million investment"
+    },
+    {
+      "time": "2026-10-23T06:03:42.229815+00:00",
+      "symbol": "HINDZINC.NS",
+      "sector": "metals",
+      "entry": 511.78,
+      "exit": 496.4,
+      "pnl_pct": -3.0,
+      "win": false,
+      "reason": "negative news (-0.50) at -3.0%",
+      "thesis": "Should you buy Vedanta shares after subsidiary Hindustan Zinc beats D-Street estimates in Q2 results"
     }
   ],
   "sector_weights": {
-    "metals": 0.934,
+    "metals": 0.859,
     "consumer": 0.778,
     "energy": 0.606,
     "it": 0.92,
