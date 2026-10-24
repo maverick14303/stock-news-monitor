@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-24 13:30
+# Stock digest — 2026-10-24 14:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 120792 articles against 259 alias patterns...
+Rescanning 120833 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -65,43 +65,43 @@ Rescanning 120792 articles against 259 alias patterns...
   ...118000
   ...120000
 
-Done. 120792 articles rescanned.
-  ticker-matched articles: 12523
+Done. 120833 articles rescanned.
+  ticker-matched articles: 12525
   flagged as noise:        6672
-  (article, company) pairs: 10847  — 0 awaiting LLM scoring
+  (article, company) pairs: 10849  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 0 new
+[OK] Economic Times Markets: 50 entries, 2 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 2 new
-[OK] Economic Times Industry: 50 entries, 1 new
+[OK] Economic Times Economy: 50 entries, 1 new
+[OK] Economic Times Industry: 50 entries, 2 new
 [OK] LiveMint Markets: 35 entries, 1 new
-[OK] LiveMint Companies: 35 entries, 1 new
-[OK] LiveMint Money: 35 entries, 3 new
+[OK] LiveMint Companies: 35 entries, 2 new
+[OK] LiveMint Money: 35 entries, 1 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 0 new
+[OK] BusinessLine Markets: 60 entries, 2 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 0 new
 [OK] BusinessLine Economy: 60 entries, 2 new
-[OK] Business Standard Markets: 35 entries, 1 new
+[OK] Business Standard Markets: 35 entries, 0 new
 [OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
-[OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 6 new
-[OK] TOI Business: 20 entries, 1 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] Business Standard Economy: 35 entries, 1 new
+[OK] NDTV Profit Latest: 20 entries, 0 new
+[OK] TOI Business: 20 entries, 0 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 1 new
+[OK] CNBC TV18 Markets: 200 entries, 2 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 4 new
+[OK] ET International: 50 entries, 0 new
 [OK] BBC Business: 55 entries, 0 new
-[OK] BBC World: 27 entries, 2 new
-[OK] Guardian Business: 38 entries, 2 new
-[OK] Al Jazeera: 25 entries, 3 new
+[OK] BBC World: 27 entries, 0 new
+[OK] Guardian Business: 38 entries, 0 new
+[OK] Al Jazeera: 25 entries, 6 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 25 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
@@ -111,26 +111,29 @@ Done. 120792 articles rescanned.
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 0 new
 
-41 new articles stored, 2 matched to tickers (0 flagged as tracker/listicle/index noise).
+32 new articles stored, 5 matched to tickers (0 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] INFY.NS  (+0.73) [off-hours] Infosys shares: Should you buy the IT stock after Q2 results, dividend 2026 announcement? Expert view on what to do  — LiveMint Markets
-[BULLISH] SBIN.NS  (+0.30) [off-hours] Mutual funds got 65% of EAAA India Alternatives IPO anchor book: Which schemes will own shares of the Edelweiss company?  — LiveMint Money
+[BULLISH] KOTAKBANK.NS  (+0.99) [off-hours] Kotak Mahindra Bank Q2 results: Consolidated PAT rises 26% YoY to Rs 5,645 crore;  NII up 16%  — Economic Times Markets
+[BULLISH] KOTAKBANK.NS  (+0.93) [off-hours] Kotak Mahindra Bank Q2 results: Net profit jumps 29.5%, NII rises nearly 16%  — CNBC TV18 Markets
+[BULLISH] POWERGRID.NS  (+0.84) [off-hours] KEC International bags Rs 2,872 crore PGCIL orders for 765 kV transmission lines  — Economic Times Industry
+[BULLISH] SIEMENS.NS  (+0.38) [off-hours] German firms see India as manufacturing, R&D hub, not just market: Goyal  — Business Standard Economy
+[neutral] SHRIRAMFIN.NS  (+0.00) [off-hours] Dividend, split, rights issue, buyback next week: Hexaware Tech, Cyient, RailTel to Sagility - Check record dates  — LiveMint Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: queued 5 pair(s) — 5 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
   gemini gemini-2.5-flash: http 503
   gemini gemini-2.0-flash: http 404
-LLM analyst: scored 2 (headline, company) pair(s) with recursive/flint-v1.0:free.
+LLM analyst: scored 5 (headline, company) pair(s) with recursive/flint-v1.0:free.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1077, 1-day horizon) ===
+=== Recent signals (last 15 of 1076, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-10-22  KEI.NS          -0.50   -3.82  YES  KEI Industries share price plunges 10%, nears 52-week l
 2026-10-22  KEI.NS          -0.50   -3.82  YES  KEI Industries shares tumble 8% despite Q2 profit risin
@@ -150,9 +153,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1077    49.9     49.5    4.2   no edge
-3d                       952    44.2     46.5    4.5   no edge
-5d                       799    46.8     46.3    4.9   no edge
+1d                      1076    49.8     49.4    4.2   no edge
+3d                       968    44.4     46.8    4.4   no edge
+5d                       798    46.9     46.2    4.9   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -162,22 +165,22 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              717    51.6     51.3    5.2   no edge
-in-session               360    46.4     45.8    7.3   no edge
+in-session               359    46.2     45.7    7.3   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              124    42.7     45.2   12.4   no edge
-novel                    953    50.8     50.1    4.5   no edge
+novel                    952    50.7     50.0    4.5   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             235    51.1     50.2    9.0   no edge
-headline                 842    49.5     49.3    4.8   no edge
+headline                 841    49.5     49.2    4.8   no edge
 
 === By source (1-day, raw direction) ===
   Economic Times Industry        77/154 (50%)
   CNBC TV18 Markets              73/144 (51%)
-  Economic Times Markets         67/134 (50%)
+  Economic Times Markets         66/133 (50%)
   NDTV Profit Latest             61/124 (49%)
   BusinessLine Companies         47/84 (56%)
   Business Standard Companies    42/83 (51%)
@@ -187,8 +190,8 @@ headline                 842    49.5     49.3    4.8   no edge
   The Hindu Business             26/47 (55%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1141/2483 (46%)
-  LLM    537/1077 (50%)
+  VADER  1138/2477 (46%)
+  LLM    536/1076 (50%)
 
 ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -297,7 +300,7 @@ ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sat 24 Oct 13:34 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sat 24 Oct 14:34 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,529.79 (-9.40% since start) — cash Rs 3,716.67, 1 position(s)
   CANBK.NS          7 @ 119.02 -> 116.16 (-2.40%)
@@ -310,15 +313,15 @@ Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 1 buy idea(s), 1 macro item(s)
+Alert written: 1 buy idea(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 68 tickers to news_signal.json (window 7d, 804 scored pairs).
-  pipeline_ok=True data_through=2026-10-24T07:51:40+00:00 llm-scored 804/804 pairs (100%)
-  30 of 68 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 69 tickers to news_signal.json (window 7d, 801 scored pairs).
+  pipeline_ok=True data_through=2026-10-24T08:52:57+00:00 llm-scored 801/801 pairs (100%)
+  31 of 69 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: INFY.NS -0.64, HINDUNILVR.NS -0.50, SUNPHARMA.NS -0.50
   most positive: DIVISLAB.NS +0.90, ADANIPOWER.NS +0.88, JSWSTEEL.NS +0.80
 ```
