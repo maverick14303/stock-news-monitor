@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-25 08:30
+# Stock digest — 2026-10-25 09:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 121192 articles against 259 alias patterns...
+Rescanning 121256 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -65,65 +65,70 @@ Rescanning 121192 articles against 259 alias patterns...
   ...118000
   ...120000
 
-Done. 121192 articles rescanned.
-  ticker-matched articles: 12558
-  flagged as noise:        6676
+Done. 121256 articles rescanned.
+  ticker-matched articles: 12560
+  flagged as noise:        6678
   (article, company) pairs: 10884  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 0 new
+[OK] Economic Times Markets: 50 entries, 1 new
 [OK] Economic Times Stocks: 50 entries, 0 new
 [OK] Economic Times Economy: 50 entries, 0 new
-[OK] Economic Times Industry: 50 entries, 1 new
-[OK] LiveMint Markets: 35 entries, 1 new
+[OK] Economic Times Industry: 50 entries, 2 new
+[OK] LiveMint Markets: 35 entries, 0 new
 [OK] LiveMint Companies: 35 entries, 0 new
-[OK] LiveMint Money: 35 entries, 6 new
+[OK] LiveMint Money: 35 entries, 1 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 0 new
+[OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 0 new
-[OK] BusinessLine Economy: 60 entries, 0 new
-[OK] Business Standard Markets: 35 entries, 1 new
+[OK] BusinessLine Economy: 60 entries, 2 new
+[OK] Business Standard Markets: 35 entries, 0 new
 [OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 8 new
-[OK] TOI Business: 20 entries, 2 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] NDTV Profit Latest: 20 entries, 7 new
+[OK] TOI Business: 20 entries, 0 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 0 new
-[OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 10 new
-[OK] BBC Business: 55 entries, 1 new
-[OK] BBC World: 31 entries, 2 new
-[OK] Guardian Business: 35 entries, 3 new
-[OK] Al Jazeera: 25 entries, 15 new
+[OK] Investing.com India Stocks: 10 entries, 2 new
+[OK] ET International: 50 entries, 1 new
+[OK] BBC Business: 55 entries, 0 new
+[OK] BBC World: 31 entries, 0 new
+[OK] Guardian Business: 35 entries, 0 new
+[OK] Al Jazeera: 25 entries, 2 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 26 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 49 entries, 1 new
+[OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 1 new
+[OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] SCMP Business: 50 entries, 0 new
 
-64 new articles stored, 2 matched to tickers (2 flagged as tracker/listicle/index noise).
+19 new articles stored, 2 matched to tickers (0 flagged as tracker/listicle/index noise).
+
+=== New signals ===
+[BULLISH] IOC.NS  (+0.66) [off-hours] OMCs back interim LPG distributors' commission hike; ministry approval awaited: AIHPGDA  — Economic Times Industry
+[BEARISH] INDIGO.NS  (-0.82) [off-hours] Air India and AI Express cancel Riyadh, Dammam flights till Nov 7  — BusinessLine Economy
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: nothing new to score.
+LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 2 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1065, 1-day horizon) ===
+=== Recent signals (last 15 of 1064, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-10-22  KEI.NS          -0.50   -3.82  YES  KEI Industries share price plunges 10%, nears 52-week l
 2026-10-22  KEI.NS          -0.50   -3.82  YES  KEI Industries shares tumble 8% despite Q2 profit risin
@@ -143,9 +148,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1065    49.6     49.2    4.2   no edge
-3d                       957    44.2     46.7    4.5   no edge
-5d                       787    46.6     46.3    4.9   no edge
+1d                      1064    49.5     49.2    4.2   no edge
+3d                       956    44.1     46.7    4.5   no edge
+5d                       786    46.6     46.2    4.9   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -154,18 +159,18 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              709    51.3     51.1    5.2   no edge
+after-hours              708    51.3     51.0    5.2   no edge
 in-session               356    46.1     45.5    7.3   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              123    42.3     44.7   12.4   no edge
-novel                    942    50.5     49.8    4.5   no edge
+novel                    941    50.5     49.7    4.5   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             233    51.1     50.2    9.1   no edge
-headline                 832    49.2     48.9    4.8   no edge
+headline                 831    49.1     48.9    4.8   no edge
 
 === By source (1-day, raw direction) ===
   Economic Times Industry        76/153 (50%)
@@ -180,8 +185,8 @@ headline                 832    49.2     48.9    4.8   no edge
   The Hindu Business             26/47 (55%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1117/2445 (46%)
-  LLM    528/1065 (50%)
+  VADER  1112/2438 (46%)
+  LLM    527/1064 (50%)
 
 ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -290,7 +295,7 @@ ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 25 Oct 08:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 25 Oct 09:32 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,529.79 (-9.40% since start) — cash Rs 3,716.67, 1 position(s)
   CANBK.NS          7 @ 119.02 -> 116.16 (-2.40%)
@@ -309,8 +314,8 @@ No alerts this window.
 ## Sentiment export
 
 ```
-Exported 67 tickers to news_signal.json (window 7d, 767 scored pairs).
-  pipeline_ok=True data_through=2026-10-25T02:52:10+00:00 llm-scored 767/767 pairs (100%)
+Exported 67 tickers to news_signal.json (window 7d, 766 scored pairs).
+  pipeline_ok=True data_through=2026-10-25T03:55:11+00:00 llm-scored 766/766 pairs (100%)
   29 of 67 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: INFY.NS -0.64, SUNPHARMA.NS -0.50, NATIONALUM.NS -0.50
   most positive: DIVISLAB.NS +0.90, ADANIPOWER.NS +0.88, JSWSTEEL.NS +0.80
