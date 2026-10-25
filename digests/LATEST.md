@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-25 09:30
+# Stock digest — 2026-10-25 10:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 121256 articles against 259 alias patterns...
+Rescanning 121275 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -65,43 +65,43 @@ Rescanning 121256 articles against 259 alias patterns...
   ...118000
   ...120000
 
-Done. 121256 articles rescanned.
-  ticker-matched articles: 12560
+Done. 121275 articles rescanned.
+  ticker-matched articles: 12562
   flagged as noise:        6678
-  (article, company) pairs: 10884  — 0 awaiting LLM scoring
+  (article, company) pairs: 10886  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 1 new
+[OK] Economic Times Markets: 50 entries, 4 new
 [OK] Economic Times Stocks: 50 entries, 0 new
 [OK] Economic Times Economy: 50 entries, 0 new
-[OK] Economic Times Industry: 50 entries, 2 new
-[OK] LiveMint Markets: 35 entries, 0 new
+[OK] Economic Times Industry: 50 entries, 1 new
+[OK] LiveMint Markets: 35 entries, 2 new
 [OK] LiveMint Companies: 35 entries, 0 new
-[OK] LiveMint Money: 35 entries, 1 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 1 new
+[OK] LiveMint Money: 35 entries, 0 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 0 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 1 new
 [OK] BusinessLine Economy: 60 entries, 2 new
 [OK] Business Standard Markets: 35 entries, 0 new
 [OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 7 new
-[OK] TOI Business: 20 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 0 new
+[OK] TOI Business: 20 entries, 1 new
 [OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 0 new
-[OK] Investing.com India Stocks: 10 entries, 2 new
-[OK] ET International: 50 entries, 1 new
-[OK] BBC Business: 55 entries, 0 new
+[OK] CNBC TV18 Markets: 200 entries, 1 new
+[OK] Investing.com India Stocks: 10 entries, 3 new
+[OK] ET International: 50 entries, 2 new
+[OK] BBC Business: 55 entries, 1 new
 [OK] BBC World: 31 entries, 0 new
 [OK] Guardian Business: 35 entries, 0 new
-[OK] Al Jazeera: 25 entries, 2 new
+[OK] Al Jazeera: 25 entries, 4 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 26 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
@@ -111,11 +111,11 @@ Done. 121256 articles rescanned.
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 0 new
 
-19 new articles stored, 2 matched to tickers (0 flagged as tracker/listicle/index noise).
+23 new articles stored, 2 matched to tickers (0 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] IOC.NS  (+0.66) [off-hours] OMCs back interim LPG distributors' commission hike; ministry approval awaited: AIHPGDA  — Economic Times Industry
-[BEARISH] INDIGO.NS  (-0.82) [off-hours] Air India and AI Express cancel Riyadh, Dammam flights till Nov 7  — BusinessLine Economy
+[BULLISH] IDFCFIRSTB.NS  (+0.96) [off-hours] IDFC First Bank Q2 profit nearly triples to Rs 1,045 crore  — Economic Times Markets
+[neutral] LUPIN.NS  (+0.00) [off-hours] USFDA concludes inspection at Lupin's Goa facility with one observation  — BusinessLine Companies
 ```
 
 ## LLM analyst (per-ticker)
@@ -123,12 +123,14 @@ Done. 121256 articles rescanned.
 ```
 LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
 LLM analyst: scored 2 (headline, company) pair(s) with google/gemini-2.5-flash.
+  novel & strong — IDFCFIRSTB.NS +0.80: IDFC First Bank Q2 profit nearly triples to Rs 1,045 crore
+  novel & strong — LUPIN.NS +0.60: USFDA concludes inspection at Lupin's Goa facility with one obser
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1064, 1-day horizon) ===
+=== Recent signals (last 15 of 1059, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-10-22  KEI.NS          -0.50   -3.82  YES  KEI Industries share price plunges 10%, nears 52-week l
 2026-10-22  KEI.NS          -0.50   -3.82  YES  KEI Industries shares tumble 8% despite Q2 profit risin
@@ -148,9 +150,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1064    49.5     49.2    4.2   no edge
-3d                       956    44.1     46.7    4.5   no edge
-5d                       786    46.6     46.2    4.9   no edge
+1d                      1059    49.4     49.4    4.3   no edge
+3d                       951    44.0     46.5    4.5   no edge
+5d                       781    46.4     46.0    4.9   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -160,33 +162,33 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              708    51.3     51.0    5.2   no edge
-in-session               356    46.1     45.5    7.3   no edge
+in-session               351    45.6     46.2    7.4   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
-descriptive              123    42.3     44.7   12.4   no edge
-novel                    941    50.5     49.7    4.5   no edge
+descriptive              121    41.3     45.5   12.6   no edge
+novel                    938    50.4     49.9    4.5   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             233    51.1     50.2    9.1   no edge
-headline                 831    49.1     48.9    4.8   no edge
+headline                 826    48.9     49.2    4.8   no edge
 
 === By source (1-day, raw direction) ===
   Economic Times Industry        76/153 (50%)
-  CNBC TV18 Markets              72/143 (50%)
-  Economic Times Markets         65/131 (50%)
-  NDTV Profit Latest             60/123 (49%)
+  CNBC TV18 Markets              72/142 (51%)
+  Economic Times Markets         64/130 (49%)
+  NDTV Profit Latest             59/122 (48%)
   Business Standard Companies    42/83 (51%)
   BusinessLine Companies         46/82 (56%)
-  LiveMint Markets               31/71 (44%)
-  Business Standard Markets      20/54 (37%)
+  LiveMint Markets               30/70 (43%)
+  Business Standard Markets      19/53 (36%)
   LiveMint Companies             26/51 (51%)
   The Hindu Business             26/47 (55%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1112/2438 (46%)
-  LLM    527/1064 (50%)
+  VADER  1108/2430 (46%)
+  LLM    523/1059 (49%)
 
 ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -295,7 +297,7 @@ ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 25 Oct 09:32 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 25 Oct 10:34 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,529.79 (-9.40% since start) — cash Rs 3,716.67, 1 position(s)
   CANBK.NS          7 @ 119.02 -> 116.16 (-2.40%)
@@ -308,15 +310,15 @@ Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "i
 ## Alert scan
 
 ```
-No alerts this window.
+Alert written: 1 buy idea(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 67 tickers to news_signal.json (window 7d, 766 scored pairs).
-  pipeline_ok=True data_through=2026-10-25T03:55:11+00:00 llm-scored 766/766 pairs (100%)
-  29 of 67 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 68 tickers to news_signal.json (window 7d, 765 scored pairs).
+  pipeline_ok=True data_through=2026-10-25T04:43:06+00:00 llm-scored 765/765 pairs (100%)
+  30 of 68 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: INFY.NS -0.64, SUNPHARMA.NS -0.50, NATIONALUM.NS -0.50
   most positive: DIVISLAB.NS +0.90, ADANIPOWER.NS +0.88, JSWSTEEL.NS +0.80
 ```
