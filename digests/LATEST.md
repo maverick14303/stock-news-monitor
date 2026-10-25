@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-25 15:30
+# Stock digest — 2026-10-25 20:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 121461 articles against 259 alias patterns...
+Rescanning 121514 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -65,76 +65,81 @@ Rescanning 121461 articles against 259 alias patterns...
   ...118000
   ...120000
 
-Done. 121461 articles rescanned.
-  ticker-matched articles: 12581
-  flagged as noise:        6684
-  (article, company) pairs: 10909  — 0 awaiting LLM scoring
+Done. 121514 articles rescanned.
+  ticker-matched articles: 12591
+  flagged as noise:        6687
+  (article, company) pairs: 10919  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 0 new
+[OK] Economic Times Markets: 50 entries, 2 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 0 new
-[OK] Economic Times Industry: 50 entries, 2 new
-[OK] LiveMint Markets: 35 entries, 1 new
-[OK] LiveMint Companies: 35 entries, 2 new
-[OK] LiveMint Money: 35 entries, 6 new
+[OK] Economic Times Economy: 50 entries, 1 new
+[OK] Economic Times Industry: 50 entries, 10 new
+[OK] LiveMint Markets: 35 entries, 8 new
+[OK] LiveMint Companies: 35 entries, 3 new
+[OK] LiveMint Money: 35 entries, 8 new
 [OK] LiveMint Economy: 35 entries, 1 new
-[OK] BusinessLine Markets: 60 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 2 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 3 new
-[OK] BusinessLine Economy: 60 entries, 4 new
-[OK] Business Standard Markets: 35 entries, 1 new
-[OK] Business Standard Companies: 35 entries, 1 new
-[OK] Business Standard Finance: 35 entries, 0 new
-[OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 3 new
-[OK] TOI Business: 20 entries, 2 new
+[OK] BusinessLine Companies: 60 entries, 5 new
+[OK] BusinessLine Economy: 60 entries, 3 new
+[OK] Business Standard Markets: 35 entries, 3 new
+[OK] Business Standard Companies: 35 entries, 4 new
+[OK] Business Standard Finance: 35 entries, 1 new
+[OK] Business Standard Economy: 35 entries, 5 new
+[OK] NDTV Profit Latest: 20 entries, 19 new
+[OK] TOI Business: 20 entries, 3 new
 [OK] The Hindu Business: 60 entries, 1 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 1 new
+[OK] CNBC TV18 Markets: 200 entries, 2 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 2 new
-[OK] BBC Business: 55 entries, 0 new
-[OK] BBC World: 31 entries, 0 new
-[OK] Guardian Business: 40 entries, 2 new
-[OK] Al Jazeera: 25 entries, 5 new
-[OK] CNBC Top News: 30 entries, 0 new
-[OK] CNBC World Markets: 26 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 49 entries, 5 new
+[OK] ET International: 50 entries, 22 new
+[OK] BBC Business: 55 entries, 1 new
+[OK] BBC World: 32 entries, 3 new
+[OK] Guardian Business: 40 entries, 5 new
+[OK] Al Jazeera: 25 entries, 22 new
+[OK] CNBC Top News: 30 entries, 7 new
+[OK] CNBC World Markets: 25 entries, 0 new
+[OK] MarketWatch Top: 10 entries, 5 new
+[OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 0 new
+[OK] OilPrice: 15 entries, 1 new
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 0 new
 
-53 new articles stored, 10 matched to tickers (3 flagged as tracker/listicle/index noise).
+157 new articles stored, 14 matched to tickers (3 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] GODREJPROP.NS  (+0.93) [off-hours] Godrej Properties eyes record Rs 41,500 crore sales bookings, expects to beat FY27 guidance  — Economic Times Industry
-[BULLISH] GODREJPROP.NS  (+0.92) [off-hours] Godrej Properties pre-sales may rise 22% to ₹41,500 crore in FY27, surpassing guidance on strong demand  — BusinessLine Companies
-[BULLISH] JSWSTEEL.NS  (+0.40) [off-hours] JSW Steel flags domestic raw material bottlenecks as India eyes 600 mt capacity  — LiveMint Companies
-[BULLISH] HCLTECH.NS  (+0.31) [off-hours] AI at inflection point, future belongs to those who reinvent: HCLTech CEO  — Business Standard Companies
-[neutral] HINDUNILVR.NS  (+0.00) [off-hours] The week ahead in numbers: Govt’s H1 fiscal data, factory output, HUL Q2 earnings  — LiveMint Economy
-[BEARISH] BAJFINANCE.NS,HDFCBANK.NS  (-0.59) [off-hours] Top 10 firms lose ₹1.55  trillion in mcap as HDFC Bank, Bajaj Finance fall  — Business Standard Markets
-[BEARISH] BAJFINANCE.NS,HDFCBANK.NS,TCS.NS  (-0.62) [off-hours] Market recap: Eight of top 10 firms lose Rs 1.55 lakh crore  — TOI Business
+[BULLISH] INDIGO.NS  (+0.92) [off-hours] Mumbai Airport T1 capacity to rise 33% to 20 million passengers after redevelopment: Adani Airports  — Economic Times Industry
+[BULLISH] TMPV.NS  (+0.88) [off-hours] Tata Motors’ €3.91-billion Iveco bid faces make-or-break October 26 test of global ambitions  — BusinessLine Companies
+[BULLISH] RELIANCE.NS  (+0.83) [off-hours] US courting Reliance's refining muscle to keep oil flowing, not curb Russian crude, analyst says  — Economic Times Industry
+[BULLISH] COALINDIA.NS  (+0.78) [off-hours] Bharat Coking Coal Q2 Results: PSU Coal India Arm Swings To Profit, Revenue Jumps 40% YoY  — NDTV Profit Latest
+[BULLISH] INDIGO.NS  (+0.75) [off-hours] Navi Mumbai airport flights news: These two airlines set to shift flights from Mumbai airport starting December  — LiveMint Companies
+[BULLISH] SHRIRAMFIN.NS  (+0.59) [off-hours] Shriram Finance eyes ₹20,000 crore gold loan book, bets big on EV growth  — Business Standard Companies
+[BULLISH] INDIGO.NS  (+0.32) [off-hours] Adani Airport, IndiGo Map Phased International Shift To Navi Mumbai From February 2027  — NDTV Profit Latest
+[neutral] HDFCBANK.NS  (+0.23) [off-hours] HDFC Bank launches flexible EV car loan with longer battery repayment  — Business Standard Companies
+[neutral] INDIGO.NS  (+0.00) [off-hours] AI Express, IndiGo to move West Asia flights from Mumbai to Navi Mumbai  — BusinessLine Companies
+[neutral] JSWSTEEL.NS  (+0.00) [off-hours] JSW Steel expects higher H2 volumes to offset rising input costs  — BusinessLine Companies
+[neutral] LT.NS  (+0.00) [off-hours] Corporate Actions This Week: Hexaware Technologies, L&T Technology Services, Cyient And CRISIL  — NDTV Profit Latest
+[neutral] INDIGO.NS  (+0.00) [off-hours] IndiGo, Air India to shift flights to Navi Mumbai as Mumbai airport prepares Terminal 1 redevelopment  — The Hindu Business
+[BEARISH] CANBK.NS  (-0.79) [off-hours] CBI files bank fraud case against IL&amp;FS Energy Development over alleged  ₹212 crore loss to Canara Bank: Details here  — LiveMint Companies
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 10 pair(s) — 10 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 10 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — GODREJPROP.NS +0.70: Godrej Properties eyes record Rs 41,500 crore sales bookings, exp
+LLM analyst: queued 13 pair(s) — 13 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 13 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1046, 1-day horizon) ===
+=== Recent signals (last 15 of 1032, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-10-22  KEI.NS          -0.50   -3.82  YES  KEI Industries share price plunges 10%, nears 52-week l
 2026-10-22  KEI.NS          -0.50   -3.82  YES  KEI Industries shares tumble 8% despite Q2 profit risin
@@ -154,9 +159,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1046    49.2     49.6    4.3   no edge
-3d                       938    44.0     46.1    4.5   no edge
-5d                       768    46.5     45.4    5.0   no edge
+1d                      1032    49.4     49.7    4.3   no edge
+3d                       924    44.2     45.8    4.5   no edge
+5d                       754    47.1     45.0    5.0   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -165,34 +170,34 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              708    51.3     51.0    5.2   no edge
+after-hours              694    51.6     51.2    5.3   no edge
 in-session               338    45.0     46.7    7.5   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              119    41.2     46.2   12.7   no edge
-novel                    927    50.3     50.1    4.6   no edge
+novel                    913    50.5     50.2    4.6   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
-body mention             232    50.9     50.4    9.1   no edge
-headline                 814    48.8     49.4    4.9   no edge
+body mention             228    51.8     50.4    9.2   no edge
+headline                 804    48.8     49.5    4.9   no edge
 
 === By source (1-day, raw direction) ===
-  Economic Times Industry        74/151 (49%)
-  CNBC TV18 Markets              69/138 (50%)
+  Economic Times Industry        74/147 (50%)
+  CNBC TV18 Markets              68/136 (50%)
   Economic Times Markets         64/130 (49%)
-  NDTV Profit Latest             59/121 (49%)
-  Business Standard Companies    42/83 (51%)
-  BusinessLine Companies         46/81 (57%)
+  NDTV Profit Latest             59/119 (50%)
+  Business Standard Companies    41/82 (50%)
+  BusinessLine Companies         45/80 (56%)
   LiveMint Markets               30/69 (43%)
-  Business Standard Markets      19/53 (36%)
-  LiveMint Companies             26/51 (51%)
+  Business Standard Markets      19/52 (37%)
+  LiveMint Companies             25/50 (50%)
   The Hindu Business             25/46 (54%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1099/2401 (46%)
-  LLM    515/1046 (49%)
+  VADER  1090/2377 (46%)
+  LLM    510/1032 (49%)
 
 ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -301,7 +306,7 @@ ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 25 Oct 15:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 25 Oct 20:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,529.79 (-9.40% since start) — cash Rs 3,716.67, 1 position(s)
   CANBK.NS          7 @ 119.02 -> 116.16 (-2.40%)
@@ -314,15 +319,15 @@ Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 2 buy idea(s), 1 macro item(s)
+Alert written: 1 holding(s) to REVIEW, 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 71 tickers to news_signal.json (window 7d, 766 scored pairs).
-  pipeline_ok=True data_through=2026-10-25T10:01:00+00:00 llm-scored 766/766 pairs (100%)
+Exported 71 tickers to news_signal.json (window 7d, 763 scored pairs).
+  pipeline_ok=True data_through=2026-10-25T15:00:00+00:00 llm-scored 763/763 pairs (100%)
   31 of 71 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
-  most negative: INFY.NS -0.64, CANBK.NS -0.60, SUNPHARMA.NS -0.50
+  most negative: INFY.NS -0.64, PNB.NS -0.50, SUNPHARMA.NS -0.50
   most positive: DIVISLAB.NS +0.90, ADANIPOWER.NS +0.88, IDFCFIRSTB.NS +0.77
 ```
