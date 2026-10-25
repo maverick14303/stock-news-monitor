@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-25 14:30
+# Stock digest — 2026-10-25 15:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 121411 articles against 259 alias patterns...
+Rescanning 121461 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -65,73 +65,76 @@ Rescanning 121411 articles against 259 alias patterns...
   ...118000
   ...120000
 
-Done. 121411 articles rescanned.
-  ticker-matched articles: 12575
-  flagged as noise:        6683
-  (article, company) pairs: 10901  — 0 awaiting LLM scoring
+Done. 121461 articles rescanned.
+  ticker-matched articles: 12581
+  flagged as noise:        6684
+  (article, company) pairs: 10909  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 3 new
+[OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 2 new
-[OK] Economic Times Industry: 50 entries, 4 new
-[OK] LiveMint Markets: 35 entries, 3 new
-[OK] LiveMint Companies: 35 entries, 1 new
-[OK] LiveMint Money: 35 entries, 3 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 0 new
+[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Industry: 50 entries, 2 new
+[OK] LiveMint Markets: 35 entries, 1 new
+[OK] LiveMint Companies: 35 entries, 2 new
+[OK] LiveMint Money: 35 entries, 6 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 3 new
 [OK] BusinessLine Economy: 60 entries, 4 new
-[OK] Business Standard Markets: 35 entries, 0 new
-[OK] Business Standard Companies: 35 entries, 0 new
+[OK] Business Standard Markets: 35 entries, 1 new
+[OK] Business Standard Companies: 35 entries, 1 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 14 new
-[OK] TOI Business: 20 entries, 1 new
+[OK] NDTV Profit Latest: 20 entries, 3 new
+[OK] TOI Business: 20 entries, 2 new
 [OK] The Hindu Business: 60 entries, 1 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 1 new
-[OK] Investing.com India Stocks: 10 entries, 6 new
-[OK] ET International: 50 entries, 0 new
+[OK] Investing.com India Stocks: 10 entries, 10 new
+[OK] ET International: 50 entries, 2 new
 [OK] BBC Business: 55 entries, 0 new
-[OK] BBC World: 37 entries, 2 new
-[OK] Guardian Business: 39 entries, 1 new
-[OK] Al Jazeera: 25 entries, 4 new
+[OK] BBC World: 31 entries, 0 new
+[OK] Guardian Business: 40 entries, 2 new
+[OK] Al Jazeera: 25 entries, 5 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 26 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 49 entries, 0 new
+[OK] NYT Business: 49 entries, 5 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
 [OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 0 new
 
-50 new articles stored, 6 matched to tickers (1 flagged as tracker/listicle/index noise).
+53 new articles stored, 10 matched to tickers (3 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] EICHERMOT.NS,TMPV.NS  (+0.85) [off-hours] Best auto stocks to buy ahead of Diwali 2026: Nuvama bets big on Eicher Motors, Hyundai and Tata Motors PV - Here's why  — LiveMint Markets
-[BULLISH] SBIN.NS  (+0.69) [off-hours] F&amp;O Talk: Nifty plunged 2% this week. Do charts indicate a bearish picture for coming week?  — Economic Times Markets
-[BULLISH] ETERNAL.NS,SBICARD.NS  (+0.64) [off-hours] Eternal SBI Card: Savings of  ₹42,000 annually, applications open for 5,000 credit cards—Here's how to apply directly  — LiveMint Money
-[neutral] INDIGO.NS  (+0.00) [off-hours] Two Varanasi-bound IndiGo flights diverted to Lucknow due to air show  — BusinessLine Economy
-[BEARISH] APOLLOHOSP.NS,ETERNAL.NS  (-0.27) [off-hours] Stocks to buy: Ganesh Dongre of Anand Rathi recommends 3 shares — Eternal, BoB, Apollo Hospitals | Target, stop-loss  — LiveMint Markets
+[BULLISH] GODREJPROP.NS  (+0.93) [off-hours] Godrej Properties eyes record Rs 41,500 crore sales bookings, expects to beat FY27 guidance  — Economic Times Industry
+[BULLISH] GODREJPROP.NS  (+0.92) [off-hours] Godrej Properties pre-sales may rise 22% to ₹41,500 crore in FY27, surpassing guidance on strong demand  — BusinessLine Companies
+[BULLISH] JSWSTEEL.NS  (+0.40) [off-hours] JSW Steel flags domestic raw material bottlenecks as India eyes 600 mt capacity  — LiveMint Companies
+[BULLISH] HCLTECH.NS  (+0.31) [off-hours] AI at inflection point, future belongs to those who reinvent: HCLTech CEO  — Business Standard Companies
+[neutral] HINDUNILVR.NS  (+0.00) [off-hours] The week ahead in numbers: Govt’s H1 fiscal data, factory output, HUL Q2 earnings  — LiveMint Economy
+[BEARISH] BAJFINANCE.NS,HDFCBANK.NS  (-0.59) [off-hours] Top 10 firms lose ₹1.55  trillion in mcap as HDFC Bank, Bajaj Finance fall  — Business Standard Markets
+[BEARISH] BAJFINANCE.NS,HDFCBANK.NS,TCS.NS  (-0.62) [off-hours] Market recap: Eight of top 10 firms lose Rs 1.55 lakh crore  — TOI Business
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 8 pair(s) — 8 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 8 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: queued 10 pair(s) — 10 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 10 (headline, company) pair(s) with google/gemini-2.5-flash.
+  novel & strong — GODREJPROP.NS +0.70: Godrej Properties eyes record Rs 41,500 crore sales bookings, exp
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1051, 1-day horizon) ===
+=== Recent signals (last 15 of 1046, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-10-22  KEI.NS          -0.50   -3.82  YES  KEI Industries share price plunges 10%, nears 52-week l
 2026-10-22  KEI.NS          -0.50   -3.82  YES  KEI Industries shares tumble 8% despite Q2 profit risin
@@ -151,9 +154,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1051    49.1     49.5    4.3   no edge
-3d                       943    43.9     46.0    4.5   no edge
-5d                       773    46.3     45.4    5.0   no edge
+1d                      1046    49.2     49.6    4.3   no edge
+3d                       938    44.0     46.1    4.5   no edge
+5d                       768    46.5     45.4    5.0   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -163,33 +166,33 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              708    51.3     51.0    5.2   no edge
-in-session               343    44.6     46.4    7.5   no edge
+in-session               338    45.0     46.7    7.5   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              119    41.2     46.2   12.7   no edge
-novel                    932    50.1     49.9    4.5   no edge
+novel                    927    50.3     50.1    4.6   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             232    50.9     50.4    9.1   no edge
-headline                 819    48.6     49.2    4.8   no edge
+headline                 814    48.8     49.4    4.9   no edge
 
 === By source (1-day, raw direction) ===
   Economic Times Industry        74/151 (49%)
-  CNBC TV18 Markets              70/140 (50%)
+  CNBC TV18 Markets              69/138 (50%)
   Economic Times Markets         64/130 (49%)
   NDTV Profit Latest             59/121 (49%)
   Business Standard Companies    42/83 (51%)
-  BusinessLine Companies         46/82 (56%)
-  LiveMint Markets               30/70 (43%)
+  BusinessLine Companies         46/81 (57%)
+  LiveMint Markets               30/69 (43%)
   Business Standard Markets      19/53 (36%)
   LiveMint Companies             26/51 (51%)
   The Hindu Business             25/46 (54%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1100/2407 (46%)
-  LLM    516/1051 (49%)
+  VADER  1099/2401 (46%)
+  LLM    515/1046 (49%)
 
 ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -298,7 +301,7 @@ ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 25 Oct 14:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 25 Oct 15:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,529.79 (-9.40% since start) — cash Rs 3,716.67, 1 position(s)
   CANBK.NS          7 @ 119.02 -> 116.16 (-2.40%)
@@ -311,15 +314,15 @@ Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 2 macro item(s)
+Alert written: 2 buy idea(s), 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 71 tickers to news_signal.json (window 7d, 764 scored pairs).
-  pipeline_ok=True data_through=2026-10-25T09:00:00+00:00 llm-scored 764/764 pairs (100%)
+Exported 71 tickers to news_signal.json (window 7d, 766 scored pairs).
+  pipeline_ok=True data_through=2026-10-25T10:01:00+00:00 llm-scored 766/766 pairs (100%)
   31 of 71 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: INFY.NS -0.64, CANBK.NS -0.60, SUNPHARMA.NS -0.50
-  most positive: DIVISLAB.NS +0.90, ADANIPOWER.NS +0.88, JSWSTEEL.NS +0.80
+  most positive: DIVISLAB.NS +0.90, ADANIPOWER.NS +0.88, IDFCFIRSTB.NS +0.77
 ```
