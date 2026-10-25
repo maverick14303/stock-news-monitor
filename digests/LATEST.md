@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-25 13:30
+# Stock digest — 2026-10-25 14:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 121381 articles against 259 alias patterns...
+Rescanning 121411 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -65,43 +65,43 @@ Rescanning 121381 articles against 259 alias patterns...
   ...118000
   ...120000
 
-Done. 121381 articles rescanned.
-  ticker-matched articles: 12573
-  flagged as noise:        6680
-  (article, company) pairs: 10900  — 0 awaiting LLM scoring
+Done. 121411 articles rescanned.
+  ticker-matched articles: 12575
+  flagged as noise:        6683
+  (article, company) pairs: 10901  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 1 new
+[OK] Economic Times Markets: 50 entries, 3 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Economy: 50 entries, 2 new
 [OK] Economic Times Industry: 50 entries, 4 new
-[OK] LiveMint Markets: 35 entries, 2 new
-[OK] LiveMint Companies: 35 entries, 0 new
-[OK] LiveMint Money: 35 entries, 0 new
+[OK] LiveMint Markets: 35 entries, 3 new
+[OK] LiveMint Companies: 35 entries, 1 new
+[OK] LiveMint Money: 35 entries, 3 new
 [OK] LiveMint Economy: 35 entries, 0 new
 [OK] BusinessLine Markets: 60 entries, 0 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 1 new
-[OK] BusinessLine Economy: 60 entries, 0 new
-[OK] Business Standard Markets: 35 entries, 1 new
-[OK] Business Standard Companies: 35 entries, 1 new
+[OK] BusinessLine Companies: 60 entries, 0 new
+[OK] BusinessLine Economy: 60 entries, 4 new
+[OK] Business Standard Markets: 35 entries, 0 new
+[OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 14 new
 [OK] TOI Business: 20 entries, 1 new
-[OK] The Hindu Business: 60 entries, 0 new
+[OK] The Hindu Business: 60 entries, 1 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 1 new
-[OK] Investing.com India Stocks: 10 entries, 5 new
-[OK] ET International: 50 entries, 2 new
-[OK] BBC Business: 55 entries, 3 new
-[OK] BBC World: 36 entries, 0 new
-[OK] Guardian Business: 38 entries, 2 new
-[OK] Al Jazeera: 25 entries, 5 new
+[OK] Investing.com India Stocks: 10 entries, 6 new
+[OK] ET International: 50 entries, 0 new
+[OK] BBC Business: 55 entries, 0 new
+[OK] BBC World: 37 entries, 2 new
+[OK] Guardian Business: 39 entries, 1 new
+[OK] Al Jazeera: 25 entries, 4 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 26 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
@@ -109,19 +109,23 @@ Done. 121381 articles rescanned.
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
 [OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] SCMP Business: 50 entries, 0 new
 
-30 new articles stored, 2 matched to tickers (3 flagged as tracker/listicle/index noise).
+50 new articles stored, 6 matched to tickers (1 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] BPCL.NS  (+0.84) [off-hours] Clean toilets, QR-code feedback: Oil companies turn petrol pump washrooms into customer trust test  — Economic Times Industry
+[BULLISH] EICHERMOT.NS,TMPV.NS  (+0.85) [off-hours] Best auto stocks to buy ahead of Diwali 2026: Nuvama bets big on Eicher Motors, Hyundai and Tata Motors PV - Here's why  — LiveMint Markets
+[BULLISH] SBIN.NS  (+0.69) [off-hours] F&amp;O Talk: Nifty plunged 2% this week. Do charts indicate a bearish picture for coming week?  — Economic Times Markets
+[BULLISH] ETERNAL.NS,SBICARD.NS  (+0.64) [off-hours] Eternal SBI Card: Savings of  ₹42,000 annually, applications open for 5,000 credit cards—Here's how to apply directly  — LiveMint Money
+[neutral] INDIGO.NS  (+0.00) [off-hours] Two Varanasi-bound IndiGo flights diverted to Lucknow due to air show  — BusinessLine Economy
+[BEARISH] APOLLOHOSP.NS,ETERNAL.NS  (-0.27) [off-hours] Stocks to buy: Ganesh Dongre of Anand Rathi recommends 3 shares — Eternal, BoB, Apollo Hospitals | Target, stop-loss  — LiveMint Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 1 pair(s) — 1 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 1 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: queued 8 pair(s) — 8 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 8 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -184,7 +188,7 @@ headline                 819    48.6     49.2    4.8   no edge
   The Hindu Business             25/46 (54%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1101/2411 (46%)
+  VADER  1100/2407 (46%)
   LLM    516/1051 (49%)
 
 ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
@@ -294,7 +298,7 @@ ML dataset: 10772 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 25 Oct 13:32 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 25 Oct 14:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,529.79 (-9.40% since start) — cash Rs 3,716.67, 1 position(s)
   CANBK.NS          7 @ 119.02 -> 116.16 (-2.40%)
@@ -307,15 +311,15 @@ Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 1 holding(s) to REVIEW, 1 macro item(s)
+Alert written: 2 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 69 tickers to news_signal.json (window 7d, 759 scored pairs).
-  pipeline_ok=True data_through=2026-10-25T08:00:09+00:00 llm-scored 759/759 pairs (100%)
-  30 of 69 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 71 tickers to news_signal.json (window 7d, 764 scored pairs).
+  pipeline_ok=True data_through=2026-10-25T09:00:00+00:00 llm-scored 764/764 pairs (100%)
+  31 of 71 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: INFY.NS -0.64, CANBK.NS -0.60, SUNPHARMA.NS -0.50
   most positive: DIVISLAB.NS +0.90, ADANIPOWER.NS +0.88, JSWSTEEL.NS +0.80
 ```
