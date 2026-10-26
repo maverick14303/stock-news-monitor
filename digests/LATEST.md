@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-26 15:30
+# Stock digest — 2026-10-26 20:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 122403 articles against 259 alias patterns...
+Rescanning 122484 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -66,75 +66,95 @@ Rescanning 122403 articles against 259 alias patterns...
   ...120000
   ...122000
 
-Done. 122403 articles rescanned.
-  ticker-matched articles: 12744
-  flagged as noise:        6787
-  (article, company) pairs: 11024  — 0 awaiting LLM scoring
+Done. 122484 articles rescanned.
+  ticker-matched articles: 12751
+  flagged as noise:        6788
+  (article, company) pairs: 11030  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 2 new
+[OK] Economic Times Markets: 50 entries, 21 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 1 new
-[OK] Economic Times Industry: 49 entries, 3 new
-[OK] LiveMint Markets: 35 entries, 4 new
-[OK] LiveMint Companies: 35 entries, 0 new
-[OK] LiveMint Money: 35 entries, 2 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 2 new
+[OK] Economic Times Economy: 50 entries, 7 new
+[OK] Economic Times Industry: 49 entries, 20 new
+[OK] LiveMint Markets: 35 entries, 8 new
+[OK] LiveMint Companies: 35 entries, 6 new
+[OK] LiveMint Money: 35 entries, 7 new
+[OK] LiveMint Economy: 35 entries, 3 new
+[OK] BusinessLine Markets: 60 entries, 20 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 3 new
-[OK] BusinessLine Economy: 60 entries, 1 new
-[OK] Business Standard Markets: 35 entries, 2 new
-[OK] Business Standard Companies: 35 entries, 6 new
-[OK] Business Standard Finance: 35 entries, 0 new
-[OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 14 new
-[OK] TOI Business: 20 entries, 2 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] BusinessLine Companies: 60 entries, 15 new
+[OK] BusinessLine Economy: 60 entries, 13 new
+[OK] Business Standard Markets: 35 entries, 7 new
+[OK] Business Standard Companies: 35 entries, 3 new
+[OK] Business Standard Finance: 35 entries, 8 new
+[OK] Business Standard Economy: 35 entries, 6 new
+[OK] NDTV Profit Latest: 20 entries, 19 new
+[OK] TOI Business: 20 entries, 0 new
+[OK] The Hindu Business: 60 entries, 9 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 2 new
-[OK] CNBC TV18 Markets: 200 entries, 5 new
+[OK] News18 Business: 200 entries, 7 new
+[OK] CNBC TV18 Markets: 200 entries, 29 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 1 new
-[OK] BBC Business: 56 entries, 3 new
-[OK] BBC World: 23 entries, 1 new
-[OK] Guardian Business: 37 entries, 1 new
-[OK] Al Jazeera: 25 entries, 3 new
-[OK] CNBC Top News: 30 entries, 2 new
-[OK] CNBC World Markets: 25 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 4 new
-[OK] NYT Business: 49 entries, 3 new
+[OK] ET International: 50 entries, 22 new
+[OK] BBC Business: 56 entries, 1 new
+[OK] BBC World: 26 entries, 9 new
+[OK] Guardian Business: 39 entries, 10 new
+[OK] Al Jazeera: 25 entries, 23 new
+[OK] CNBC Top News: 30 entries, 9 new
+[OK] CNBC World Markets: 26 entries, 1 new
+[OK] MarketWatch Top: 10 entries, 8 new
+[OK] NYT Business: 49 entries, 5 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 1 new
-[OK] DW Business: 20 entries, 1 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] OilPrice: 15 entries, 8 new
+[OK] DW Business: 20 entries, 0 new
+[OK] SCMP Business: 50 entries, 2 new
 
-81 new articles stored, 7 matched to tickers (1 flagged as tracker/listicle/index noise).
+316 new articles stored, 29 matched to tickers (12 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] ITC.NS  (+0.89)  ITC Hotels Q2 Results: Net Profit Jumps 51%; Ebitda Margin Expands To 32%  — NDTV Profit Latest
-[BULLISH] LICI.NS  (+0.89)  From LIC, NSE to Hyundai: Can Jio Platforms IPO break India’s mega listing jinx on 28 Oct Wed ? What market experts say  — LiveMint Markets
-[BULLISH] HCLTECH.NS  (+0.73)  HCL opens 2 development centres to support Rapidus' chip engineering needs  — Business Standard Companies
-[BULLISH] SBIN.NS  (+0.65)  SBI Chairman CS Setty sees discretionary credit demand moderating, expects 50 bps rate hike in December  — Economic Times Industry
-[BULLISH] DRREDDY.NS  (+0.46)  Markets claw back from morning lows; Dr. Reddy’s surges 7%, crude eases  — BusinessLine Markets
-[BEARISH] BPCL.NS  (-0.88)  Bharat Petroleum expects Russian crude purchases to fall in November  — Business Standard Companies
+[BULLISH] TATACONSUM.NS  (+0.98) [off-hours] Tata Consumer Q2 Results: Net profit rises 16% YoY to Rs 470 crore, revenue up 14%  — Economic Times Markets
+[BULLISH] HDFCBANK.NS  (+0.96) [off-hours] HDFC Bank's merger delivered scale. Can Anup Bagchi deliver better returns?  — CNBC TV18 Markets
+[BULLISH] ITC.NS  (+0.94) [off-hours] ITC Hotels Q2 net profit rises 52% to ₹202.6 crore, revenue up 26%  — Business Standard Companies
+[BULLISH] ITC.NS  (+0.92)  ITC Hotels shares gain 8% as Q2 PAT rises 51% to ₹201 cr, RevPAR up 21%  — Business Standard Markets
+[BULLISH] ITC.NS  (+0.91) [off-hours] ITC Hotels Q2 net profit rises 52% to ₹203 crore, revenue up 26%  — The Hindu Business
+[BULLISH] ITC.NS  (+0.88) [off-hours] ITC Hotels' net profit rises 52% to ₹202.65 crore in July-September  — BusinessLine Companies
+[BULLISH] SBIN.NS  (+0.88) [off-hours] SBI chief CS Setty expects further 50 bps rate hikes in December, rules out retail loan quality concerns  — LiveMint Economy
+[BULLISH] ETERNAL.NS  (+0.88) [off-hours] Eternal extends rally; stock soars 8% in two days post Q2 results  — Business Standard Markets
+[BULLISH] ITC.NS  (+0.86) [off-hours] ITC Hotels reports revenues of Rs 1054 cr for Q2, PAT at Rs 203 cr  — Economic Times Markets
+[BULLISH] TATACONSUM.NS  (+0.85) [off-hours] Tata Consumer Products Q2 profit rises 18%, revenue rises 14% to ₹5,661 crore  — CNBC TV18 Markets
+[BULLISH] ONGC.NS  (+0.83) [off-hours] S&P sees 15-20% EBITDA growth for ONGC in FY27 on upstream strength, downstream recovery  — BusinessLine Companies
+[BULLISH] JSWENERGY.NS  (+0.81) [off-hours] JSW Energy prospects brighten on new capacity addition  — BusinessLine Companies
+[BULLISH] TATACONSUM.NS  (+0.71) [off-hours] Tata Consumer Q2 consolidated profit rises 16%  — BusinessLine Companies
+[BULLISH] RECLTD.NS  (+0.63) [off-hours] PFC-REC merger moves closer as Centre weighs preference shares to retain 51% stake  — CNBC TV18 Markets
+[BULLISH] TATAPOWER.NS  (+0.60) [off-hours] Bajel Projects bags ₹200 crore order from Tata Power for 400 kV substations in Mumbai  — CNBC TV18 Markets
+[BULLISH] ITC.NS  (+0.58) [off-hours] ITC Hotels Q2 net profit jumps 52% to ₹202.65 crore  — BusinessLine Companies
+[BULLISH] SBIN.NS  (+0.52) [off-hours] India weighs LTCG tax cut, dollar-based taxation for FPIs: Why the rethink ahead of Budget?  — CNBC TV18 Markets
+[BULLISH] ADANIPOWER.NS  (+0.47) [off-hours] Imported coal costs jump 50% for Adani Power; tariff recovery to take over 6 months  — BusinessLine Companies
+[neutral] COFORGE.NS  (+0.08) [off-hours] Top 3 stocks to buy tomorrow: Laurus Labs, MCX, Coforge by market expert; check stop-loss, target price for Tue, 27 Oct  — LiveMint Markets
+[neutral] BPCL.NS  (-0.04) [off-hours] BPCL expects Russian crude purchases to fall in November as freight costs rise  — BusinessLine Markets
+[neutral] SBIN.NS  (-0.08) [off-hours] SBI's Setty sees 50 bps more rate hikes, says retail loan quality unlikely to suffer  — Economic Times Industry
+[BEARISH] RECLTD.NS  (-0.27) [off-hours] REC Q2 results: Net profit falls 21% to ₹3,478 crore, declares interim dividend  — CNBC TV18 Markets
+[BEARISH] RECLTD.NS  (-0.27) [off-hours] REC Q2 Results: Net Profit Drops 21% Despite Record Disbursements, AUM Boost; Dividend Declared  — NDTV Profit Latest
+[BEARISH] SUNPHARMA.NS  (-0.33) [off-hours] India’s outward FDI falls 14% to $4.34 billion in September as loans, guarantees decline  — Economic Times Economy
+[BEARISH] DALBHARAT.NS  (-0.73) [off-hours] Dalmia Bharat Q2 results miss estimates, swings to ₹205 crore loss on exceptional charge  — CNBC TV18 Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 6 pair(s) — 6 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 6 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — ITC.NS +0.70: ITC Hotels Q2 Results: Net Profit Jumps 51%; Ebitda Margin Expand
+LLM analyst: queued 25 pair(s) — 25 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+  gemini gemini-2.5-flash: http 503
+  gemini gemini-2.0-flash: http 404
+LLM analyst: scored 25 (headline, company) pair(s) with recursive/flint-v1.0:free.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1151, 1-day horizon) ===
+=== Recent signals (last 15 of 1154, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-10-23  SHRIRAMFIN.NS   +0.80   -4.62  no   Shriram Finance Q2 profit jumps 59% YoY to Rs 3,677 cro
 2026-10-23  SHRIRAMFIN.NS   +0.80   -4.62  no   Shriram Finance Q2 profit jumps 59% to ₹3,684 crore on 
@@ -154,9 +174,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1151    49.3     50.0    4.1   no edge
-3d                       972    46.1     46.8    4.4   no edge
-5d                       845    48.5     46.3    4.8   no edge
+1d                      1154    49.4     50.2    4.1   no edge
+3d                       970    46.1     46.8    4.4   no edge
+5d                       843    48.5     46.3    4.8   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -165,36 +185,36 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              784    51.0     50.9    5.0   no edge
+after-hours              787    51.1     51.1    4.9   no edge
 in-session               367    45.8     48.2    7.2   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              130    40.0     45.4   12.1   no edge
-novel                   1021    50.5     50.6    4.3   no edge
+novel                   1024    50.6     50.8    4.3   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
-body mention             234    50.4     50.4    9.1   no edge
-headline                 917    49.1     49.9    4.6   no edge
+body mention             235    50.6     50.6    9.0   no edge
+headline                 919    49.1     50.1    4.6   no edge
 
 === By source (1-day, raw direction) ===
-  Economic Times Industry        79/156 (51%)
+  Economic Times Industry        80/157 (51%)
   Economic Times Markets         72/153 (47%)
   CNBC TV18 Markets              73/147 (50%)
-  NDTV Profit Latest             68/132 (52%)
-  Business Standard Companies    50/101 (50%)
-  BusinessLine Companies         54/96 (56%)
+  NDTV Profit Latest             69/133 (52%)
+  Business Standard Companies    50/102 (49%)
+  BusinessLine Companies         55/96 (57%)
   LiveMint Markets               34/76 (45%)
-  LiveMint Companies             28/56 (50%)
-  The Hindu Business             27/54 (50%)
+  LiveMint Companies             28/57 (49%)
+  The Hindu Business             26/53 (49%)
   Business Standard Markets      19/48 (40%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1207/2565 (47%)
-  LLM    568/1151 (49%)
+  VADER  1212/2569 (47%)
+  LLM    570/1154 (49%)
 
-ML dataset: 11030 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 11043 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -4.55%  Coal India's SECL strengthens monsoon measures for
@@ -313,12 +333,12 @@ ML dataset: 11030 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Mon 26 Oct 15:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Mon 26 Oct 20:34 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,533.64 (-9.33% since start) — cash Rs 3,716.67, 1 position(s)
   CANBK.NS          7 @ 119.02 -> 116.71 (-1.94%)
 Record: 6/26 wins, avg -1.95% per trade
-Learned source trust — high: Business Standard Economy 1.40, The Hindu Economy 1.33, LiveMint Companies 1.12
+Learned source trust — high: Business Standard Economy 1.40, The Hindu Economy 1.33, LiveMint Companies 1.13
                        low: Investing.com India Stocks 0.76, LiveMint Money 0.71, Business Standard Finance 0.64
 Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "it": 0.92, "fmcg": 0.846, "financials": 0.934, "pharma": 0.846, "infra": 1.014}
 ```
@@ -326,15 +346,15 @@ Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 1 buy idea(s)
+Alert written: 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 72 tickers to news_signal.json (window 7d, 749 scored pairs).
-  pipeline_ok=True data_through=2026-10-26T10:01:10+00:00 llm-scored 749/749 pairs (100%)
-  32 of 72 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 76 tickers to news_signal.json (window 7d, 750 scored pairs).
+  pipeline_ok=True data_through=2026-10-26T15:01:18+00:00 llm-scored 750/750 pairs (100%)
+  37 of 76 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: INFY.NS -0.52, ZYDUSLIFE.NS -0.50, SUNPHARMA.NS -0.50
-  most positive: ADANIPOWER.NS +0.88, LT.NS +0.73, TMCV.NS +0.70
+  most positive: ADANIPOWER.NS +0.77, LT.NS +0.73, TMCV.NS +0.70
 ```
