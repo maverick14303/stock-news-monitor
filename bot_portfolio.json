@@ -788,16 +788,8 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [
-    {
-      "symbol": "GODREJPROP.NS",
-      "score": 0.696,
-      "title": "Godrej Properties pre-sales may rise 22% to \u20b941,500 crore in FY27, surpassing guidance on strong dem",
-      "source": "BusinessLine Companies",
-      "queued": "2026-10-26"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-10-22"
+  "traded_day": "2026-10-26"
 }
