@@ -1,5 +1,5 @@
 {
-  "cash": 3716.668064079284,
+  "cash": 2148.557582435607,
   "positions": {
     "CANBK.NS": {
       "qty": 7,
@@ -9,6 +9,24 @@
         "The Hindu Business"
       ],
       "thesis": "Canara Bank\u2019s Q2 net profit rises to \u20b95,175 crore; global business crosses \u20b930.72 lakh crore"
+    },
+    "TMPV.NS": {
+      "qty": 3,
+      "avg_cost": 262.7552561187744,
+      "opened": "2026-10-27T04:03:59.666379+00:00",
+      "sources": [
+        "Business Standard Companies"
+      ],
+      "thesis": "Tata Motors' bid to takeover Iveco clears 80% acceptance threshold"
+    },
+    "ITC.NS": {
+      "qty": 3,
+      "avg_cost": 259.9482377624512,
+      "opened": "2026-10-27T04:03:59.666379+00:00",
+      "sources": [
+        "NDTV Profit Latest"
+      ],
+      "thesis": "ITC Hotels Q2 Results: Net Profit Jumps 51%; Ebitda Margin Expands To 32%"
     }
   },
   "trades": [
@@ -488,6 +506,24 @@
       "price": 496.4,
       "fee": 1.24,
       "reason": "negative news (-0.50) at -3.0%"
+    },
+    {
+      "time": "2026-10-27T04:03:59.666379+00:00",
+      "action": "buy",
+      "symbol": "TMPV.NS",
+      "qty": 3,
+      "price": 262.1,
+      "fee": 1.97,
+      "reason": "planned pre-open, score 0.68 (Business Standard Companies): Tata Motors' bid to takeover Iveco clears 80% acceptance threshold"
+    },
+    {
+      "time": "2026-10-27T04:03:59.666379+00:00",
+      "action": "buy",
+      "symbol": "ITC.NS",
+      "qty": 3,
+      "price": 259.3,
+      "fee": 1.94,
+      "reason": "planned pre-open, score 0.57 (NDTV Profit Latest): ITC Hotels Q2 Results: Net Profit Jumps 51%; Ebitda Margin Expands To "
     }
   ],
   "closed": [
@@ -788,30 +824,8 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [
-    {
-      "symbol": "PAYTM.NS",
-      "score": 0.859,
-      "title": "Paytm net profit rises over 10-fold to Rs 225cr in Q2",
-      "source": "TOI Business",
-      "queued": "2026-10-27"
-    },
-    {
-      "symbol": "TMPV.NS",
-      "score": 0.683,
-      "title": "Tata Motors' bid to takeover Iveco clears 80% acceptance threshold",
-      "source": "Business Standard Companies",
-      "queued": "2026-10-27"
-    },
-    {
-      "symbol": "ITC.NS",
-      "score": 0.567,
-      "title": "ITC Hotels Q2 Results: Net Profit Jumps 51%; Ebitda Margin Expands To 32%",
-      "source": "NDTV Profit Latest",
-      "queued": "2026-10-27"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-10-26"
+  "traded_day": "2026-10-27"
 }
