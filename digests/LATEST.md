@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-28 15:30
+# Stock digest — 2026-10-28 20:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 125191 articles against 259 alias patterns...
+Rescanning 125281 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -67,81 +67,119 @@ Rescanning 125191 articles against 259 alias patterns...
   ...122000
   ...124000
 
-Done. 125191 articles rescanned.
-  ticker-matched articles: 13173
-  flagged as noise:        6996
-  (article, company) pairs: 11378  — 0 awaiting LLM scoring
+Done. 125281 articles rescanned.
+  ticker-matched articles: 13179
+  flagged as noise:        6998
+  (article, company) pairs: 11384  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 5 new
+[OK] Economic Times Markets: 50 entries, 24 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 0 new
-[OK] Economic Times Industry: 50 entries, 5 new
-[OK] LiveMint Markets: 35 entries, 1 new
-[OK] LiveMint Companies: 35 entries, 1 new
-[OK] LiveMint Money: 35 entries, 4 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 1 new
+[OK] Economic Times Economy: 50 entries, 6 new
+[OK] Economic Times Industry: 50 entries, 27 new
+[OK] LiveMint Markets: 35 entries, 17 new
+[OK] LiveMint Companies: 35 entries, 13 new
+[OK] LiveMint Money: 35 entries, 7 new
+[OK] LiveMint Economy: 35 entries, 3 new
+[OK] BusinessLine Markets: 60 entries, 10 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 8 new
-[OK] BusinessLine Economy: 60 entries, 2 new
-[OK] Business Standard Markets: 35 entries, 2 new
-[OK] Business Standard Companies: 35 entries, 2 new
-[OK] Business Standard Finance: 35 entries, 1 new
-[OK] Business Standard Economy: 35 entries, 3 new
-[OK] NDTV Profit Latest: 20 entries, 8 new
-[OK] TOI Business: 20 entries, 1 new
-[OK] The Hindu Business: 60 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 15 new
+[OK] BusinessLine Economy: 60 entries, 12 new
+[OK] Business Standard Markets: 35 entries, 8 new
+[OK] Business Standard Companies: 35 entries, 12 new
+[OK] Business Standard Finance: 35 entries, 5 new
+[OK] Business Standard Economy: 35 entries, 4 new
+[OK] NDTV Profit Latest: 20 entries, 17 new
+[OK] TOI Business: 20 entries, 2 new
+[OK] The Hindu Business: 60 entries, 9 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 3 new
-[OK] CNBC TV18 Markets: 200 entries, 5 new
+[OK] News18 Business: 200 entries, 8 new
+[OK] CNBC TV18 Markets: 200 entries, 26 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 6 new
-[OK] BBC Business: 39 entries, 2 new
-[OK] BBC World: 21 entries, 0 new
-[OK] Guardian Business: 40 entries, 1 new
-[OK] Al Jazeera: 25 entries, 5 new
-[OK] CNBC Top News: 30 entries, 4 new
+[OK] ET International: 50 entries, 39 new
+[OK] BBC Business: 42 entries, 7 new
+[OK] BBC World: 19 entries, 5 new
+[OK] Guardian Business: 43 entries, 13 new
+[OK] Al Jazeera: 25 entries, 25 new
+[OK] CNBC Top News: 30 entries, 15 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 3 new
 [OK] NYT Business: 50 entries, 5 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 1 new
-[OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] OilPrice: 15 entries, 8 new
+[OK] DW Business: 20 entries, 1 new
+[OK] SCMP Business: 50 entries, 2 new
 
-90 new articles stored, 6 matched to tickers (2 flagged as tracker/listicle/index noise).
+358 new articles stored, 46 matched to tickers (8 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] VEDL.NS  (+0.96)  Vedanta Q2 Results: Profit zooms 78% YoY to Rs 6,202 crore; revenue surges 57%  — Economic Times Markets
-[BULLISH] VEDL.NS  (+0.92)  Indian miner Vedanta posts quarterly profit rise on surge in base metal prices  — BusinessLine Companies
-[BULLISH] HINDPETRO.NS  (+0.80)  Innovation, startups key to next phase of India's refining sector: HPCL CMD Vikas Kaushal  — BusinessLine Companies
-[BULLISH] ADANIENT.NS  (+0.60)  Adani Enterprises Q2 results: Revenue jumps 75%; Exceptional item in base quarter reflects on PAT  — CNBC TV18 Markets
-[BULLISH] VEDL.NS  (+0.44)  Vedanta Q2 Results: Mining conglomerate reports record profit, margin expands  — CNBC TV18 Markets
-[neutral] VEDL.NS  (-0.02)  Vedanta Q2 Results: Profit Falls 33% As Demerged Businesses Drop Out; Ebitda Rises 17%  — NDTV Profit Latest
+[BULLISH] CHOLAFIN.NS  (+0.98) [off-hours] Cholamandalam Investment Q2 Results: Profit surges 41% to Rs 1,630 crore; co plans to raise Rs 5,00O crore via QIP  — Economic Times Markets
+[BULLISH] TVSMOTOR.NS  (+0.97) [off-hours] TVS Motor Q2 Results: Profit jumps 52% YoY to Rs 1,377 crore; revenue rises 44%  — Economic Times Markets
+[BULLISH] TVSMOTOR.NS  (+0.97) [off-hours] TVS Motor Q2 net profit surges 46% to ₹1,219 crore on robust sales  — Business Standard Companies
+[BULLISH] BAJAJ-AUTO.NS,MARUTI.NS  (+0.95) [off-hours] Auto biggies Q2 result compared: Bajaj Auto vs Maruti Suzuki - Who wins the earnings race? Profit, revenue, target price  — LiveMint Markets
+[BULLISH] VEDL.NS  (+0.93) [off-hours] Vedanta Aluminium Q2 Results: Profit doubles to Rs 6,187 crore, revenue jumps 41%  — Economic Times Markets
+[BULLISH] ADANIPORTS.NS  (+0.93) [off-hours] Adani Ports Q2 profit rises 18% to ₹3,682 crore, raises FY27 guidance  — Business Standard Companies
+[BULLISH] VEDL.NS  (+0.92) [off-hours] Vedanta Aluminium quarterly profit more than doubles on high prices, record production  — Economic Times Markets
+[BULLISH] JSWENERGY.NS  (+0.91) [off-hours] JSW Energy Q2 Results: Net Profit Jumps By Nearly 50% Even As Margin Contracts  — NDTV Profit Latest
+[BULLISH] VEDL.NS  (+0.91) [off-hours] Metals thrust, strong growth engines power Vedanta's stellar July-September  — Economic Times Industry
+[BULLISH] JSWENERGY.NS  (+0.90) [off-hours] JSW Energy Q2 net profit rises 50% to ₹1,056 crore  — BusinessLine Companies
+[BULLISH] VEDL.NS  (+0.89) [off-hours] Vedanta Q2 net profit jumps 151% to ₹6,202 crore, revenue rises 57%  — Business Standard Companies
+[BULLISH] JSWENERGY.NS  (+0.89) [off-hours] JSW Energy Q2 results: Profit jumps 50% to ₹1,056 crore, beats estimates  — CNBC TV18 Markets
+[BULLISH] UNITDSPR.NS  (+0.89) [off-hours] United Spirits reports Q2 profit of ₹462 cr, revenue at ₹7,001 cr  — Business Standard Companies
+[BULLISH] TVSMOTOR.NS  (+0.88) [off-hours] TVS Motor Q2 Results: Net Profit Jumps 52%; Revenue, Margin Beats Estimates  — NDTV Profit Latest
+[BULLISH] HINDUNILVR.NS  (+0.88) [off-hours] Hindustan Unilever to take calibrated price hikes as commodity inflation stays high, says CEO Priya Nair  — Economic Times Industry
+[BULLISH] HINDUNILVR.NS  (+0.87) [off-hours] HUL beats cost pressures with price hikes, savings as net profit rises 3.9%  — BusinessLine Companies
+[BULLISH] HINDUNILVR.NS  (+0.84) [off-hours] Hindustan Unilever Limited backs FSSAI labelling norms for food products high in fat, salt and sugar  — Economic Times Industry
+[BULLISH] TVSMOTOR.NS  (+0.82) [off-hours] Apache maker TVS Motor rides EV surge to record quarterly sales  — Economic Times Industry
+[BULLISH] RELIANCE.NS,TMPV.NS  (+0.79) [off-hours] From 104 shareholders to nearly 80 lakh! Jio becomes India's most widely owned stock on listing day  — Economic Times Markets
+[BULLISH] TVSMOTOR.NS  (+0.76) [off-hours] TVS Motor Q2 results: Profit jumps 52% to ₹1,377 crore, revenue rises 44%  — CNBC TV18 Markets
+[BULLISH] LT.NS  (+0.76) [off-hours] L&T targets ₹15 lakh crore order book by FY31 as overseas business expands  — BusinessLine Companies
+[BULLISH] TATAPOWER.NS  (+0.75) [off-hours] Tata Power, NCRTC sign pact to shift utilities for 136-km Namo Bharat corridor  — Economic Times Industry
+[BULLISH] INFY.NS,TCS.NS  (+0.75) [off-hours] LTM launches GCC Origin as IT firms race to serve global capability centres  — The Hindu Business
+[BULLISH] CHOLAFIN.NS  (+0.68) [off-hours] Cholamandalam Investment and Finance Q2 net up 41%, board approves fundraise up to ₹5000 cr via QIP  — BusinessLine Companies
+[BULLISH] TVSMOTOR.NS  (+0.64) [off-hours] TVS Motor to split mobility, consumer finance businesses in restructuring  — Business Standard Companies
+[BULLISH] TVSMOTOR.NS  (+0.64) [off-hours] TVS Motor to demerge consumer finance business; reports record quarterly revenue  — The Hindu Business
+[BULLISH] MARUTI.NS  (+0.61) [off-hours] Why India’s largest carmaker’s chairman believes small cars still rule the road despite the SUV craze  — Economic Times Industry
+[BULLISH] LT.NS  (+0.57) [off-hours] L&T aims to nearly double order book to Rs 15 lakh crore by 2031  — The Hindu Business
+[BULLISH] VEDL.NS  (+0.44) [off-hours] Vedanta net doubles in Q2 on better realisation  — BusinessLine Companies
+[BULLISH] HCLTECH.NS  (+0.38) [off-hours] HCLTech launches AI-powered nano GCC offering on AWS  — The Hindu Business
+[BULLISH] ADANIENT.NS,ULTRACEMCO.NS  (+0.34) [off-hours] Deepak Fertilisers appoints Kanaiya Thakker as group general counsel and head of legal  — Economic Times Industry
+[BULLISH] BHARATFORG.NS  (+0.34) [off-hours] Kalyani Steels appoints Amit Kalyani as board's chairman  — Economic Times Industry
+[BULLISH] VEDL.NS  (+0.30) [off-hours] Vedanta vs Vedanta Aluminium Q2 results 2026 compared: Profit, revenue, EBITDA and debt explained of Anil Agarwal firms  — LiveMint Markets
+[BULLISH] SBIN.NS  (+0.30) [off-hours] Broker’s Call: Lumax Auto Tech (Buy)  — BusinessLine Markets
+[BULLISH] ADANIENT.NS  (+0.28) [off-hours] Adani Enterprises Q2 profit drops 55% even as operating earnings surge 62%  — Business Standard Companies
+[BULLISH] LICI.NS,PAYTM.NS  (+0.25) [off-hours] Top 5 IPOs listing: Jio Platforms IPO vs Hyundai, Paytm, LIC and others | How Reliance company outshone others in gains  — LiveMint Markets
+[neutral] LT.NS  (+0.00) [off-hours] L&T aims to double order book to ₹15 lakh crore by FY31  — BusinessLine Companies
+[neutral] LT.NS  (+0.00) [off-hours] L&T begins expansion of Chennai AI infrastructure campus with 52 MW data centre  — The Hindu Business
+[neutral] MARUTI.NS  (-0.14) [off-hours] Maruti Suzuki’s Q2 paradox: record volumes, shrinking margins  — LiveMint Markets
+[neutral] TVSMOTOR.NS  (-0.23) [off-hours] TVS Motor Company to demerge consumer finance and related businesses into a separate entity  — BusinessLine Companies
+[neutral] UNITDSPR.NS  (-0.23) [off-hours] United Spirits Q2 Results: Net profit falls 2%, misses estimates as Popular segment slumps  — CNBC TV18 Markets
+[BEARISH] ZYDUSLIFE.NS  (-0.42) [off-hours] Top 2 stocks to buy for short-term: Zydus Life, Whirlpool by Nagaraj Shetti - Check stop loss, targets  — LiveMint Markets
+[BEARISH] PNB.NS  (-0.83) [off-hours] Punjab National Bank customers in Greater Noida allege Rs 35 crore fraud, several employees suspended  — Economic Times Industry
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 6 pair(s) — 6 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 6 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — VEDL.NS +0.70: Vedanta Q2 Results: Profit zooms 78% YoY to Rs 6,202 crore; reven
-  novel & strong — ADANIENT.NS +0.70: Adani Enterprises Q2 results: Revenue jumps 75%; Exceptional item
-  novel & strong — VEDL.NS +0.90: Vedanta Q2 Results: Mining conglomerate reports record profit, ma
+LLM analyst: queued 48 pair(s) — 48 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+  gemini gemini-2.5-flash: ReadTimeout
+  gemini gemini-2.0-flash: http 404
+LLM analyst: scored 48 (headline, company) pair(s) with nvidia/nemotron-3.5-super-vl:free.
+  novel & strong — VEDL.NS +0.70: Vedanta Aluminium Q2 Results: Profit doubles to Rs 6,187 crore, r
+  novel & strong — VEDL.NS +0.70: Vedanta Aluminium quarterly profit more than doubles on high pric
+  novel & strong — TVSMOTOR.NS +0.70: TVS Motor Q2 Results: Profit jumps 52% YoY to Rs 1,377 crore; rev
+  novel & strong — VEDL.NS +0.70: Metals thrust, strong growth engines power Vedanta's stellar July
+  novel & strong — VEDL.NS +0.70: Vedanta vs Vedanta Aluminium Q2 results 2026 compared: Profit, re
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1236, 1-day horizon) ===
+=== Recent signals (last 15 of 1246, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
-2026-10-27  PAYTM.NS        +0.50   +1.87  YES  Paytm shares rise 2% after Q2 results. What are Jefferi
-2026-10-27  PAYTM.NS        +0.50   +1.87  YES  Paytm, Vodafone Idea, ITC Hotels, Sona BLW to Tata Cons
-2026-10-27  SAIL.NS         +0.30   -5.37  no   Best steel stocks to buy: JSW Steel, SAIL - Why Aditya 
 2026-10-27  TATACONSUM.NS   +0.30   +0.02  YES  Tata Consumer’s distribution overhaul powers growth in 
 2026-10-27  TATACONSUM.NS   +0.50   +0.02  YES  Paytm, Vodafone Idea, ITC Hotels, Sona BLW to Tata Cons
 2026-10-27  TATACONSUM.NS   +0.50   +0.02  YES  Tata Consumer shares rally over 4% after Q2 results. Wh
@@ -149,17 +187,20 @@ date        symbol           sent   move%  hit  headline
 2026-10-27  TATACONSUM.NS   +0.60   +0.02  YES  Tata Consumer spills the tea on its whole new growth re
 2026-10-27  TATAPOWER.NS    +0.40   -1.21  no   Power sector set for stronger Q2 earnings as demand ris
 2026-10-27  TATAPOWER.NS    +0.40   -1.21  no   Tata Power, BPCL plan ₹250-cr power infra for Mumbai re
+2026-10-27  TMPV.NS         +0.50   +0.92  YES  Amazon expects India EV fleet to cross 20,000 vehicles 
+2026-10-27  TMPV.NS         +0.50   +0.92  YES  Amazon plans 3,000 electric trucks with Tata Motors for
 2026-10-27  TMPV.NS         +0.50   +0.92  YES  Tata Motors, Amazon partner to deploy 3,000 electric tr
 2026-10-27  TMPV.NS         +0.50   +0.92  YES  Tata Motors, Amazon partner to deploy 3,000 electric tr
 2026-10-27  TMPV.NS         +0.60   +0.92  YES  Tata Motors' Iveco bid crosses 80% threshold as accepta
 2026-10-27  TMPV.NS         +0.90   +0.92  YES  Tata Motors clears key shareholding threshold for takeo
 2026-10-27  TMPV.NS         +0.90   +0.92  YES  Tata Motors secures Iveco takeover as 87.81% shareholde
+2026-10-27  TVSMOTOR.NS     -0.40   +3.74  no   TVS Succession Dispute Escalates As Both Camps File Cav
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1236    51.1     51.9    3.9   no edge
-3d                      1130    49.8     49.9    4.1   no edge
-5d                       931    50.8     49.6    4.5   no edge
+1d                      1246    51.4     52.1    3.9   no edge
+3d                      1120    50.1     50.2    4.1   no edge
+5d                       921    50.8     49.6    4.6   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -168,36 +209,36 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              817    52.5     52.3    4.8   no edge
+after-hours              827    52.8     52.5    4.8   no edge
 in-session               419    48.4     51.3    6.8   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
-descriptive              149    43.6     48.3   11.4   no edge
-novel                   1087    52.2     52.4    4.2   no edge
+descriptive              151    44.4     49.0   11.3   no edge
+novel                   1095    52.3     52.5    4.2   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
-body mention             236    52.5     51.7    9.0   no edge
-headline                1000    50.8     52.0    4.4   no edge
+body mention             235    52.3     51.5    9.0   no edge
+headline                1011    51.1     52.2    4.4   no edge
 
 === By source (1-day, raw direction) ===
-  Economic Times Markets         84/170 (49%)
+  Economic Times Markets         85/172 (49%)
   CNBC TV18 Markets              84/164 (51%)
-  Economic Times Industry        83/157 (53%)
-  NDTV Profit Latest             73/141 (52%)
-  Business Standard Companies    54/109 (50%)
-  BusinessLine Companies         59/106 (56%)
+  Economic Times Industry        81/153 (53%)
+  NDTV Profit Latest             74/142 (52%)
+  Business Standard Companies    59/117 (50%)
+  BusinessLine Companies         62/109 (57%)
   LiveMint Markets               38/86 (44%)
-  LiveMint Companies             32/62 (52%)
+  LiveMint Companies             32/63 (51%)
   The Hindu Business             27/53 (51%)
-  Business Standard Markets      25/50 (50%)
+  Business Standard Markets      25/49 (51%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1297/2704 (48%)
-  LLM    632/1236 (51%)
+  VADER  1311/2727 (48%)
+  LLM    640/1246 (51%)
 
-ML dataset: 11291 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 11339 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -4.55%  Coal India's SECL strengthens monsoon measures for
@@ -320,14 +361,14 @@ ML dataset: 11291 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Wed 28 Oct 15:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Wed 28 Oct 20:37 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,542.60 (-9.15% since start) — cash Rs 2,148.56, 3 position(s)
   CANBK.NS          7 @ 119.02 -> 117.82 (-1.01%)
   TMPV.NS           3 @ 262.76 -> 263.60 (+0.32%)
   ITC.NS            3 @ 259.95 -> 259.50 (-0.17%)
 Record: 6/26 wins, avg -1.95% per trade
-Learned source trust — high: Business Standard Economy 1.40, The Hindu Economy 1.33, LiveMint Companies 1.13
+Learned source trust — high: Business Standard Economy 1.40, The Hindu Economy 1.33, LiveMint Companies 1.12
                        low: Economic Times Economy 0.80, LiveMint Money 0.67, Business Standard Finance 0.64
 Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "it": 0.92, "fmcg": 0.846, "financials": 0.934, "pharma": 0.846, "infra": 1.014}
 ```
@@ -335,15 +376,15 @@ Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 5 buy idea(s), 2 macro item(s)
+Alert written: 6 buy idea(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 81 tickers to news_signal.json (window 7d, 912 scored pairs).
-  pipeline_ok=True data_through=2026-10-28T10:00:13+00:00 llm-scored 912/912 pairs (100%)
-  33 of 81 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 81 tickers to news_signal.json (window 7d, 924 scored pairs).
+  pipeline_ok=True data_through=2026-10-28T15:01:00+00:00 llm-scored 924/924 pairs (100%)
+  32 of 81 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ZYDUSLIFE.NS -0.90, ACC.NS -0.80, DALBHARAT.NS -0.54
-  most positive: ADANIPOWER.NS +0.77, LT.NS +0.73, PAYTM.NS +0.71
+  most positive: ADANIPOWER.NS +0.77, PAYTM.NS +0.71, CHOLAFIN.NS +0.70
 ```
