@@ -1,9 +1,9 @@
-# Stock digest — 2026-10-31 08:30
+# Stock digest — 2026-10-31 09:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 128629 articles against 259 alias patterns...
+Rescanning 128738 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -69,76 +69,73 @@ Rescanning 128629 articles against 259 alias patterns...
   ...126000
   ...128000
 
-Done. 128629 articles rescanned.
-  ticker-matched articles: 13694
-  flagged as noise:        7206
-  (article, company) pairs: 11826  — 0 awaiting LLM scoring
+Done. 128738 articles rescanned.
+  ticker-matched articles: 13699
+  flagged as noise:        7207
+  (article, company) pairs: 11830  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 1 new
+[OK] Economic Times Markets: 50 entries, 3 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 3 new
-[OK] Economic Times Industry: 50 entries, 3 new
+[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Industry: 50 entries, 0 new
 [OK] LiveMint Markets: 35 entries, 0 new
-[OK] LiveMint Companies: 35 entries, 4 new
+[OK] LiveMint Companies: 35 entries, 1 new
 [OK] LiveMint Money: 35 entries, 2 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 2 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 0 new
-[OK] BusinessLine Economy: 60 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 1 new
+[OK] BusinessLine Economy: 60 entries, 3 new
 [OK] Business Standard Markets: 35 entries, 1 new
 [OK] Business Standard Companies: 35 entries, 0 new
-[OK] Business Standard Finance: 35 entries, 2 new
+[OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 7 new
-[OK] TOI Business: 20 entries, 11 new
-[OK] The Hindu Business: 60 entries, 2 new
+[OK] NDTV Profit Latest: 20 entries, 16 new
+[OK] TOI Business: 20 entries, 0 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 2 new
+[OK] CNBC TV18 Markets: 200 entries, 1 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 16 new
-[OK] BBC Business: 50 entries, 1 new
-[OK] BBC World: 33 entries, 10 new
-[OK] Guardian Business: 35 entries, 10 new
-[OK] Al Jazeera: 25 entries, 14 new
-[OK] CNBC Top News: 30 entries, 3 new
+[OK] ET International: 50 entries, 2 new
+[OK] BBC Business: 50 entries, 0 new
+[OK] BBC World: 33 entries, 0 new
+[OK] Guardian Business: 36 entries, 1 new
+[OK] Al Jazeera: 25 entries, 2 new
+[OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 26 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 3 new
+[OK] MarketWatch Top: 10 entries, 0 new
 [OK] NYT Business: 50 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 2 new
+[OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] SCMP Business: 50 entries, 0 new
 
-109 new articles stored, 5 matched to tickers (1 flagged as tracker/listicle/index noise).
+45 new articles stored, 2 matched to tickers (1 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] RELIANCE.NS  (+0.96) [off-hours] Oil-to-chemicals business powers Reliance Industries' record quarterly net profit, up 34% to ₹29,550 crore  — Economic Times Industry
-[BULLISH] VBL.NS  (+0.62) [off-hours] Varun Beverages Plans Fresh Distribution Push In 2027 After Slower 2026  — NDTV Profit Latest
-[BULLISH] RELIANCE.NS  (+0.60) [off-hours] Reliance Industries Q2 net rises 34% to Rs 29,550 crore  — TOI Business
-[BULLISH] TMPV.NS  (+0.44) [off-hours] Tata Motors says Iveco is now part of group; Chandrasekaran appointed Chairperson  — The Hindu Business
+[BULLISH] MUTHOOTFIN.NS,NTPC.NS  (+0.77) [off-hours] Q2 Results Today Live: NTPC, Muthoot Finance, Shyam Metalics & Energy, Sarda Energy and Minerals, Zen Technologies, National Securities Depository, Rainbow Childrens Medicare Share to announce Q2 results  — BusinessLine Markets
+[BULLISH] INDIGO.NS  (+0.70) [off-hours] IndiGo Gets Rs 590 Per Passenger Beyond Airfares. It Wants To Earn Much More  — NDTV Profit Latest
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 4 pair(s) — 4 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 4 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — RELIANCE.NS +0.70: Oil-to-chemicals business powers Reliance Industries' record quar
-  novel & strong — RELIANCE.NS +0.70: Reliance Industries Q2 net rises 34% to Rs 29,550 crore
+LLM analyst: queued 3 pair(s) — 3 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+  gemini gemini-2.5-flash: http 503
+  gemini gemini-2.0-flash: http 404
+LLM analyst: scored 3 (headline, company) pair(s) with nvidia/nemotron-3.5-super-vl:free.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1377, 1-day horizon) ===
+=== Recent signals (last 15 of 1379, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
-2026-10-29  TRENT.NS        +0.60   +5.44  YES  Trent Q2 Results: Cons profit jumps 25% YoY to Rs 468 c
 2026-10-29  TRENT.NS        +0.60   +5.44  YES  Trent names Bahram Vakil chairman as Noel Tata to step 
 2026-10-29  TRENT.NS        +0.60   +5.44  YES  Trent net profit up 25% despite cost pressures and stif
 2026-10-29  TRENT.NS        +0.80   +5.44  YES  Trent Q2 net profit rises 25% to ₹468 crore on strong a
@@ -149,6 +146,7 @@ date        symbol           sent   move%  hit  headline
 2026-10-29  UNITDSPR.NS     -0.50   +3.43  no   TVS Motors a top pick, avoid United Spirits: Elixir Equ
 2026-10-29  VEDL.NS         -0.40   +1.43  no   Vedanta Oil and Gas Q2 results: Profit falls 21% sequen
 2026-10-29  VEDL.NS         +0.50   +1.43  YES  Vedanta Aluminium reports 41% revenue growth to Rs 22,0
+2026-10-29  VEDL.NS         +0.50   +1.43  YES  Vedanta lines up $25 bn investment over next three year
 2026-10-29  VEDL.NS         +0.70   +1.43  YES  Vedanta Oil and Gas swings to ₹746 crore profit in Q2 d
 2026-10-29  VEDL.NS         +0.70   +1.43  YES  Vedanta Power Q2 Results: Record sales, 45% EBITDA jump
 2026-10-29  VEDL.NS         +0.70   +1.43  YES  Vedanta Power Q2 results: Company swings to profit at R
@@ -156,9 +154,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1377    52.9     50.8    3.7   no edge
-3d                      1186    52.5     51.6    4.0   no edge
-5d                      1023    51.2     50.0    4.3   no edge
+1d                      1379    52.9     50.8    3.7   no edge
+3d                      1185    52.5     51.6    4.0   no edge
+5d                      1022    51.2     50.0    4.3   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -167,25 +165,25 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              923    54.8     50.7    4.6   no edge
+after-hours              925    54.8     50.7    4.6   no edge
 in-session               454    48.9     50.9    6.5   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
-descriptive              184    42.9     46.7   10.2   no edge
-novel                   1193    54.4     51.4    4.0   no edge
+descriptive              185    42.7     46.5   10.2   no edge
+novel                   1194    54.4     51.4    4.0   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             233    51.1     48.1    9.1   no edge
-headline                1144    53.2     51.3    4.1   no edge
+headline                1146    53.2     51.3    4.1   no edge
 
 === By source (1-day, raw direction) ===
   Economic Times Markets         109/208 (52%)
   CNBC TV18 Markets              88/169 (52%)
   Economic Times Industry        88/167 (53%)
-  NDTV Profit Latest             84/161 (52%)
-  Business Standard Companies    72/132 (55%)
+  NDTV Profit Latest             85/163 (52%)
+  Business Standard Companies    73/133 (55%)
   BusinessLine Companies         74/124 (60%)
   LiveMint Markets               42/92 (46%)
   LiveMint Companies             38/70 (54%)
@@ -193,10 +191,10 @@ headline                1144    53.2     51.3    4.1   no edge
   Business Standard Markets      24/48 (50%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1455/2924 (50%)
-  LLM    728/1377 (53%)
+  VADER  1455/2922 (50%)
+  LLM    729/1379 (53%)
 
-ML dataset: 11776 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 11782 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -4.55%  Coal India's SECL strengthens monsoon measures for
@@ -321,7 +319,7 @@ ML dataset: 11776 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sat 31 Oct 08:34 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sat 31 Oct 09:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,566.76 (-8.66% since start) — cash Rs 1,437.28, 4 position(s)
   CANBK.NS          7 @ 119.02 -> 117.54 (-1.24%)
@@ -337,14 +335,14 @@ Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 1 holding(s) to REVIEW, 2 buy idea(s), 3 macro item(s)
+Alert written: 1 holding(s) to REVIEW, 2 buy idea(s), 4 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 87 tickers to news_signal.json (window 7d, 1002 scored pairs).
-  pipeline_ok=True data_through=2026-10-31T03:00:13+00:00 llm-scored 1002/1002 pairs (100%)
+Exported 87 tickers to news_signal.json (window 7d, 998 scored pairs).
+  pipeline_ok=True data_through=2026-10-31T03:49:35+00:00 llm-scored 998/998 pairs (100%)
   35 of 87 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ZYDUSLIFE.NS -0.90, ACC.NS -0.80, AMBUJACEM.NS -0.71
   most positive: SJVN.NS +0.90, IOC.NS +0.90, DELHIVERY.NS +0.80
