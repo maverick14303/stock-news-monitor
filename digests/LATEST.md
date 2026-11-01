@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-01 13:30
+# Stock digest — 2026-11-01 14:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 129607 articles against 259 alias patterns...
+Rescanning 129658 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -69,44 +69,44 @@ Rescanning 129607 articles against 259 alias patterns...
   ...126000
   ...128000
 
-Done. 129607 articles rescanned.
-  ticker-matched articles: 13770
-  flagged as noise:        7221
-  (article, company) pairs: 11917  — 0 awaiting LLM scoring
+Done. 129658 articles rescanned.
+  ticker-matched articles: 13777
+  flagged as noise:        7222
+  (article, company) pairs: 11925  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 1 new
+[OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 1 new
-[OK] Economic Times Industry: 50 entries, 5 new
-[OK] LiveMint Markets: 35 entries, 1 new
-[OK] LiveMint Companies: 35 entries, 1 new
+[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Industry: 50 entries, 0 new
+[OK] LiveMint Markets: 35 entries, 2 new
+[OK] LiveMint Companies: 35 entries, 0 new
 [OK] LiveMint Money: 35 entries, 1 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 3 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 2 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 4 new
-[OK] BusinessLine Economy: 60 entries, 2 new
+[OK] BusinessLine Companies: 60 entries, 1 new
+[OK] BusinessLine Economy: 60 entries, 0 new
 [OK] Business Standard Markets: 35 entries, 1 new
-[OK] Business Standard Companies: 35 entries, 2 new
+[OK] Business Standard Companies: 35 entries, 1 new
 [OK] Business Standard Finance: 35 entries, 1 new
-[OK] Business Standard Economy: 35 entries, 1 new
-[OK] NDTV Profit Latest: 20 entries, 8 new
-[OK] TOI Business: 20 entries, 2 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] Business Standard Economy: 35 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 0 new
+[OK] TOI Business: 20 entries, 1 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 1 new
+[OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 2 new
-[OK] Investing.com India Stocks: 10 entries, 5 new
-[OK] ET International: 50 entries, 0 new
-[OK] BBC Business: 50 entries, 2 new
+[OK] Investing.com India Stocks: 10 entries, 4 new
+[OK] ET International: 50 entries, 1 new
+[OK] BBC Business: 51 entries, 1 new
 [OK] BBC World: 28 entries, 0 new
-[OK] Guardian Business: 39 entries, 1 new
-[OK] Al Jazeera: 25 entries, 4 new
-[OK] CNBC Top News: 30 entries, 1 new
+[OK] Guardian Business: 39 entries, 0 new
+[OK] Al Jazeera: 25 entries, 6 new
+[OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 26 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
 [OK] NYT Business: 50 entries, 0 new
@@ -115,26 +115,19 @@ Done. 129607 articles rescanned.
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 0 new
 
-51 new articles stored, 7 matched to tickers (1 flagged as tracker/listicle/index noise).
+25 new articles stored, 1 matched to tickers (0 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] COALINDIA.NS  (+0.73) [off-hours] Coal India October Business Update: Production and offtake rise nearly 19%  — CNBC TV18 Markets
-[BULLISH] KEI.NS  (+0.49) [off-hours] Investor friendly taxation amid higher yield key to retaining FPI capital, says PHDCCI’s Gupta  — BusinessLine Economy
-[BULLISH] TMPV.NS  (+0.38) [off-hours] Hyundai, Tata, M&amp;M October sales surge amid festive cheer; Escorts Kubota declines 10%  — Economic Times Industry
-[BULLISH] BPCL.NS,HINDPETRO.NS,IOC.NS  (+0.35) [off-hours] IOC, BPCL, HPCL clock ₹30,106 cr Q2 profit, nearly 39% of FY26 earnings  — Business Standard Companies
-[neutral] M&M.NS  (+0.00) [off-hours] M&M vehicle sales grow 9% to record 13,1109 units in Oct  — BusinessLine Companies
-[neutral] M&M.NS  (+0.00) [off-hours] October Auto Sales Live Updates: Hyundai Clocks Highest-Ever Total Monthly Sales; M&M, Eicher VECV In Focus  — NDTV Profit Latest
+[BULLISH] M&M.NS,TMPV.NS  (+0.74) [off-hours] Festive mode brings cheer to automakers with record sales in October  — BusinessLine Companies
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 8 pair(s) — 8 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 8 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — BPCL.NS +0.70: IOC, BPCL, HPCL clock ₹30,106 cr Q2 profit, nearly 39% of FY26 ea
-  novel & strong — HINDPETRO.NS +0.70: IOC, BPCL, HPCL clock ₹30,106 cr Q2 profit, nearly 39% of FY26 ea
-  novel & strong — COALINDIA.NS +0.60: Coal India October Business Update: Production and offtake rise n
-  novel & strong — IOC.NS +0.70: IOC, BPCL, HPCL clock ₹30,106 cr Q2 profit, nearly 39% of FY26 ea
+LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 2 (headline, company) pair(s) with google/gemini-2.5-flash.
+  novel & strong — M&M.NS +0.60: Festive mode brings cheer to automakers with record sales in Octo
+  novel & strong — TMPV.NS +0.60: Festive mode brings cheer to automakers with record sales in Octo
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -197,7 +190,7 @@ headline                1089    53.4     51.8    4.2   no edge
   Business Standard Markets      22/46 (48%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1376/2793 (49%)
+  VADER  1376/2792 (49%)
   LLM    687/1304 (53%)
 
 ML dataset: 11784 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
@@ -325,7 +318,7 @@ ML dataset: 11784 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 01 Nov 13:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 01 Nov 14:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,566.76 (-8.66% since start) — cash Rs 1,437.28, 4 position(s)
   CANBK.NS          7 @ 119.02 -> 117.54 (-1.24%)
@@ -347,9 +340,9 @@ Alert written: 1 buy idea(s)
 ## Sentiment export
 
 ```
-Exported 88 tickers to news_signal.json (window 7d, 1024 scored pairs).
-  pipeline_ok=True data_through=2026-11-01T07:53:38+00:00 llm-scored 1024/1024 pairs (100%)
-  37 of 88 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 85 tickers to news_signal.json (window 7d, 1014 scored pairs).
+  pipeline_ok=True data_through=2026-11-01T08:54:10+00:00 llm-scored 1014/1014 pairs (100%)
+  35 of 85 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ZYDUSLIFE.NS -0.90, ACC.NS -0.80, AMBUJACEM.NS -0.71
   most positive: SJVN.NS +0.90, IOC.NS +0.90, DELHIVERY.NS +0.80
 ```
