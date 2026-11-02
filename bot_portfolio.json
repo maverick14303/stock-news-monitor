@@ -1,5 +1,5 @@
 {
-  "cash": 3073.9119955635065,
+  "cash": 3806.68545595169,
   "positions": {
     "TMPV.NS": {
       "qty": 3,
@@ -9,15 +9,6 @@
         "Business Standard Companies"
       ],
       "thesis": "Tata Motors' bid to takeover Iveco clears 80% acceptance threshold"
-    },
-    "VEDL.NS": {
-      "qty": 3,
-      "avg_cost": 237.09124999999997,
-      "opened": "2026-10-29T04:04:40.368890+00:00",
-      "sources": [
-        "Economic Times Markets"
-      ],
-      "thesis": "Vedanta cuts debt by Rs 4,624 crore in September quarter as net profit jumps 151%"
     }
   },
   "trades": [
@@ -542,6 +533,15 @@
       "price": 267.4,
       "fee": 2.01,
       "reason": "negative news (-0.50) at +2.9%"
+    },
+    {
+      "time": "2026-11-02T08:03:25.823074+00:00",
+      "action": "sell",
+      "symbol": "VEDL.NS",
+      "qty": 3,
+      "price": 244.87,
+      "fee": 1.84,
+      "reason": "negative news (-0.50) at +3.3%"
     }
   ],
   "closed": [
@@ -852,10 +852,21 @@
       "win": true,
       "reason": "negative news (-0.50) at +2.9%",
       "thesis": "ITC Hotels Q2 Results: Net Profit Jumps 51%; Ebitda Margin Expands To 32%"
+    },
+    {
+      "time": "2026-11-02T08:03:25.823074+00:00",
+      "symbol": "VEDL.NS",
+      "sector": "metals",
+      "entry": 237.09,
+      "exit": 244.87,
+      "pnl_pct": 3.28,
+      "win": true,
+      "reason": "negative news (-0.50) at +3.3%",
+      "thesis": "Vedanta cuts debt by Rs 4,624 crore in September quarter as net profit jumps 151%"
     }
   ],
   "sector_weights": {
-    "metals": 0.859,
+    "metals": 0.902,
     "consumer": 0.778,
     "energy": 0.606,
     "it": 0.92,
