@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-02 02:30
+# Stock digest — 2026-11-02 08:31
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 129906 articles against 259 alias patterns...
+Rescanning 130071 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -68,93 +68,86 @@ Rescanning 129906 articles against 259 alias patterns...
   ...124000
   ...126000
   ...128000
+  ...130000
 
-Done. 129906 articles rescanned.
-  ticker-matched articles: 13808
+Done. 130071 articles rescanned.
+  ticker-matched articles: 13830
   flagged as noise:        7226
-  (article, company) pairs: 11959  — 0 awaiting LLM scoring
+  (article, company) pairs: 11987  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 0 new
+[OK] Economic Times Markets: 50 entries, 25 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 3 new
-[OK] Economic Times Industry: 50 entries, 26 new
-[OK] LiveMint Markets: 35 entries, 3 new
-[OK] LiveMint Companies: 35 entries, 2 new
-[OK] LiveMint Money: 35 entries, 5 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 1 new
+[OK] Economic Times Economy: 50 entries, 2 new
+[OK] Economic Times Industry: 50 entries, 0 new
+[OK] LiveMint Markets: 35 entries, 14 new
+[OK] LiveMint Companies: 35 entries, 6 new
+[OK] LiveMint Money: 35 entries, 2 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 5 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 9 new
-[OK] BusinessLine Economy: 60 entries, 1 new
-[OK] Business Standard Markets: 35 entries, 1 new
-[OK] Business Standard Companies: 35 entries, 0 new
-[OK] Business Standard Finance: 35 entries, 1 new
-[OK] Business Standard Economy: 35 entries, 3 new
-[OK] NDTV Profit Latest: 20 entries, 19 new
-[OK] TOI Business: 20 entries, 12 new
-[OK] The Hindu Business: 60 entries, 2 new
+[OK] BusinessLine Companies: 60 entries, 0 new
+[OK] BusinessLine Economy: 60 entries, 5 new
+[OK] Business Standard Markets: 35 entries, 11 new
+[OK] Business Standard Companies: 35 entries, 1 new
+[OK] Business Standard Finance: 35 entries, 0 new
+[OK] Business Standard Economy: 35 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 15 new
+[OK] TOI Business: 20 entries, 3 new
+[OK] The Hindu Business: 60 entries, 3 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 2 new
-[OK] Investing.com India Stocks: 10 entries, 1 new
-[OK] ET International: 50 entries, 28 new
-[OK] BBC Business: 53 entries, 1 new
-[OK] BBC World: 30 entries, 7 new
-[OK] Guardian Business: 37 entries, 4 new
-[OK] Al Jazeera: 25 entries, 23 new
-[OK] CNBC Top News: 30 entries, 6 new
+[OK] News18 Business: 200 entries, 2 new
+[OK] CNBC TV18 Markets: 200 entries, 19 new
+[OK] Investing.com India Stocks: 10 entries, 10 new
+[OK] ET International: 50 entries, 13 new
+[OK] BBC Business: 46 entries, 3 new
+[OK] BBC World: 30 entries, 3 new
+[OK] Guardian Business: 37 entries, 0 new
+[OK] Al Jazeera: 25 entries, 16 new
+[OK] CNBC Top News: 30 entries, 4 new
 [OK] CNBC World Markets: 28 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
 [OK] NYT Business: 50 entries, 1 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 3 new
+[OK] OilPrice: 15 entries, 2 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] SCMP Business: 50 entries, 4 new
 
-165 new articles stored, 22 matched to tickers (0 flagged as tracker/listicle/index noise).
+170 new articles stored, 20 matched to tickers (17 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] AXISBANK.NS,HDFCBANK.NS,KOTAKBANK.NS  (+0.98) [off-hours] Banks report 10-50% gains in productivity, turnaround time and costs from AI-led initiatives  — Economic Times Industry
-[BULLISH] EICHERMOT.NS  (+0.97) [off-hours] Royal Enfield reports 7% growth in October sales  — Economic Times Industry
-[BULLISH] POWERGRID.NS  (+0.97) [off-hours] Power Grid Corporation of India Q2 Results: Net profit up 8%; approves ₹3 interim dividend  — CNBC TV18 Markets
-[BULLISH] DABUR.NS  (+0.97) [off-hours] Emami vs Dabur FMCG shares Q2 results preview: Profit, revenue expectations; Dividend announcements in focus  — LiveMint Markets
-[BULLISH] PIDILITIND.NS  (+0.97) [off-hours] Price hikes to help Pidilite meet profitability guidance  — Economic Times Industry
-[BULLISH] HEROMOTOCO.NS  (+0.96) [off-hours] Hero, Honda gain ground as October two-wheeler retail jumps 29%  — BusinessLine Companies
-[BULLISH] HEROMOTOCO.NS  (+0.96) [off-hours] Hero MotoCorp October Sales: Dispatches up 16% to 7.34 lakh units; VIDA retail jumps 80%  — CNBC TV18 Markets
-[BULLISH] ETERNAL.NS  (+0.92) [off-hours] Temple vs Apple Watch: Deepinder Goyal Explains Why New Wearable Beats Apple In Cardio Data, Invites Review  — NDTV Profit Latest
-[BULLISH] MARUTI.NS  (+0.89) [off-hours] Festive dispatches drive October car sales to record high  — Economic Times Industry
-[BULLISH] HEROMOTOCO.NS  (+0.83) [off-hours] Honda invests ₹2,420 crore to raise capacity, targets premium motorcycle and EV growth  — BusinessLine Companies
-[BULLISH] LICHSGFIN.NS,LICI.NS  (+0.80) [off-hours] LIC Housing Finance to grow double digit in H2 FY2027; portfolio to jump ₹3.5 lakh crore: Sandeep Kumar  — BusinessLine Companies
-[BULLISH] TMPV.NS  (+0.64) [off-hours] Electric car sales nearly double in October  — Economic Times Industry
-[BULLISH] IDFCFIRSTB.NS  (+0.56) [off-hours] Banks seek microloan guarantee extension  — Economic Times Industry
-[BULLISH] COALINDIA.NS  (+0.56) [off-hours] Coal India’s production increases 19% as mining recovers after monsoon slump  — The Hindu Business
-[BULLISH] LICHSGFIN.NS,LICI.NS  (+0.42) [off-hours] Zee Entertainment distances from Founder’s CBI investigation  — BusinessLine Companies
-[BULLISH] TCS.NS  (+0.30) [off-hours] Buying a car on Dhanteras, Diwali 2026? You could get at least  ₹10,000 as tax refund next year — here's how  — LiveMint Money
-[neutral] PNB.NS  (+0.03) [off-hours] Punjab National Bank Hikes MCLR On Select Tenures: Check New Lending Rates  — NDTV Profit Latest
-[neutral] INDIGO.NS  (+0.00) [off-hours] Digi Yatra trials for international passengers begin at seven airports, wider rollout likely in 2027  — Economic Times Industry
-[neutral] ITC.NS,MARICO.NS,NATIONALUM.NS  (+0.00) [off-hours] Q2 Results Today: Full List Of Companies Declaring Quarterly Results On Nov. 2  — NDTV Profit Latest
-[neutral] AUBANK.NS  (-0.22) [off-hours] Cyberattacks on banks, including AU Small Finance Bank, worry insurers as claim risks rise  — Economic Times Industry
-[BEARISH] PNB.NS  (-0.62) [off-hours] PNB union seeks audit of 10,500 branches after  ₹11.24 cr fraud, multiple suspensions; warns against ‘knee-jerk’ action  — LiveMint Companies
-[BEARISH] UBL.NS  (-0.86) [off-hours] AB InBev sets aside $30 million for unpaid Telangana dues as delayed payments squeeze brewers  — Economic Times Industry
+[BULLISH] SUNPHARMA.NS  (+0.98) [off-hours] Sun Pharma’s specialty portfolio, Organon deal to drive growth  — Economic Times Markets
+[BULLISH] AXISBANK.NS,HDFCBANK.NS,KOTAKBANK.NS  (+0.98) [off-hours] Banks report 10-50% gains in productivity, turnaround time and costs from AI-led initiatives  — Economic Times Markets
+[BULLISH] RELIANCE.NS  (+0.97) [off-hours] Reliance Industries eyes growth boost from O2C, retail and Jio businesses  — Economic Times Markets
+[BULLISH] BANKBARODA.NS  (+0.95) [off-hours] Bank of Baroda share price: Brokerages revise earnings estimates after Q2 results; check ratings and targets  — CNBC TV18 Markets
+[BULLISH] DLF.NS  (+0.75) [off-hours] Nifty’s next move hinges on breakout above 23,200: Analysts  — Economic Times Markets
+[BULLISH] SUNPHARMA.NS  (+0.74) [off-hours] Sun Pharma shares in focus as management reiterates FY27 guidance; Analysts see up to 31% upside  — CNBC TV18 Markets
+[BULLISH] COFORGE.NS,ICICIBANK.NS  (+0.68) [off-hours] Coforge, ICICI Bank, KPR Mill: 3 technical ideas by Choice Equity  — Business Standard Markets
+[BULLISH] RELIANCE.NS  (+0.65) [off-hours] RIL share price: Goldman Sachs sees upside to ₹1,840; strong O2C performance drives Q2 earnings beat  — CNBC TV18 Markets
+[BULLISH] IDFCFIRSTB.NS  (+0.56) [off-hours] Banks seek microloan guarantee extension  — Economic Times Markets
+[BULLISH] VBL.NS  (+0.30) [off-hours] Varun Beverages’ Q3 volume surge can’t mask margin pain  — LiveMint Markets
+[BULLISH] INFY.NS  (+0.30) [off-hours] Infosys dividend 2026: Record date tomorrow | Know dividend payout, yield, history, returns  — LiveMint Markets
+[BULLISH] POLICYBZR.NS  (+0.30) [off-hours] PB Fintech shares in focus as analysts mixed post Q2 results; check targets  — CNBC TV18 Markets
+[BULLISH] INDIGO.NS  (+0.30) [off-hours] InterGlobe Aviation shares in focus after Centre notifies new airfare pricing rules — Check details  — CNBC TV18 Markets
+[neutral] AUBANK.NS  (-0.22) [off-hours] Cyberattacks on banks, including AU Small Finance Bank, worry insurers as claim risks rise  — Economic Times Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 28 pair(s) — 28 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-  gemini gemini-2.5-flash: JSONDecodeError
+LLM analyst: queued 17 pair(s) — 17 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+  gemini gemini-2.5-flash: http 503
   gemini gemini-2.0-flash: http 404
-LLM analyst: scored 28 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: scored 17 (headline, company) pair(s) with nvidia/nemotron-3.5-super-vl:free.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1291, 1-day horizon) ===
+=== Recent signals (last 15 of 1290, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-10-29  TRENT.NS        +0.60   +5.44  YES  Trent names Bahram Vakil chairman as Noel Tata to step 
 2026-10-29  TRENT.NS        +0.60   +5.44  YES  Trent net profit up 25% despite cost pressures and stif
@@ -174,9 +167,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1291    52.4     50.7    3.9   no edge
-3d                      1105    52.0     52.5    4.2   no edge
-5d                       956    50.9     50.3    4.5   no edge
+1d                      1290    52.4     50.6    3.9   no edge
+3d                      1104    52.0     52.4    4.2   no edge
+5d                       955    50.9     50.3    4.5   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -185,21 +178,21 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              852    54.1     50.2    4.7   no edge
+after-hours              851    54.1     50.2    4.8   no edge
 in-session               439    49.2     51.5    6.6   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              181    43.1     47.0   10.3   no edge
-novel                   1110    54.0     51.3    4.2   no edge
+novel                   1109    53.9     51.2    4.2   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             210    48.1     45.7    9.5   no edge
-headline                1081    53.3     51.6    4.2   no edge
+headline                1080    53.2     51.6    4.2   no edge
 
 === By source (1-day, raw direction) ===
-  Economic Times Markets         109/206 (53%)
+  Economic Times Markets         108/205 (53%)
   NDTV Profit Latest             83/161 (52%)
   CNBC TV18 Markets              83/157 (53%)
   Economic Times Industry        75/146 (51%)
@@ -211,8 +204,8 @@ headline                1081    53.3     51.6    4.2   no edge
   Business Standard Markets      22/46 (48%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1360/2764 (49%)
-  LLM    677/1291 (52%)
+  VADER  1359/2761 (49%)
+  LLM    676/1290 (52%)
 
 ML dataset: 11784 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -339,7 +332,8 @@ ML dataset: 11784 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Mon 02 Nov 02:34 IST) — news gathering only, no trades. Prices below are the last close.
+PLANNED for the 02 Nov open — 1 order(s), each re-checked against fresh prices and news before filling:
+  QUEUE BUY BANKBARODA.NS   score 0.62 — Earnings call transcript: Bank of Baroda posts record q2 202
 
 Bot equity: Rs 4,566.76 (-8.66% since start) — cash Rs 1,437.28, 4 position(s)
   CANBK.NS          7 @ 119.02 -> 117.54 (-1.24%)
@@ -355,14 +349,14 @@ Learned sector weights: {"metals": 0.859, "consumer": 0.778, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 2 macro item(s)
+Alert written: 3 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 88 tickers to news_signal.json (window 7d, 1042 scored pairs).
-  pipeline_ok=True data_through=2026-11-01T21:01:58+00:00 llm-scored 1042/1042 pairs (100%)
+Exported 88 tickers to news_signal.json (window 7d, 1046 scored pairs).
+  pipeline_ok=True data_through=2026-11-02T02:58:53+00:00 llm-scored 1046/1046 pairs (100%)
   40 of 88 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ZYDUSLIFE.NS -0.90, ACC.NS -0.80, AMBUJACEM.NS -0.71
   most positive: SJVN.NS +0.90, DELHIVERY.NS +0.80, PAYTM.NS +0.71

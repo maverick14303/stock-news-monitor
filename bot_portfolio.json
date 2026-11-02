@@ -842,7 +842,15 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "BANKBARODA.NS",
+      "score": 0.623,
+      "title": "Earnings call transcript: Bank of Baroda posts record q2 2026 profit, beats forecasts",
+      "source": "Investing.com India Stocks",
+      "queued": "2026-11-02"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-10-30"
