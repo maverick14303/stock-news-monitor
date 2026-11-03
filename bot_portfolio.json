@@ -875,23 +875,8 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [
-    {
-      "symbol": "MARICO.NS",
-      "score": 0.815,
-      "title": "Marico profit jumps 31%, flags rising input costs amid West Asia woes",
-      "source": "Economic Times Markets",
-      "queued": "2026-11-03"
-    },
-    {
-      "symbol": "DRREDDY.NS",
-      "score": 0.656,
-      "title": "Dr Reddy\u2019s injectable lenacapavir for HIV prevention gets tentative nod from USFDA",
-      "source": "BusinessLine Companies",
-      "queued": "2026-11-03"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-11-02"
+  "traded_day": "2026-11-03"
 }
