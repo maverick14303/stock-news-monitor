@@ -875,7 +875,29 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "SBIN.NS",
+      "score": 0.698,
+      "title": "Loan growth, fall in provisions help SBI profits in Q2",
+      "source": "Economic Times Markets",
+      "queued": "2026-11-04"
+    },
+    {
+      "symbol": "LUPIN.NS",
+      "score": 0.687,
+      "title": "Lupin launches HIV drug in US, secures eligibility for 180-day generic exclusivity",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-11-04"
+    },
+    {
+      "symbol": "MARICO.NS",
+      "score": 0.632,
+      "title": "Marico sees sustained growth momentum, raises FY27 margin outlook",
+      "source": "Economic Times Markets",
+      "queued": "2026-11-04"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-11-03"
