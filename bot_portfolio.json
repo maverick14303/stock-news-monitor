@@ -893,7 +893,36 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "NYKAA.NS",
+      "score": 0.716,
+      "title": "Nykaa Q2 net profit nearly triples to \u20b9101 crore, revenue rises 28%",
+      "source": "Business Standard Companies",
+      "queued": "2026-11-05"
+    },
+    {
+      "symbol": "AUROPHARMA.NS",
+      "score": 0.685,
+      "title": "Aurobindo Pharma Q2 profit rises 33%, beats estimates; declares \u20b97 interim dividend",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-11-05"
+    },
+    {
+      "symbol": "APOLLOHOSP.NS",
+      "score": 0.606,
+      "title": "Apollo Hospitals Q2 net profit rises 32% to \u20b9630 crore; revenue up 23%",
+      "source": "Business Standard Companies",
+      "queued": "2026-11-05"
+    },
+    {
+      "symbol": "INDIGO.NS",
+      "score": 0.58,
+      "title": "IndiGo reportedly in talks to buy 100 Embraer jets, may place order for 50 more: What we know",
+      "source": "LiveMint Companies",
+      "queued": "2026-11-05"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-11-04"
