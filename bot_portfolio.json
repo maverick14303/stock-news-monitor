@@ -1,5 +1,5 @@
 {
-  "cash": 3092.665681476593,
+  "cash": 3786.1276936531067,
   "positions": {
     "MARICO.NS": {
       "qty": 1,
@@ -9,15 +9,6 @@
         "Economic Times Markets"
       ],
       "thesis": "Marico sees sustained growth momentum, raises FY27 margin outlook"
-    },
-    "NYKAA.NS": {
-      "qty": 2,
-      "avg_cost": 346.06301223754883,
-      "opened": "2026-11-05T04:03:48.062963+00:00",
-      "sources": [
-        "Business Standard Companies"
-      ],
-      "thesis": "Nykaa Q2 net profit nearly triples to \u20b9101 crore, revenue rises 28%"
     }
   },
   "trades": [
@@ -578,6 +569,15 @@
       "price": 345.2,
       "fee": 1.73,
       "reason": "planned pre-open, score 0.72 (Business Standard Companies): Nykaa Q2 net profit nearly triples to \u20b9101 crore, revenue rises 28%"
+    },
+    {
+      "time": "2026-11-05T09:04:17.295535+00:00",
+      "action": "sell",
+      "symbol": "NYKAA.NS",
+      "qty": 2,
+      "price": 347.6,
+      "fee": 1.74,
+      "reason": "negative news (-0.50) at +0.4%"
     }
   ],
   "closed": [
@@ -910,11 +910,22 @@
       "win": true,
       "reason": "negative news (-0.70) at +10.4%",
       "thesis": "Tata Motors' bid to takeover Iveco clears 80% acceptance threshold"
+    },
+    {
+      "time": "2026-11-05T09:04:17.295535+00:00",
+      "symbol": "NYKAA.NS",
+      "sector": "consumer",
+      "entry": 346.06,
+      "exit": 347.6,
+      "pnl_pct": 0.44,
+      "win": true,
+      "reason": "negative news (-0.50) at +0.4%",
+      "thesis": "Nykaa Q2 net profit nearly triples to \u20b9101 crore, revenue rises 28%"
     }
   ],
   "sector_weights": {
     "metals": 0.902,
-    "consumer": 0.817,
+    "consumer": 0.858,
     "energy": 0.606,
     "it": 0.92,
     "fmcg": 0.888,
