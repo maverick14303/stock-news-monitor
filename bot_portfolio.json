@@ -1,15 +1,6 @@
 {
-  "cash": 2916.96670595169,
+  "cash": 3092.665681476593,
   "positions": {
-    "TMPV.NS": {
-      "qty": 3,
-      "avg_cost": 262.7552561187744,
-      "opened": "2026-10-27T04:03:59.666379+00:00",
-      "sources": [
-        "Business Standard Companies"
-      ],
-      "thesis": "Tata Motors' bid to takeover Iveco clears 80% acceptance threshold"
-    },
     "MARICO.NS": {
       "qty": 1,
       "avg_cost": 889.71875,
@@ -18,6 +9,15 @@
         "Economic Times Markets"
       ],
       "thesis": "Marico sees sustained growth momentum, raises FY27 margin outlook"
+    },
+    "NYKAA.NS": {
+      "qty": 2,
+      "avg_cost": 346.06301223754883,
+      "opened": "2026-11-05T04:03:48.062963+00:00",
+      "sources": [
+        "Business Standard Companies"
+      ],
+      "thesis": "Nykaa Q2 net profit nearly triples to \u20b9101 crore, revenue rises 28%"
     }
   },
   "trades": [
@@ -560,6 +560,24 @@
       "price": 887.5,
       "fee": 2.22,
       "reason": "planned pre-open, score 0.63 (Economic Times Markets): Marico sees sustained growth momentum, raises FY27 margin outlook"
+    },
+    {
+      "time": "2026-11-05T04:03:48.062963+00:00",
+      "action": "sell",
+      "symbol": "TMPV.NS",
+      "qty": 3,
+      "price": 290.0,
+      "fee": 2.18,
+      "reason": "negative news (-0.70) at +10.4%"
+    },
+    {
+      "time": "2026-11-05T04:03:48.062963+00:00",
+      "action": "buy",
+      "symbol": "NYKAA.NS",
+      "qty": 2,
+      "price": 345.2,
+      "fee": 1.73,
+      "reason": "planned pre-open, score 0.72 (Business Standard Companies): Nykaa Q2 net profit nearly triples to \u20b9101 crore, revenue rises 28%"
     }
   ],
   "closed": [
@@ -881,11 +899,22 @@
       "win": true,
       "reason": "negative news (-0.50) at +3.3%",
       "thesis": "Vedanta cuts debt by Rs 4,624 crore in September quarter as net profit jumps 151%"
+    },
+    {
+      "time": "2026-11-05T04:03:48.062963+00:00",
+      "symbol": "TMPV.NS",
+      "sector": "consumer",
+      "entry": 262.76,
+      "exit": 290.0,
+      "pnl_pct": 10.37,
+      "win": true,
+      "reason": "negative news (-0.70) at +10.4%",
+      "thesis": "Tata Motors' bid to takeover Iveco clears 80% acceptance threshold"
     }
   ],
   "sector_weights": {
     "metals": 0.902,
-    "consumer": 0.778,
+    "consumer": 0.817,
     "energy": 0.606,
     "it": 0.92,
     "fmcg": 0.888,
@@ -893,37 +922,8 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [
-    {
-      "symbol": "NYKAA.NS",
-      "score": 0.716,
-      "title": "Nykaa Q2 net profit nearly triples to \u20b9101 crore, revenue rises 28%",
-      "source": "Business Standard Companies",
-      "queued": "2026-11-05"
-    },
-    {
-      "symbol": "AUROPHARMA.NS",
-      "score": 0.685,
-      "title": "Aurobindo Pharma Q2 profit rises 33%, beats estimates; declares \u20b97 interim dividend",
-      "source": "CNBC TV18 Markets",
-      "queued": "2026-11-05"
-    },
-    {
-      "symbol": "APOLLOHOSP.NS",
-      "score": 0.606,
-      "title": "Apollo Hospitals Q2 net profit rises 32% to \u20b9630 crore; revenue up 23%",
-      "source": "Business Standard Companies",
-      "queued": "2026-11-05"
-    },
-    {
-      "symbol": "INDIGO.NS",
-      "score": 0.58,
-      "title": "IndiGo reportedly in talks to buy 100 Embraer jets, may place order for 50 more: What we know",
-      "source": "LiveMint Companies",
-      "queued": "2026-11-05"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-11-04"
+  "traded_day": "2026-11-05"
 }
