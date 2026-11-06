@@ -933,7 +933,36 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "ADANIPORTS.NS",
+      "score": 1.047,
+      "title": "Adani Ports to enter Europe with \u20ac2.56 billion buyout of Evos",
+      "source": "LiveMint Companies",
+      "queued": "2026-11-06"
+    },
+    {
+      "symbol": "BHARTIARTL.NS",
+      "score": 0.573,
+      "title": "Bharti Airtel net profit rises 24% to \u20b910,710 crore in September quarter",
+      "source": "The Hindu Business",
+      "queued": "2026-11-06"
+    },
+    {
+      "symbol": "LICI.NS",
+      "score": 0.562,
+      "title": "LIC Q2 profit rises 20% to \u20b912,115 crore as VNB margin and net premium expands",
+      "source": "The Hindu Business",
+      "queued": "2026-11-06"
+    },
+    {
+      "symbol": "ONGC.NS",
+      "score": 0.554,
+      "title": "ONGC net profit jumps 57% to \u20b915,488.64 crore on higher oil, gas prices",
+      "source": "Business Standard Companies",
+      "queued": "2026-11-06"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-11-05"
