@@ -1,5 +1,5 @@
 {
-  "cash": 2987.736669178009,
+  "cash": 3769.1781935310364,
   "positions": {
     "MARICO.NS": {
       "qty": 1,
@@ -9,15 +9,6 @@
         "Economic Times Markets"
       ],
       "thesis": "Marico sees sustained growth momentum, raises FY27 margin outlook"
-    },
-    "LICI.NS": {
-      "qty": 2,
-      "avg_cost": 399.1955122375488,
-      "opened": "2026-11-06T04:04:28.709053+00:00",
-      "sources": [
-        "The Hindu Business"
-      ],
-      "thesis": "LIC Q2 profit rises 20% to \u20b912,115 crore as VNB margin and net premium expands"
     }
   },
   "trades": [
@@ -596,6 +587,15 @@
       "price": 398.2,
       "fee": 1.99,
       "reason": "planned pre-open, score 0.56 (The Hindu Business): LIC Q2 profit rises 20% to \u20b912,115 crore as VNB margin and net premium"
+    },
+    {
+      "time": "2026-11-06T07:04:01.341823+00:00",
+      "action": "sell",
+      "symbol": "LICI.NS",
+      "qty": 2,
+      "price": 391.7,
+      "fee": 1.96,
+      "reason": "negative news (-0.50) at -1.9%"
     }
   ],
   "closed": [
@@ -939,6 +939,17 @@
       "win": true,
       "reason": "negative news (-0.50) at +0.4%",
       "thesis": "Nykaa Q2 net profit nearly triples to \u20b9101 crore, revenue rises 28%"
+    },
+    {
+      "time": "2026-11-06T07:04:01.341823+00:00",
+      "symbol": "LICI.NS",
+      "sector": "financials",
+      "entry": 399.2,
+      "exit": 391.7,
+      "pnl_pct": -1.88,
+      "win": false,
+      "reason": "negative news (-0.50) at -1.9%",
+      "thesis": "LIC Q2 profit rises 20% to \u20b912,115 crore as VNB margin and net premium expands"
     }
   ],
   "sector_weights": {
@@ -947,7 +958,7 @@
     "energy": 0.606,
     "it": 0.92,
     "fmcg": 0.888,
-    "financials": 0.981,
+    "financials": 0.903,
     "pharma": 0.846,
     "infra": 1.014
   },
