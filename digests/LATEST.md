@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-07 10:30
+# Stock digest — 2026-11-07 11:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 136695 articles against 259 alias patterns...
+Rescanning 136734 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -73,43 +73,43 @@ Rescanning 136695 articles against 259 alias patterns...
   ...134000
   ...136000
 
-Done. 136695 articles rescanned.
-  ticker-matched articles: 14745
+Done. 136734 articles rescanned.
+  ticker-matched articles: 14747
   flagged as noise:        7738
-  (article, company) pairs: 12720  — 0 awaiting LLM scoring
+  (article, company) pairs: 12725  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 5 new
-[OK] Economic Times Stocks: 50 entries, 0 new
+[OK] Economic Times Markets: 50 entries, 1 new
+[OK] Economic Times Stocks: 50 entries, 1 new
 [OK] Economic Times Economy: 50 entries, 0 new
 [OK] Economic Times Industry: 50 entries, 0 new
 [OK] LiveMint Markets: 35 entries, 3 new
-[OK] LiveMint Companies: 35 entries, 1 new
-[OK] LiveMint Money: 35 entries, 2 new
+[OK] LiveMint Companies: 35 entries, 2 new
+[OK] LiveMint Money: 35 entries, 1 new
 [OK] LiveMint Economy: 35 entries, 0 new
 [OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 0 new
-[OK] BusinessLine Economy: 60 entries, 2 new
-[OK] Business Standard Markets: 35 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 1 new
+[OK] BusinessLine Economy: 60 entries, 3 new
+[OK] Business Standard Markets: 35 entries, 1 new
 [OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 2 new
+[OK] NDTV Profit Latest: 20 entries, 5 new
 [OK] TOI Business: 20 entries, 1 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 2 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 1 new
+[OK] ET International: 50 entries, 5 new
 [OK] BBC Business: 54 entries, 0 new
-[OK] BBC World: 27 entries, 5 new
+[OK] BBC World: 27 entries, 0 new
 [OK] Guardian Business: 40 entries, 0 new
-[OK] Al Jazeera: 25 entries, 3 new
+[OK] Al Jazeera: 25 entries, 4 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
@@ -117,13 +117,14 @@ Done. 136695 articles rescanned.
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
 [OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 0 new
+[OK] SCMP Business: 50 entries, 1 new
 
-39 new articles stored, 2 matched to tickers (0 flagged as tracker/listicle/index noise).
+42 new articles stored, 5 matched to tickers (2 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] ADANIPOWER.NS,TECHM.NS,TVSMOTOR.NS  (+0.74) [off-hours] Muhurat Trading 2026 Diwali stocks to buy for upto 109% upside: BSE, Adani Power, HFCL, TechM - SAMCO's 10 shares | List  — LiveMint Markets
-[BULLISH] ADANIPORTS.NS,ETERNAL.NS  (+0.34) [off-hours] Muhurat Trading 2026 Stocks to buy on Diwali Day Nov 8: From Eternal to MCX - Chandan Taparia of MOFSL shares 4 picks  — LiveMint Markets
+[BULLISH] HINDALCO.NS  (+0.90) [off-hours] Hindalco shares jump 22% in a year: Should you buy or sell after Q2 results 2026? What brokerages say, price targets  — LiveMint Markets
+[neutral] ETERNAL.NS  (+0.13) [off-hours] Zomato's 40-km Food Delivery Service In 7 Cities: Here's How To Check And Order  — NDTV Profit Latest
+[neutral] HINDUNILVR.NS,TATACONSUM.NS,VOLTAS.NS  (+0.00) [off-hours] Voltas gets a new Chairman: Who is Sunil D'Souza, his career and education, and why is Noel Tata stepping down?  — LiveMint Companies
 ```
 
 ## LLM analyst (per-ticker)
@@ -131,12 +132,13 @@ Done. 136695 articles rescanned.
 ```
 LLM analyst: queued 5 pair(s) — 5 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
 LLM analyst: scored 5 (headline, company) pair(s) with google/gemini-2.5-flash.
+  novel & strong — HINDALCO.NS +0.70: Hindalco shares jump 22% in a year: Should you buy or sell after
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1396, 1-day horizon) ===
+=== Recent signals (last 15 of 1392, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-11-04  NHPC.NS         +0.70   +2.69  YES  Essar Renewables to invest ₹4,500 cr in NHPC project in
 2026-11-04  NHPC.NS         +0.90   +2.69  YES  Essar Power to invest Rs 4,500 crore in 300 MW renewabl
@@ -156,9 +158,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1396    56.7     53.2    3.7   no edge
-3d                      1287    59.4     57.1    3.8     EDGE?
-5d                      1088    59.9     54.1    4.2   no edge
+1d                      1392    56.8     53.2    3.7   no edge
+3d                      1283    59.5     57.2    3.8     EDGE?
+5d                      1084    60.1     54.2    4.2     EDGE?
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -168,33 +170,33 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              963    57.4     52.6    4.5   no edge
-in-session               433    55.0     54.3    6.6   no edge
+in-session               429    55.2     54.5    6.7   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
-descriptive              180    47.2     45.6   10.3   no edge
-novel                   1216    58.1     54.3    4.0     EDGE?
+descriptive              177    48.0     46.3   10.4   no edge
+novel                   1215    58.0     54.2    4.0     EDGE?
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             221    52.5     48.0    9.3   no edge
-headline                1175    57.4     54.1    4.0     EDGE?
+headline                1171    57.6     54.2    4.0     EDGE?
 
 === By source (1-day, raw direction) ===
-  Economic Times Markets         132/222 (59%)
+  Economic Times Markets         132/221 (60%)
   NDTV Profit Latest             96/172 (56%)
   Economic Times Industry        92/168 (55%)
-  CNBC TV18 Markets              94/159 (59%)
+  CNBC TV18 Markets              94/158 (59%)
   Business Standard Companies    78/142 (55%)
   BusinessLine Companies         80/130 (62%)
   LiveMint Markets               39/86 (45%)
   LiveMint Companies             44/72 (61%)
-  The Hindu Business             40/63 (63%)
-  Business Standard Markets      27/50 (54%)
+  The Hindu Business             39/62 (63%)
+  Business Standard Markets      27/49 (55%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1606/2951 (54%)
-  LLM    791/1396 (57%)
+  VADER  1598/2940 (54%)
+  LLM    790/1392 (57%)
 
 ML dataset: 12694 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -334,7 +336,7 @@ ML dataset: 12694 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sat 07 Nov 10:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sat 07 Nov 11:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,666.93 (-6.66% since start) — cash Rs 3,769.18, 1 position(s)
   MARICO.NS         1 @ 889.72 -> 897.75 (+0.90%)
@@ -347,15 +349,15 @@ Learned sector weights: {"metals": 0.902, "consumer": 0.858, "energy": 0.606, "i
 ## Alert scan
 
 ```
-No alerts this window.
+Alert written: 1 buy idea(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 87 tickers to news_signal.json (window 7d, 882 scored pairs).
-  pipeline_ok=True data_through=2026-11-07T04:58:50+00:00 llm-scored 882/882 pairs (100%)
-  40 of 87 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 87 tickers to news_signal.json (window 7d, 878 scored pairs).
+  pipeline_ok=True data_through=2026-11-07T06:00:18+00:00 llm-scored 878/878 pairs (100%)
+  39 of 87 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: PRESTIGE.NS -0.70, THERMAX.NS -0.62, CUMMINSIND.NS -0.60
   most positive: TITAN.NS +0.90, BHEL.NS +0.90, EXIDEIND.NS +0.80
 ```
