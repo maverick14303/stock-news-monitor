@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-10 10:30
+# Stock digest — 2026-11-10 11:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 138963 articles against 259 alias patterns...
+Rescanning 139003 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -74,7 +74,7 @@ Rescanning 138963 articles against 259 alias patterns...
   ...136000
   ...138000
 
-Done. 138963 articles rescanned.
+Done. 139003 articles rescanned.
   ticker-matched articles: 14989
   flagged as noise:        7953
   (article, company) pairs: 12872  — 0 awaiting LLM scoring
@@ -83,44 +83,44 @@ Done. 138963 articles rescanned.
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 1 new
+[OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 0 new
-[OK] Economic Times Industry: 50 entries, 2 new
-[OK] LiveMint Markets: 35 entries, 3 new
-[OK] LiveMint Companies: 35 entries, 2 new
-[OK] LiveMint Money: 35 entries, 0 new
+[OK] Economic Times Economy: 50 entries, 1 new
+[OK] Economic Times Industry: 50 entries, 0 new
+[OK] LiveMint Markets: 35 entries, 2 new
+[OK] LiveMint Companies: 35 entries, 1 new
+[OK] LiveMint Money: 35 entries, 2 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 2 new
+[OK] BusinessLine Markets: 60 entries, 3 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 2 new
+[OK] BusinessLine Companies: 60 entries, 0 new
 [OK] BusinessLine Economy: 60 entries, 0 new
 [OK] Business Standard Markets: 35 entries, 0 new
-[OK] Business Standard Companies: 35 entries, 0 new
-[OK] Business Standard Finance: 35 entries, 1 new
+[OK] Business Standard Companies: 35 entries, 1 new
+[OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
 [OK] NDTV Profit Latest: 20 entries, 5 new
-[OK] TOI Business: 20 entries, 3 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] TOI Business: 20 entries, 1 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 0 new
+[OK] News18 Business: 200 entries, 2 new
 [OK] CNBC TV18 Markets: 200 entries, 2 new
-[OK] Investing.com India Stocks: 10 entries, 9 new
-[OK] ET International: 50 entries, 3 new
-[OK] BBC Business: 55 entries, 0 new
-[OK] BBC World: 31 entries, 0 new
+[OK] Investing.com India Stocks: 10 entries, 10 new
+[OK] ET International: 50 entries, 1 new
+[OK] BBC Business: 55 entries, 1 new
+[OK] BBC World: 33 entries, 2 new
 [OK] Guardian Business: 40 entries, 0 new
-[OK] Al Jazeera: 25 entries, 1 new
+[OK] Al Jazeera: 25 entries, 6 new
 [OK] CNBC Top News: 30 entries, 1 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 48 entries, 1 new
+[OK] NYT Business: 48 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 0 new
+[OK] OilPrice: 15 entries, 1 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] SCMP Business: 50 entries, 0 new
 
-40 new articles stored, 0 matched to tickers (0 flagged as tracker/listicle/index noise).
+42 new articles stored, 1 matched to tickers (2 flagged as tracker/listicle/index noise).
 ```
 
 ## LLM analyst (per-ticker)
@@ -189,7 +189,7 @@ headline                1230    58.5     53.9    3.9   no edge
   Business Standard Markets      31/55 (56%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1622/2932 (55%)
+  VADER  1621/2931 (55%)
   LLM    832/1440 (58%)
 
 ML dataset: 12924 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
@@ -333,7 +333,7 @@ ML dataset: 12924 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Tue 10 Nov 10:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Tue 10 Nov 11:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,671.18 (-6.58% since start) — cash Rs 3,769.18, 1 position(s)
   MARICO.NS         1 @ 889.72 -> 902.00 (+1.38%)
@@ -346,14 +346,14 @@ Learned sector weights: {"metals": 0.902, "consumer": 0.858, "energy": 0.606, "i
 ## Alert scan
 
 ```
-No alerts this window.
+Alert written: 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 82 tickers to news_signal.json (window 7d, 656 scored pairs).
-  pipeline_ok=True data_through=2026-11-10T05:00:23+00:00 llm-scored 656/656 pairs (100%)
+Exported 82 tickers to news_signal.json (window 7d, 649 scored pairs).
+  pipeline_ok=True data_through=2026-11-10T06:01:44+00:00 llm-scored 649/649 pairs (100%)
   38 of 82 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: PRESTIGE.NS -0.70, CUMMINSIND.NS -0.60, PETRONET.NS -0.50
   most positive: SUNPHARMA.NS +0.90, TITAN.NS +0.90, DRREDDY.NS +0.90
