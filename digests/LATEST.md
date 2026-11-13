@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-13 15:30
+# Stock digest — 2026-11-13 20:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 142579 articles against 259 alias patterns...
+Rescanning 142652 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -76,100 +76,124 @@ Rescanning 142579 articles against 259 alias patterns...
   ...140000
   ...142000
 
-Done. 142579 articles rescanned.
-  ticker-matched articles: 15387
+Done. 142652 articles rescanned.
+  ticker-matched articles: 15392
   flagged as noise:        8239
-  (article, company) pairs: 13168  — 0 awaiting LLM scoring
+  (article, company) pairs: 13173  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 0 new
+[OK] Economic Times Markets: 50 entries, 11 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 0 new
-[OK] Economic Times Industry: 50 entries, 2 new
-[OK] LiveMint Markets: 35 entries, 3 new
-[OK] LiveMint Companies: 35 entries, 2 new
-[OK] LiveMint Money: 35 entries, 3 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 2 new
+[OK] Economic Times Economy: 50 entries, 3 new
+[OK] Economic Times Industry: 50 entries, 7 new
+[OK] LiveMint Markets: 35 entries, 11 new
+[OK] LiveMint Companies: 35 entries, 6 new
+[OK] LiveMint Money: 35 entries, 6 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 10 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 4 new
-[OK] BusinessLine Economy: 60 entries, 5 new
-[OK] Business Standard Markets: 35 entries, 2 new
-[OK] Business Standard Companies: 35 entries, 3 new
-[OK] Business Standard Finance: 35 entries, 1 new
-[OK] Business Standard Economy: 35 entries, 1 new
-[OK] NDTV Profit Latest: 20 entries, 17 new
-[OK] TOI Business: 20 entries, 1 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] BusinessLine Companies: 60 entries, 13 new
+[OK] BusinessLine Economy: 60 entries, 13 new
+[OK] Business Standard Markets: 35 entries, 1 new
+[OK] Business Standard Companies: 35 entries, 13 new
+[OK] Business Standard Finance: 35 entries, 5 new
+[OK] Business Standard Economy: 35 entries, 3 new
+[OK] NDTV Profit Latest: 20 entries, 19 new
+[OK] TOI Business: 20 entries, 4 new
+[OK] The Hindu Business: 60 entries, 10 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 4 new
+[OK] News18 Business: 200 entries, 1 new
+[OK] CNBC TV18 Markets: 200 entries, 23 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 2 new
-[OK] BBC Business: 55 entries, 1 new
-[OK] BBC World: 20 entries, 4 new
-[OK] Guardian Business: 40 entries, 0 new
-[OK] Al Jazeera: 25 entries, 3 new
-[OK] CNBC Top News: 30 entries, 2 new
+[OK] ET International: 50 entries, 31 new
+[OK] BBC Business: 55 entries, 2 new
+[OK] BBC World: 22 entries, 5 new
+[OK] Guardian Business: 40 entries, 9 new
+[OK] Al Jazeera: 25 entries, 21 new
+[OK] CNBC Top News: 30 entries, 16 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 49 entries, 0 new
+[OK] MarketWatch Top: 10 entries, 4 new
+[OK] NYT Business: 49 entries, 6 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 0 new
-[OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 0 new
+[OK] OilPrice: 15 entries, 8 new
+[OK] DW Business: 20 entries, 1 new
+[OK] SCMP Business: 50 entries, 2 new
 
-73 new articles stored, 5 matched to tickers (0 flagged as tracker/listicle/index noise).
+275 new articles stored, 29 matched to tickers (8 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] PAYTM.NS  (+0.86)  Paytm gets RBI preliminary nod for pre-paid instruments, including wallet  — Economic Times Industry
-[BULLISH] PAYTM.NS  (+0.74)  Paytm gets RBI's in-principle approval to issue prepaid wallets in India  — Business Standard Companies
-[BULLISH] PAYTM.NS  (+0.65)  Paytm gets RBI in-principle approval to issue prepaid payment instruments, including wallets  — CNBC TV18 Markets
-[BEARISH] GRASIM.NS  (-0.54)  Grasim Industries Q2 Results: Net Profit Nearly Triples To Rs 2,306 Crore; One-Time Loss Of Rs 825 Crore  — NDTV Profit Latest
-[BEARISH] GRASIM.NS  (-0.57)  Grasim Q2 Results: ₹825 crore one-time loss drags profit; Margins miss expectations  — CNBC TV18 Markets
+[BULLISH] PAYTM.NS  (+0.98)  Paytm gets RBI prelim nod to operate wallets; shares surge to 52-week high  — TOI Business
+[BULLISH] ABB.NS  (+0.98) [off-hours] ABB India Q3 profit rises 10% to ₹440 crore; orders hit record ₹4,733 crore  — The Hindu Business
+[BULLISH] PAYTM.NS  (+0.96) [off-hours] Paytm shares cross  ₹1,955 IPO listing-day high after five years; what's boosting investor confidence?  — LiveMint Markets
+[BULLISH] BANKBARODA.NS,PNB.NS  (+0.93) [off-hours] Nifty PSU Bank logs biggest weekly surge in 7 months; PNB, Bank of India, Bank of Baroda among top performers  — LiveMint Markets
+[BULLISH] ABB.NS  (+0.93) [off-hours] ABB India Q3CY26 results: Net profit rises 11% to ₹440 cr, revenue up 19.4%  — Business Standard Companies
+[BULLISH] EICHERMOT.NS  (+0.93) [off-hours] Eicher Motors Q2: Profit rises 15% as revenue climbs 20% to record high  — CNBC TV18 Markets
+[BULLISH] GODREJPROP.NS  (+0.91) [off-hours] Godrej Properties buys 31-acre land in Indore for Rs 130 cr to build housing project  — Economic Times Markets
+[BULLISH] EICHERMOT.NS  (+0.88) [off-hours] Eicher Motors Q2FY27 results: Net profit rises 15% to ₹1,573 crore  — Business Standard Companies
+[BULLISH] GRASIM.NS  (+0.88) [off-hours] Grasim Industries Q2FY27 results: Net profit jumps to ₹2,306 crore  — Business Standard Companies
+[BULLISH] EICHERMOT.NS  (+0.86) [off-hours] Eicher Motors posts 15% rise in Q2 profit as Royal Enfield sales hit record  — Business Standard Companies
+[BULLISH] HDFCBANK.NS,PAYTM.NS  (+0.86) [off-hours] Looking for stocks to buy for 2027? HDFC Bank, Meesho, Paytm, Park Medi, LG Electronics - Ventura's top picks revealed  — LiveMint Markets
+[BULLISH] PAYTM.NS  (+0.82) [off-hours] Paytm gets RBI’s in-principle nod to revive wallet business; shares hit record high  — The Hindu Business
+[BULLISH] RELIANCE.NS  (+0.74) [off-hours] Reliance Group stocks attract over ₹9,000 crore in leveraged bets amid market rally  — CNBC TV18 Markets
+[BULLISH] TVSMOTOR.NS  (+0.66) [off-hours] TVS Motor’s India 2W business head Gaurav Gupta to exit, company elevates Aniruddha Haldar  — BusinessLine Companies
+[BULLISH] COCHINSHIP.NS  (+0.56) [off-hours] Dividend stocks Shipping Corporation vs Cochin Shipyard: Record date on Nov 16 - what to buy? Amount, yield, returns  — LiveMint Markets
+[BULLISH] BHARTIARTL.NS  (+0.54) [off-hours] JSW Motors partners with Amazon Web Services to host connected-car data  — Economic Times Industry
+[BULLISH] PAYTM.NS  (+0.48) [off-hours] Paytm gets RBI nod for digital wallet business: When can users add money and make payments through Paytm Wallet again?  — LiveMint Companies
+[BULLISH] BHARTIARTL.NS  (+0.48) [off-hours] Bharti Airtel gets ₹2,400 target from Motilal Oswal on expected tariff hike  — CNBC TV18 Markets
+[BULLISH] BHARTIARTL.NS  (+0.36) [off-hours] Sunil Mittal says Bharti Telecom will raise Airtel stake above 50% for long-term stability  — CNBC TV18 Markets
+[neutral] EICHERMOT.NS  (+0.24) [off-hours] Eicher Motors Q2 Results: Profit Rises 15% To Rs 1,573 Crore, Revenue Up 20%; Misses Estimates  — NDTV Profit Latest
+[neutral] SBIN.NS  (+0.23) [off-hours] Multiple lenders' involvement delaying loan; spectrum renewal not to hit services: Vodafone Idea CEO  — Economic Times Industry
+[neutral] BHARTIARTL.NS  (+0.00) [off-hours] Sleeping giant: Airtel Payments Bank may list in 3 to 4 years, says Sunil Mittal  — CNBC TV18 Markets
+[BEARISH] NATIONALUM.NS  (-0.30) [off-hours] Nalco to commission India's first gallium recovery plant this month: CMD  — Business Standard Companies
+[BEARISH] TMPV.NS  (-0.31) [off-hours] Tata Motors PV narrows Q2FY27 loss to ₹5,451 cr as revenue rises 34%  — Business Standard Companies
+[BEARISH] TMPV.NS  (-0.40) [off-hours] Tata Motors PV Q2 Results: Net loss at ₹5,531 crore on JLR restructuring costs, asset impairment  — CNBC TV18 Markets
+[BEARISH] GRASIM.NS  (-0.50) [off-hours] Grasim Industries posts ₹234 crore loss on one-time impairment charges  — BusinessLine Companies
+[BEARISH] TMPV.NS  (-0.68) [off-hours] Tata Motors PV posts ₹5,451-crore Q2 consolidated loss on JLR restructuring charges  — BusinessLine Companies
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 5 pair(s) — 5 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 5 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — PAYTM.NS +0.70: Paytm gets RBI preliminary nod for pre-paid instruments, includin
-  novel & strong — PAYTM.NS +0.70: Paytm gets RBI's in-principle approval to issue prepaid wallets i
-  novel & strong — GRASIM.NS +0.60: Grasim Industries Q2 Results: Net Profit Nearly Triples To Rs 2,3
-  novel & strong — PAYTM.NS +0.70: Paytm gets RBI in-principle approval to issue prepaid payment ins
-  novel & strong — GRASIM.NS -0.60: Grasim Q2 Results: ₹825 crore one-time loss drags profit; Margins
+LLM analyst: queued 29 pair(s) — 29 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+  gemini gemini-2.5-flash: http 503
+  gemini gemini-2.0-flash: http 404
+  gemini gemini-2.5-flash: http 503
+  gemini gemini-2.0-flash: http 404
+LLM analyst: scored 29 (headline, company) pair(s) with baidu/ernie-5.5-flash-preview:free.
+  novel & strong — PAYTM.NS +0.60: Paytm gets RBI nod for digital wallet business: When can users ad
+  novel & strong — PAYTM.NS +0.60: Paytm gets RBI prelim nod to operate wallets; shares surge to 52-
+  novel & strong — PAYTM.NS +0.60: Paytm gets RBI’s in-principle nod to revive wallet business; shar
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1456, 1-day horizon) ===
+=== Recent signals (last 15 of 1457, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
-2026-11-12  BAJFINANCE.NS   +0.30   +0.18  YES  16% up in a month! Bajaj Finance shares climb 3.4% on  
-2026-11-12  COALINDIA.NS    +0.30   -0.20  no   India's Next Billion-Dollar IPO? Coal India subsidiary 
-2026-11-12  HAL.NS          -0.50   -0.69  YES  Hindustan Aeronautics Q2 Results: Stock falls after mar
-2026-11-12  ITC.NS          +0.30   +0.33  YES  ITC shares in focus after it raises Gold Flake cigarett
-2026-11-12  ITC.NS          +0.40   +0.33  YES  Cigarette Stocks Rally: ITC Hikes Gold Flake Premium Pr
-2026-11-12  LUPIN.NS        +0.40   -1.72  no   Lupin partner Sandoz launches RanluspecTM across Europe
-2026-11-12  LUPIN.NS        +0.50   -1.72  no   Lupin launches biosimilar Ranibizumab through Sandoz in
 2026-11-12  PAGEIND.NS      -0.90   -1.65  YES  Page Industries hits 10% lower circuit post Q2 show; ₹1
+2026-11-12  PAGEIND.NS      -0.70   -1.65  YES  Page Industries Q2 net profit rises 4% as sales volume 
+2026-11-12  PAGEIND.NS      -0.70   -1.65  YES  Page Industries shares plunge 13% as higher RM costs hi
 2026-11-12  PAGEIND.NS      -0.50   -1.65  YES  Page Industries Q2 Results: Stock tanks 13% after volum
+2026-11-12  PAYTM.NS        +0.60   +0.77  YES  UPI MDR rollout after Diwali: What it means for Paytm, 
 2026-11-12  RELIANCE.NS     +0.40   +0.00  no   Reliance Industries to invest ₹43,000 crore in Andhra P
 2026-11-12  RELIANCE.NS     +0.60   +0.00  no   Reliance Industries To Invest Rs 43,000 Crore In Andhra
+2026-11-12  RELIANCE.NS     +0.80   +0.00  no   RIL plans ₹43,000 crore investment in Andhra coal gasif
 2026-11-12  SBIN.NS         +0.80   -0.60  no   India's largest lender has zero 'sell' ratings; find ou
+2026-11-12  SHREECEM.NS     +0.70   -2.18  no   Shree Cement to invest Rs 7,000 crore in Andhra Pradesh
 2026-11-12  SIEMENS.NS      +0.30   -0.30  no   Earnings call transcript: Siemens posts record orders i
 2026-11-12  TATAPOWER.NS    +0.50   -2.52  no   Tata Power shares gain 2% after Q2 profit rises 33%; an
 2026-11-12  TATAPOWER.NS    +0.90   -2.52  no   Tata Power seeks cost-linked Mundra tariff pacts with 4
+2026-11-12  TATASTEEL.NS    +0.50   -0.70  no   Tata Steel targets 10 million tonnes of domestic iron o
+2026-11-12  TATASTEEL.NS    +0.60   -0.70  no   Targeting a capex of ₹20,000 crore this financial year:
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1456    57.1     52.5    3.6   no edge
-3d                      1388    59.9     53.4    3.7   no edge
-5d                      1248    63.1     52.6    3.9   no edge
+1d                      1457    57.2     52.6    3.6   no edge
+3d                      1378    60.2     53.6    3.7   no edge
+5d                      1238    63.3     52.8    3.9   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -178,36 +202,36 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours             1013    58.0     52.2    4.4   no edge
+after-hours             1014    58.2     52.5    4.3   no edge
 in-session               443    55.1     53.0    6.6   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              212    50.5     46.2    9.5   no edge
-novel                   1244    58.3     53.5    3.9   no edge
+novel                   1245    58.4     53.7    3.9   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
-body mention             207    55.1     50.7    9.6   no edge
-headline                1249    57.5     52.8    3.9   no edge
+body mention             199    55.8     51.3    9.8   no edge
+headline                1258    57.5     52.9    3.9   no edge
 
 === By source (1-day, raw direction) ===
-  Economic Times Markets         122/202 (60%)
-  CNBC TV18 Markets              106/188 (56%)
+  Economic Times Markets         121/201 (60%)
+  CNBC TV18 Markets              106/189 (56%)
   NDTV Profit Latest             107/181 (59%)
-  Economic Times Industry        87/158 (55%)
-  Business Standard Companies    89/156 (57%)
-  BusinessLine Companies         79/127 (62%)
-  LiveMint Markets               41/92 (45%)
-  LiveMint Companies             49/86 (57%)
-  The Hindu Business             46/71 (65%)
+  Business Standard Companies    90/158 (57%)
+  Economic Times Industry        87/157 (55%)
+  BusinessLine Companies         79/128 (62%)
+  LiveMint Markets               42/93 (45%)
+  LiveMint Companies             50/87 (57%)
+  The Hindu Business             46/70 (66%)
   Business Standard Markets      30/57 (53%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1561/2840 (55%)
-  LLM    832/1456 (57%)
+  VADER  1556/2840 (55%)
+  LLM    834/1457 (57%)
 
-ML dataset: 13193 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 13219 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -6.95%  Coal India's SECL strengthens monsoon measures for
@@ -350,7 +374,7 @@ ML dataset: 13193 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Fri 13 Nov 15:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Fri 13 Nov 20:34 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,657.61 (-6.85% since start) — cash Rs 3,141.61, 2 position(s)
   MARICO.NS         1 @ 889.72 -> 900.00 (+1.16%)
@@ -364,15 +388,15 @@ Learned sector weights: {"metals": 0.902, "consumer": 0.858, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 3 buy idea(s), 1 macro item(s)
+Alert written: 4 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 76 tickers to news_signal.json (window 7d, 503 scored pairs).
-  pipeline_ok=True data_through=2026-11-13T10:01:23+00:00 llm-scored 503/503 pairs (100%)
-  32 of 76 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 77 tickers to news_signal.json (window 7d, 507 scored pairs).
+  pipeline_ok=True data_through=2026-11-13T14:58:29+00:00 llm-scored 507/507 pairs (100%)
+  35 of 77 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: IRCTC.NS -0.80, PAGEIND.NS -0.65, BERGEPAINT.NS -0.50
   most positive: SUNPHARMA.NS +0.90, MANAPPURAM.NS +0.76, SHREECEM.NS +0.70
 ```
