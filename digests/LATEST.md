@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-13 08:30
+# Stock digest — 2026-11-13 09:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 142026 articles against 259 alias patterns...
+Rescanning 142174 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -76,78 +76,77 @@ Rescanning 142026 articles against 259 alias patterns...
   ...140000
   ...142000
 
-Done. 142026 articles rescanned.
-  ticker-matched articles: 15299
-  flagged as noise:        8164
-  (article, company) pairs: 13116  — 0 awaiting LLM scoring
+Done. 142174 articles rescanned.
+  ticker-matched articles: 15308
+  flagged as noise:        8176
+  (article, company) pairs: 13121  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 7 new
+[OK] Economic Times Markets: 50 entries, 3 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Economy: 50 entries, 2 new
 [OK] Economic Times Industry: 50 entries, 1 new
-[OK] LiveMint Markets: 35 entries, 8 new
-[OK] LiveMint Companies: 35 entries, 6 new
-[OK] LiveMint Money: 35 entries, 3 new
+[OK] LiveMint Markets: 35 entries, 3 new
+[OK] LiveMint Companies: 35 entries, 0 new
+[OK] LiveMint Money: 35 entries, 2 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 4 new
+[OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 1 new
-[OK] BusinessLine Economy: 60 entries, 0 new
-[OK] Business Standard Markets: 35 entries, 3 new
+[OK] BusinessLine Economy: 60 entries, 3 new
+[OK] Business Standard Markets: 35 entries, 0 new
 [OK] Business Standard Companies: 35 entries, 1 new
-[OK] Business Standard Finance: 35 entries, 0 new
+[OK] Business Standard Finance: 35 entries, 2 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 17 new
-[OK] TOI Business: 20 entries, 1 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] NDTV Profit Latest: 20 entries, 14 new
+[OK] TOI Business: 20 entries, 2 new
+[OK] The Hindu Business: 60 entries, 3 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 4 new
-[OK] CNBC TV18 Markets: 200 entries, 18 new
+[OK] News18 Business: 200 entries, 3 new
+[OK] CNBC TV18 Markets: 200 entries, 3 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 14 new
-[OK] BBC Business: 59 entries, 4 new
-[OK] BBC World: 33 entries, 4 new
-[OK] Guardian Business: 40 entries, 7 new
-[OK] Al Jazeera: 25 entries, 14 new
-[OK] CNBC Top News: 30 entries, 4 new
+[OK] ET International: 50 entries, 3 new
+[OK] BBC Business: 58 entries, 0 new
+[OK] BBC World: 33 entries, 1 new
+[OK] Guardian Business: 40 entries, 0 new
+[OK] Al Jazeera: 25 entries, 3 new
+[OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 4 new
-[OK] NYT Business: 49 entries, 4 new
+[OK] MarketWatch Top: 10 entries, 0 new
+[OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 4 new
+[OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 4 new
+[OK] SCMP Business: 50 entries, 3 new
 
-148 new articles stored, 9 matched to tickers (12 flagged as tracker/listicle/index noise).
+64 new articles stored, 7 matched to tickers (5 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] GODREJPROP.NS  (+0.86) [off-hours] Godrej Properties expands Indore presence after adding 31-acre land parcel for residential project  — CNBC TV18 Markets
-[BULLISH] LUPIN.NS  (+0.67) [off-hours] Buzzing stocks: Meesho, Clean Max, Lupin, IOC, NBCC, NCL Ind, Zee, Edelweiss, Jujhar Logistics, Ola  — BusinessLine Markets
-[neutral] BAJFINANCE.NS,PAYTM.NS  (+0.00) [off-hours] Six Stocks To Buy Today, November 13:  Meesho, Paytm, Bajaj Finance, And More  — NDTV Profit Latest
-[neutral] NMDC.NS  (-0.15) [off-hours] NMDC shares will react to Q2 operating miss; JPMorgan, Citi say 'sell'  — CNBC TV18 Markets
+[BULLISH] COCHINSHIP.NS  (+0.70) [off-hours] Cochin Shipyard dividend 2026: Last day to buy today | Check record date, payout amount, history, yield  — LiveMint Markets
+[BULLISH] INFY.NS  (+0.68)  Infosys joins the club:12 companies that have minted the most billionaires  — Business Standard Finance
+[BULLISH] BHARTIARTL.NS  (+0.62) [off-hours] Telecom To Data Centres: Sunil Mittal Says Airtel Is Ready For Its Next Inflection Point  — NDTV Profit Latest
+[neutral] ALKEM.NS  (+0.00) [off-hours] Alkem PAT down at ₹675 crore; biotech sales down 37% on ‘lumpy’ CDMO business  — BusinessLine Companies
+[neutral] TVSMOTOR.NS  (+0.00)  TVS Motor opens first Brazil store, targets 130,000-unit capacity by 2027  — Business Standard Companies
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
 LLM analyst: queued 5 pair(s) — 5 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 5 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — NMDC.NS -0.70: NMDC shares will react to Q2 operating miss; JPMorgan, Citi say '
+  gemini gemini-2.5-flash: http 503
+  gemini gemini-2.0-flash: http 404
+LLM analyst: scored 5 (headline, company) pair(s) with baidu/ernie-5.5-flash-preview:free.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1456, 1-day horizon) ===
+=== Recent signals (last 15 of 1462, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
-2026-11-11  ITC.NS          +0.40   -0.33  no   ITC Hikes Gold Flake Cigarette Price By Rs 10 To Rs 135
-2026-11-11  JSWSTEEL.NS     +0.30   -0.09  no   JSW Steel crude steel production rises 19 pc to 25.73 l
-2026-11-11  LICI.NS         +0.30   +1.00  YES  MSCI Rejig: Adani Green, LIC, Coforge, Meesho shares se
-2026-11-11  LICI.NS         +0.40   +1.00  YES  Life insurers' new business premium rises 26% to ₹42,91
+2026-11-11  LICI.NS         +0.40   +1.00  YES  MSCI November 2026 Rejig: LIC, Adani Green, Coforge, Me
 2026-11-11  LICI.NS         +0.50   +1.00  YES  MSCI November Rejig: Coforge, LIC, Adani Green, Meesho 
 2026-11-11  LICI.NS         +0.50   +1.00  YES  MSCI November rejig: Coforge, LIC, Adani Green and Mees
 2026-11-11  LICI.NS         +0.50   +1.00  YES  MSCI Rejig: LIC, Coforge, Adani Green, Meesho make the 
@@ -157,14 +156,17 @@ date        symbol           sent   move%  hit  headline
 2026-11-11  TATAPOWER.NS    -0.60   -0.83  YES  Tata Power says Singapore shares pledged with banks, sa
 2026-11-11  TATAPOWER.NS    +0.40   -0.83  no   Tata Power approves  ₹11,871 crore pumped storage proje
 2026-11-11  TATAPOWER.NS    +0.50   -0.83  no   Tata Power Q2 net profit rises 48.6% to ₹1,366 crore on
+2026-11-11  TATAPOWER.NS    +0.50   -0.83  no   Tata Power shares in focus after Q2 results. Why broker
 2026-11-11  TATAPOWER.NS    +0.80   -0.83  no   Tata Power Q2 profit jumps 32% to ₹1,652 crore
 2026-11-11  TATAPOWER.NS    +0.80   -0.83  no   Tata Power Q2 profit rises 33% to ₹1,652 cr; ₹11,871 cr
+2026-11-12  ITC.NS          +0.30   -0.23  no   ITC shares in focus after it raises Gold Flake cigarett
+2026-11-12  ITC.NS          +0.40   -0.23  no   Cigarette Stocks Rally: ITC Hikes Gold Flake Premium Pr
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1456    57.1     51.9    3.6   no edge
-3d                      1341    59.8     53.2    3.8   no edge
-5d                      1179    62.3     52.7    4.0   no edge
+1d                      1462    57.0     51.9    3.6   no edge
+3d                      1402    59.4     52.8    3.7   no edge
+5d                      1265    62.3     51.8    3.9   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -173,36 +175,36 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours             1009    58.1     52.2    4.4   no edge
-in-session               447    55.0     51.0    6.6   no edge
+after-hours             1012    58.1     52.3    4.4   no edge
+in-session               450    54.7     51.1    6.5   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              211    50.7     46.0    9.5   no edge
-novel                   1245    58.2     52.9    3.9   no edge
+novel                   1251    58.1     52.9    3.9   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             208    55.3     51.0    9.6   no edge
-headline                1248    57.5     52.0    3.9   no edge
+headline                1254    57.3     52.1    3.9   no edge
 
 === By source (1-day, raw direction) ===
-  Economic Times Markets         123/204 (60%)
-  CNBC TV18 Markets              107/187 (57%)
-  NDTV Profit Latest             106/181 (59%)
+  Economic Times Markets         123/205 (60%)
+  CNBC TV18 Markets              106/187 (57%)
+  NDTV Profit Latest             106/182 (58%)
   Economic Times Industry        87/160 (54%)
   Business Standard Companies    90/159 (57%)
   BusinessLine Companies         80/130 (62%)
-  LiveMint Markets               41/89 (46%)
+  LiveMint Markets               41/90 (46%)
   LiveMint Companies             49/86 (57%)
   The Hindu Business             46/71 (65%)
   Business Standard Markets      29/55 (53%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1568/2845 (55%)
-  LLM    832/1456 (57%)
+  VADER  1574/2862 (55%)
+  LLM    834/1462 (57%)
 
-ML dataset: 13134 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 13145 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -6.95%  Coal India's SECL strengthens monsoon measures for
@@ -334,22 +336,22 @@ ML dataset: 13134 labelled (article, company) rows — see ROADMAP_ML.md for the
   2026-11-03  BATAINDIA.NS     +0.68%  Bata puts its best foot forward on profits as inve
   2026-11-04  NHPC.NS          -1.95%  Essar Renewables signs Power Purchase Agreement wi
   2026-11-04  NYKAA.NS         +1.35%  Nykaa Q2 Results: PAT soars 207% YoY to Rs 101 cro
-  2026-11-05  ADANIPORTS.NS    +2.41%  Adani Ports to enter Europe with €2.56 billion buy
-  2026-11-05  ONGC.NS          -2.39%  ONGC net profit jumps 57% to ₹15,488.64 crore on h
-  2026-11-06  HINDALCO.NS      +0.58%  Hindalco Q2 result: Net profit jumps 59% to ₹7,533
-  2026-11-09  GODREJPROP.NS    +3.58%  Godrej Properties to launch Rs 32,000 cr homes H2 
-  2026-11-11  TATAPOWER.NS     -0.83%  Tata Power Q2 profit rises 33% to ₹1,652 cr; ₹11,8
-  → 76/134 positive, avg +0.64%
+  2026-11-05  ADANIPORTS.NS    +1.95%  Adani Ports to enter Europe with €2.56 billion buy
+  2026-11-05  ONGC.NS          -1.78%  ONGC net profit jumps 57% to ₹15,488.64 crore on h
+  2026-11-06  HINDALCO.NS      -0.92%  Hindalco Q2 result: Net profit jumps 59% to ₹7,533
+  2026-11-09  GODREJPROP.NS    +2.96%  Godrej Properties to launch Rs 32,000 cr homes H2 
+  2026-11-11  TATAPOWER.NS     -1.49%  Tata Power Q2 profit rises 33% to ₹1,652 cr; ₹11,8
+  → 75/134 positive, avg +0.62%
 ```
 
 ## Bot account (self-trading)
 
 ```
-PLANNED for the 13 Nov open — 1 order(s), each re-checked against fresh prices and news before filling:
-  QUEUE BUY MANAPPURAM.NS   score 0.82 — Manappuram Finance Q2 net profit more than doubles to ₹701 c
+BOT BOUGHT 2 x MANAPPURAM.NS @ Rs 313.00 (planned score 0.82) — Manappuram Finance Q2 net profit more than doubles to ₹701 crore,
 
-Bot equity: Rs 4,671.18 (-6.58% since start) — cash Rs 3,769.18, 1 position(s)
-  MARICO.NS         1 @ 889.72 -> 902.00 (+1.38%)
+Bot equity: Rs 4,669.16 (-6.62% since start) — cash Rs 3,141.61, 2 position(s)
+  MARICO.NS         1 @ 889.72 -> 901.55 (+1.33%)
+  MANAPPURAM.NS     2 @ 313.78 -> 313.00 (-0.25%)
 Record: 11/32 wins, avg -1.09% per trade
 Learned source trust — high: Business Standard Economy 1.36, LiveMint Companies 1.13, ET Markets Wrap 1.08
                        low: Economic Times Economy 0.80, Business Standard Finance 0.71, LiveMint Money 0.65
@@ -359,14 +361,14 @@ Learned sector weights: {"metals": 0.902, "consumer": 0.858, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 1 buy idea(s)
+Alert written: 1 buy idea(s), bot made 1 trade(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 75 tickers to news_signal.json (window 7d, 499 scored pairs).
-  pipeline_ok=True data_through=2026-11-13T02:59:21+00:00 llm-scored 499/499 pairs (100%)
+Exported 75 tickers to news_signal.json (window 7d, 501 scored pairs).
+  pipeline_ok=True data_through=2026-11-13T04:00:11+00:00 llm-scored 501/501 pairs (100%)
   33 of 75 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: IRCTC.NS -0.80, PAGEIND.NS -0.70, BERGEPAINT.NS -0.50
   most positive: MANAPPURAM.NS +0.90, SUNPHARMA.NS +0.90, SHREECEM.NS +0.70

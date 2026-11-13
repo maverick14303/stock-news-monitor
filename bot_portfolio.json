@@ -1,5 +1,5 @@
 {
-  "cash": 3769.1781935310364,
+  "cash": 3141.6131935310364,
   "positions": {
     "MARICO.NS": {
       "qty": 1,
@@ -9,6 +9,15 @@
         "Economic Times Markets"
       ],
       "thesis": "Marico sees sustained growth momentum, raises FY27 margin outlook"
+    },
+    "MANAPPURAM.NS": {
+      "qty": 2,
+      "avg_cost": 313.7825,
+      "opened": "2026-11-13T04:03:52.047526+00:00",
+      "sources": [
+        "CNBC TV18 Markets"
+      ],
+      "thesis": "Manappuram Finance Q2 net profit more than doubles to \u20b9701 crore, NII rises 45%"
     }
   },
   "trades": [
@@ -596,6 +605,15 @@
       "price": 391.7,
       "fee": 1.96,
       "reason": "negative news (-0.50) at -1.9%"
+    },
+    {
+      "time": "2026-11-13T04:03:52.047526+00:00",
+      "action": "buy",
+      "symbol": "MANAPPURAM.NS",
+      "qty": 2,
+      "price": 313.0,
+      "fee": 1.56,
+      "reason": "planned pre-open, score 0.82 (CNBC TV18 Markets): Manappuram Finance Q2 net profit more than doubles to \u20b9701 crore, NII "
     }
   ],
   "closed": [
@@ -962,16 +980,8 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [
-    {
-      "symbol": "MANAPPURAM.NS",
-      "score": 0.825,
-      "title": "Manappuram Finance Q2 net profit more than doubles to \u20b9701 crore, NII rises 45%",
-      "source": "CNBC TV18 Markets",
-      "queued": "2026-11-13"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-11-06"
+  "traded_day": "2026-11-13"
 }
