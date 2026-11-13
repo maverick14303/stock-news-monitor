@@ -74,6 +74,7 @@ Ankit didn't have, so its P&L measured nothing.
 ## Usage
 
 ```
+pip install -r requirements.txt -c requirements.lock.txt   # once, Python 3.12
 python run_pipeline.py       # everything, saved to digests/
 python migrate.py            # re-scan history after editing tickers.csv
 python build_tickers.py      # regenerate tickers.csv from the bot universe

@@ -12,6 +12,7 @@ Usage: python monitor.py
 """
 import json
 import re
+import socket
 import sqlite3
 import sys
 
@@ -39,8 +40,18 @@ def main():
     new_total, matched_total, noise_total = 0, 0, 0
     now = datetime.now(timezone.utc).isoformat()
 
+    # feedparser has no timeout of its own and fetches through urllib, which
+    # honours the socket default. One hung feed used to stall the whole run until
+    # the job limit. (audit A4c)
+    # A timeout then RAISES out of feedparser (measured 10-23) rather than coming
+    # back as bozo, so it is caught here and only that feed is skipped.
+    socket.setdefaulttimeout(30)
     for feed in feeds:
-        parsed = feedparser.parse(feed["url"], agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)")
+        try:
+            parsed = feedparser.parse(feed["url"], agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64)")
+        except OSError as e:  # TimeoutError and connection errors
+            print(f"[WARN] {feed['name']}: fetch failed ({type(e).__name__}: {e}) — skipped this run")
+            continue
         if parsed.bozo and not parsed.entries:
             print(f"[WARN] {feed['name']}: could not fetch ({parsed.get('bozo_exception')})")
             continue

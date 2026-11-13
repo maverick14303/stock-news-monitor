@@ -57,7 +57,7 @@ from urllib.parse import urlparse
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 import db
-from newslib import cluster_titles
+from newslib import atomic_write_text, cluster_titles
 
 BASE = Path(__file__).parent
 DB = BASE / "news.db"
@@ -224,11 +224,11 @@ def main():
                 "than the article-level VADER fallback.",
         "tickers": dict(sorted(signal.items())),
     }
-    # Atomic: this file is committed and pushed for a real-money bot to read, so
-    # a run killed mid-write must never leave a truncated JSON behind.
-    tmp = OUT.with_suffix(".json.tmp")
-    tmp.write_text(json.dumps(out, indent=2), encoding="utf-8")
-    os.replace(tmp, OUT)
+    # Atomic and fsynced: this file is committed and pushed for other code to
+    # read, so a run killed mid-write must never leave a truncated JSON behind.
+    # The shared helper also fsyncs, which the hand-rolled version here did not.
+    # (audit A4e; the trading bot stopped reading it on 2026-08-10)
+    atomic_write_text(OUT, json.dumps(out, indent=2))
     con.close()
 
     strong = sorted(signal.items(), key=lambda kv: kv[1]["score"])

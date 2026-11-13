@@ -3,8 +3,9 @@
 The old version scored an ARTICLE and stamped that one number onto every company
 the article named — so "Elara prefers ICICI Bank over HDFC Bank" gave HDFC Bank
 +0.73. Now every pair is scored on its own, which is the single biggest accuracy
-fix available here (the LLM already beats VADER 66% vs 61% on this repo's own
-scoreboard, even while handicapped that way).
+fix available here. (An older "LLM beats VADER 66% vs 61%" figure was retracted:
+it graded on the wrong trading day and could not be reproduced; see
+ROADMAP_ML.md. Audit SYS-6.)
 
 Two values per pair:
   llm_sent  — impact on THAT company, -1..+1

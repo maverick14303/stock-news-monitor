@@ -14,7 +14,8 @@ on:
   #          reads news_signal.json from this repo's raw URL.
   #   20:00  US open   (19:00 IST in US summer time, 20:00 in winter — this
   #   02:30  US close   time lands after the event in BOTH, so no DST edits)
-  # Weekends: 10:00 and 20:00 only.
+  # Weekends: the same 10 runs. The "10:00 and 20:00 only" weekend plan was
+  #   never set up on cron-job.org; runs on 10-17 and 10-18 were 10 each (audit L34).
   workflow_dispatch: {}
 
 permissions:
@@ -68,7 +69,13 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          gh release download "$DB_TAG" --pattern news.db --clobber || {
+          # Retried: one failed download (a GitHub blip) used to fail the whole
+          # run. Three tries, 10 s and 20 s apart, before refusing. (audit L71)
+          for attempt in 1 2 3; do
+            gh release download "$DB_TAG" --pattern news.db --clobber && break
+            [ "$attempt" -lt 3 ] && sleep $((attempt * 10))
+          done
+          [ -s news.db ] || {
             echo "::error::could not download news.db from release '$DB_TAG'."
             echo "::error::REFUSING to continue: running now would create an empty"
             echo "::error::database and the upload step would overwrite the real one."
@@ -110,7 +117,7 @@ jobs:
           gh issue create \
             --title "$TITLE" \
             --body-file ALERT.md \
-            --assignee maverick14303
+            --assignee "${{ github.repository_owner }}"
           rm ALERT.md
           # The issue exists for GitHub's email, not as a record: keep only the
           # newest digest open (list is newest first). Failure issues stay open.
@@ -130,7 +137,7 @@ jobs:
             --body "A step in run_pipeline.py exited non-zero. Digest for this run is committed; step output is under the failing heading.
 
           Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
-            --assignee maverick14303
+            --assignee "${{ github.repository_owner }}"
 
       # always(), and BEFORE the commit step, for the same reason the commit step
       # uses always(): whatever this run scraped exists only on a runner that is

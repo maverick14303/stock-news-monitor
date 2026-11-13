@@ -48,6 +48,7 @@ from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
+import db
 from alerts import load_sectors
 from newslib import IST, atomic_write_text, distinct_stories, is_trading_day
 from paper_portfolio import FEES_PCT, live_price
@@ -383,7 +384,9 @@ def main():
     p = load()
     p.setdefault("pending", [])
     sectors = load_sectors()
-    con = sqlite3.connect(BASE / "news.db")
+    # Through db.connect like every other reader, so schema migrations apply
+    # here too. (audit A4a)
+    con = db.connect(BASE / "news.db")
     now = datetime.now(timezone.utc)
     now_iso = now.isoformat()
     ist_now = now.astimezone(IST)
@@ -398,8 +401,11 @@ def main():
     for sym in list(p["positions"]):
         try:
             prices[sym] = live_price(sym)
-        except (Exception, SystemExit):
-            pass
+        except (Exception, SystemExit) as e:
+            # Not silent any more: a held name with no price also gets no
+            # stop-loss check this run, and that must show in the log. (A4b)
+            print(f"[WARN] no price for held {sym} ({type(e).__name__}: {e}) — "
+                  f"its stop-loss is NOT checked this run")
 
     if phase == "closed":
         print(f"NSE shut ({ist_now:%a %d %b %H:%M} IST) — news gathering only, "
