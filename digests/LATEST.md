@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-14 10:30
+# Stock digest — 2026-11-14 11:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 143287 articles against 259 alias patterns...
+Rescanning 143335 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -76,67 +76,65 @@ Rescanning 143287 articles against 259 alias patterns...
   ...140000
   ...142000
 
-Done. 143287 articles rescanned.
-  ticker-matched articles: 15437
+Done. 143335 articles rescanned.
+  ticker-matched articles: 15442
   flagged as noise:        8253
-  (article, company) pairs: 13218  — 0 awaiting LLM scoring
+  (article, company) pairs: 13223  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 8 new
+[OK] Economic Times Markets: 50 entries, 2 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 2 new
-[OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 2 new
-[OK] LiveMint Companies: 35 entries, 3 new
-[OK] LiveMint Money: 35 entries, 1 new
+[OK] Economic Times Economy: 50 entries, 1 new
+[OK] Economic Times Industry: 50 entries, 1 new
+[OK] LiveMint Markets: 35 entries, 1 new
+[OK] LiveMint Companies: 35 entries, 0 new
+[OK] LiveMint Money: 35 entries, 2 new
 [OK] LiveMint Economy: 35 entries, 0 new
 [OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 0 new
-[OK] BusinessLine Economy: 60 entries, 1 new
+[OK] BusinessLine Companies: 60 entries, 3 new
+[OK] BusinessLine Economy: 60 entries, 3 new
 [OK] Business Standard Markets: 35 entries, 0 new
 [OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
-[OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 9 new
-[OK] TOI Business: 20 entries, 0 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] Business Standard Economy: 35 entries, 1 new
+[OK] NDTV Profit Latest: 20 entries, 8 new
+[OK] TOI Business: 20 entries, 2 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 1 new
-[OK] CNBC TV18 Markets: 200 entries, 2 new
+[OK] News18 Business: 200 entries, 0 new
+[OK] CNBC TV18 Markets: 200 entries, 1 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 2 new
+[OK] ET International: 50 entries, 4 new
 [OK] BBC Business: 56 entries, 0 new
-[OK] BBC World: 25 entries, 0 new
+[OK] BBC World: 25 entries, 2 new
 [OK] Guardian Business: 38 entries, 0 new
-[OK] Al Jazeera: 25 entries, 5 new
+[OK] Al Jazeera: 25 entries, 2 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 48 entries, 0 new
+[OK] NYT Business: 48 entries, 1 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
 [OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 0 new
 
-48 new articles stored, 5 matched to tickers (0 flagged as tracker/listicle/index noise).
+45 new articles stored, 1 matched to tickers (0 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] ITC.NS  (+0.94) [off-hours] India's biggest small-cap mutual fund adds 8 stocks, exits 4 in October 2026; ITC tops fresh buys; expense ratio rises  — LiveMint Money
-[BULLISH] PAGEIND.NS  (+0.62) [off-hours] ₹150 Dividend Alert! Record date next week of Jockey firm for biggest payout declared in Q2 - check key dates, history  — LiveMint Markets
-[BULLISH] RELIANCE.NS  (+0.36) [off-hours] Reliance plans  ₹43,000-crore coal-to-gas plant in Andhra Pradesh, could generate 40,000 jobs: What we know  — LiveMint Companies
-[neutral] TMPV.NS  (+0.14) [off-hours] Tata Motors Passenger Vehicles reports Q2 net loss of ₹5,531 crore  — The Hindu Business
-[neutral] COALINDIA.NS  (+0.08) [off-hours] Mahanadi Coalfields IPO: Coal India Arm Files RHP For Public Issue  — NDTV Profit Latest
+[BULLISH] ASHOKLEY.NS  (+0.76) [off-hours] Q2 Results Today Live: Ashok Leyland, PTC Industries, Kaynes Tech, Brainbees Solutions, Hero Motors Share to announce Q2 results  — BusinessLine Companies
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 5 pair(s) — 5 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 5 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: queued 1 pair(s) — 1 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+  gemini gemini-2.5-flash: ReadTimeout
+  gemini gemini-2.0-flash: http 404
+LLM analyst: scored 1 (headline, company) pair(s) with inclusionai/ling-3.2-flash:free.
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -199,7 +197,7 @@ headline                1240    57.6     52.9    3.9   no edge
   Business Standard Markets      30/54 (56%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1533/2801 (55%)
+  VADER  1529/2796 (55%)
   LLM    822/1433 (57%)
 
 ML dataset: 13234 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
@@ -347,7 +345,7 @@ ML dataset: 13234 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sat 14 Nov 10:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sat 14 Nov 11:35 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,657.61 (-6.85% since start) — cash Rs 3,141.61, 2 position(s)
   MARICO.NS         1 @ 889.72 -> 900.00 (+1.16%)
@@ -367,8 +365,8 @@ No alerts this window.
 ## Sentiment export
 
 ```
-Exported 78 tickers to news_signal.json (window 7d, 498 scored pairs).
-  pipeline_ok=True data_through=2026-11-14T05:00:33+00:00 llm-scored 498/498 pairs (100%)
+Exported 78 tickers to news_signal.json (window 7d, 494 scored pairs).
+  pipeline_ok=True data_through=2026-11-14T05:59:19+00:00 llm-scored 494/494 pairs (100%)
   38 of 78 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: IRCTC.NS -0.80, PAGEIND.NS -0.65, WIPRO.NS -0.50
   most positive: SUNPHARMA.NS +0.90, MANAPPURAM.NS +0.76, SHREECEM.NS +0.70
