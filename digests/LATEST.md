@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-15 02:30
+# Stock digest — 2026-11-15 08:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 143658 articles against 259 alias patterns...
+Rescanning 143757 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -76,10 +76,10 @@ Rescanning 143658 articles against 259 alias patterns...
   ...140000
   ...142000
 
-Done. 143658 articles rescanned.
-  ticker-matched articles: 15449
-  flagged as noise:        8253
-  (article, company) pairs: 13230  — 0 awaiting LLM scoring
+Done. 143757 articles rescanned.
+  ticker-matched articles: 15458
+  flagged as noise:        8256
+  (article, company) pairs: 13243  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
@@ -89,62 +89,57 @@ Done. 143658 articles rescanned.
 [OK] Economic Times Stocks: 50 entries, 0 new
 [OK] Economic Times Economy: 50 entries, 0 new
 [OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 2 new
-[OK] LiveMint Companies: 35 entries, 6 new
-[OK] LiveMint Money: 35 entries, 3 new
+[OK] LiveMint Markets: 35 entries, 3 new
+[OK] LiveMint Companies: 35 entries, 2 new
+[OK] LiveMint Money: 35 entries, 4 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 6 new
+[OK] BusinessLine Markets: 60 entries, 0 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 2 new
-[OK] BusinessLine Economy: 60 entries, 0 new
-[OK] Business Standard Markets: 35 entries, 0 new
-[OK] Business Standard Companies: 35 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 0 new
+[OK] BusinessLine Economy: 60 entries, 1 new
+[OK] Business Standard Markets: 35 entries, 1 new
+[OK] Business Standard Companies: 35 entries, 1 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 19 new
-[OK] TOI Business: 20 entries, 3 new
-[OK] The Hindu Business: 60 entries, 7 new
+[OK] NDTV Profit Latest: 20 entries, 7 new
+[OK] TOI Business: 20 entries, 2 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 0 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
 [OK] ET International: 50 entries, 0 new
-[OK] BBC Business: 56 entries, 0 new
-[OK] BBC World: 23 entries, 5 new
-[OK] Guardian Business: 40 entries, 5 new
-[OK] Al Jazeera: 25 entries, 19 new
-[OK] CNBC Top News: 30 entries, 4 new
+[OK] BBC Business: 57 entries, 1 new
+[OK] BBC World: 23 entries, 3 new
+[OK] Guardian Business: 35 entries, 1 new
+[OK] Al Jazeera: 25 entries, 16 new
+[OK] CNBC Top News: 30 entries, 2 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 2 new
-[OK] NYT Business: 48 entries, 3 new
+[OK] MarketWatch Top: 10 entries, 1 new
+[OK] NYT Business: 48 entries, 2 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 3 new
+[OK] OilPrice: 15 entries, 2 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 0 new
+[OK] SCMP Business: 50 entries, 2 new
 
-99 new articles stored, 9 matched to tickers (3 flagged as tracker/listicle/index noise).
+61 new articles stored, 3 matched to tickers (1 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] ASHOKLEY.NS  (+0.87) [off-hours] Ashok Leyland Q2 results: Profit climbs 8.7% to ₹891 crore, revenue jumps on MHCV growth  — BusinessLine Companies
-[BULLISH] BRITANNIA.NS,JSWENERGY.NS  (+0.70) [off-hours] Tech Query: Britannia Industries, JSW Energy, Urban Company, Lemon Tree Hotels — What is the outlook? Where are these stocks headed?  — BusinessLine Markets
-[BULLISH] GAIL.NS,HDFCBANK.NS,HINDZINC.NS,ITC.NS,TCS.NS  (+0.60) [off-hours] JioBlackRock Flexi Cap Fund: 13 new stocks added, including Hindustan Zinc &amp; IIFL Finance; 21 exits in October  — LiveMint Money
-[BULLISH] SIEMENS.NS  (+0.56) [off-hours] Movers & Shakers: Stocks that will see action this week  — BusinessLine Markets
-[BULLISH] COALINDIA.NS  (+0.48) [off-hours] Mahanadi Coalfields files RHP for proposed IPO worth nearly ₹9,500 crore  — The Hindu Business
-[neutral] COALINDIA.NS,ONGC.NS  (+0.00) [off-hours] Beyond Coal India, ONGC: 10 lesser-known dividend stocks with up to 19.6% yield - Premco, GOCL, Accelya to D-Link | List  — LiveMint Markets
-[neutral] DELHIVERY.NS  (+0.00) [off-hours] Delhivery to deploy 2,000 electric vehicles in 18 months, aims to make 50% of its intra-city fleet electric in 2-3 years  — LiveMint Companies
+[BULLISH] ADANIPORTS.NS  (+0.93) [off-hours] Global acquisitions, integrated operations to boost Adani Ports' growth  — Business Standard Companies
+[neutral] VEDL.NS  (-0.25) [off-hours] Best stocks to buy under  ₹100: Lloyds Engineering, Niva Bupa, Vedanta Power by Sumeet Bagadia | Targets, stop-loss  — LiveMint Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 13 pair(s) — 13 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 13 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 2 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1396, 1-day horizon) ===
+=== Recent signals (last 15 of 1388, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-11-12  PAGEIND.NS      -0.90   -1.65  YES  Page Industries hits 10% lower circuit post Q2 show; ₹1
 2026-11-12  PAGEIND.NS      -0.70   -1.65  YES  Page Industries Q2 net profit rises 4% as sales volume 
@@ -164,9 +159,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1396    57.1     52.6    3.7   no edge
-3d                      1311    60.6     53.4    3.8   no edge
-5d                      1171    64.0     52.7    4.0   no edge
+1d                      1388    57.2     52.7    3.7   no edge
+3d                      1303    60.7     53.4    3.8   no edge
+5d                      1163    64.2     52.8    4.1   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -175,34 +170,34 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              970    58.0     52.5    4.4   no edge
+after-hours              962    58.2     52.6    4.5   no edge
 in-session               426    54.9     52.8    6.7   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              202    50.5     46.0    9.7   no edge
-novel                   1194    58.2     53.7    4.0   no edge
+novel                   1186    58.3     53.8    4.0   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
-body mention             185    55.1     50.8   10.2   no edge
-headline                1211    57.4     52.8    4.0   no edge
+body mention             183    55.2     50.8   10.2   no edge
+headline                1205    57.5     52.9    4.0   no edge
 
 === By source (1-day, raw direction) ===
-  Economic Times Markets         113/189 (60%)
+  Economic Times Markets         113/187 (60%)
   CNBC TV18 Markets              102/184 (55%)
-  NDTV Profit Latest             101/171 (59%)
+  NDTV Profit Latest             100/169 (59%)
   Economic Times Industry        84/153 (55%)
   Business Standard Companies    85/153 (56%)
   BusinessLine Companies         77/125 (62%)
-  LiveMint Markets               39/88 (44%)
-  LiveMint Companies             49/84 (58%)
+  LiveMint Markets               39/87 (45%)
+  LiveMint Companies             48/83 (58%)
   The Hindu Business             42/65 (65%)
   Business Standard Markets      29/50 (58%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1487/2729 (54%)
-  LLM    797/1396 (57%)
+  VADER  1486/2717 (55%)
+  LLM    794/1388 (57%)
 
 ML dataset: 13235 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -349,7 +344,7 @@ ML dataset: 13235 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 15 Nov 02:32 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 15 Nov 08:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,657.61 (-6.85% since start) — cash Rs 3,141.61, 2 position(s)
   MARICO.NS         1 @ 889.72 -> 900.00 (+1.16%)
@@ -369,8 +364,8 @@ No alerts this window.
 ## Sentiment export
 
 ```
-Exported 78 tickers to news_signal.json (window 7d, 478 scored pairs).
-  pipeline_ok=True data_through=2026-11-14T20:52:09+00:00 llm-scored 478/478 pairs (100%)
+Exported 78 tickers to news_signal.json (window 7d, 479 scored pairs).
+  pipeline_ok=True data_through=2026-11-15T03:00:10+00:00 llm-scored 479/479 pairs (100%)
   40 of 78 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: IRCTC.NS -0.80, MOTHERSON.NS -0.70, PAGEIND.NS -0.65
   most positive: SUNPHARMA.NS +0.90, MANAPPURAM.NS +0.76, SHREECEM.NS +0.70
