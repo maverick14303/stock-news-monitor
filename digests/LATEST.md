@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-15 11:30
+# Stock digest — 2026-11-15 12:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 143861 articles against 259 alias patterns...
+Rescanning 143888 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -76,10 +76,10 @@ Rescanning 143861 articles against 259 alias patterns...
   ...140000
   ...142000
 
-Done. 143861 articles rescanned.
-  ticker-matched articles: 15464
+Done. 143888 articles rescanned.
+  ticker-matched articles: 15466
   flagged as noise:        8257
-  (article, company) pairs: 13248  — 0 awaiting LLM scoring
+  (article, company) pairs: 13250  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
@@ -89,51 +89,53 @@ Done. 143861 articles rescanned.
 [OK] Economic Times Stocks: 50 entries, 0 new
 [OK] Economic Times Economy: 50 entries, 0 new
 [OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 3 new
+[OK] LiveMint Markets: 35 entries, 1 new
 [OK] LiveMint Companies: 35 entries, 1 new
-[OK] LiveMint Money: 35 entries, 1 new
+[OK] LiveMint Money: 35 entries, 0 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 0 new
+[OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 3 new
-[OK] BusinessLine Economy: 60 entries, 4 new
-[OK] Business Standard Markets: 35 entries, 0 new
-[OK] Business Standard Companies: 35 entries, 1 new
-[OK] Business Standard Finance: 35 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 2 new
+[OK] BusinessLine Economy: 60 entries, 0 new
+[OK] Business Standard Markets: 35 entries, 3 new
+[OK] Business Standard Companies: 35 entries, 5 new
+[OK] Business Standard Finance: 35 entries, 1 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 6 new
-[OK] TOI Business: 20 entries, 2 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] NDTV Profit Latest: 20 entries, 2 new
+[OK] TOI Business: 20 entries, 0 new
+[OK] The Hindu Business: 60 entries, 2 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 1 new
+[OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 0 new
-[OK] Investing.com India Stocks: 10 entries, 3 new
+[OK] Investing.com India Stocks: 10 entries, 10 new
 [OK] ET International: 50 entries, 0 new
 [OK] BBC Business: 57 entries, 0 new
 [OK] BBC World: 23 entries, 0 new
-[OK] Guardian Business: 36 entries, 0 new
-[OK] Al Jazeera: 25 entries, 1 new
-[OK] CNBC Top News: 30 entries, 0 new
+[OK] Guardian Business: 38 entries, 2 new
+[OK] Al Jazeera: 25 entries, 3 new
+[OK] CNBC Top News: 30 entries, 1 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[WARN] MarketWatch Top: could not fetch (<unknown>:2:0: syntax error)
+[OK] MarketWatch Top: 10 entries, 0 new
 [OK] NYT Business: 48 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
 [OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 0 new
+[OK] SCMP Business: 50 entries, 1 new
 
-27 new articles stored, 2 matched to tickers (0 flagged as tracker/listicle/index noise).
+35 new articles stored, 3 matched to tickers (0 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] TATASTEEL.NS  (+0.36) [off-hours] Tata Steel targets NINL amalgamation by FY27: CFO Koushik Chatterjee  — Business Standard Companies
-[neutral] SBIN.NS  (+0.15) [off-hours] Kamarajar Port picks SBI Capital, IDBI Capital and ICICI Securities for IPO  — LiveMint Markets
+[BULLISH] ETERNAL.NS  (+0.61) [off-hours] Zomato-parent Eternal reworks 2030 EV delivery target amid fleet expansion  — Business Standard Companies
+[BULLISH] ETERNAL.NS  (+0.57) [off-hours] Zomato-parent Eternal reassesses 2030 EV delivery target as fleet expands and adoption evolves  — BusinessLine Companies
+[BEARISH] TMPV.NS  (-0.66) [off-hours] Tata Motors shares: 22% down in 2026, right time to buy famous auto stock? What brokerages say after loss narrows in Q2  — LiveMint Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 2 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: queued 3 pair(s) — 3 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 3 (headline, company) pair(s) with google/gemini-2.5-flash.
+  novel & strong — TMPV.NS +0.60: Tata Motors shares: 22% down in 2026, right time to buy famous au
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -196,7 +198,7 @@ headline                1195    57.5     52.9    4.0   no edge
   Business Standard Markets      28/48 (58%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1477/2680 (55%)
+  VADER  1477/2679 (55%)
   LLM    788/1377 (57%)
 
 ML dataset: 13235 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
@@ -344,7 +346,7 @@ ML dataset: 13235 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 15 Nov 11:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sun 15 Nov 12:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,657.61 (-6.85% since start) — cash Rs 3,141.61, 2 position(s)
   MARICO.NS         1 @ 889.72 -> 900.00 (+1.16%)
@@ -364,8 +366,8 @@ No alerts this window.
 ## Sentiment export
 
 ```
-Exported 79 tickers to news_signal.json (window 7d, 471 scored pairs).
-  pipeline_ok=True data_through=2026-11-15T05:57:35+00:00 llm-scored 471/471 pairs (100%)
+Exported 79 tickers to news_signal.json (window 7d, 470 scored pairs).
+  pipeline_ok=True data_through=2026-11-15T07:00:09+00:00 llm-scored 470/470 pairs (100%)
   41 of 79 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: IRCTC.NS -0.80, MOTHERSON.NS -0.70, PAGEIND.NS -0.65
   most positive: SUNPHARMA.NS +0.90, MANAPPURAM.NS +0.76, SHREECEM.NS +0.70
