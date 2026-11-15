@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-15 20:30
+# Stock digest — 2026-11-16 02:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 144034 articles against 259 alias patterns...
+Rescanning 144182 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -77,10 +77,10 @@ Rescanning 144034 articles against 259 alias patterns...
   ...142000
   ...144000
 
-Done. 144034 articles rescanned.
-  ticker-matched articles: 15482
-  flagged as noise:        8259
-  (article, company) pairs: 13270  — 0 awaiting LLM scoring
+Done. 144182 articles rescanned.
+  ticker-matched articles: 15487
+  flagged as noise:        8262
+  (article, company) pairs: 13275  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
@@ -90,61 +90,59 @@ Done. 144034 articles rescanned.
 [OK] Economic Times Stocks: 50 entries, 0 new
 [OK] Economic Times Economy: 50 entries, 0 new
 [OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 7 new
-[OK] LiveMint Companies: 35 entries, 10 new
-[OK] LiveMint Money: 35 entries, 5 new
+[OK] LiveMint Markets: 35 entries, 4 new
+[OK] LiveMint Companies: 35 entries, 5 new
+[OK] LiveMint Money: 35 entries, 6 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 4 new
+[OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 8 new
-[OK] BusinessLine Economy: 60 entries, 5 new
+[OK] BusinessLine Companies: 60 entries, 3 new
+[OK] BusinessLine Economy: 60 entries, 1 new
 [OK] Business Standard Markets: 35 entries, 0 new
-[OK] Business Standard Companies: 35 entries, 3 new
-[OK] Business Standard Finance: 35 entries, 3 new
-[OK] Business Standard Economy: 35 entries, 1 new
-[OK] NDTV Profit Latest: 20 entries, 19 new
-[OK] TOI Business: 20 entries, 2 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] Business Standard Companies: 35 entries, 0 new
+[OK] Business Standard Finance: 35 entries, 1 new
+[OK] Business Standard Economy: 35 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 18 new
+[OK] TOI Business: 20 entries, 3 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 4 new
+[OK] CNBC TV18 Markets: 200 entries, 1 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 5 new
-[OK] BBC Business: 57 entries, 0 new
-[OK] BBC World: 24 entries, 3 new
-[OK] Guardian Business: 40 entries, 13 new
+[OK] ET International: 50 entries, 0 new
+[OK] BBC Business: 57 entries, 2 new
+[OK] BBC World: 20 entries, 6 new
+[OK] Guardian Business: 40 entries, 6 new
 [OK] Al Jazeera: 25 entries, 25 new
-[OK] CNBC Top News: 30 entries, 7 new
+[OK] CNBC Top News: 30 entries, 3 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 3 new
-[OK] NYT Business: 48 entries, 6 new
+[OK] MarketWatch Top: 10 entries, 1 new
+[OK] NYT Business: 48 entries, 2 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 0 new
+[OK] OilPrice: 15 entries, 2 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 4 new
+[OK] SCMP Business: 50 entries, 0 new
 
-148 new articles stored, 5 matched to tickers (3 flagged as tracker/listicle/index noise).
+100 new articles stored, 5 matched to tickers (1 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] COCHINSHIP.NS,PFC.NS  (+0.57) [off-hours] PSU dividend this week Nov 16-20: Cochin Shipyard, Power Finance Corp, SCI to Oil India - Check record dates and returns  — LiveMint Markets
-[BULLISH] BHARTIARTL.NS  (+0.32) [off-hours] Tests of Mittal: How Bharti Enterprises weathered every storm  — BusinessLine Companies
-[neutral] MARUTI.NS  (+0.10) [off-hours] Maruti Suzuki surpasses 2025 export numbers by October with over 4 lakh units  — BusinessLine Companies
-[BEARISH] HINDALCO.NS  (-0.30) [off-hours] Hindalco's Novelis Cuts China Exposure, Sells Two Subsidiaries For $265 Million-Deal  — NDTV Profit Latest
+[BULLISH] HDFCBANK.NS,ICICIBANK.NS,SBIN.NS  (+0.90) [off-hours] FD returns: Your bank offers 6.35% interest, but how much do you actually earn after tax? Check returns across top banks  — LiveMint Money
+[BULLISH] BHARTIARTL.NS,HEROMOTOCO.NS  (+0.56) [off-hours] Six Stocks To Buy Today, November 16: Hero Motocorp, Bharti Airtel, Indus Towers, And More  — NDTV Profit Latest
+[BULLISH] UBL.NS  (+0.44) [off-hours] Liquor makers push for price increases across states amid cost pressures  — BusinessLine Companies
+[BULLISH] HINDALCO.NS  (+0.34) [off-hours] Hindalco arm Novelis to sell China assets for ₹2,490 cr  — BusinessLine Companies
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 5 pair(s) — 5 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 5 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — MARUTI.NS +0.70: Maruti Suzuki surpasses 2025 export numbers by October with over 
-  novel & strong — HINDALCO.NS +0.60: Hindalco's Novelis Cuts China Exposure, Sells Two Subsidiaries Fo
+LLM analyst: queued 7 pair(s) — 7 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 7 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1361, 1-day horizon) ===
+=== Recent signals (last 15 of 1358, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-11-12  PAGEIND.NS      -0.90   -1.65  YES  Page Industries hits 10% lower circuit post Q2 show; ₹1
 2026-11-12  PAGEIND.NS      -0.70   -1.65  YES  Page Industries Q2 net profit rises 4% as sales volume 
@@ -164,9 +162,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1361    57.4     52.3    3.8   no edge
-3d                      1276    60.9     53.3    3.9   no edge
-5d                      1136    64.4     52.6    4.1   no edge
+1d                      1358    57.4     52.4    3.8   no edge
+3d                      1273    61.0     53.3    3.9   no edge
+5d                      1133    64.5     52.7    4.1   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -175,25 +173,25 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              949    58.3     52.4    4.5   no edge
+after-hours              946    58.2     52.4    4.5   no edge
 in-session               412    55.3     52.2    6.8   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              197    50.8     45.7    9.8   no edge
-novel                   1164    58.5     53.4    4.1   no edge
+novel                   1161    58.5     53.5    4.1   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
-body mention             180    56.1     50.0   10.3   no edge
-headline                1181    57.6     52.7    4.0   no edge
+body mention             179    55.9     50.3   10.4   no edge
+headline                1179    57.6     52.7    4.0   no edge
 
 === By source (1-day, raw direction) ===
-  Economic Times Markets         112/185 (61%)
+  Economic Times Markets         112/184 (61%)
   CNBC TV18 Markets              102/183 (56%)
   NDTV Profit Latest             94/161 (58%)
   Economic Times Industry        84/151 (56%)
-  Business Standard Companies    83/149 (56%)
+  Business Standard Companies    82/148 (55%)
   BusinessLine Companies         77/124 (62%)
   LiveMint Markets               38/85 (45%)
   LiveMint Companies             48/83 (58%)
@@ -201,8 +199,8 @@ headline                1181    57.6     52.7    4.0   no edge
   Business Standard Markets      28/48 (58%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1460/2626 (56%)
-  LLM    781/1361 (57%)
+  VADER  1458/2621 (56%)
+  LLM    779/1358 (57%)
 
 ML dataset: 13235 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -266,7 +264,7 @@ ML dataset: 13235 labelled (article, company) rows — see ROADMAP_ML.md for the
   2026-09-09  ONGC.NS          -5.11%  L&T Energy Hydrocarbon Offshore wins 'large' order
   2026-09-09  VEDL.NS          -8.41%  Vedanta Aluminium announces partnerships with tech
   2026-09-12  HDFCBANK.NS      +4.41%  HDFC Bank sends two names to RBI for Jagdishan’s s
-  2026-09-12  COCHINSHIP.NS    +0.29%  Cochin Shipyard Ltd and Drydocks World form joint 
+  2026-09-12  COCHINSHIP.NS    +0.03%  Cochin Shipyard Ltd and Drydocks World form joint 
   2026-09-12  ETERNAL.NS       +3.83%  Paying cash for Zomato orders? You may now have to
   2026-09-15  AUROPHARMA.NS    +2.02%  Aurobindo Pharma gets US FDA nod to sell first met
   2026-09-15  BHEL.NS          +3.14%  BHEL, Titagarh Rail join hands to maintain Vande B
@@ -292,7 +290,7 @@ ML dataset: 13235 labelled (article, company) rows — see ROADMAP_ML.md for the
   2026-10-06  TATASTEEL.NS     -2.23%  Netherlands wants Tata Steel to stay, but demands 
   2026-10-06  ADANIPOWER.NS    -8.05%  Adani Power, Druk Green To Develop 770 MW Hydropow
   2026-10-06  KOTAKBANK.NS     +1.59%  Kotak Mahindra Bank shares gain 4% after Q2 update
-  2026-10-08  COCHINSHIP.NS    +4.50%  Cochin Shipyard gets order to build 40 ships from 
+  2026-10-08  COCHINSHIP.NS    +4.23%  Cochin Shipyard gets order to build 40 ships from 
   2026-10-09  BHARTIARTL.NS    +5.56%  Airtel Money makes London Stock Exchange debut wit
   2026-10-12  RELIANCE.NS      +3.83%  Jio IPO may be valued at Rs 11 lakh crore: What it
   2026-10-12  TMPV.NS          -0.68%  Stellantis, Tata Motors ink passenger vehicle manu
@@ -349,7 +347,7 @@ ML dataset: 13235 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sun 15 Nov 20:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Mon 16 Nov 02:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,657.61 (-6.85% since start) — cash Rs 3,141.61, 2 position(s)
   MARICO.NS         1 @ 889.72 -> 900.00 (+1.16%)
@@ -363,15 +361,15 @@ Learned sector weights: {"metals": 0.902, "consumer": 0.858, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 1 buy idea(s)
+Alert written: 1 macro item(s), weekly report
 ```
 
 ## Sentiment export
 
 ```
-Exported 80 tickers to news_signal.json (window 7d, 478 scored pairs).
-  pipeline_ok=True data_through=2026-11-15T14:50:09+00:00 llm-scored 478/478 pairs (100%)
-  40 of 80 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 80 tickers to news_signal.json (window 7d, 483 scored pairs).
+  pipeline_ok=True data_through=2026-11-16T16:45:01+00:00 llm-scored 483/483 pairs (100%)
+  41 of 80 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: IRCTC.NS -0.80, MOTHERSON.NS -0.70, PAGEIND.NS -0.65
-  most positive: SUNPHARMA.NS +0.90, MANAPPURAM.NS +0.76, ONGC.NS +0.70
+  most positive: SUNPHARMA.NS +0.90, M&M.NS +0.80, MANAPPURAM.NS +0.76
 ```
