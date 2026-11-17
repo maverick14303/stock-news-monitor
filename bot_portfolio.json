@@ -980,7 +980,36 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "HINDZINC.NS",
+      "score": 0.927,
+      "title": "Hindustan Zinc\u2019s  \u20b980,000-crore expansion: The big bet to double its metal output and ride India\u2019s i",
+      "source": "LiveMint Companies",
+      "queued": "2026-11-17"
+    },
+    {
+      "symbol": "ADANIPORTS.NS",
+      "score": 0.874,
+      "title": "$51 billion capex, 23% earnings growth: Adani Ports, Adani Green to Energy; Jefferies sees up to 44%",
+      "source": "LiveMint Markets",
+      "queued": "2026-11-17"
+    },
+    {
+      "symbol": "HDFCBANK.NS",
+      "score": 0.748,
+      "title": "Honasa Consumer, HDFC Bank: Two stock ideas by Shrikant Chouhan",
+      "source": "Business Standard Markets",
+      "queued": "2026-11-17"
+    },
+    {
+      "symbol": "ETERNAL.NS",
+      "score": 0.575,
+      "title": "Swiggy vs Zomato parent Eternal: Which stock has the stronger growth and better earnings outlook aft",
+      "source": "LiveMint Markets",
+      "queued": "2026-11-17"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-11-13"
