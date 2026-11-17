@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-17 10:30
+# Stock digest — 2026-11-17 11:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 145530 articles against 259 alias patterns...
+Rescanning 145609 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -77,97 +77,98 @@ Rescanning 145530 articles against 259 alias patterns...
   ...142000
   ...144000
 
-Done. 145530 articles rescanned.
-  ticker-matched articles: 15663
-  flagged as noise:        8375
-  (article, company) pairs: 13404  — 0 awaiting LLM scoring
+Done. 145609 articles rescanned.
+  ticker-matched articles: 15685
+  flagged as noise:        8402
+  (article, company) pairs: 13410  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 23 new
+[OK] Economic Times Markets: 50 entries, 15 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 1 new
-[OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 3 new
-[OK] LiveMint Companies: 35 entries, 3 new
+[OK] Economic Times Economy: 50 entries, 2 new
+[OK] Economic Times Industry: 50 entries, 1 new
+[OK] LiveMint Markets: 35 entries, 4 new
+[OK] LiveMint Companies: 35 entries, 2 new
 [OK] LiveMint Money: 35 entries, 1 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 4 new
+[OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 0 new
-[OK] BusinessLine Economy: 60 entries, 1 new
-[OK] Business Standard Markets: 35 entries, 4 new
-[OK] Business Standard Companies: 35 entries, 1 new
-[OK] Business Standard Finance: 35 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 1 new
+[OK] BusinessLine Economy: 60 entries, 2 new
+[OK] Business Standard Markets: 35 entries, 5 new
+[OK] Business Standard Companies: 35 entries, 0 new
+[OK] Business Standard Finance: 35 entries, 1 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 15 new
-[OK] TOI Business: 20 entries, 2 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] NDTV Profit Latest: 20 entries, 10 new
+[OK] TOI Business: 20 entries, 1 new
+[OK] The Hindu Business: 60 entries, 3 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 1 new
+[OK] News18 Business: 200 entries, 0 new
 [OK] CNBC TV18 Markets: 200 entries, 4 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 3 new
+[OK] ET International: 50 entries, 4 new
 [OK] BBC Business: 56 entries, 0 new
-[OK] BBC World: 21 entries, 0 new
+[OK] BBC World: 21 entries, 7 new
 [OK] Guardian Business: 40 entries, 0 new
-[OK] Al Jazeera: 25 entries, 1 new
-[OK] CNBC Top News: 30 entries, 1 new
+[OK] Al Jazeera: 25 entries, 2 new
+[OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 49 entries, 0 new
+[OK] NYT Business: 49 entries, 4 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
 [OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 0 new
+[OK] SCMP Business: 50 entries, 1 new
 
-79 new articles stored, 22 matched to tickers (27 flagged as tracker/listicle/index noise).
+81 new articles stored, 15 matched to tickers (15 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] TCS.NS,TMPV.NS  (+0.81)  Tata Chemicals, Tata Motors, TCS, Other Tata Group Stocks Rally Up To 9%. Here's Why  — NDTV Profit Latest
-[BULLISH] ASHOKLEY.NS  (+0.77)  Ashok Leyland shares are a buy or sell? 60% analysts vote for the former after Q2 results  — CNBC TV18 Markets
-[BULLISH] HINDZINC.NS  (+0.56)  Why is Hindustan Zinc stock down despite ₹80,000 cr expansion plan? Decoded  — Business Standard Markets
-[BULLISH] ABB.NS  (+0.30)  ABB India, Relaxo  Footwear And More Q2 Review: Check HDFC Securities Latest Target Prices  — NDTV Profit Latest
-[BEARISH] CUMMINSIND.NS  (-0.63)  Cummins India Gets Hit By Target Price Cuts As Rising Costs, Competition Squeeze Margin  — NDTV Profit Latest
+[BULLISH] EICHERMOT.NS,TVSMOTOR.NS  (+0.88)  Auto sector on track to meet FY27 growth target; Elara favours TVS, Eicher Motors  — CNBC TV18 Markets
+[BULLISH] ASIANPAINT.NS,BERGEPAINT.NS,INDIGO.NS  (+0.81)  Paint Companies Announce Second Round Of November Price Hikes As Costs Rise | Profit Exclusive  — NDTV Profit Latest
+[BULLISH] DLF.NS,GODREJPROP.NS,LODHA.NS,PRESTIGE.NS  (+0.76)  Nifty Realty index surges 14% in November; DLF hits 52-week high  — Business Standard Markets
+[BULLISH] BHARTIARTL.NS,HDFCBANK.NS,M&M.NS  (+0.69)  M&M, Airtel, TechM, HDFC Bank lead Nifty's 3100 pts rally; more steam left?  — Business Standard Markets
+[BULLISH] ITC.NS  (+0.27)  ITC stock reclaims 200-DMA after a year; is it a rebound or fresh uptrend?  — Business Standard Markets
+[neutral] COALINDIA.NS  (+0.00)  Coal India begins IPO preparations for Northern, Central Coalfields  — LiveMint Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 6 pair(s) — 6 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: queued 14 pair(s) — 14 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
   gemini gemini-2.5-flash: http 503
   gemini gemini-2.0-flash: http 404
-LLM analyst: scored 6 (headline, company) pair(s) with inclusionai/ling-3.2-flash:free.
+LLM analyst: scored 14 (headline, company) pair(s) with inclusionai/ling-3.2-flash:free.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1369, 1-day horizon) ===
+=== Recent signals (last 15 of 1368, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
-2026-11-13  TMPV.NS         -0.50   -8.70  YES  Tata Motors Passenger Vehicles reports Q2 net loss of ₹
 2026-11-13  TMPV.NS         -0.40   -8.70  YES  Tata Motors PV Q2 Results: Net loss at ₹5,531 crore on 
 2026-11-13  TMPV.NS         -0.40   -8.70  YES  Tata Motors PV narrows Q2FY27 loss to ₹5,451 cr as reve
 2026-11-13  TMPV.NS         -0.30   -8.70  YES  Tata Motors PV posts ₹5,451-crore Q2 consolidated loss 
 2026-11-13  TMPV.NS         +0.60   -8.70  no   Tata Motors shares: 22% down in 2026, right time to buy
-2026-11-13  UBL.NS          +0.50   -2.03  no   Liquor makers push for price increases across states am
+2026-11-13  UBL.NS          +0.50   -2.12  no   Liquor makers push for price increases across states am
 2026-11-13  VEDL.NS         -0.70   -2.57  YES  ONGC takes charge of Cambay block as Vedanta records ₹3
 2026-11-13  VEDL.NS         -0.70   -2.57  YES  ONGC takes over disputed Cambay block from Vedanta afte
-2026-11-16  BIOCON.NS       +0.70   -0.11  no   Biocon secures USFDA approval for Pebrilzo, its fifth c
-2026-11-16  EICHERMOT.NS    +0.60   +0.28  YES  Eicher Motors shares vroom like its Bullet, stock price
-2026-11-16  EICHERMOT.NS    +0.80   +0.28  YES  Eicher Motors shares gain 3.5% on record Q2 show; margi
-2026-11-16  GLENMARK.NS     +0.70   -0.55  no   Glenmark shares rise after US arm launches cancer thera
-2026-11-16  TMPV.NS         -0.90   +0.65  no   Tata Motors PV falls 7.5% after lowering JLR outlook
-2026-11-16  TMPV.NS         -0.90   +0.65  no   Tata Motors PV shares plunge 9% after Q2 results; broke
-2026-11-16  TMPV.NS         -0.80   +0.65  no   Tata Motors PV Shares Slide Over 8% As Company Slips To
+2026-11-16  BIOCON.NS       +0.50   -0.10  no   Biocon shares gain after US FDA approves cancer drug bi
+2026-11-16  BIOCON.NS       +0.70   -0.10  no   Biocon secures USFDA approval for Pebrilzo, its fifth c
+2026-11-16  EICHERMOT.NS    +0.60   +0.56  YES  Eicher Motors shares vroom like its Bullet, stock price
+2026-11-16  EICHERMOT.NS    +0.80   +0.56  YES  Eicher Motors shares gain 3.5% on record Q2 show; margi
+2026-11-16  GLENMARK.NS     +0.70   -0.91  no   Glenmark shares rise after US arm launches cancer thera
+2026-11-16  TMPV.NS         -0.90   +0.30  no   Tata Motors PV falls 7.5% after lowering JLR outlook
+2026-11-16  TMPV.NS         -0.90   +0.30  no   Tata Motors PV shares plunge 9% after Q2 results; broke
+2026-11-16  TMPV.NS         -0.80   +0.30  no   Tata Motors PV Shares Slide Over 8% As Company Slips To
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1369    57.6     52.3    3.7   no edge
-3d                      1298    60.4     52.7    3.8   no edge
-5d                      1202    63.1     51.4    4.0   no edge
+1d                      1368    57.7     52.5    3.7   no edge
+3d                      1296    60.5     52.9    3.8   no edge
+5d                      1200    63.5     51.4    4.0   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -176,23 +177,23 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              932    59.0     52.7    4.5   no edge
-in-session               437    54.7     51.5    6.6   no edge
+after-hours              930    59.1     52.7    4.5   no edge
+in-session               438    54.6     52.1    6.6   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              191    52.4     47.1   10.0   no edge
-novel                   1178    58.5     53.1    4.0   no edge
+novel                   1177    58.5     53.4    4.0   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
-body mention             176    55.1     50.0   10.5   no edge
-headline                1193    58.0     52.6    4.0   no edge
+body mention             175    55.4     49.7   10.5   no edge
+headline                1193    58.0     52.9    4.0   no edge
 
 === By source (1-day, raw direction) ===
-  CNBC TV18 Markets              102/184 (55%)
+  CNBC TV18 Markets              102/185 (55%)
   Economic Times Markets         111/179 (62%)
-  NDTV Profit Latest             97/163 (60%)
+  NDTV Profit Latest             97/162 (60%)
   Business Standard Companies    86/153 (56%)
   Economic Times Industry        79/144 (55%)
   BusinessLine Companies         80/132 (61%)
@@ -202,10 +203,10 @@ headline                1193    58.0     52.6    4.0   no edge
   Business Standard Markets      30/53 (57%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1512/2688 (56%)
-  LLM    789/1369 (58%)
+  VADER  1515/2689 (56%)
+  LLM    789/1368 (58%)
 
-ML dataset: 13419 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 13424 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -6.95%  Coal India's SECL strengthens monsoon measures for
@@ -339,12 +340,12 @@ ML dataset: 13419 labelled (article, company) rows — see ROADMAP_ML.md for the
   2026-11-04  NYKAA.NS         +1.35%  Nykaa Q2 Results: PAT soars 207% YoY to Rs 101 cro
   2026-11-05  ADANIPORTS.NS    +0.99%  Adani Ports to enter Europe with €2.56 billion buy
   2026-11-05  ONGC.NS          -2.17%  ONGC net profit jumps 57% to ₹15,488.64 crore on h
-  2026-11-06  HINDALCO.NS      -3.40%  Hindalco Q2 result: Net profit jumps 59% to ₹7,533
-  2026-11-09  GODREJPROP.NS    +3.63%  Godrej Properties to launch Rs 32,000 cr homes H2 
-  2026-11-11  TATAPOWER.NS     -4.31%  Tata Power Q2 profit rises 33% to ₹1,652 cr; ₹11,8
-  2026-11-12  RELIANCE.NS      +0.05%  RIL plans ₹43,000 crore investment in Andhra coal 
-  2026-11-12  MANAPPURAM.NS    -5.45%  Manappuram Finance Q2 results: Profit jumps over 3
-  → 76/136 positive, avg +0.53%
+  2026-11-06  HINDALCO.NS      -3.00%  Hindalco Q2 result: Net profit jumps 59% to ₹7,533
+  2026-11-09  GODREJPROP.NS    +4.62%  Godrej Properties to launch Rs 32,000 cr homes H2 
+  2026-11-11  TATAPOWER.NS     -4.40%  Tata Power Q2 profit rises 33% to ₹1,652 cr; ₹11,8
+  2026-11-12  RELIANCE.NS      +0.41%  RIL plans ₹43,000 crore investment in Andhra coal 
+  2026-11-12  MANAPPURAM.NS    -5.48%  Manappuram Finance Q2 results: Profit jumps over 3
+  → 76/136 positive, avg +0.54%
 ```
 
 ## Bot account (self-trading)
@@ -352,11 +353,11 @@ ML dataset: 13419 labelled (article, company) rows — see ROADMAP_ML.md for the
 ```
 Today's plan is already done — exits checked, holding.
 
-Bot equity: Rs 4,659.44 (-6.81% since start) — cash Rs 1,850.19, 4 position(s)
-  MARICO.NS         1 @ 889.72 -> 909.85 (+2.26%)
-  MANAPPURAM.NS     2 @ 313.78 -> 302.40 (-3.63%)
-  HINDZINC.NS       1 @ 546.26 -> 547.80 (+0.28%)
-  ETERNAL.NS        2 @ 372.58 -> 373.40 (+0.22%)
+Bot equity: Rs 4,672.09 (-6.56% since start) — cash Rs 1,850.19, 4 position(s)
+  MARICO.NS         1 @ 889.72 -> 912.20 (+2.53%)
+  MANAPPURAM.NS     2 @ 313.78 -> 302.45 (-3.61%)
+  HINDZINC.NS       1 @ 546.26 -> 551.70 (+1.00%)
+  ETERNAL.NS        2 @ 372.58 -> 376.55 (+1.07%)
 Record: 11/32 wins, avg -1.09% per trade
 Learned source trust — high: Business Standard Economy 1.36, LiveMint Companies 1.14, ET Markets Wrap 1.08
                        low: Economic Times Economy 0.80, Business Standard Finance 0.76, LiveMint Money 0.65
@@ -366,14 +367,14 @@ Learned sector weights: {"metals": 0.902, "consumer": 0.858, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: bot made 2 trade(s)
+Alert written: 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 78 tickers to news_signal.json (window 7d, 538 scored pairs).
-  pipeline_ok=True data_through=2026-11-17T04:57:22+00:00 llm-scored 538/538 pairs (100%)
+Exported 78 tickers to news_signal.json (window 7d, 552 scored pairs).
+  pipeline_ok=True data_through=2026-11-17T06:00:12+00:00 llm-scored 552/552 pairs (100%)
   41 of 78 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: IRCTC.NS -0.80, MOTHERSON.NS -0.70, PAGEIND.NS -0.65
   most positive: M&M.NS +0.80, MANAPPURAM.NS +0.76, HINDZINC.NS +0.72
