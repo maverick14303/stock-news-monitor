@@ -1016,7 +1016,22 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "CIPLA.NS",
+      "score": 0.684,
+      "title": "Cipla's InvaGen New York facility gets USFDA's No Action Indicated classification",
+      "source": "CNBC TV18 Markets",
+      "queued": "2026-11-18"
+    },
+    {
+      "symbol": "ASHOKLEY.NS",
+      "score": 0.683,
+      "title": "Ashok Leyland says manufacturing utilisation reaches 90%, greenfield capacity under consideration",
+      "source": "BusinessLine Companies",
+      "queued": "2026-11-18"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-11-17"
