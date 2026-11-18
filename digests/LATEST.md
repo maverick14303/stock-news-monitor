@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-18 15:30
+# Stock digest — 2026-11-18 20:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 147021 articles against 259 alias patterns...
+Rescanning 147104 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -78,76 +78,94 @@ Rescanning 147021 articles against 259 alias patterns...
   ...144000
   ...146000
 
-Done. 147021 articles rescanned.
-  ticker-matched articles: 15853
+Done. 147104 articles rescanned.
+  ticker-matched articles: 15866
   flagged as noise:        8520
-  (article, company) pairs: 13532  — 0 awaiting LLM scoring
+  (article, company) pairs: 13546  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 1 new
+[OK] Economic Times Markets: 50 entries, 14 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 1 new
-[OK] Economic Times Industry: 50 entries, 1 new
-[OK] LiveMint Markets: 35 entries, 4 new
-[OK] LiveMint Companies: 35 entries, 3 new
-[OK] LiveMint Money: 35 entries, 2 new
-[OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 2 new
+[OK] Economic Times Economy: 50 entries, 3 new
+[OK] Economic Times Industry: 50 entries, 5 new
+[OK] LiveMint Markets: 35 entries, 5 new
+[OK] LiveMint Companies: 35 entries, 10 new
+[OK] LiveMint Money: 35 entries, 7 new
+[OK] LiveMint Economy: 35 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 10 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 2 new
-[OK] BusinessLine Economy: 60 entries, 3 new
-[OK] Business Standard Markets: 35 entries, 4 new
-[OK] Business Standard Companies: 35 entries, 4 new
-[OK] Business Standard Finance: 35 entries, 1 new
-[OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 18 new
-[OK] TOI Business: 20 entries, 2 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] BusinessLine Companies: 60 entries, 12 new
+[OK] BusinessLine Economy: 60 entries, 13 new
+[OK] Business Standard Markets: 35 entries, 8 new
+[OK] Business Standard Companies: 35 entries, 10 new
+[OK] Business Standard Finance: 35 entries, 3 new
+[OK] Business Standard Economy: 35 entries, 7 new
+[OK] NDTV Profit Latest: 20 entries, 20 new
+[OK] TOI Business: 20 entries, 4 new
+[OK] The Hindu Business: 60 entries, 10 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 1 new
-[OK] CNBC TV18 Markets: 200 entries, 3 new
+[OK] News18 Business: 200 entries, 0 new
+[OK] CNBC TV18 Markets: 200 entries, 24 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 2 new
-[OK] BBC Business: 43 entries, 0 new
-[OK] BBC World: 26 entries, 0 new
-[OK] Guardian Business: 40 entries, 0 new
-[OK] Al Jazeera: 25 entries, 10 new
-[OK] CNBC Top News: 30 entries, 2 new
+[OK] ET International: 50 entries, 10 new
+[OK] BBC Business: 45 entries, 2 new
+[OK] BBC World: 28 entries, 10 new
+[OK] Guardian Business: 40 entries, 12 new
+[OK] Al Jazeera: 25 entries, 25 new
+[OK] CNBC Top News: 30 entries, 20 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 3 new
-[OK] NYT Business: 50 entries, 0 new
+[OK] MarketWatch Top: 10 entries, 4 new
+[OK] NYT Business: 50 entries, 10 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 1 new
+[OK] OilPrice: 15 entries, 4 new
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 2 new
 
-83 new articles stored, 13 matched to tickers (0 flagged as tracker/listicle/index noise).
+275 new articles stored, 30 matched to tickers (7 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] COALINDIA.NS  (+0.95)  Mahanadi Coalfields IPO one lot profit calculator on GMP: What’s expected listing gains for investors?  — LiveMint Markets
-[BULLISH] KEI.NS  (+0.83)  KEI Industries Sees Rs 30,000 Crore Data Centre Opportunity As Cable Demand Gets A Digital Boost  — NDTV Profit Latest
-[BULLISH] JINDALSTEL.NS  (+0.61)  India to have adequate coking coal as Europe, US move away from blast furnaces: Naveen Jindal  — LiveMint Companies
-[BULLISH] WIPRO.NS  (+0.60)  From Wipro To Organic Farming: How This Techie Built Akshayakalpa Into A Rs 720-Crore Business  — NDTV Profit Latest
-[neutral] NTPC.NS  (+0.15)  Acme Solar inks 150 MW hybrid power deal with NTPC at ₹3.21/Unit  — BusinessLine Markets
-[neutral] BAJAJFINSV.NS  (+0.15)  Bajaj Finserv bets $4 million on Indian AI startup Soket AI  — BusinessLine Companies
-[neutral] CUMMINSIND.NS  (+0.10)  Cummins faces a double whammy of cost inflation and lag effect of price hikes  — LiveMint Markets
-[neutral] COALINDIA.NS  (+0.00)  Mahanadi Coalfields raises ₹2,295 crore from investors ahead of IPO  — Business Standard Companies
-[BEARISH] POLYCAB.NS  (-0.56)  Copper prices at five-month low - Here's how Polycab, Finolex, RR Kabel shares reacted  — CNBC TV18 Markets
-[BEARISH] INFY.NS  (-0.57)  Infosys share price: Lost 1/4th investor wealth in 1 year, should you still buy the IT major? Check target, stop loss  — LiveMint Markets
-[BEARISH] SAIL.NS,VEDL.NS  (-0.72)  Metal Stocks Under Pressure: Why Domestic Steel Outshines Aluminium Amid Global Sell-Off  — CNBC TV18 Markets
-[BEARISH] RELAXO.NS  (-0.86)  Relaxo Footwears slips 6%, nears 52-week low on disappointing Q2 results  — Business Standard Markets
-[BEARISH] NTPC.NS  (-0.88)  NTPC says three killed, two injured in Jharkhand site accident  — BusinessLine Companies
+[BULLISH] GAIL.NS  (+0.96) [off-hours] PSC policy change can drive upstream investments; ICICI Securities prefers Oil India, GAIL  — CNBC TV18 Markets
+[BULLISH] HDFCBANK.NS  (+0.92) [off-hours] HDFC Bank slashes BizBlack Metal credit card tax payment rewards by 40%: What changes for users from December 21  — LiveMint Money
+[BULLISH] PAYTM.NS  (+0.91) [off-hours] Paytm public-market investors earn 1.7x returns in five years as shares hit record high  — BusinessLine Markets
+[BULLISH] BHARTIARTL.NS,RELIANCE.NS,VEDL.NS  (+0.90) [off-hours] Sohum's Sanjay Parekh sees upside in Reliance Industries, Airtel; calls Vedanta Aluminium a value pick  — CNBC TV18 Markets
+[BULLISH] PRESTIGE.NS  (+0.61) [off-hours] Prestige Group buys 50 pc stake in Advent Convention and Hotels International for Rs 500 cr  — Economic Times Markets
+[BULLISH] PRESTIGE.NS  (+0.61) [off-hours] Prestige Group buys 50 pc stake in Advent Convention and Hotels International for Rs 500 cr  — Economic Times Markets
+[BULLISH] PRESTIGE.NS  (+0.61) [off-hours] Prestige Group buys 50 pc stake in Advent Convention and Hotels International for Rs 500 cr  — Economic Times Markets
+[BULLISH] DALBHARAT.NS  (+0.57) [off-hours] Dalmia Bharat to consider share buyback at November 23 board meeting  — CNBC TV18 Markets
+[BULLISH] INDIGO.NS  (+0.56) [off-hours] IndiGo Issues Fresh Travel Advisory Amid Saudi Security Situation, Cancels Flights To 4 Cities Till Nov 30  — NDTV Profit Latest
+[BULLISH] TMPV.NS  (+0.49) [off-hours] Tata Motors partners with Ghassan Aboud Automotive for CV distribution in Syria  — BusinessLine Companies
+[BULLISH] COCHINSHIP.NS  (+0.48) [off-hours] Cochin Shipyard lays keel for 70 T Bollar Pull tug  — BusinessLine Economy
+[BULLISH] TATASTEEL.NS  (+0.40)  Tata Steel plans project to produce hydrogen using steel plant off-gases  — Business Standard Companies
+[BULLISH] SBIN.NS  (+0.32) [off-hours] SBI MF aims to be every Indian’s fund manager, in talks with multiple banks to expand distribution  — BusinessLine Markets
+[BULLISH] BHARATFORG.NS  (+0.30) [off-hours] Bharat Forge invests ₹291 crore in Kalyani Strategic Systems through rights issue  — CNBC TV18 Markets
+[neutral] TATASTEEL.NS  (+0.23)  Chinese steel imports threaten Indian industry, Tata Steel CEO warns  — TOI Business
+[neutral] NATIONALUM.NS  (+0.15) [off-hours] NALCO signs MoU with RUSAL to explore scandium recovery from red mud  — CNBC TV18 Markets
+[neutral] TATASTEEL.NS  (+0.00) [off-hours] Tata Steel plans project to produce hydrogen using steel plant off-gases at Odisha facility  — BusinessLine Companies
+[neutral] BEL.NS  (+0.00) [off-hours] Form 4 Bel Fuse Inc Class B: Stephen Dawson (EVP & Pres. - ITDS) For: 16 November  — Investing.com India Stocks
+[neutral] TMPV.NS  (-0.13) [off-hours] Tata Motors enters Syria, partners with Ghassan Aboud for CV distribution  — Business Standard Companies
+[BEARISH] TATASTEEL.NS  (-0.27) [off-hours] Tata Steel plans hydrogen facility at Kalinganagar to cut carbon emissions  — Business Standard Companies
+[BEARISH] MUTHOOTFIN.NS  (-0.30) [off-hours] Gold price slide drags Muthoot Finance, Manappuram shares down nearly 4%  — Business Standard Markets
+[BEARISH] COALINDIA.NS  (-0.32) [off-hours] Mahanadi Coalfields IPO: Should you bet on Coal India’s cash cow despite muted growth?  — LiveMint Markets
+[BEARISH] INDIGO.NS  (-0.44) [off-hours] IndiGo cancels Saudi Arabia flights till Nov 30  — BusinessLine Economy
+[BEARISH] ICICIBANK.NS  (-0.48) [off-hours] Bombay High Court quashes ICICI Bank’s nod to prosecute ex-CEO Chanda Kochhar in ‘loan fraud’ case  — The Hindu Business
+[BEARISH] ICICIBANK.NS  (-0.56) [off-hours] Bombay HC quashes sanction to prosecute Chanda Kochhar in Videocon case  — Business Standard Companies
+[BEARISH] ICICIBANK.NS  (-0.73) [off-hours] Bombay HC quashes ICICI Bank’s sanction to prosecute ex-CEO Chanda Kochhar in Videocon loan case: What the court said  — LiveMint Companies
+[BEARISH] ICICIBANK.NS  (-0.83)  HC quashes ICICI Bank's nod to prosecute Chanda Kochhar in loan fraud case  — Business Standard Companies
+[BEARISH] ONGC.NS,VEDL.NS  (-0.87) [off-hours] How ONGC took over the Cambay block it co-owned with Vedanta; why Anil Agarwal is objecting? Explained  — LiveMint Companies
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 14 pair(s) — 14 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 14 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — KEI.NS +0.70: KEI Industries Sees Rs 30,000 Crore Data Centre Opportunity As Ca
+LLM analyst: queued 31 pair(s) — 31 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+  gemini gemini-2.5-flash: JSONDecodeError
+  gemini gemini-2.0-flash: http 404
+  gemini gemini-2.5-flash: http 503
+  gemini gemini-2.0-flash: http 404
+LLM analyst: scored 31 (headline, company) pair(s) with inclusionai/ling-3.2-flash:free.
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -155,27 +173,27 @@ LLM analyst: scored 14 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 === Recent signals (last 15 of 1400, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
-2026-11-17  IOC.NS          +0.50   -1.20  no   IOC gets govt nod to supply sustainable aviation fuel f
-2026-11-17  IOC.NS          +0.50   -1.20  no   Indian Oil gets government nod for commercial-scale sus
-2026-11-17  ITC.NS          +0.30   +1.13  YES  ITC sees biggest addition to mutual fund portfolios in 
-2026-11-17  JINDALSTEL.NS   +0.30   -3.03  no   Steel prices are rising again: Is it wise to buy metal 
-2026-11-17  JSWSTEEL.NS     -0.40   -1.21  YES  JSW Steel CEO flags Chinese exports, trade barriers as 
-2026-11-17  JSWSTEEL.NS     +0.30   -1.21  no   Steel prices are rising again: Is it wise to buy metal 
-2026-11-17  ONGC.NS         -0.50   +0.66  no   Gas leak at ONGC well in Konaseema; initiates control o
-2026-11-17  ONGC.NS         -0.50   +0.66  no   ONGC evacuates residents after gas leak at Andhra well,
 2026-11-17  ONGC.NS         -0.50   +0.66  no   ONGC gas leak in Andhra's Konaseema forces evacuation o
 2026-11-17  ONGC.NS         -0.30   +0.66  no   Anil Agarwal warns ONGC's takeover of Vedanta's oilfiel
+2026-11-17  ONGC.NS         +0.50   +0.66  YES  ONGC stops gas leak from Tatipaka well in Konaseema dis
+2026-11-17  ONGC.NS         +0.60   +0.66  YES  Transfer of oil and gas block in Gujarat to ONGC will s
+2026-11-17  RELIANCE.NS     +0.50   -0.29  no   Reliance plans to invest about $1.6 billion to build ne
 2026-11-17  TATASTEEL.NS    +0.30   -1.38  no   Steel prices are rising again: Is it wise to buy metal 
 2026-11-17  TATASTEEL.NS    +0.50   -1.38  no   Tata Steel eyes 50 MT capacity, to direct 75% capex to 
+2026-11-17  TECHM.NS        +0.30   -0.68  no   AI pricing reset may keep Indian IT growth weak for 2-3
+2026-11-17  ULTRACEMCO.NS   -0.50   +1.12  no   UltraTech moves Supreme Court against BAI's role in CCI
 2026-11-17  VEDL.NS         -0.80   -3.78  YES  Anil Agarwal warns ONGC's takeover of Vedanta's oilfiel
 2026-11-17  VEDL.NS         -0.50   -3.78  YES  Anil Agarwal warns ONGC's takeover of Vedanta's oilfiel
 2026-11-17  VEDL.NS         -0.50   -3.78  YES  Anil Agarwal warns Vedanta block transfer to ONGC could
+2026-11-17  VEDL.NS         -0.50   -3.78  YES  Transfer of oil and gas block in Gujarat to ONGC will s
+2026-11-17  VEDL.NS         +0.30   -3.78  no   Vedanta steps up critical minerals hunt, bets on techno
+2026-11-17  WIPRO.NS        +0.30   -2.50  no   Wipro 3D ties up with Markforged to expand industrial 3
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1400    57.0     51.9    3.7   no edge
-3d                      1316    60.1     52.1    3.8   no edge
-5d                      1220    62.0     51.1    4.0   no edge
+1d                      1400    57.1     52.0    3.7   no edge
+3d                      1302    60.5     52.4    3.8   no edge
+5d                      1206    62.4     51.3    4.0   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -184,36 +202,36 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              942    59.4     52.9    4.5   no edge
+after-hours              942    59.6     53.1    4.5   no edge
 in-session               458    52.0     49.8    6.5   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
-descriptive              184    50.5     45.1   10.2   no edge
-novel                   1216    58.0     52.9    4.0   no edge
+descriptive              178    51.7     46.1   10.4   no edge
+novel                   1222    57.9     52.9    4.0   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
-body mention             188    52.7     47.9   10.1   no edge
+body mention             188    53.2     48.9   10.1   no edge
 headline                1212    57.7     52.5    4.0   no edge
 
 === By source (1-day, raw direction) ===
-  CNBC TV18 Markets              103/188 (55%)
-  Economic Times Markets         107/174 (61%)
-  NDTV Profit Latest             102/165 (62%)
+  CNBC TV18 Markets              103/189 (54%)
+  Economic Times Markets         107/173 (62%)
+  NDTV Profit Latest             102/162 (63%)
   Business Standard Companies    87/160 (54%)
-  Economic Times Industry        78/144 (54%)
-  BusinessLine Companies         81/141 (57%)
+  Economic Times Industry        77/144 (53%)
+  BusinessLine Companies         84/143 (59%)
   LiveMint Markets               44/98 (45%)
-  LiveMint Companies             53/86 (62%)
-  The Hindu Business             40/62 (65%)
+  LiveMint Companies             53/87 (61%)
+  The Hindu Business             38/61 (62%)
   Business Standard Markets      28/49 (57%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1507/2678 (56%)
-  LLM    798/1400 (57%)
+  VADER  1506/2675 (56%)
+  LLM    799/1400 (57%)
 
-ML dataset: 13569 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 13591 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -6.95%  Coal India's SECL strengthens monsoon measures for
@@ -363,7 +381,7 @@ ML dataset: 13569 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Wed 18 Nov 15:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Wed 18 Nov 20:37 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,582.62 (-8.35% since start) — cash Rs 2,417.57, 3 position(s)
   MARICO.NS         1 @ 889.72 -> 906.05 (+1.84%)
@@ -371,22 +389,22 @@ Bot equity: Rs 4,582.62 (-8.35% since start) — cash Rs 2,417.57, 3 position(s)
   ETERNAL.NS        2 @ 372.58 -> 366.00 (-1.77%)
 Record: 11/33 wins, avg -1.34% per trade
 Learned source trust — high: Business Standard Economy 1.36, LiveMint Companies 1.14, ET Markets Wrap 1.08
-                       low: Economic Times Economy 0.80, Business Standard Finance 0.71, LiveMint Money 0.67
+                       low: Economic Times Economy 0.80, Business Standard Finance 0.75, LiveMint Money 0.67
 Learned sector weights: {"metals": 0.902, "consumer": 0.858, "energy": 0.606, "it": 0.92, "fmcg": 0.888, "financials": 0.831, "pharma": 0.846, "infra": 1.014}
 ```
 
 ## Alert scan
 
 ```
-Alert written: 1 buy idea(s), 1 macro item(s)
+Alert written: 3 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 82 tickers to news_signal.json (window 7d, 567 scored pairs).
-  pipeline_ok=True data_through=2026-11-18T10:00:17+00:00 llm-scored 567/567 pairs (100%)
-  45 of 82 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 82 tickers to news_signal.json (window 7d, 574 scored pairs).
+  pipeline_ok=True data_through=2026-11-18T15:00:34+00:00 llm-scored 574/574 pairs (100%)
+  46 of 82 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: IRCTC.NS -0.80, AUROPHARMA.NS -0.70, PAGEIND.NS -0.65
   most positive: LT.NS +0.80, MANAPPURAM.NS +0.76, HINDZINC.NS +0.71
 ```
