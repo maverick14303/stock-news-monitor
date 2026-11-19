@@ -1,15 +1,6 @@
 {
-  "cash": 2417.570669116974,
+  "cash": 3324.1485197639468,
   "positions": {
-    "MARICO.NS": {
-      "qty": 1,
-      "avg_cost": 889.71875,
-      "opened": "2026-11-04T04:04:32.365053+00:00",
-      "sources": [
-        "Economic Times Markets"
-      ],
-      "thesis": "Marico sees sustained growth momentum, raises FY27 margin outlook"
-    },
     "HINDZINC.NS": {
       "qty": 1,
       "avg_cost": 546.2622744750977,
@@ -650,6 +641,15 @@
       "price": 284.4,
       "fee": 1.42,
       "reason": "stop-loss at -9.4%"
+    },
+    {
+      "time": "2026-11-19T05:07:01.764398+00:00",
+      "action": "sell",
+      "symbol": "MARICO.NS",
+      "qty": 1,
+      "price": 908.85,
+      "fee": 2.27,
+      "reason": "time stop after 15d (+2.2%)"
     }
   ],
   "closed": [
@@ -1015,6 +1015,17 @@
       "win": false,
       "reason": "stop-loss at -9.4%",
       "thesis": "Manappuram Finance Q2 net profit more than doubles to \u20b9701 crore, NII rises 45%"
+    },
+    {
+      "time": "2026-11-19T05:07:01.764398+00:00",
+      "symbol": "MARICO.NS",
+      "sector": "fmcg",
+      "entry": 889.72,
+      "exit": 908.85,
+      "pnl_pct": 2.15,
+      "win": true,
+      "reason": "time stop after 15d (+2.2%)",
+      "thesis": "Marico sees sustained growth momentum, raises FY27 margin outlook"
     }
   ],
   "sector_weights": {
@@ -1022,7 +1033,7 @@
     "consumer": 0.858,
     "energy": 0.606,
     "it": 0.92,
-    "fmcg": 0.888,
+    "fmcg": 0.932,
     "financials": 0.831,
     "pharma": 0.846,
     "infra": 1.014
