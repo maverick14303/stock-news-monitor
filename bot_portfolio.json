@@ -1,5 +1,5 @@
 {
-  "cash": 3324.1485197639468,
+  "cash": 4051.625257587433,
   "positions": {
     "HINDZINC.NS": {
       "qty": 1,
@@ -9,15 +9,6 @@
         "LiveMint Companies"
       ],
       "thesis": "Hindustan Zinc\u2019s  \u20b980,000-crore expansion: The big bet to double its metal output and ride India\u2019s i"
-    },
-    "ETERNAL.NS": {
-      "qty": 2,
-      "avg_cost": 372.5791188812256,
-      "opened": "2026-11-17T04:04:18.474696+00:00",
-      "sources": [
-        "LiveMint Markets"
-      ],
-      "thesis": "Swiggy vs Zomato parent Eternal: Which stock has the stronger growth and better earnings outlook aft"
     }
   },
   "trades": [
@@ -650,6 +641,15 @@
       "price": 908.85,
       "fee": 2.27,
       "reason": "time stop after 15d (+2.2%)"
+    },
+    {
+      "time": "2026-11-19T08:13:19.891789+00:00",
+      "action": "sell",
+      "symbol": "ETERNAL.NS",
+      "qty": 2,
+      "price": 364.65,
+      "fee": 1.82,
+      "reason": "negative news (-0.71) at -2.1%"
     }
   ],
   "closed": [
@@ -1026,11 +1026,22 @@
       "win": true,
       "reason": "time stop after 15d (+2.2%)",
       "thesis": "Marico sees sustained growth momentum, raises FY27 margin outlook"
+    },
+    {
+      "time": "2026-11-19T08:13:19.891789+00:00",
+      "symbol": "ETERNAL.NS",
+      "sector": "consumer",
+      "entry": 372.58,
+      "exit": 364.65,
+      "pnl_pct": -2.13,
+      "win": false,
+      "reason": "negative news (-0.71) at -2.1%",
+      "thesis": "Swiggy vs Zomato parent Eternal: Which stock has the stronger growth and better earnings outlook aft"
     }
   ],
   "sector_weights": {
     "metals": 0.902,
-    "consumer": 0.858,
+    "consumer": 0.789,
     "energy": 0.606,
     "it": 0.92,
     "fmcg": 0.932,
