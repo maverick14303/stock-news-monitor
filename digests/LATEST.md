@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-20 13:30
+# Stock digest — 2026-11-20 14:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 149146 articles against 259 alias patterns...
+Rescanning 149203 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -79,43 +79,43 @@ Rescanning 149146 articles against 259 alias patterns...
   ...146000
   ...148000
 
-Done. 149146 articles rescanned.
-  ticker-matched articles: 16068
+Done. 149203 articles rescanned.
+  ticker-matched articles: 16074
   flagged as noise:        8654
-  (article, company) pairs: 13702  — 0 awaiting LLM scoring
+  (article, company) pairs: 13713  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 2 new
+[OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 0 new
-[OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 7 new
-[OK] LiveMint Companies: 35 entries, 0 new
-[OK] LiveMint Money: 35 entries, 1 new
+[OK] Economic Times Economy: 50 entries, 1 new
+[OK] Economic Times Industry: 50 entries, 2 new
+[OK] LiveMint Markets: 35 entries, 1 new
+[OK] LiveMint Companies: 35 entries, 4 new
+[OK] LiveMint Money: 35 entries, 3 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 5 new
+[OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 1 new
-[OK] BusinessLine Economy: 60 entries, 0 new
-[OK] Business Standard Markets: 35 entries, 1 new
-[OK] Business Standard Companies: 35 entries, 2 new
+[OK] BusinessLine Companies: 60 entries, 5 new
+[OK] BusinessLine Economy: 60 entries, 5 new
+[OK] Business Standard Markets: 35 entries, 6 new
+[OK] Business Standard Companies: 35 entries, 1 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 6 new
-[OK] TOI Business: 20 entries, 1 new
-[OK] The Hindu Business: 60 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 13 new
+[OK] TOI Business: 20 entries, 0 new
+[OK] The Hindu Business: 60 entries, 1 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 1 new
-[OK] CNBC TV18 Markets: 200 entries, 7 new
+[OK] CNBC TV18 Markets: 200 entries, 1 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 1 new
-[OK] BBC Business: 57 entries, 2 new
-[OK] BBC World: 36 entries, 0 new
-[OK] Guardian Business: 39 entries, 4 new
-[OK] Al Jazeera: 25 entries, 4 new
+[OK] ET International: 50 entries, 2 new
+[OK] BBC Business: 57 entries, 0 new
+[OK] BBC World: 36 entries, 2 new
+[OK] Guardian Business: 39 entries, 3 new
+[OK] Al Jazeera: 25 entries, 3 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
@@ -125,52 +125,49 @@ Done. 149146 articles rescanned.
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 1 new
 
-57 new articles stored, 6 matched to tickers (0 flagged as tracker/listicle/index noise).
+67 new articles stored, 3 matched to tickers (1 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] HDFCBANK.NS  (+0.86)  HDFC Bank surges 1.6% as banking stocks rally to fresh highs  — BusinessLine Markets
-[BULLISH] APOLLOHOSP.NS,AXISBANK.NS  (+0.48)  Nifty hits 10-month high at midday; Apollo Hospitals, Axis Bank lead rally  — BusinessLine Markets
-[BULLISH] AUBANK.NS,HDFCBANK.NS,ICICIBANK.NS,SBIN.NS  (+0.40)  Five banking stocks that Motilal Oswal recommends buying for up to 30% upside  — CNBC TV18 Markets
-[neutral] ACC.NS,AMBUJACEM.NS  (+0.00)  Ambuja Cements Share Price: Jefferies sees 20% upside on volume recovery and cost cuts  — CNBC TV18 Markets
-[BEARISH] MUTHOOTFIN.NS  (-0.54)  Muthoot Finance heads for worst week since April 2025 as gold rout triggers sell-off  — CNBC TV18 Markets
-[BEARISH] BANKBARODA.NS  (-0.79)  Bank Of Baroda Manager Arrested For Seeking Rs 9 Lakh To Sanction Rs 1.8 Crore Loan  — NDTV Profit Latest
+[neutral] HDFCBANK.NS  (+0.00)  HDFC Bank regains ₹13 trillion market-cap; stock hits 8-month high  — Business Standard Markets
+[BEARISH] SBIN.NS  (-0.86)  SBI alerts pensioners to fake PPO update messages; warns against clicking suspicious links and sharing personal details  — LiveMint Money
+[BEARISH] MANAPPURAM.NS,MUTHOOTFIN.NS  (-0.86)  Gold price crash: Muthoot Finance, Manappuram shares lose sheen, down up to 5% | Is gold heading for deeper correction?  — LiveMint Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 11 pair(s) — 11 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: queued 4 pair(s) — 4 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
   gemini gemini-2.5-flash: http 503
   gemini gemini-2.0-flash: http 404
-LLM analyst: scored 11 (headline, company) pair(s) with inclusionai/ling-3.2-flash:free.
+LLM analyst: scored 4 (headline, company) pair(s) with baidu/ernie-5.5-flash-preview:free.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1396, 1-day horizon) ===
+=== Recent signals (last 15 of 1393, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
-2026-11-18  VEDL.NS         -0.50   -0.69  YES  ‘Very wrong signal to investors’: Anil Agarwal on trans
-2026-11-19  BEL.NS          +0.50   -0.49  no   114 Rafales, 6 submarines! Defence stocks HAL, BEL, BDL
+2026-11-19  ALKEM.NS        -0.90   +0.35  no   Alkem Laboratories gets USFDA warning letter with OAI c
+2026-11-19  BEL.NS          +0.50   -0.57  no   114 Rafales, 6 submarines! Defence stocks HAL, BEL, BDL
 2026-11-19  BHARTIARTL.NS   +0.50   +0.53  YES  Goldman Sachs names 22 ‘high-growth’ stocks; Bharti Air
-2026-11-19  DALBHARAT.NS    +0.50   -0.02  no   Dalmia Bharat buyback alert! Board to consider share re
-2026-11-19  ETERNAL.NS      +0.50   -0.99  no   Goldman Sachs names 22 ‘high-growth’ stocks; Bharti Air
-2026-11-19  HDFCBANK.NS     +0.50   +2.50  YES  Goldman Sachs names 22 ‘high-growth’ stocks; Bharti Air
-2026-11-19  PAYTM.NS        -0.60   -0.53  YES  Paytm share price crash: Payment stock slides 7% on UPI
-2026-11-19  PAYTM.NS        -0.50   -0.53  YES  Explained - The key trigger behind Paytm, Pine Labs, Mo
-2026-11-19  PAYTM.NS        -0.50   -0.53  YES  Paytm Shares Tank 9% As Reports Of UPI MDR Rollout Dela
-2026-11-19  PAYTM.NS        -0.50   -0.53  YES  Paytm, Pine Labs shares drop up to 7% amid concerns on 
-2026-11-19  PAYTM.NS        -0.50   -0.53  YES  Paytm, Pine Labs, MobiKwik Fall Up To 9% As UPI MDR Rol
-2026-11-19  PAYTM.NS        -0.50   -0.53  YES  Paytm, Pine labs and other payment stocks fall as UPI f
-2026-11-19  POLICYBZR.NS    -0.50   +1.08  no   PB Fintech shares fall up to 6% after co-founder Alok B
-2026-11-19  POLICYBZR.NS    -0.50   +1.08  no   PB Fintech shares slide over 6% after co-founder Alok B
-2026-11-19  VOLTAS.NS       +0.50   +0.12  YES  AC makers shine as copper extends fall; Voltas, Blue St
+2026-11-19  DALBHARAT.NS    +0.50   +0.36  YES  Dalmia Bharat buyback alert! Board to consider share re
+2026-11-19  ETERNAL.NS      +0.50   -1.09  no   Goldman Sachs names 22 ‘high-growth’ stocks; Bharti Air
+2026-11-19  HDFCBANK.NS     +0.50   +3.07  YES  Goldman Sachs names 22 ‘high-growth’ stocks; Bharti Air
+2026-11-19  PAYTM.NS        -0.60   -0.38  YES  Paytm share price crash: Payment stock slides 7% on UPI
+2026-11-19  PAYTM.NS        -0.50   -0.38  YES  Explained - The key trigger behind Paytm, Pine Labs, Mo
+2026-11-19  PAYTM.NS        -0.50   -0.38  YES  Paytm Shares Tank 9% As Reports Of UPI MDR Rollout Dela
+2026-11-19  PAYTM.NS        -0.50   -0.38  YES  Paytm, Pine Labs shares drop up to 7% amid concerns on 
+2026-11-19  PAYTM.NS        -0.50   -0.38  YES  Paytm, Pine Labs, MobiKwik Fall Up To 9% As UPI MDR Rol
+2026-11-19  PAYTM.NS        -0.50   -0.38  YES  Paytm, Pine labs and other payment stocks fall as UPI f
+2026-11-19  POLICYBZR.NS    -0.50   +0.85  no   PB Fintech shares fall up to 6% after co-founder Alok B
+2026-11-19  POLICYBZR.NS    -0.50   +0.85  no   PB Fintech shares slide over 6% after co-founder Alok B
+2026-11-19  VOLTAS.NS       +0.50   -0.27  no   AC makers shine as copper extends fall; Voltas, Blue St
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1396    58.0     51.9    3.7   no edge
-3d                      1355    59.1     51.4    3.8   no edge
-5d                      1245    62.2     50.9    3.9   no edge
+1d                      1393    57.9     52.0    3.7   no edge
+3d                      1354    58.7     51.2    3.8   no edge
+5d                      1249    62.2     50.5    3.9   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -180,35 +177,35 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              931    59.8     53.1    4.5   no edge
-in-session               465    54.2     49.7    6.4   no edge
+in-session               462    53.9     50.0    6.5   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              174    54.6     48.9   10.5   no edge
-novel                   1222    58.4     52.4    4.0   no edge
+novel                   1219    58.3     52.5    4.0   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             181    54.1     48.6   10.3   no edge
-headline                1215    58.5     52.4    4.0   no edge
+headline                1212    58.4     52.6    4.0   no edge
 
 === By source (1-day, raw direction) ===
-  CNBC TV18 Markets              107/194 (55%)
+  CNBC TV18 Markets              107/195 (55%)
   Economic Times Markets         107/171 (63%)
   NDTV Profit Latest             103/159 (65%)
-  Business Standard Companies    87/158 (55%)
-  BusinessLine Companies         87/146 (60%)
-  Economic Times Industry        74/136 (54%)
-  LiveMint Markets               46/98 (47%)
+  Business Standard Companies    86/157 (55%)
+  BusinessLine Companies         86/145 (59%)
+  Economic Times Industry        73/135 (54%)
+  LiveMint Markets               47/98 (48%)
   LiveMint Companies             52/89 (58%)
   The Hindu Business             39/62 (63%)
-  Business Standard Markets      29/49 (59%)
+  Business Standard Markets      28/49 (57%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1515/2672 (57%)
-  LLM    809/1396 (58%)
+  VADER  1510/2665 (57%)
+  LLM    806/1393 (58%)
 
-ML dataset: 13757 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 13761 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -6.95%  Coal India's SECL strengthens monsoon measures for
@@ -348,11 +345,12 @@ ML dataset: 13757 labelled (article, company) rows — see ROADMAP_ML.md for the
   2026-11-12  RELIANCE.NS      +2.68%  RIL plans ₹43,000 crore investment in Andhra coal 
   2026-11-12  MANAPPURAM.NS   -11.61%  Manappuram Finance Q2 results: Profit jumps over 3
   2026-11-16  BIOCON.NS        +0.51%  Biocon secures USFDA approval for Pebrilzo, its fi
-  2026-11-16  HINDZINC.NS      -5.23%  Hindustan Zinc’s  ₹80,000-crore expansion: The big
-  2026-11-16  ADANIGREEN.NS    +1.92%  $51 billion capex, 23% earnings growth: Adani Port
-  2026-11-17  HDFCBANK.NS      +3.17%  Honasa Consumer, HDFC Bank: Two stock ideas by Shr
-  2026-11-17  TATASTEEL.NS     -2.46%  Tata Steel eyes 50 MT capacity, to direct 75% cape
-  → 79/141 positive, avg +0.45%
+  2026-11-16  HINDZINC.NS      -5.17%  Hindustan Zinc’s  ₹80,000-crore expansion: The big
+  2026-11-16  ADANIGREEN.NS    +1.80%  $51 billion capex, 23% earnings growth: Adani Port
+  2026-11-17  HDFCBANK.NS      +3.74%  Honasa Consumer, HDFC Bank: Two stock ideas by Shr
+  2026-11-17  TATASTEEL.NS     -2.34%  Tata Steel eyes 50 MT capacity, to direct 75% cape
+  2026-11-19  BEL.NS           +0.16%  114 Rafales, 6 submarines! Defence stocks HAL, BEL
+  → 80/142 positive, avg +0.45%
 ```
 
 ## Bot account (self-trading)
@@ -360,8 +358,8 @@ ML dataset: 13757 labelled (article, company) rows — see ROADMAP_ML.md for the
 ```
 No pre-open plan for today — no entries. (Entries are queued by the 08:15 run; exits still run.)
 
-Bot equity: Rs 4,572.73 (-8.55% since start) — cash Rs 4,051.63, 1 position(s)
-  HINDZINC.NS       1 @ 546.26 -> 521.10 (-4.61%)
+Bot equity: Rs 4,573.13 (-8.54% since start) — cash Rs 4,051.63, 1 position(s)
+  HINDZINC.NS       1 @ 546.26 -> 521.50 (-4.53%)
 Record: 12/35 wins, avg -1.26% per trade
 Learned source trust — high: Business Standard Economy 1.36, LiveMint Companies 1.13, ET Markets Wrap 1.08
                        low: Economic Times Economy 0.80, Business Standard Finance 0.73, LiveMint Money 0.67
@@ -377,9 +375,9 @@ Alert written: 4 macro item(s)
 ## Sentiment export
 
 ```
-Exported 68 tickers to news_signal.json (window 7d, 552 scored pairs).
-  pipeline_ok=True data_through=2026-11-20T08:00:06+00:00 llm-scored 552/552 pairs (100%)
-  36 of 68 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 68 tickers to news_signal.json (window 7d, 548 scored pairs).
+  pipeline_ok=True data_through=2026-11-20T09:02:57+00:00 llm-scored 548/548 pairs (100%)
+  37 of 68 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ALKEM.NS -0.90, TMPV.NS -0.58, ULTRACEMCO.NS -0.50
   most positive: LT.NS +0.80, HINDZINC.NS +0.71, EICHERMOT.NS +0.67
 ```
