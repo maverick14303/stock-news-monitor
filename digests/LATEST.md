@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-21 15:30
+# Stock digest — 2026-11-21 20:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 150151 articles against 259 alias patterns...
+Rescanning 150198 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -80,65 +80,74 @@ Rescanning 150151 articles against 259 alias patterns...
   ...148000
   ...150000
 
-Done. 150151 articles rescanned.
-  ticker-matched articles: 16148
-  flagged as noise:        8718
+Done. 150198 articles rescanned.
+  ticker-matched articles: 16149
+  flagged as noise:        8719
   (article, company) pairs: 13761  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 1 new
+[OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 1 new
-[OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 1 new
-[OK] LiveMint Companies: 35 entries, 0 new
-[OK] LiveMint Money: 35 entries, 3 new
+[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Industry: 50 entries, 6 new
+[OK] LiveMint Markets: 35 entries, 7 new
+[OK] LiveMint Companies: 35 entries, 5 new
+[OK] LiveMint Money: 35 entries, 2 new
 [OK] LiveMint Economy: 35 entries, 0 new
 [OK] BusinessLine Markets: 60 entries, 0 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 3 new
-[OK] BusinessLine Economy: 60 entries, 3 new
-[OK] Business Standard Markets: 35 entries, 0 new
+[OK] BusinessLine Economy: 60 entries, 0 new
+[OK] Business Standard Markets: 35 entries, 2 new
 [OK] Business Standard Companies: 35 entries, 2 new
-[OK] Business Standard Finance: 35 entries, 1 new
+[OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 15 new
+[OK] NDTV Profit Latest: 20 entries, 20 new
 [OK] TOI Business: 20 entries, 0 new
-[OK] The Hindu Business: 60 entries, 0 new
+[OK] The Hindu Business: 60 entries, 2 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 0 new
+[OK] CNBC TV18 Markets: 200 entries, 3 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 1 new
-[OK] BBC Business: 58 entries, 0 new
+[OK] ET International: 50 entries, 6 new
+[OK] BBC Business: 58 entries, 1 new
 [OK] BBC World: 24 entries, 1 new
-[OK] Guardian Business: 40 entries, 0 new
-[OK] Al Jazeera: 25 entries, 5 new
-[OK] CNBC Top News: 30 entries, 0 new
+[OK] Guardian Business: 40 entries, 16 new
+[OK] Al Jazeera: 25 entries, 21 new
+[OK] CNBC Top News: 30 entries, 9 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 0 new
-[OK] NYT Business: 47 entries, 0 new
+[WARN] MarketWatch Top: could not fetch (<unknown>:2:0: syntax error)
+[OK] NYT Business: 47 entries, 7 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
 [OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 0 new
 
-47 new articles stored, 1 matched to tickers (1 flagged as tracker/listicle/index noise).
+123 new articles stored, 8 matched to tickers (2 flagged as tracker/listicle/index noise).
+
+=== New signals ===
+[BULLISH] HEROMOTOCO.NS  (+0.97) [off-hours] Hero MotoCorp gets tribunal relief on Rs 27 crore income tax demand  — Economic Times Industry
+[BULLISH] APOLLOHOSP.NS  (+0.94) [off-hours] Max Healthcare, Fortis, Apollo, Aster: Hospital stocks steal show on D-Street with up to 14% rally - Buy now or wait?  — LiveMint Markets
+[BULLISH] ASHOKLEY.NS  (+0.27) [off-hours] Ashok Leyland truck plant to be set up in Singur, work to begin soon: Sukanta Majumdar  — BusinessLine Companies
+[neutral] ASHOKLEY.NS  (+0.23) [off-hours] Ashok Leyland to set up truck plant in Singur, work to begin soon: Minister  — Business Standard Companies
+[neutral] ASHOKLEY.NS  (+0.00) [off-hours] Ashok Leyland to set up truck plant in West Bengal's Singur, says Union minister Sukanta Majumdar  — Economic Times Industry
+[BEARISH] SIEMENS.NS  (-0.50) [off-hours] Margins to remain under pressure for Siemens in near term amid volatility  — Business Standard Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: nothing new to score.
+LLM analyst: queued 6 pair(s) — 6 newest-first, 1 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 6 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1341, 1-day horizon) ===
+=== Recent signals (last 15 of 1334, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-11-19  HDFCBANK.NS     +0.50   +2.94  YES  Goldman Sachs names 22 ‘high-growth’ stocks; Bharti Air
 2026-11-19  HINDPETRO.NS    +0.30   +1.63  YES  Lower crude prices, higher diesel cracks restore profit
@@ -158,9 +167,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1341    57.2     51.8    3.8   no edge
-3d                      1291    59.2     51.0    3.9   no edge
-5d                      1186    62.4     50.6    4.0   no edge
+1d                      1334    57.2     51.7    3.8   no edge
+3d                      1284    59.3     51.1    3.9   no edge
+5d                      1179    62.6     50.6    4.0   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -169,34 +178,34 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              906    59.5     52.5    4.6   no edge
+after-hours              899    59.5     52.5    4.6   no edge
 in-session               435    52.4     50.1    6.6   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              168    51.2     47.6   10.7   no edge
-novel                   1173    58.1     52.3    4.0   no edge
+novel                   1166    58.1     52.3    4.1   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             171    53.8     49.1   10.6   no edge
-headline                1170    57.7     52.1    4.0   no edge
+headline                1163    57.7     52.1    4.1   no edge
 
 === By source (1-day, raw direction) ===
-  CNBC TV18 Markets              103/189 (54%)
-  Economic Times Markets         101/163 (62%)
+  CNBC TV18 Markets              103/188 (55%)
+  Economic Times Markets         101/162 (62%)
   NDTV Profit Latest             99/154 (64%)
-  Business Standard Companies    83/151 (55%)
-  BusinessLine Companies         83/141 (59%)
+  Business Standard Companies    82/149 (55%)
+  BusinessLine Companies         82/140 (59%)
   Economic Times Industry        69/130 (53%)
   LiveMint Markets               46/95 (48%)
   LiveMint Companies             50/87 (57%)
-  The Hindu Business             37/60 (62%)
+  The Hindu Business             35/58 (60%)
   Business Standard Markets      24/46 (52%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1489/2568 (58%)
-  LLM    767/1341 (57%)
+  VADER  1479/2547 (58%)
+  LLM    763/1334 (57%)
 
 ML dataset: 13797 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -349,7 +358,7 @@ ML dataset: 13797 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sat 21 Nov 15:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sat 21 Nov 20:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,573.23 (-8.54% since start) — cash Rs 4,051.63, 1 position(s)
   HINDZINC.NS       1 @ 546.26 -> 521.60 (-4.51%)
@@ -368,9 +377,9 @@ Alert written: 1 macro item(s)
 ## Sentiment export
 
 ```
-Exported 67 tickers to news_signal.json (window 7d, 534 scored pairs).
-  pipeline_ok=True data_through=2026-11-21T09:57:05+00:00 llm-scored 534/534 pairs (100%)
-  34 of 67 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 69 tickers to news_signal.json (window 7d, 537 scored pairs).
+  pipeline_ok=True data_through=2026-11-21T14:57:18+00:00 llm-scored 537/537 pairs (100%)
+  36 of 69 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ALKEM.NS -0.90, TMPV.NS -0.62, INDUSINDBK.NS -0.53
   most positive: LT.NS +0.80, HINDZINC.NS +0.71, MARUTI.NS +0.70
 ```
