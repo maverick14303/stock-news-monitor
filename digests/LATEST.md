@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-21 11:30
+# Stock digest — 2026-11-21 12:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 149997 articles against 259 alias patterns...
+Rescanning 150038 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -78,72 +78,67 @@ Rescanning 149997 articles against 259 alias patterns...
   ...144000
   ...146000
   ...148000
+  ...150000
 
-Done. 149997 articles rescanned.
-  ticker-matched articles: 16139
+Done. 150038 articles rescanned.
+  ticker-matched articles: 16141
   flagged as noise:        8716
-  (article, company) pairs: 13748  — 0 awaiting LLM scoring
+  (article, company) pairs: 13751  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 7 new
+[OK] Economic Times Markets: 50 entries, 2 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Economy: 50 entries, 1 new
 [OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 2 new
-[OK] LiveMint Companies: 35 entries, 1 new
-[OK] LiveMint Money: 35 entries, 3 new
+[OK] LiveMint Markets: 35 entries, 1 new
+[OK] LiveMint Companies: 35 entries, 0 new
+[OK] LiveMint Money: 35 entries, 1 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 2 new
+[OK] BusinessLine Markets: 60 entries, 0 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 0 new
-[OK] BusinessLine Economy: 60 entries, 3 new
+[OK] BusinessLine Economy: 60 entries, 2 new
 [OK] Business Standard Markets: 35 entries, 0 new
 [OK] Business Standard Companies: 35 entries, 0 new
 [OK] Business Standard Finance: 35 entries, 0 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 7 new
+[OK] NDTV Profit Latest: 20 entries, 4 new
 [OK] TOI Business: 20 entries, 0 new
-[OK] The Hindu Business: 60 entries, 0 new
+[OK] The Hindu Business: 60 entries, 1 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [OK] News18 Business: 200 entries, 0 new
-[OK] CNBC TV18 Markets: 200 entries, 2 new
+[OK] CNBC TV18 Markets: 200 entries, 0 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
 [OK] ET International: 50 entries, 0 new
 [OK] BBC Business: 58 entries, 0 new
-[OK] BBC World: 25 entries, 0 new
+[OK] BBC World: 25 entries, 2 new
 [OK] Guardian Business: 40 entries, 0 new
 [OK] Al Jazeera: 25 entries, 3 new
-[OK] CNBC Top News: 30 entries, 0 new
+[OK] CNBC Top News: 30 entries, 2 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
 [OK] NYT Business: 47 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
 [OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] SCMP Business: 50 entries, 0 new
 
-41 new articles stored, 2 matched to tickers (0 flagged as tracker/listicle/index noise).
-
-=== New signals ===
-[neutral] AXISBANK.NS,BAJFINANCE.NS  (+0.22) [off-hours] Top 3 stocks to buy: Axis Bank, Bajaj Finance, HDFC Life by Sumeet Bagadia | Targets, stop-loss, stock market prediction  — LiveMint Markets
-[BEARISH] INDUSINDBK.NS  (-0.71) [off-hours] IndusInd Bank ends ex-CEO Kathpalia's employment, seeks to recover pay  — CNBC TV18 Markets
+29 new articles stored, 0 matched to tickers (1 flagged as tracker/listicle/index noise).
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 3 pair(s) — 3 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 3 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — INDUSINDBK.NS -0.60: IndusInd Bank ends ex-CEO Kathpalia's employment, seeks to recove
+LLM analyst: nothing new to score.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1349, 1-day horizon) ===
+=== Recent signals (last 15 of 1345, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-11-19  ETERNAL.NS      +0.50   -0.78  no   Goldman Sachs names 22 ‘high-growth’ stocks; Bharti Air
 2026-11-19  HDFCBANK.NS     -0.30   +2.94  no   Airtel overtakes HDFC Bank to become India's most valua
@@ -163,9 +158,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1349    57.2     51.7    3.8   no edge
-3d                      1300    59.2     51.1    3.8   no edge
-5d                      1188    62.0     50.2    4.0   no edge
+1d                      1345    57.1     51.7    3.8   no edge
+3d                      1296    59.3     51.1    3.9   no edge
+5d                      1184    62.0     50.2    4.0   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -175,21 +170,21 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              904    59.5     52.7    4.6   no edge
-in-session               445    52.4     49.9    6.6   no edge
+in-session               441    52.2     49.9    6.6   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              168    51.2     47.6   10.7   no edge
-novel                   1181    58.0     52.3    4.0   no edge
+novel                   1177    57.9     52.3    4.0   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             174    52.9     48.3   10.5   no edge
-headline                1175    57.8     52.3    4.0   no edge
+headline                1171    57.7     52.3    4.0   no edge
 
 === By source (1-day, raw direction) ===
   CNBC TV18 Markets              103/188 (55%)
-  Economic Times Markets         102/164 (62%)
+  Economic Times Markets         101/163 (62%)
   NDTV Profit Latest             99/154 (64%)
   Business Standard Companies    82/152 (54%)
   BusinessLine Companies         83/141 (59%)
@@ -197,11 +192,11 @@ headline                1175    57.8     52.3    4.0   no edge
   LiveMint Markets               45/95 (47%)
   LiveMint Companies             50/87 (57%)
   The Hindu Business             38/61 (62%)
-  Business Standard Markets      26/47 (55%)
+  Business Standard Markets      25/46 (54%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1495/2584 (58%)
-  LLM    771/1349 (57%)
+  VADER  1490/2578 (58%)
+  LLM    768/1345 (57%)
 
 ML dataset: 13795 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -354,7 +349,7 @@ ML dataset: 13795 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sat 21 Nov 11:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sat 21 Nov 12:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,573.23 (-8.54% since start) — cash Rs 4,051.63, 1 position(s)
   HINDZINC.NS       1 @ 546.26 -> 521.60 (-4.51%)
@@ -367,14 +362,14 @@ Learned sector weights: {"metals": 0.902, "consumer": 0.789, "energy": 0.606, "i
 ## Alert scan
 
 ```
-Alert written: 1 macro item(s)
+No alerts this window.
 ```
 
 ## Sentiment export
 
 ```
 Exported 66 tickers to news_signal.json (window 7d, 527 scored pairs).
-  pipeline_ok=True data_through=2026-11-21T06:00:09+00:00 llm-scored 527/527 pairs (100%)
+  pipeline_ok=True data_through=2026-11-21T06:55:02+00:00 llm-scored 527/527 pairs (100%)
   34 of 66 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ALKEM.NS -0.90, TMPV.NS -0.62, ULTRACEMCO.NS -0.50
   most positive: LT.NS +0.80, HINDZINC.NS +0.71, MARUTI.NS +0.70
