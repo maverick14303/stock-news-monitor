@@ -1049,7 +1049,15 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [],
+  "pending": [
+    {
+      "symbol": "TATASTEEL.NS",
+      "score": 0.916,
+      "title": "Tata Steel\u2019s  \u20b928,000 crore deal with APL Apollo is part of a two-stage takeover transaction",
+      "source": "LiveMint Companies",
+      "queued": "2026-11-23"
+    }
+  ],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
   "traded_day": "2026-11-19"
