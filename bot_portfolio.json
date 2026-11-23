@@ -1,5 +1,5 @@
 {
-  "cash": 3194.93886423111,
+  "cash": 4026.105708789826,
   "positions": {
     "HINDZINC.NS": {
       "qty": 1,
@@ -9,15 +9,6 @@
         "LiveMint Companies"
       ],
       "thesis": "Hindustan Zinc\u2019s  \u20b980,000-crore expansion: The big bet to double its metal output and ride India\u2019s i"
-    },
-    "TATASTEEL.NS": {
-      "qty": 5,
-      "avg_cost": 171.33727867126464,
-      "opened": "2026-11-23T04:04:08.936990+00:00",
-      "sources": [
-        "LiveMint Companies"
-      ],
-      "thesis": "Tata Steel\u2019s  \u20b928,000 crore deal with APL Apollo is part of a two-stage takeover transaction"
     }
   },
   "trades": [
@@ -668,6 +659,15 @@
       "price": 170.91,
       "fee": 2.14,
       "reason": "planned pre-open, score 0.92 (LiveMint Companies): Tata Steel\u2019s  \u20b928,000 crore deal with APL Apollo is part of a two-stag"
+    },
+    {
+      "time": "2026-11-23T05:04:43.380105+00:00",
+      "action": "sell",
+      "symbol": "TATASTEEL.NS",
+      "qty": 5,
+      "price": 166.65,
+      "fee": 2.08,
+      "reason": "negative news (-0.60) at -2.7%"
     }
   ],
   "closed": [
@@ -1055,10 +1055,21 @@
       "win": false,
       "reason": "negative news (-0.71) at -2.1%",
       "thesis": "Swiggy vs Zomato parent Eternal: Which stock has the stronger growth and better earnings outlook aft"
+    },
+    {
+      "time": "2026-11-23T05:04:43.380105+00:00",
+      "symbol": "TATASTEEL.NS",
+      "sector": "metals",
+      "entry": 171.34,
+      "exit": 166.65,
+      "pnl_pct": -2.74,
+      "win": false,
+      "reason": "negative news (-0.60) at -2.7%",
+      "thesis": "Tata Steel\u2019s  \u20b928,000 crore deal with APL Apollo is part of a two-stage takeover transaction"
     }
   ],
   "sector_weights": {
-    "metals": 0.902,
+    "metals": 0.83,
     "consumer": 0.789,
     "energy": 0.606,
     "it": 0.92,
