@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-24 14:30
+# Stock digest — 2026-11-24 15:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 152440 articles against 259 alias patterns...
+Rescanning 152498 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -81,72 +81,76 @@ Rescanning 152440 articles against 259 alias patterns...
   ...150000
   ...152000
 
-Done. 152440 articles rescanned.
-  ticker-matched articles: 16355
-  flagged as noise:        8843
-  (article, company) pairs: 13922  — 0 awaiting LLM scoring
+Done. 152498 articles rescanned.
+  ticker-matched articles: 16358
+  flagged as noise:        8846
+  (article, company) pairs: 13925  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 2 new
+[OK] Economic Times Markets: 50 entries, 1 new
 [OK] Economic Times Stocks: 50 entries, 0 new
 [OK] Economic Times Economy: 50 entries, 0 new
 [OK] Economic Times Industry: 50 entries, 4 new
 [OK] LiveMint Markets: 35 entries, 1 new
-[OK] LiveMint Companies: 35 entries, 2 new
-[OK] LiveMint Money: 35 entries, 3 new
+[OK] LiveMint Companies: 35 entries, 3 new
+[OK] LiveMint Money: 35 entries, 2 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 3 new
+[OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 3 new
-[OK] BusinessLine Economy: 60 entries, 0 new
-[OK] Business Standard Markets: 35 entries, 1 new
-[OK] Business Standard Companies: 35 entries, 0 new
-[OK] Business Standard Finance: 35 entries, 2 new
-[OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 13 new
+[OK] BusinessLine Economy: 60 entries, 3 new
+[OK] Business Standard Markets: 35 entries, 0 new
+[OK] Business Standard Companies: 35 entries, 2 new
+[OK] Business Standard Finance: 35 entries, 3 new
+[OK] Business Standard Economy: 35 entries, 2 new
+[OK] NDTV Profit Latest: 20 entries, 0 new
 [OK] TOI Business: 20 entries, 0 new
-[OK] The Hindu Business: 60 entries, 1 new
+[OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 1 new
-[OK] CNBC TV18 Markets: 200 entries, 1 new
+[OK] News18 Business: 200 entries, 2 new
+[OK] CNBC TV18 Markets: 200 entries, 4 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
 [OK] ET International: 49 entries, 0 new
-[OK] BBC Business: 58 entries, 1 new
-[OK] BBC World: 23 entries, 1 new
-[OK] Guardian Business: 40 entries, 3 new
-[OK] Al Jazeera: 25 entries, 3 new
-[OK] CNBC Top News: 30 entries, 0 new
+[OK] BBC Business: 58 entries, 0 new
+[OK] BBC World: 24 entries, 1 new
+[OK] Guardian Business: 40 entries, 0 new
+[OK] Al Jazeera: 25 entries, 0 new
+[OK] CNBC Top News: 30 entries, 1 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 0 new
+[OK] MarketWatch Top: 10 entries, 4 new
 [OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 0 new
+[OK] OilPrice: 15 entries, 1 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 3 new
+[OK] SCMP Business: 50 entries, 1 new
 
-58 new articles stored, 3 matched to tickers (3 flagged as tracker/listicle/index noise).
+49 new articles stored, 6 matched to tickers (0 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] SBIN.NS  (+0.95) [off-hours] RBI approves SBI Mutual Fund to acquire up to 9.99% stake in South Indian Bank  — Economic Times Industry
-[BULLISH] LICI.NS  (+0.87) [off-hours] ‘IDBI Bank’ not ‘State’ under Article 12, rules Supreme Court; dismisses appeal by association | What we know  — LiveMint Companies
-[neutral] VEDL.NS  (+0.08) [off-hours] Vedanta seeks premium over LNG price for 1.8 mmscmd gas from Rajasthan block  — BusinessLine Companies
+[BULLISH] SBIN.NS  (+0.92) [off-hours] RBI approves SBI MF to acquire up to 9.99% stake in South Indian Bank  — Business Standard Finance
+[BULLISH] BEL.NS  (+0.79) [off-hours] Top defence stocks to buy: Apollo Micro Systems, BEL, Data Patterns, GRSE, Zen Technologies - check Choice's top picks  — LiveMint Markets
+[BULLISH] LODHA.NS  (+0.69) [off-hours] Lodha Developers sitting on inventory worth Rs 2 lakh cr, to invest less on land acquisition  — Economic Times Industry
+[BULLISH] LODHA.NS  (+0.57) [off-hours] Lodha Developers sitting on inventory worth ₹2 lakh crore, to invest less on land acquisition  — BusinessLine Companies
+[BULLISH] SBIN.NS  (+0.42) [off-hours] South Indian Bank gets RBI nod for SBI Mutual Fund to acquire up to 9.99% stake  — CNBC TV18 Markets
+[BULLISH] VEDL.NS  (+0.34) [off-hours] Vedanta seeks premium over imported LNG prices for Rajasthan gas sale  — Business Standard Companies
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 3 pair(s) — 3 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 3 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — LICI.NS +0.70: ‘IDBI Bank’ not ‘State’ under Article 12, rules Supreme Court; di
+LLM analyst: queued 6 pair(s) — 6 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 6 (headline, company) pair(s) with google/gemini-2.5-flash.
+  novel & strong — LODHA.NS -0.70: Lodha Developers sitting on inventory worth Rs 2 lakh cr, to inve
+  novel & strong — VEDL.NS +0.60: Vedanta seeks premium over imported LNG prices for Rajasthan gas
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1230, 1-day horizon) ===
+=== Recent signals (last 15 of 1229, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-11-20  TATASTEEL.NS    +0.30   -8.43  no   Tata Steel approves sale of tubes and pipes business
 2026-11-20  TATASTEEL.NS    +0.40   -8.43  no   Tata Steel Approves Rs 28,000-Crore Sale Of Tubes Busin
@@ -166,9 +170,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1230    57.3     52.1    3.9   no edge
-3d                      1160    58.6     49.5    4.1   no edge
-5d                      1093    62.5     49.8    4.2   no edge
+1d                      1229    57.4     52.2    4.0   no edge
+3d                      1159    58.7     49.5    4.1   no edge
+5d                      1092    62.5     49.8    4.2   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -177,18 +181,18 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              816    59.6     53.4    4.8   no edge
+after-hours              815    59.6     53.5    4.8   no edge
 in-session               414    52.9     49.5    6.8   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              163    53.4     48.5   10.9   no edge
-novel                   1067    57.9     52.7    4.2   no edge
+novel                   1066    58.0     52.7    4.2   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             163    56.4     52.8   10.8   no edge
-headline                1067    57.5     52.0    4.2   no edge
+headline                1066    57.5     52.1    4.2   no edge
 
 === By source (1-day, raw direction) ===
   CNBC TV18 Markets              99/179 (55%)
@@ -198,13 +202,13 @@ headline                1067    57.5     52.0    4.2   no edge
   BusinessLine Companies         72/126 (57%)
   Economic Times Industry        61/121 (50%)
   LiveMint Markets               45/92 (49%)
-  LiveMint Companies             46/82 (56%)
+  LiveMint Companies             46/81 (57%)
   The Hindu Business             32/51 (63%)
   Business Standard Markets      25/47 (53%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1382/2417 (57%)
-  LLM    705/1230 (57%)
+  VADER  1379/2412 (57%)
+  LLM    705/1229 (57%)
 
 ML dataset: 13928 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -358,7 +362,7 @@ ML dataset: 13928 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Tue 24 Nov 14:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Tue 24 Nov 15:34 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,555.06 (-8.90% since start) — cash Rs 4,026.11, 1 position(s)
   HINDZINC.NS       1 @ 546.26 -> 528.95 (-3.17%)
@@ -371,15 +375,15 @@ Learned sector weights: {"metals": 0.83, "consumer": 0.789, "energy": 0.606, "it
 ## Alert scan
 
 ```
-No alerts this window.
+Alert written: 1 buy idea(s), 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 68 tickers to news_signal.json (window 7d, 478 scored pairs).
-  pipeline_ok=True data_through=2026-11-24T09:00:06+00:00 llm-scored 478/478 pairs (100%)
-  41 of 68 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
-  most negative: ALKEM.NS -0.90, INDUSINDBK.NS -0.57, ULTRACEMCO.NS -0.50
+Exported 69 tickers to news_signal.json (window 7d, 473 scored pairs).
+  pipeline_ok=True data_through=2026-11-24T10:01:00+00:00 llm-scored 473/473 pairs (100%)
+  43 of 69 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+  most negative: ALKEM.NS -0.90, LODHA.NS -0.68, INDUSINDBK.NS -0.65
   most positive: BAJFINANCE.NS +0.70, BIOCON.NS +0.67, AXISBANK.NS +0.60
 ```
