@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-24 12:30
+# Stock digest — 2026-11-24 13:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 152327 articles against 259 alias patterns...
+Rescanning 152381 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -81,43 +81,43 @@ Rescanning 152327 articles against 259 alias patterns...
   ...150000
   ...152000
 
-Done. 152327 articles rescanned.
-  ticker-matched articles: 16351
-  flagged as noise:        8837
-  (article, company) pairs: 13920  — 0 awaiting LLM scoring
+Done. 152381 articles rescanned.
+  ticker-matched articles: 16355
+  flagged as noise:        8840
+  (article, company) pairs: 13922  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 2 new
+[OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
 [OK] Economic Times Economy: 50 entries, 1 new
-[OK] Economic Times Industry: 50 entries, 3 new
-[OK] LiveMint Markets: 35 entries, 3 new
+[OK] Economic Times Industry: 50 entries, 6 new
+[OK] LiveMint Markets: 35 entries, 2 new
 [OK] LiveMint Companies: 35 entries, 1 new
-[OK] LiveMint Money: 35 entries, 3 new
+[OK] LiveMint Money: 35 entries, 2 new
 [OK] LiveMint Economy: 35 entries, 0 new
 [OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 1 new
-[OK] BusinessLine Economy: 60 entries, 4 new
+[OK] BusinessLine Economy: 60 entries, 3 new
 [OK] Business Standard Markets: 35 entries, 0 new
-[OK] Business Standard Companies: 35 entries, 0 new
-[OK] Business Standard Finance: 35 entries, 0 new
+[OK] Business Standard Companies: 35 entries, 1 new
+[OK] Business Standard Finance: 35 entries, 1 new
 [OK] Business Standard Economy: 35 entries, 0 new
 [OK] NDTV Profit Latest: 20 entries, 10 new
 [OK] TOI Business: 20 entries, 1 new
 [OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 2 new
+[OK] News18 Business: 200 entries, 1 new
 [OK] CNBC TV18 Markets: 200 entries, 1 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 49 entries, 1 new
-[OK] BBC Business: 56 entries, 0 new
+[OK] ET International: 49 entries, 2 new
+[OK] BBC Business: 57 entries, 1 new
 [OK] BBC World: 22 entries, 1 new
 [OK] Guardian Business: 40 entries, 4 new
-[OK] Al Jazeera: 25 entries, 2 new
+[OK] Al Jazeera: 25 entries, 7 new
 [OK] CNBC Top News: 30 entries, 1 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
@@ -125,20 +125,15 @@ Done. 152327 articles rescanned.
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
 [OK] OilPrice: 15 entries, 1 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] SCMP Business: 50 entries, 0 new
 
-54 new articles stored, 4 matched to tickers (3 flagged as tracker/listicle/index noise).
-
-=== New signals ===
-[BULLISH] SBIN.NS  (+0.66) [off-hours] New Rules From December 1: What Gets Costlier And What Becomes Easier?  — News18 Business
-[BULLISH] NATIONALUM.NS  (+0.53) [off-hours] NLC India incorporates JV with NALCO for 1,080 MW captive power plant  — BusinessLine Companies
+59 new articles stored, 0 matched to tickers (3 flagged as tracker/listicle/index noise).
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 2 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: nothing new to score.
 ```
 
 ## Signal scoreboard (last 30 days)
@@ -201,7 +196,7 @@ headline                1065    57.7     51.8    4.2   no edge
   Business Standard Markets      25/47 (53%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1387/2416 (57%)
+  VADER  1386/2415 (57%)
   LLM    707/1225 (58%)
 
 ML dataset: 13926 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
@@ -356,7 +351,7 @@ ML dataset: 13926 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Tue 24 Nov 12:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Tue 24 Nov 13:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,555.06 (-8.90% since start) — cash Rs 4,026.11, 1 position(s)
   HINDZINC.NS       1 @ 546.26 -> 528.95 (-3.17%)
@@ -375,9 +370,9 @@ Alert written: 1 macro item(s)
 ## Sentiment export
 
 ```
-Exported 69 tickers to news_signal.json (window 7d, 490 scored pairs).
-  pipeline_ok=True data_through=2026-11-24T06:58:11+00:00 llm-scored 490/490 pairs (100%)
-  42 of 69 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 68 tickers to news_signal.json (window 7d, 485 scored pairs).
+  pipeline_ok=True data_through=2026-11-24T07:58:09+00:00 llm-scored 485/485 pairs (100%)
+  41 of 68 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ALKEM.NS -0.90, INDUSINDBK.NS -0.57, ULTRACEMCO.NS -0.50
   most positive: BAJFINANCE.NS +0.70, BIOCON.NS +0.67, AXISBANK.NS +0.60
 ```
