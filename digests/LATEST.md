@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-24 08:30
+# Stock digest — 2026-11-24 09:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 152055 articles against 259 alias patterns...
+Rescanning 152201 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -81,10 +81,10 @@ Rescanning 152055 articles against 259 alias patterns...
   ...150000
   ...152000
 
-Done. 152055 articles rescanned.
-  ticker-matched articles: 16345
-  flagged as noise:        8826
-  (article, company) pairs: 13916  — 0 awaiting LLM scoring
+Done. 152201 articles rescanned.
+  ticker-matched articles: 16347
+  flagged as noise:        8829
+  (article, company) pairs: 13918  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
@@ -94,61 +94,57 @@ Done. 152055 articles rescanned.
 [OK] Economic Times Stocks: 50 entries, 0 new
 [OK] Economic Times Economy: 50 entries, 0 new
 [OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 8 new
-[OK] LiveMint Companies: 35 entries, 9 new
-[OK] LiveMint Money: 35 entries, 2 new
+[OK] LiveMint Markets: 35 entries, 2 new
+[OK] LiveMint Companies: 35 entries, 3 new
+[OK] LiveMint Money: 35 entries, 0 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 1 new
+[OK] BusinessLine Markets: 60 entries, 2 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 1 new
 [OK] BusinessLine Economy: 60 entries, 0 new
 [OK] Business Standard Markets: 35 entries, 2 new
 [OK] Business Standard Companies: 35 entries, 1 new
 [OK] Business Standard Finance: 35 entries, 0 new
-[OK] Business Standard Economy: 35 entries, 2 new
-[OK] NDTV Profit Latest: 20 entries, 13 new
-[OK] TOI Business: 20 entries, 9 new
-[OK] The Hindu Business: 60 entries, 0 new
+[OK] Business Standard Economy: 35 entries, 0 new
+[OK] NDTV Profit Latest: 20 entries, 11 new
+[OK] TOI Business: 20 entries, 2 new
+[OK] The Hindu Business: 60 entries, 2 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 4 new
-[OK] CNBC TV18 Markets: 200 entries, 7 new
+[OK] News18 Business: 200 entries, 1 new
+[OK] CNBC TV18 Markets: 200 entries, 1 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 49 entries, 10 new
-[OK] BBC Business: 56 entries, 3 new
-[OK] BBC World: 21 entries, 8 new
-[OK] Guardian Business: 40 entries, 1 new
-[OK] Al Jazeera: 25 entries, 21 new
-[OK] CNBC Top News: 30 entries, 11 new
+[OK] ET International: 49 entries, 3 new
+[OK] BBC Business: 56 entries, 0 new
+[OK] BBC World: 21 entries, 0 new
+[OK] Guardian Business: 40 entries, 0 new
+[OK] Al Jazeera: 25 entries, 1 new
+[OK] CNBC Top News: 30 entries, 2 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 5 new
-[OK] NYT Business: 49 entries, 5 new
+[OK] MarketWatch Top: 10 entries, 0 new
+[OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 4 new
+[OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
-[OK] SCMP Business: 50 entries, 7 new
+[OK] SCMP Business: 50 entries, 0 new
 
-146 new articles stored, 2 matched to tickers (3 flagged as tracker/listicle/index noise).
+47 new articles stored, 2 matched to tickers (4 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[neutral] TATASTEEL.NS  (+0.00) [off-hours] Tata Steel to buy promoter stake in APL Apollo Tubes  — TOI Business
-[BEARISH] TATASTEEL.NS  (-0.30) [off-hours] Tata Steel's 5-million-tonne partner is an APL Apollo promoter family firm with a real estate tag  — LiveMint Companies
+[BEARISH] PERSISTENT.NS  (-0.32) [off-hours] Persistent Systems, Ather Energy shares: Top 2 stocks to buy on 25 Nov; check expected returns, stop loss, target price  — LiveMint Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 2 (headline, company) pair(s) with google/gemini-2.5-flash.
-  novel & strong — TATASTEEL.NS +0.60: Tata Steel's 5-million-tonne partner is an APL Apollo promoter fa
-  novel & strong — TATASTEEL.NS -0.70: Tata Steel to buy promoter stake in APL Apollo Tubes
+LLM analyst: queued 1 pair(s) — 1 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 1 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1232, 1-day horizon) ===
+=== Recent signals (last 15 of 1231, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
-2026-11-20  TATASTEEL.NS    -0.40   -8.43  YES  Tata Steel shares slide nearly 2% as EU anti-dumping du
 2026-11-20  TATASTEEL.NS    +0.30   -8.43  no   Tata Steel approves sale of tubes and pipes business
 2026-11-20  TATASTEEL.NS    +0.40   -8.43  no   Tata Steel Approves Rs 28,000-Crore Sale Of Tubes Busin
 2026-11-20  TATASTEEL.NS    +0.40   -8.43  no   Tata Steel To Acquire 26.38% Stake In APL Apollo For Rs
@@ -158,6 +154,7 @@ date        symbol           sent   move%  hit  headline
 2026-11-20  TATASTEEL.NS    +0.50   -8.43  no   Tata Steel to buy 26.4% of APL Apollo for $1.67 billion
 2026-11-20  TATASTEEL.NS    +0.90   -8.43  no   APL Apollo To Buy Tata Steel's Tubes And Colors Busines
 2026-11-20  TATASTEEL.NS    +0.90   -8.43  no   Tata Steel announces ₹28,000 cr deal with APL Apollo Tu
+2026-11-20  TATASTEEL.NS    +0.90   -8.43  no   Tata Steel share price in focus on announcement to acqu
 2026-11-20  TATASTEEL.NS    +0.90   -8.43  no   Tata Steel to sell tubes business, Colors stake to APL 
 2026-11-20  TATASTEEL.NS    +0.90   -8.43  no   Tata Steel to sell tubes, pipes business and Tata Steel
 2026-11-20  TATASTEEL.NS    +0.90   -8.43  no   Tata Steel's ₹28,000 deal: All you need to know
@@ -166,9 +163,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1232    57.6     51.7    3.9   no edge
-3d                      1170    58.7     49.7    4.1   no edge
-5d                      1101    62.6     50.0    4.2   no edge
+1d                      1231    57.7     51.7    3.9   no edge
+3d                      1168    58.8     49.7    4.1   no edge
+5d                      1099    62.7     50.0    4.2   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -177,18 +174,18 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              818    60.0     52.8    4.8   no edge
+after-hours              817    60.1     52.9    4.8   no edge
 in-session               414    52.9     49.5    6.8   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              164    53.7     48.8   10.8   no edge
-novel                   1068    58.2     52.2    4.2   no edge
+novel                   1067    58.3     52.2    4.2   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
-body mention             163    56.4     50.9   10.9   no edge
-headline                1069    57.8     51.8    4.2   no edge
+body mention             161    57.1     51.6   10.9   no edge
+headline                1070    57.8     51.8    4.2   no edge
 
 === By source (1-day, raw direction) ===
   CNBC TV18 Markets              99/179 (55%)
@@ -196,17 +193,17 @@ headline                1069    57.8     51.8    4.2   no edge
   Economic Times Markets         90/134 (67%)
   Business Standard Companies    73/131 (56%)
   BusinessLine Companies         75/128 (59%)
-  Economic Times Industry        63/123 (51%)
-  LiveMint Markets               45/92 (49%)
+  Economic Times Industry        63/122 (52%)
+  LiveMint Markets               45/93 (48%)
   LiveMint Companies             46/82 (56%)
   The Hindu Business             32/51 (63%)
   Business Standard Markets      25/47 (53%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1394/2427 (57%)
-  LLM    710/1232 (58%)
+  VADER  1393/2428 (57%)
+  LLM    710/1231 (58%)
 
-ML dataset: 13923 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 13926 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -6.95%  Coal India's SECL strengthens monsoon measures for
@@ -358,7 +355,7 @@ ML dataset: 13923 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Tue 24 Nov 08:34 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Tue 24 Nov 09:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,555.06 (-8.90% since start) — cash Rs 4,026.11, 1 position(s)
   HINDZINC.NS       1 @ 546.26 -> 528.95 (-3.17%)
@@ -377,9 +374,9 @@ Alert written: 1 buy idea(s), 1 macro item(s)
 ## Sentiment export
 
 ```
-Exported 70 tickers to news_signal.json (window 7d, 518 scored pairs).
-  pipeline_ok=True data_through=2026-11-24T03:00:12+00:00 llm-scored 518/518 pairs (100%)
-  41 of 70 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 70 tickers to news_signal.json (window 7d, 515 scored pairs).
+  pipeline_ok=True data_through=2026-11-24T03:55:42+00:00 llm-scored 515/515 pairs (100%)
+  42 of 70 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ALKEM.NS -0.90, INDUSINDBK.NS -0.57, ULTRACEMCO.NS -0.50
   most positive: BAJFINANCE.NS +0.70, BIOCON.NS +0.67, AXISBANK.NS +0.60
 ```
