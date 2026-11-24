@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-24 20:30
+# Stock digest — 2026-11-25 02:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 152547 articles against 259 alias patterns...
+Rescanning 152756 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -81,82 +81,71 @@ Rescanning 152547 articles against 259 alias patterns...
   ...150000
   ...152000
 
-Done. 152547 articles rescanned.
-  ticker-matched articles: 16364
-  flagged as noise:        8846
-  (article, company) pairs: 13931  — 0 awaiting LLM scoring
+Done. 152756 articles rescanned.
+  ticker-matched articles: 16378
+  flagged as noise:        8851
+  (article, company) pairs: 13948  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 7 new
+[OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
 [OK] Economic Times Economy: 50 entries, 1 new
-[OK] Economic Times Industry: 50 entries, 9 new
-[OK] LiveMint Markets: 35 entries, 9 new
-[OK] LiveMint Companies: 35 entries, 15 new
-[OK] LiveMint Money: 35 entries, 7 new
-[OK] LiveMint Economy: 35 entries, 1 new
-[OK] BusinessLine Markets: 60 entries, 6 new
+[OK] Economic Times Industry: 50 entries, 5 new
+[OK] LiveMint Markets: 35 entries, 6 new
+[OK] LiveMint Companies: 35 entries, 9 new
+[OK] LiveMint Money: 35 entries, 3 new
+[OK] LiveMint Economy: 35 entries, 3 new
+[OK] BusinessLine Markets: 60 entries, 0 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 11 new
-[OK] BusinessLine Economy: 60 entries, 12 new
-[OK] Business Standard Markets: 35 entries, 0 new
-[OK] Business Standard Companies: 35 entries, 8 new
-[OK] Business Standard Finance: 35 entries, 4 new
-[OK] Business Standard Economy: 35 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 4 new
+[OK] BusinessLine Economy: 60 entries, 3 new
+[OK] Business Standard Markets: 35 entries, 2 new
+[OK] Business Standard Companies: 35 entries, 4 new
+[OK] Business Standard Finance: 35 entries, 0 new
+[OK] Business Standard Economy: 35 entries, 2 new
 [OK] NDTV Profit Latest: 20 entries, 20 new
-[OK] TOI Business: 20 entries, 3 new
-[OK] The Hindu Business: 60 entries, 3 new
+[OK] TOI Business: 20 entries, 0 new
+[OK] The Hindu Business: 60 entries, 10 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 3 new
-[OK] CNBC TV18 Markets: 200 entries, 4 new
+[OK] News18 Business: 200 entries, 1 new
+[OK] CNBC TV18 Markets: 200 entries, 0 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 49 entries, 16 new
-[OK] BBC Business: 58 entries, 1 new
-[OK] BBC World: 27 entries, 4 new
-[OK] Guardian Business: 40 entries, 3 new
+[OK] ET International: 50 entries, 22 new
+[OK] BBC Business: 60 entries, 3 new
+[OK] BBC World: 31 entries, 5 new
+[OK] Guardian Business: 40 entries, 5 new
 [OK] Al Jazeera: 25 entries, 25 new
-[OK] CNBC Top News: 30 entries, 10 new
+[OK] CNBC Top News: 30 entries, 16 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[WARN] MarketWatch Top: could not fetch (<unknown>:2:0: syntax error)
-[OK] NYT Business: 49 entries, 10 new
+[OK] MarketWatch Top: 10 entries, 10 new
+[OK] NYT Business: 49 entries, 4 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 5 new
-[OK] DW Business: 20 entries, 1 new
-[OK] SCMP Business: 50 entries, 1 new
+[OK] OilPrice: 15 entries, 9 new
+[OK] DW Business: 20 entries, 0 new
+[OK] SCMP Business: 50 entries, 0 new
 
-209 new articles stored, 14 matched to tickers (5 flagged as tracker/listicle/index noise).
+182 new articles stored, 3 matched to tickers (1 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] SBIN.NS  (+0.96) [off-hours] South Indian Bank shares in focus as RBI approves SBI Mutual Fund to acquire up to 9.99% stake; stock up 612% in 5 years  — LiveMint Markets
-[BULLISH] HINDALCO.NS,VEDL.NS  (+0.84) [off-hours] India aluminium body urges stable policy, higher import duties ahead of annual budget  — Economic Times Industry
-[BULLISH] MARUTI.NS,TMPV.NS  (+0.54) [off-hours] Rising input costs drive Tata Motors, Hyundai, Audi and Maruti to raise vehicle prices  — The Hindu Business
-[BULLISH] SBIN.NS  (+0.40) [off-hours] Rupee gains despite dollar strength; SBI warns against sharp depreciation  — Business Standard Finance
-[BULLISH] SBIN.NS  (+0.38) [off-hours] A 50 bps jumbo rate hike can lead to financial stability concerns, hurt growth: Report  — Economic Times Markets
-[BULLISH] AXISBANK.NS,HDFCBANK.NS  (+0.38) [off-hours] Axis Bank leads credit card additions in October as HDFC Bank slows  — Business Standard Finance
-[BULLISH] ITC.NS,NESTLEIND.NS  (+0.36) [off-hours] Slurrp Farm parent eyes majority stake sale at up to  ₹2,000 crore valuation  — LiveMint Companies
-[BULLISH] TMPV.NS  (+0.32) [off-hours] Tata Motors to hike car, SUV prices by 0.5% from December 1  — BusinessLine Companies
-[BULLISH] MARUTI.NS,TMPV.NS  (+0.32) [off-hours] Tata Motors, Audi India raise vehicle prices following Maruti Suzuki's move  — Business Standard Companies
-[BULLISH] MARUTI.NS  (+0.30) [off-hours] Hyundai, Tata join Maruti in raising prices ahead of December discount season  — BusinessLine Companies
-[BEARISH] ASHOKLEY.NS  (-0.45) [off-hours] Ashok Leyland turns to Bengal for manufacturing expansion: What is the company planning to make in Singur? Details here  — LiveMint Companies
-[BEARISH] LICI.NS  (-0.56) [off-hours] IDBI Bank stake sale: Bank employees threaten strike on December 3 against Fairfax deal; Here’s what they demand  — LiveMint Companies
+[neutral] TATASTEEL.NS  (+0.00) [off-hours] Tata Steel-APL Apollo deal under governance, valuation lens  — BusinessLine Companies
+[neutral] LUPIN.NS  (+0.00) [off-hours] Lupin gets U.S. FDA nod for Ferric Citrate tablets  — The Hindu Business
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 17 pair(s) — 17 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-  gemini gemini-2.5-flash: http 503
-  gemini gemini-2.0-flash: http 404
-LLM analyst: scored 17 (headline, company) pair(s) with inclusionai/ling-3.2-flash:free.
+LLM analyst: queued 2 pair(s) — 2 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 2 (headline, company) pair(s) with google/gemini-2.5-flash.
+  novel & strong — TATASTEEL.NS -0.70: Tata Steel-APL Apollo deal under governance, valuation lens
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1223, 1-day horizon) ===
+=== Recent signals (last 15 of 1220, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-11-20  TATASTEEL.NS    +0.30   -8.43  no   Tata Steel approves sale of tubes and pipes business
 2026-11-20  TATASTEEL.NS    +0.40   -8.43  no   Tata Steel Approves Rs 28,000-Crore Sale Of Tubes Busin
@@ -176,9 +165,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1223    57.3     52.0    4.0   no edge
-3d                      1153    58.8     49.6    4.1   no edge
-5d                      1086    62.7     49.8    4.2   no edge
+1d                      1220    57.2     51.9    4.0   no edge
+3d                      1150    58.7     49.5    4.1   no edge
+5d                      1083    62.6     49.7    4.2   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -187,34 +176,34 @@ horizon                    n    raw%  excess%   ±95%   verdict
 
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
-after-hours              809    59.6     53.3    4.9   no edge
+after-hours              806    59.4     53.1    4.9   no edge
 in-session               414    52.9     49.5    6.8   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              163    53.4     48.5   10.9   no edge
-novel                   1060    57.9     52.5    4.3   no edge
+novel                   1057    57.8     52.4    4.3   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             162    56.2     52.5   10.9   no edge
-headline                1061    57.5     51.9    4.3   no edge
+headline                1058    57.4     51.8    4.3   no edge
 
 === By source (1-day, raw direction) ===
   CNBC TV18 Markets              99/179 (55%)
   NDTV Profit Latest             90/145 (62%)
-  Economic Times Markets         90/133 (68%)
   Business Standard Companies    73/133 (55%)
+  Economic Times Markets         89/132 (67%)
   BusinessLine Companies         70/124 (56%)
-  Economic Times Industry        60/120 (50%)
+  Economic Times Industry        58/118 (49%)
   LiveMint Markets               45/92 (49%)
   LiveMint Companies             46/80 (58%)
   The Hindu Business             32/51 (63%)
   Business Standard Markets      25/47 (53%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1374/2404 (57%)
-  LLM    701/1223 (57%)
+  VADER  1368/2393 (57%)
+  LLM    698/1220 (57%)
 
 ML dataset: 13928 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -368,7 +357,7 @@ ML dataset: 13928 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Tue 24 Nov 20:34 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Wed 25 Nov 02:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,555.06 (-8.90% since start) — cash Rs 4,026.11, 1 position(s)
   HINDZINC.NS       1 @ 546.26 -> 528.95 (-3.17%)
@@ -381,15 +370,15 @@ Learned sector weights: {"metals": 0.83, "consumer": 0.789, "energy": 0.606, "it
 ## Alert scan
 
 ```
-Alert written: 2 macro item(s)
+Alert written: 1 buy idea(s), 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 68 tickers to news_signal.json (window 7d, 468 scored pairs).
-  pipeline_ok=True data_through=2026-11-24T15:01:33+00:00 llm-scored 468/468 pairs (100%)
-  47 of 68 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 66 tickers to news_signal.json (window 7d, 464 scored pairs).
+  pipeline_ok=True data_through=2026-11-24T21:00:00+00:00 llm-scored 464/464 pairs (100%)
+  45 of 66 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ALKEM.NS -0.90, LODHA.NS -0.68, INDUSINDBK.NS -0.65
-  most positive: BAJFINANCE.NS +0.70, BIOCON.NS +0.67, SHREECEM.NS +0.57
+  most positive: BIOCON.NS +0.67, SHREECEM.NS +0.57, VOLTAS.NS +0.53
 ```
