@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-26 12:30
+# Stock digest — 2026-11-26 13:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 154446 articles against 259 alias patterns...
+Rescanning 154519 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -82,10 +82,10 @@ Rescanning 154446 articles against 259 alias patterns...
   ...152000
   ...154000
 
-Done. 154446 articles rescanned.
-  ticker-matched articles: 16551
-  flagged as noise:        8965
-  (article, company) pairs: 14087  — 0 awaiting LLM scoring
+Done. 154519 articles rescanned.
+  ticker-matched articles: 16554
+  flagged as noise:        8967
+  (article, company) pairs: 14090  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
@@ -94,80 +94,79 @@ Done. 154446 articles rescanned.
 [OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
 [OK] Economic Times Economy: 50 entries, 0 new
-[OK] Economic Times Industry: 50 entries, 2 new
-[OK] LiveMint Markets: 35 entries, 4 new
-[OK] LiveMint Companies: 35 entries, 0 new
+[OK] Economic Times Industry: 50 entries, 0 new
+[OK] LiveMint Markets: 35 entries, 5 new
+[OK] LiveMint Companies: 35 entries, 3 new
 [OK] LiveMint Money: 35 entries, 3 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 3 new
+[OK] BusinessLine Markets: 60 entries, 2 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
 [OK] BusinessLine Companies: 60 entries, 1 new
-[OK] BusinessLine Economy: 60 entries, 3 new
-[OK] Business Standard Markets: 35 entries, 2 new
-[OK] Business Standard Companies: 35 entries, 1 new
-[OK] Business Standard Finance: 35 entries, 3 new
+[OK] BusinessLine Economy: 60 entries, 0 new
+[OK] Business Standard Markets: 35 entries, 4 new
+[OK] Business Standard Companies: 35 entries, 2 new
+[OK] Business Standard Finance: 35 entries, 1 new
 [OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 18 new
+[OK] NDTV Profit Latest: 20 entries, 10 new
 [OK] TOI Business: 20 entries, 1 new
 [OK] The Hindu Business: 60 entries, 1 new
 [OK] The Hindu Economy: 60 entries, 0 new
-[OK] News18 Business: 200 entries, 1 new
-[OK] CNBC TV18 Markets: 200 entries, 3 new
+[OK] News18 Business: 200 entries, 3 new
+[OK] CNBC TV18 Markets: 200 entries, 5 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
-[OK] ET International: 50 entries, 0 new
-[OK] BBC Business: 50 entries, 1 new
+[OK] ET International: 50 entries, 2 new
+[OK] BBC Business: 50 entries, 0 new
 [OK] BBC World: 30 entries, 0 new
-[OK] Guardian Business: 40 entries, 8 new
-[OK] Al Jazeera: 25 entries, 6 new
-[OK] CNBC Top News: 30 entries, 0 new
+[OK] Guardian Business: 40 entries, 2 new
+[OK] Al Jazeera: 25 entries, 7 new
+[OK] CNBC Top News: 30 entries, 3 new
 [OK] CNBC World Markets: 30 entries, 0 new
-[OK] MarketWatch Top: 10 entries, 0 new
+[OK] MarketWatch Top: 10 entries, 1 new
 [OK] NYT Business: 49 entries, 0 new
 [WARN] Yahoo Finance: could not fetch (<unknown>:53:4: mismatched tag)
-[OK] OilPrice: 15 entries, 1 new
+[OK] OilPrice: 15 entries, 0 new
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 1 new
 
-73 new articles stored, 3 matched to tickers (2 flagged as tracker/listicle/index noise).
+67 new articles stored, 3 matched to tickers (3 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[neutral] SBIN.NS  (+0.00)  SBI Clerk 2026 Mains Exams Today: Vacancies, Duration of Exam, Questions, Marks, And More  — NDTV Profit Latest
-[BEARISH] BHARTIARTL.NS,HDFCBANK.NS  (-0.27)  HDFC Bank vaults 30% from Oct low; surpasses Airtel in market cap ranking  — Business Standard Markets
+[BEARISH] COFORGE.NS  (-0.58)  Coforge shares fall up to 5% in anticipation of a block deal soon: Exclusive  — CNBC TV18 Markets
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 3 pair(s) — 3 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 3 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: queued 1 pair(s) — 1 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 1 (headline, company) pair(s) with google/gemini-2.5-flash.
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1170, 1-day horizon) ===
+=== Recent signals (last 15 of 1169, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
-2026-11-23  TATASTEEL.NS    -0.30   -2.27  YES  Tata Steel's APL Apollo deal could hurt margins, raise 
-2026-11-23  TATASTEEL.NS    +0.30   -2.27  no   Tata Steel targets APL Apollo net debt-to-EBITDA of 2.5
 2026-11-23  TATASTEEL.NS    +0.50   -2.27  no   Tata Steel to acquire 26.6% promoter stake in APL Apoll
 2026-11-23  TATASTEEL.NS    +0.60   -2.27  no   Tata Steel's 5-million-tonne partner is an APL Apollo p
 2026-11-23  TMPV.NS         +0.40   +1.20  YES  Tata, Hyundai, Audi to raise prices on higher input cos
 2026-11-23  VEDL.NS         +0.40   -1.16  no   Vedanta seeks premium over LNG price for 1.8 mmscmd gas
 2026-11-23  VEDL.NS         +0.60   -1.16  no   Vedanta seeks premium over imported LNG prices for Raja
-2026-11-25  CIPLA.NS        +0.70   +1.86  YES  Cipla shares rise 3% after USFDA nod for asthma treatme
-2026-11-25  CIPLA.NS        +0.90   +1.86  YES  Cipla gets USFDA nod for first generic version of Flove
-2026-11-25  POLICYBZR.NS    +0.50   +3.63  YES  PB Fintech, HDFC Life, Turtlemint shares surge up to 8%
-2026-11-25  POLICYBZR.NS    +0.50   +3.63  YES  PB Fintech, Turtlemint gain 5% after IRDAI sets up expe
-2026-11-25  TATASTEEL.NS    -0.50   +2.21  no   Tata Steel-APL Apollo deal | Experts flag concerns over
-2026-11-25  TATASTEEL.NS    -0.30   +2.21  no   APL Apollo Deal Rejig On The Table As Tata Steel Eyes S
-2026-11-25  TATASTEEL.NS    +0.50   +2.21  YES  Why MD Sanjay Gupta Says Tata Steel Partnership Is The 
-2026-11-25  TVSMOTOR.NS     -0.30   +1.33  no   TVS succession battle: Lakshmi Venu moves Madras HC aga
+2026-11-25  CIPLA.NS        +0.50   +1.78  YES  Cipla, Teva get USFDA nod for first generic Flovent HFA
+2026-11-25  CIPLA.NS        +0.70   +1.78  YES  Cipla shares rise 3% after USFDA nod for asthma treatme
+2026-11-25  CIPLA.NS        +0.90   +1.78  YES  Cipla gets USFDA nod for first generic version of Flove
+2026-11-25  POLICYBZR.NS    +0.50   +3.74  YES  PB Fintech, HDFC Life, Turtlemint shares surge up to 8%
+2026-11-25  POLICYBZR.NS    +0.50   +3.74  YES  PB Fintech, Turtlemint gain 5% after IRDAI sets up expe
+2026-11-25  TATASTEEL.NS    -0.50   +2.23  no   Tata Steel-APL Apollo deal | Experts flag concerns over
+2026-11-25  TATASTEEL.NS    -0.30   +2.23  no   APL Apollo Deal Rejig On The Table As Tata Steel Eyes S
+2026-11-25  TATASTEEL.NS    -0.30   +2.23  no   Tata Steel working on tweaking APL Apollo Tubes deal am
+2026-11-25  TATASTEEL.NS    +0.50   +2.23  YES  Why MD Sanjay Gupta Says Tata Steel Partnership Is The 
+2026-11-25  TVSMOTOR.NS     -0.30   +0.80  no   TVS succession battle: Lakshmi Venu moves Madras HC aga
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1170    57.3     50.9    4.1   no edge
-3d                      1109    56.1     46.7    4.2   no edge
-5d                      1048    61.5     48.2    4.3   no edge
+1d                      1169    57.1     50.7    4.1   no edge
+3d                      1106    56.0     46.6    4.2   no edge
+5d                      1045    61.4     48.0    4.3   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -177,35 +176,35 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              779    59.7     52.5    5.0   no edge
-in-session               391    52.4     47.6    7.0   no edge
+in-session               390    52.1     47.2    7.0   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              151    53.0     48.3   11.3   no edge
-novel                   1019    57.9     51.2    4.3   no edge
+novel                   1018    57.8     51.1    4.3   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             161    55.9     50.3   10.9   no edge
-headline                1009    57.5     50.9    4.4   no edge
+headline                1008    57.3     50.8    4.4   no edge
 
 === By source (1-day, raw direction) ===
   CNBC TV18 Markets              96/173 (55%)
   NDTV Profit Latest             87/138 (63%)
   Business Standard Companies    73/132 (55%)
-  BusinessLine Companies         69/120 (58%)
-  Economic Times Industry        57/117 (49%)
+  BusinessLine Companies         70/121 (58%)
   Economic Times Markets         77/116 (66%)
-  LiveMint Markets               44/88 (50%)
-  LiveMint Companies             46/80 (58%)
+  Economic Times Industry        56/116 (48%)
+  LiveMint Markets               43/87 (49%)
+  LiveMint Companies             46/81 (57%)
   The Hindu Business             32/51 (63%)
   BusinessLine Markets           29/41 (71%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1362/2347 (58%)
-  LLM    670/1170 (57%)
+  VADER  1357/2344 (58%)
+  LLM    668/1169 (57%)
 
-ML dataset: 14108 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
+ML dataset: 14114 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
 === ✅ verdict journal (5-day outcomes) ===
   2026-07-02  COALINDIA.NS     -6.95%  Coal India's SECL strengthens monsoon measures for
@@ -349,8 +348,8 @@ ML dataset: 14108 labelled (article, company) rows — see ROADMAP_ML.md for the
   2026-11-16  ADANIGREEN.NS    -0.86%  $51 billion capex, 23% earnings growth: Adani Port
   2026-11-17  HDFCBANK.NS      +3.64%  Honasa Consumer, HDFC Bank: Two stock ideas by Shr
   2026-11-17  TATASTEEL.NS    -12.50%  Tata Steel eyes 50 MT capacity, to direct 75% cape
-  2026-11-19  BEL.NS           +1.03%  114 Rafales, 6 submarines! Defence stocks HAL, BEL
-  2026-11-22  TATASTEEL.NS     -8.53%  Tata Steel to sell tubes, pipes business and Tata 
+  2026-11-19  BEL.NS           +0.79%  114 Rafales, 6 submarines! Defence stocks HAL, BEL
+  2026-11-22  TATASTEEL.NS     -8.51%  Tata Steel to sell tubes, pipes business and Tata 
   → 78/143 positive, avg +0.30%
 ```
 
@@ -359,8 +358,8 @@ ML dataset: 14108 labelled (article, company) rows — see ROADMAP_ML.md for the
 ```
 Today's plan is already done — exits checked, holding.
 
-Bot equity: Rs 4,558.61 (-8.83% since start) — cash Rs 4,026.11, 1 position(s)
-  HINDZINC.NS       1 @ 546.26 -> 532.50 (-2.52%)
+Bot equity: Rs 4,556.56 (-8.87% since start) — cash Rs 4,026.11, 1 position(s)
+  HINDZINC.NS       1 @ 546.26 -> 530.45 (-2.89%)
 Record: 12/36 wins, avg -1.30% per trade
 Learned source trust — high: Business Standard Economy 1.36, LiveMint Companies 1.12, ET Markets Wrap 1.08
                        low: Economic Times Economy 0.80, Business Standard Finance 0.73, LiveMint Money 0.70
@@ -370,15 +369,15 @@ Learned sector weights: {"metals": 0.83, "consumer": 0.789, "energy": 0.606, "it
 ## Alert scan
 
 ```
-Alert written: 1 buy idea(s), 4 macro item(s)
+Alert written: 1 macro item(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 61 tickers to news_signal.json (window 7d, 458 scored pairs).
-  pipeline_ok=True data_through=2026-11-26T07:00:48+00:00 llm-scored 458/458 pairs (100%)
-  41 of 61 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 61 tickers to news_signal.json (window 7d, 445 scored pairs).
+  pipeline_ok=True data_through=2026-11-26T08:00:06+00:00 llm-scored 445/445 pairs (100%)
+  43 of 61 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ALKEM.NS -0.90, LODHA.NS -0.68, INDUSINDBK.NS -0.65
   most positive: SIEMENS.NS +0.74, CIPLA.NS +0.65, WIPRO.NS +0.63
 ```
