@@ -1,5 +1,5 @@
 {
-  "cash": 4026.105708789826,
+  "cash": 3252.1757087898263,
   "positions": {
     "HINDZINC.NS": {
       "qty": 1,
@@ -9,6 +9,15 @@
         "LiveMint Companies"
       ],
       "thesis": "Hindustan Zinc\u2019s  \u20b980,000-crore expansion: The big bet to double its metal output and ride India\u2019s i"
+    },
+    "WIPRO.NS": {
+      "qty": 4,
+      "avg_cost": 193.4825,
+      "opened": "2026-11-27T04:03:10.068255+00:00",
+      "sources": [
+        "LiveMint Companies"
+      ],
+      "thesis": "Wipro takes over 3,000 BP employees in new deal: What's behind the British oil giant's big move?"
     }
   },
   "trades": [
@@ -668,6 +677,15 @@
       "price": 166.65,
       "fee": 2.08,
       "reason": "negative news (-0.60) at -2.7%"
+    },
+    {
+      "time": "2026-11-27T04:03:10.068255+00:00",
+      "action": "buy",
+      "symbol": "WIPRO.NS",
+      "qty": 4,
+      "price": 193.0,
+      "fee": 1.93,
+      "reason": "planned pre-open, score 0.72 (LiveMint Companies): Wipro takes over 3,000 BP employees in new deal: What's behind the Bri"
     }
   ],
   "closed": [
@@ -1078,16 +1096,8 @@
     "pharma": 0.846,
     "infra": 1.014
   },
-  "pending": [
-    {
-      "symbol": "WIPRO.NS",
-      "score": 0.721,
-      "title": "Wipro takes over 3,000 BP employees in new deal: What's behind the British oil giant's big move?",
-      "source": "LiveMint Companies",
-      "queued": "2026-11-27"
-    }
-  ],
+  "pending": [],
   "epoch_start": "2026-07-29T20:56:19.417106+00:00",
   "epoch_note": "Clean epoch. Every fill from here is inside NSE session hours at an obtainable price. Prior history: bot_portfolio_invalid.json (see LESSONS.md L5).",
-  "traded_day": "2026-11-26"
+  "traded_day": "2026-11-27"
 }
