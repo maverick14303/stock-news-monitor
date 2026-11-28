@@ -1,9 +1,9 @@
-# Stock digest — 2026-11-28 14:30
+# Stock digest — 2026-11-28 15:30
 
 ## Rescan history (tickers, noise, after-hours)
 
 ```
-Rescanning 156398 articles against 259 alias patterns...
+Rescanning 156445 articles against 259 alias patterns...
   ...2000
   ...4000
   ...6000
@@ -83,43 +83,43 @@ Rescanning 156398 articles against 259 alias patterns...
   ...154000
   ...156000
 
-Done. 156398 articles rescanned.
-  ticker-matched articles: 16761
-  flagged as noise:        9132
-  (article, company) pairs: 14217  — 0 awaiting LLM scoring
+Done. 156445 articles rescanned.
+  ticker-matched articles: 16762
+  flagged as noise:        9134
+  (article, company) pairs: 14218  — 0 awaiting LLM scoring
 ```
 
 ## News & signals
 
 ```
-[OK] Economic Times Markets: 50 entries, 1 new
+[OK] Economic Times Markets: 50 entries, 0 new
 [OK] Economic Times Stocks: 50 entries, 0 new
-[OK] Economic Times Economy: 50 entries, 0 new
+[OK] Economic Times Economy: 50 entries, 1 new
 [OK] Economic Times Industry: 50 entries, 0 new
-[OK] LiveMint Markets: 35 entries, 2 new
-[OK] LiveMint Companies: 35 entries, 4 new
-[OK] LiveMint Money: 35 entries, 3 new
+[OK] LiveMint Markets: 35 entries, 3 new
+[OK] LiveMint Companies: 35 entries, 2 new
+[OK] LiveMint Money: 35 entries, 4 new
 [OK] LiveMint Economy: 35 entries, 0 new
-[OK] BusinessLine Markets: 60 entries, 2 new
+[OK] BusinessLine Markets: 60 entries, 1 new
 [OK] BusinessLine Stock Markets: 60 entries, 0 new
-[OK] BusinessLine Companies: 60 entries, 0 new
-[OK] BusinessLine Economy: 60 entries, 0 new
+[OK] BusinessLine Companies: 60 entries, 1 new
+[OK] BusinessLine Economy: 60 entries, 1 new
 [OK] Business Standard Markets: 35 entries, 0 new
-[OK] Business Standard Companies: 35 entries, 0 new
-[OK] Business Standard Finance: 35 entries, 1 new
-[OK] Business Standard Economy: 35 entries, 0 new
-[OK] NDTV Profit Latest: 20 entries, 16 new
-[OK] TOI Business: 20 entries, 1 new
+[OK] Business Standard Companies: 35 entries, 1 new
+[OK] Business Standard Finance: 35 entries, 0 new
+[OK] Business Standard Economy: 35 entries, 2 new
+[OK] NDTV Profit Latest: 20 entries, 3 new
+[OK] TOI Business: 20 entries, 2 new
 [OK] The Hindu Business: 60 entries, 0 new
 [OK] The Hindu Economy: 60 entries, 0 new
 [WARN] News18 Business: could not fetch (<unknown>:10:2: mismatched tag)
-[OK] CNBC TV18 Markets: 200 entries, 3 new
+[OK] CNBC TV18 Markets: 200 entries, 2 new
 [OK] Investing.com India Stocks: 10 entries, 10 new
 [OK] ET International: 50 entries, 0 new
 [OK] BBC Business: 53 entries, 0 new
-[OK] BBC World: 22 entries, 1 new
-[OK] Guardian Business: 39 entries, 1 new
-[OK] Al Jazeera: 25 entries, 2 new
+[OK] BBC World: 22 entries, 0 new
+[OK] Guardian Business: 39 entries, 0 new
+[OK] Al Jazeera: 25 entries, 4 new
 [OK] CNBC Top News: 30 entries, 0 new
 [OK] CNBC World Markets: 30 entries, 0 new
 [OK] MarketWatch Top: 10 entries, 0 new
@@ -129,23 +129,26 @@ Done. 156398 articles rescanned.
 [OK] DW Business: 20 entries, 0 new
 [OK] SCMP Business: 50 entries, 0 new
 
-47 new articles stored, 1 matched to tickers (2 flagged as tracker/listicle/index noise).
+37 new articles stored, 3 matched to tickers (1 flagged as tracker/listicle/index noise).
 
 === New signals ===
-[BULLISH] BPCL.NS  (+0.81) [off-hours] BPCL board approves ₹1.27 lakh crore refinery & petrochemical complex in Andhra Pradesh  — CNBC TV18 Markets
+[BULLISH] NYKAA.NS  (+0.86) [off-hours] Nykaa partners with Dutch beauty brand Gisou; Here's what's in store  — CNBC TV18 Markets
+[BEARISH] BPCL.NS  (-0.25) [off-hours] BPCL approves ₹1.27 lakh crore Andhra Refinery, targets July 2032 for commercial operations  — BusinessLine Companies
+[BEARISH] INDIGO.NS  (-0.84) [off-hours] IndiGo drops 10 international destinations in 2026: India's largest airline is cutting overseas flights; here’s why  — LiveMint Companies
 ```
 
 ## LLM analyst (per-ticker)
 
 ```
-LLM analyst: queued 1 pair(s) — 1 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
-LLM analyst: scored 1 (headline, company) pair(s) with google/gemini-2.5-flash.
+LLM analyst: queued 3 pair(s) — 3 newest-first, 0 gradeable backlog (28d..1d, headline mentions).
+LLM analyst: scored 3 (headline, company) pair(s) with google/gemini-2.5-flash.
+  novel & strong — BPCL.NS +0.80: BPCL approves ₹1.27 lakh crore Andhra Refinery, targets July 2032
 ```
 
 ## Signal scoreboard (last 30 days)
 
 ```
-=== Recent signals (last 15 of 1018, 1-day horizon) ===
+=== Recent signals (last 15 of 1015, 1-day horizon) ===
 date        symbol           sent   move%  hit  headline
 2026-11-26  HINDZINC.NS     +0.30   +3.49  YES  Hindustan Zinc, IIT Madras develop zinc-air battery-pow
 2026-11-26  ICICIBANK.NS    -0.60   -1.09  YES  SC asks HDFC, ICICI bank to grant prosecution sanction 
@@ -165,9 +168,9 @@ date        symbol           sent   move%  hit  headline
 
 === Hit rate by horizon ===
 horizon                    n    raw%  excess%   ±95%   verdict
-1d                      1018    57.1     52.4    4.3   no edge
-3d                       967    55.5     45.6    4.4   no edge
-5d                       882    57.9     45.1    4.6   no edge
+1d                      1015    57.0     52.3    4.3   no edge
+3d                       964    55.6     45.7    4.4   no edge
+5d                       879    58.0     45.3    4.7   no edge
   raw%   = direction correct (inflated by market drift)
   excess% = beat NIFTY over the same window — baseline is a clean 50%
   ±95% is Bonferroni-widened for 9 simultaneous tests: at plain
@@ -177,33 +180,33 @@ horizon                    n    raw%  excess%   ±95%   verdict
 === 1-day split: after-hours vs in-session ===
 group                      n    raw%  excess%   ±95%   verdict
 after-hours              688    58.3     53.6    5.3   no edge
-in-session               330    54.5     49.7    7.6   no edge
+in-session               327    54.4     49.5    7.7   no edge
 
 === 1-day split: novel vs descriptive ===
 group                      n    raw%  excess%   ±95%   verdict
 descriptive              114    58.8     53.5   13.0   no edge
-novel                    904    56.9     52.2    4.6   no edge
+novel                    901    56.8     52.2    4.6   no edge
 
 === 1-day split: headline vs body mention ===
 group                      n    raw%  excess%   ±95%   verdict
 body mention             151    59.6     55.0   11.2   no edge
-headline                 867    56.6     51.9    4.7   no edge
+headline                 864    56.6     51.9    4.7   no edge
 
 === By source (1-day, raw direction) ===
-  CNBC TV18 Markets              92/161 (57%)
-  Business Standard Companies    65/119 (55%)
+  CNBC TV18 Markets              91/160 (57%)
+  Business Standard Companies    65/118 (55%)
   NDTV Profit Latest             74/116 (64%)
   Economic Times Industry        50/106 (47%)
   BusinessLine Companies         57/100 (57%)
   LiveMint Companies             41/78 (53%)
-  Economic Times Markets         53/77 (69%)
+  Economic Times Markets         52/76 (68%)
   LiveMint Markets               39/75 (52%)
   The Hindu Business             28/46 (61%)
   Business Standard Markets      20/38 (53%)
 
 === VADER vs LLM analyst (same pairs, 1-day) ===
-  VADER  1190/2101 (57%)
-  LLM    581/1018 (57%)
+  VADER  1185/2084 (57%)
+  LLM    579/1015 (57%)
 
 ML dataset: 14238 labelled (article, company) rows — see ROADMAP_ML.md for the phase gates.
 
@@ -359,7 +362,7 @@ ML dataset: 14238 labelled (article, company) rows — see ROADMAP_ML.md for the
 ## Bot account (self-trading)
 
 ```
-NSE shut (Sat 28 Nov 14:33 IST) — news gathering only, no trades. Prices below are the last close.
+NSE shut (Sat 28 Nov 15:33 IST) — news gathering only, no trades. Prices below are the last close.
 
 Bot equity: Rs 4,565.58 (-8.69% since start) — cash Rs 3,252.18, 2 position(s)
   HINDZINC.NS       1 @ 546.26 -> 545.00 (-0.23%)
@@ -373,15 +376,15 @@ Learned sector weights: {"metals": 0.83, "consumer": 0.789, "energy": 0.606, "it
 ## Alert scan
 
 ```
-No alerts this window.
+Alert written: 1 buy idea(s)
 ```
 
 ## Sentiment export
 
 ```
-Exported 58 tickers to news_signal.json (window 7d, 456 scored pairs).
-  pipeline_ok=True data_through=2026-11-28T08:56:24+00:00 llm-scored 456/456 pairs (100%)
-  38 of 58 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
+Exported 58 tickers to news_signal.json (window 7d, 459 scored pairs).
+  pipeline_ok=True data_through=2026-11-28T09:53:27+00:00 llm-scored 459/459 pairs (100%)
+  36 of 58 tickers are single-outlet or single-day (not corroborated — must not veto or sell).
   most negative: ZYDUSLIFE.NS -0.70, INDUSINDBK.NS -0.69, LODHA.NS -0.68
   most positive: SIEMENS.NS +0.72, CIPLA.NS +0.65, WIPRO.NS +0.62
 ```
